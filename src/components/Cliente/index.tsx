@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 
+import { ButtonBt } from '../Styles/bootstrap';
+
 export function ClientModal() {
   const [show, setShow] = useState(false);
 
@@ -11,9 +13,9 @@ export function ClientModal() {
 
   return (
     <>
-      <Button variant="info" onClick={handleShow}>
+      <ButtonBt variant="info" onClick={handleShow}>
         Clientes
-      </Button>
+      </ButtonBt>
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
