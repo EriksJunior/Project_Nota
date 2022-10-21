@@ -1,5 +1,9 @@
+import {Navegation} from '../../components/Navegation/index'
+
+
+
 export function Home(){
   return(
-    <>Page Home</>
+    <Navegation/>
   )
 }
