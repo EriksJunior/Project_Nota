@@ -11,8 +11,8 @@ export function ClientModal() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Abrir
+      <Button variant="info" onClick={handleShow}>
+        Clientes
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
@@ -22,18 +22,42 @@ export function ClientModal() {
         <Offcanvas.Body>
         <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email </Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Label>Nome do Cliente:</Form.Label>
+        <Form.Control type="text" placeholder="Ex: Gael Gonçalves de Souza" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Label>CPF/CNPJ:</Form.Label>
+        <Form.Control type="number" placeholder="CPF/CNPJ" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Endereço: </Form.Label>
+        <Form.Control type="text" placeholder="Ex: Av Jacob lopes" />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Enviar
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Cidade : </Form.Label>
+        <Form.Control type="text" placeholder="Ex: Viçosa" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Bairro: </Form.Label>
+        <Form.Control type="text" placeholder="EX: Nova Era" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>UF: </Form.Label>
+        <Form.Control type="text" placeholder="Ex: MG" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>CEP: </Form.Label>
+        <Form.Control type="CEP" placeholder="000.000.000-00" />
+      </Form.Group>
+
+      <Button variant="primary" type="button">
+        Cadastrar
       </Button>
     </Form>
         </Offcanvas.Body>

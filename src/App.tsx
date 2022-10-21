@@ -1,13 +1,12 @@
- import { AppRoutes } from "./routes"
- import { ClientModal } from "./components/Cliente"
-import { Leaf } from "./components/Leaf"
+import { AppRoutes } from "./routes"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navegation } from "./components/Navegation";
+
+
  function App(){
   return (
     <>
       <AppRoutes />
-      <ClientModal/>
-      <Leaf/>
     </>
   )
 }
