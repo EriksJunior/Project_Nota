@@ -1,7 +1,7 @@
 export function Leaf(){
   return (
     <>
-      <h1>Page Leaf</h1>
+      <h1>Component Leaf</h1>
     </>
   )
 }

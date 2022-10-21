@@ -1,7 +1,7 @@
 export function Products(){
   return (
     <>
-      <h1>Page Products</h1>
+      <h1>Component Products</h1>
     </>
   )
 }

@@ -1,7 +1,8 @@
+ import { AppRoutes } from "./routes"
  function App(){
   return (
     <>
-      <h1>Fodasse</h1>
+      <AppRoutes />
     </>
   )
 }
