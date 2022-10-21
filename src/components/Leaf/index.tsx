@@ -1,7 +1,12 @@
-export function Leaf(){
+
+interface LeafProps{
+
+}
+
+export function Leaf(props : LeafProps){
   return (
-    <>
-      <h1>Component Leaf</h1>
-    </>
+  <div  class="p-3 mb-2 bg-gradient-primary text-white">
+
+    </div>
   )
 }
