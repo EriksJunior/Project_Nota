@@ -1,7 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "../page/Home";
 
-export function AppRoutes(){
+export function AppRoutes() {
   return (
-    <div>chamar as rotas acima</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
