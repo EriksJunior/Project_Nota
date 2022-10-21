@@ -5,7 +5,6 @@ export function Navegation(){
       <div style={{ display:"flex", width: "100%" , height: "60px", gap:"30px" , background:"#1C1C1C" , alignItems:"center"  }} >
         <ClientModal/>
         <ProductsModal/>
-        
       </div>
     )
   }
