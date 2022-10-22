@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import styled from "styled-components";
 
 export const ButtonBt = styled(Button) `
@@ -13,4 +13,8 @@ export const ButtonBt = styled(Button) `
     border-bottom: solid 2px #9d74e0;
     color: #9d74e0;
   }
+  `
+
+  export const DropDownBt = styled(Dropdown) `
+  inset: 0px -28px auto auto;
   `
