@@ -28,12 +28,31 @@ export function ProductsModal() {
         <Form.Control type="text" placeholder="Digite o Nome do produto" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3" controlId="formBasicValue">
         <Form.Label>valor</Form.Label>
         <Form.Control type="number" placeholder="Ex: R$ 200,00" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+
+      <Form.Group className="mb-3" controlId="formBasicUnd">
+        <Form.Label>Unidade</Form.Label>
+        <Form.Control type="number"  />
       </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicBars">
+        <Form.Label>Código de Barras</Form.Label>
+        <Form.Control type="number"  />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicRef">
+        <Form.Label>Código de Referência</Form.Label>
+        <Form.Control type="number" placeholder="Ex: R$ TH-12345" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicDescription">
+        <Form.Label>Descrição</Form.Label>
+        <Form.Control type="text" />
+      </Form.Group>
+
       <Button variant="primary" type="button">
         Cadastrar
       </Button>
