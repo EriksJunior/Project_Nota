@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { IoPersonOutline } from "react-icons/io5";
 
 import { ButtonBt } from '../Styles/bootstrap';
 
@@ -15,8 +15,9 @@ export function ClientModal() {
 
   return (
     <>
-      <ButtonBt variant="secondary" onClick={handleShow}>
-        Clientes
+      <ButtonBt variant="outiline-ligth">
+      <IoPersonOutline/>
+       Clientes 
       </ButtonBt>
 
       <Offcanvas show={show} onHide={handleClose}>
