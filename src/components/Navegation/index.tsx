@@ -1,4 +1,4 @@
-import { Company } from '../../page/Company'
+import { Settings } from '../../page/Settings'
 import { ClientModal } from '../Cliente/index'
 import { ProductsModal } from '../Products/index'
 
@@ -12,7 +12,7 @@ export function Navegation() {
       </Content>
 
       <SettingsContent>
-        <Company />
+        <Settings />
       </SettingsContent>
     </Container>
   )
