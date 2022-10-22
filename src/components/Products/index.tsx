@@ -25,9 +25,9 @@ export function ProductsModal() {
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header style={{ background:"#1C1C1C"  }} closeButton>
-          <Offcanvas.Title style={{ background:"#1C1C1C" , color:"BlueViolet", fontWeight:"bold" , fontSize: "30px"}}  >Cadastro de Produto</Offcanvas.Title>
+          <Offcanvas.Title style={{ background:"#1C1C1C" , color:"LightGrey", fontWeight:"bold" , fontSize: "30px"}}  >Cadastro de Produto</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{ background:"#1C1C1C" , color:"MediumPurple" , fontWeight:"bold" }}>
+        <Offcanvas.Body style={{ background:"#1C1C1C" , color:"LightGrey" , fontWeight:"bolder" }}>
         <Form >
           <FloatingLabel className="mb-4" label="Nome Do Produto">
             <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Nome Do Produto"  />
@@ -53,10 +53,11 @@ export function ProductsModal() {
             <Form.Control as="textarea" style={{ background:"#1C1C1C" , color:"whitesmoke" }} type="text" placeholder="Descrição"/>
           </FloatingLabel>
 
-
-      <Button variant="primary" type="button">
-        Cadastrar
-      </Button>
+          <div className="d-grid gap-2">
+            <Button variant="" type="button" size='lg' style={{background:"BlueViolet"}}>
+            Cadastrar
+            </Button>
+           </div>
     </Form>
         </Offcanvas.Body>
       </Offcanvas>
