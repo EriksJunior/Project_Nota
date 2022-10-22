@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { BiBox } from "react-icons/bi";
 
-import { ButtonBt } from '../Styles/bootstrap';
+import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { Form, Offcanvas, Button } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { ContentIcon, Text } from '../Styles/general';
@@ -16,7 +15,7 @@ export function ProductsModal() {
     <>
       <ButtonBt variant="outiline-ligth" onClick={handleShow}>
       <ContentIcon style={{ paddingRight: '5px' }}>
-          <BiBox size={25} />
+          <IconBiBox className='icon' size={25} />
         </ContentIcon>
         <Text>
           Produtos

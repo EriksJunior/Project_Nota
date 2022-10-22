@@ -5,5 +5,5 @@ export const ContentIcon = styled.div`
 `
 
 export const Text = styled.div`
-  margin-top: 5px
+  margin-top: 5px;
 `

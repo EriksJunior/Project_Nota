@@ -1,9 +1,18 @@
 import { Button, Dropdown } from "react-bootstrap";
+import { BiBox, BiUser } from "react-icons/bi";
 import styled from "styled-components";
+
+export const IconBiBox = styled(BiBox)`
+color: #461269;
+`
+
+export const IconBiUser = styled(BiUser)`
+color: #461269;
+`
 
 export const ButtonBt = styled(Button) `
   background-color: transparent	;
-  color: #8A2BE2;
+  color: #c0c0c0;
   outline: none;
   font-weight: bold;
   width: auto;
@@ -11,7 +20,11 @@ export const ButtonBt = styled(Button) `
 
   &:hover {
     border-bottom: solid 2px #9d74e0;
-    color: #9d74e0;
+    color: white;
+  }
+
+  &:hover .icon {
+    color: #8A2BE2;
   }
   `
 

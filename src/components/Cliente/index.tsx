@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { BiUser } from "react-icons/bi";
 
-import { ButtonBt } from '../Styles/bootstrap';
+import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { Col, Form, Offcanvas, Button } from 'react-bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
@@ -13,9 +12,9 @@ export function ClientModal() {
 
   return (
     <>
-      <ButtonBt variant="outiline-ligth"  onClick={handleShow}>
+      <ButtonBt variant="outiline-ligth" onClick={handleShow}>
       <ContentIcon style={{ paddingRight: '5px' }} >
-          <BiUser size={25} />
+          <IconBiUser className='icon' size={25}/>
         </ContentIcon>
         <Text>
           Clientes
