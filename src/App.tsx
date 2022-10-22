@@ -1,13 +1,13 @@
 import { AppRoutes } from "./routes"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import { DivApp } from "./styles";
+import { PageNavegation } from "./page/Navigation"; 
 
  function App(){
   return (
-    <DivApp>
+    <>
+      <PageNavegation />
       <AppRoutes />
-    </DivApp>
+    </>
   )
 }
 

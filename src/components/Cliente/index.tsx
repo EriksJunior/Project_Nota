@@ -16,8 +16,8 @@ export function ClientModal() {
   return (
     <>
       <ButtonBt variant="outiline-ligth" onClick={handleShow}>
-      <ContentIcon style={{ paddingRight: '5px' }} >
-          <IconBiUser className='icon' size={25}/>
+        <ContentIcon>
+          <IconBiUser className='icon' size={25} />
         </ContentIcon>
         <Text>
           Clientes

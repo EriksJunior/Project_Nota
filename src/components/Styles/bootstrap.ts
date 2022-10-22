@@ -10,7 +10,7 @@ export const IconBiUser = styled(BiUser)`
 color: #461269;
 `
 
-export const ButtonBt = styled(Button) `
+export const ButtonBt = styled(Button)`
   background-color: transparent	;
   color: #c0c0c0;
   outline: none;
@@ -28,6 +28,7 @@ export const ButtonBt = styled(Button) `
   }
   `
 
-  export const DropDownBt = styled(Dropdown) `
+export const DropDownBt = styled(Dropdown)`
   inset: 0px -28px auto auto;
+  margin: 0 !important;
   `
