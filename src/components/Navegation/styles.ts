@@ -8,5 +8,4 @@ export const Div = styled.div`
   background: #1C1C1C; 
   align-items: center;
   padding: 10px;
-  justify-content: space-between;
 `

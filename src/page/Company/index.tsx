@@ -24,7 +24,7 @@ export function Company() {
         </Offcanvas.Header >
         <Offcanvas.Body style={{ background:"#1C1C1C" }}>
         <Form>
-        <div className="d-grid gap-2">
+        <div className="d-grid gap-4">
           <Registration/>
           <Registration/>
           <Registration/>
