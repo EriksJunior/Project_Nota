@@ -34,6 +34,7 @@ export const SettingsContent = styled.div`
     width: 50%;
     display: flex;
     justify-content: flex-end;
+    margin-right: 20px;
 
   @media screen and (max-width: 361px){
     display: flex;

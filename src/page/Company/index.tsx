@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
+import { IoSettingsSharp } from "react-icons/io5";
 
 import { ButtonBt } from '../../components/Styles/bootstrap';
 import { Registration } from '../../components/ConfigModals/registration';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 export function Company() {
   const [show, setShow] = useState(false);
@@ -13,26 +16,19 @@ export function Company() {
 
   return (
     <>
-      <ButtonBt variant="secondary" onClick={handleShow}>
-        Configurações
-      </ButtonBt>
+      <Dropdown align={"end"} style={{ marginRight:"20px" }}  >
+        <Dropdown.Toggle variant="" >
+          <ButtonBt variant="" onClick={handleShow} >
+          <IoSettingsSharp size={25} />
+          </ButtonBt>
+        </Dropdown.Toggle>
 
-      <Offcanvas  placement={"end"} show={show} onHide={handleClose}>
-        <Offcanvas.Header style={{ background:"#1C1C1C" , color:"whitesmoke" }} closeButton>
-          <Offcanvas.Title>Configurações do Sistema</Offcanvas.Title>
-        </Offcanvas.Header >
-        <Offcanvas.Body style={{ background:"#1C1C1C" }}>
-        <Form>
-        <div className="d-grid gap-4">
-          <Registration/>
-          <Registration/>
-          <Registration/>
-        </div>
-
-      
-    </Form>
-        </Offcanvas.Body>
-      </Offcanvas>
+      <Dropdown.Menu  style={{ background:"#1C1C1C"}} variant='dark'>
+        <Dropdown.Item ><Registration/></Dropdown.Item>
+        <Dropdown.Item ><Registration/></Dropdown.Item>
+        <Dropdown.Item ><Registration/></Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
     </>
   );
 }
