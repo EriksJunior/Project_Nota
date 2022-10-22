@@ -1,8 +1,11 @@
 import { useState } from 'react';
 
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { Col, Form, Offcanvas, Button } from 'react-bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
+
 
 export function ClientModal() {
   const [show, setShow] = useState(false);
@@ -28,83 +31,78 @@ export function ClientModal() {
         <Offcanvas.Body style={{ background: "#1C1C1C", color: "whitesmoke" }}>
 
           <Form >
-            <Form.Group className="mb-3" controlId="formBasicNome">
-              <Form.Label>Nome do Cliente:</Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="text" placeholder="Ex: Gael Gonçalves de Souza" />
-            </Form.Group>
+            <FloatingLabel className="mb-4" label="Nome do Cliente">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Nome do Cliente:"  />
+            </FloatingLabel>
 
-            <Form.Group className="mb-3" controlId="formBasicCPFCNPJ">
-              <Form.Label>CPF/CNPJ:</Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="number" placeholder="CPF/CNPJ" />
-            </Form.Group>
+            <FloatingLabel className="mb-4" label="CPF/CNPJ">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="CPF/CNPJ"  />
+            </FloatingLabel>
 
-            <Form.Group className="mb-3" controlId="formBasicEnd">
-              <Form.Label>Endereço: </Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="text" placeholder="Ex: Av Jacob lopes" />
-            </Form.Group>
-            2
-            <Form.Group className="mb-3" controlId="formBasicCidade">
-              <Form.Label>Cidade : </Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="text" placeholder="Ex: Viçosa" />
-            </Form.Group>
+            <FloatingLabel className="mb-4" label="Endereço">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Endereço"  />
+            </FloatingLabel>
 
-            <Form.Group className="mb-3" controlId="formBasicBairro">
-              <Form.Label>Bairro: </Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="text" placeholder="EX: Nova Era" />
-            </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridEstado">
-              <Form.Label>Estado</Form.Label>
-              <Form.Select style={{ background: "#363636", color: "whitesmoke" }} defaultValue="Escolha um Estado">
-                <option value="">Selecione...</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espirito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-              </Form.Select>
-            </Form.Group>
+            <FloatingLabel className="mb-4" label="Cidade">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Cidade"  />
+            </FloatingLabel>
 
-            <Form.Group className="mb-3" controlId="formBasicCEP">
-              <Form.Label>CEP: </Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="CEP" placeholder="000.000.000-00" />
-            </Form.Group>
+            <FloatingLabel className="mb-4" label="Bairro">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Bairro"  />
+            </FloatingLabel>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email: </Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="email" placeholder="Ex: email@email.com" />
-            </Form.Group>
+              <FloatingLabel className="mb-4" label="Estado">
+                <Form.Select style={{ background: "#1C1C1C", color: "whitesmoke" }} defaultValue="">
+                  <option value="">Selecione...</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espirito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </Form.Select>
+              </FloatingLabel>
 
-            <Form.Group className="mb-3" controlId="formBasicTEL">
-              <Form.Label>Telefone: </Form.Label>
-              <Form.Control style={{ background: "#363636", color: "whitesmoke" }} type="number" placeholder="Ex: Av Jacob lopes" />
-            </Form.Group>
+            <FloatingLabel className="mb-4" label="CEP">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="CEP"  />
+            </FloatingLabel>
 
-            <Button variant="primary" type="button">
-              Cadastrar
-            </Button>
+            <FloatingLabel className="mb-4" label="Email">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="email" placeholder="Email"  />
+            </FloatingLabel>
+
+            <FloatingLabel className="mb-3" label="Telefone">
+              <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Telefone"  />
+            </FloatingLabel>
+
+            <div className="d-grid gap-2">
+              <Button variant="" type="button" style={{background:"BlueViolet" , color:"whitesmoke"}}>
+                Cadastrar
+              </Button>
+            </div>
+
           </Form>
         </Offcanvas.Body>
       </Offcanvas>
