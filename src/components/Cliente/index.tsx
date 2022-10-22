@@ -13,13 +13,9 @@ export function ClientModal() {
 
   return (
     <>
-      <ButtonBt variant="outiline-ligth" onClick={handleShow}>
-        <ContentIcon style={{ paddingRight: '5px' }}>
-          <BiUser size={25} />
-        </ContentIcon>
-        <Text style={{marginBottom: '10px'}}>
-          Clientes
-        </Text>
+      <ButtonBt variant="outiline-ligth">
+      <IoPersonOutline/>
+       Clientes 
       </ButtonBt>
 
       <Offcanvas show={show} onHide={handleClose}>
