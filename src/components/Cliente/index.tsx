@@ -15,7 +15,7 @@ export function ClientModal() {
 
   return (
     <>
-      <ButtonBt variant="outiline-ligth">
+      <ButtonBt variant="">
       <IoPersonOutline/>
        Clientes 
       </ButtonBt>

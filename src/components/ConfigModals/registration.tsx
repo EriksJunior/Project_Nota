@@ -14,7 +14,7 @@ export function Registration() {
 
   return (
     <>
-      <ButtonBt variant="secondary" size='lg' onClick={handleShow}>
+      <ButtonBt variant="" size='sm' onClick={handleShow}>
         Empresa
       </ButtonBt>
 
