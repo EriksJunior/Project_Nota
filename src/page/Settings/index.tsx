@@ -12,8 +12,8 @@ export function Settings() {
 
         <DropDownBt.Menu style={{ background: "#1C1C1C" }} variant='dark' className="mt-2">
           <DropDownBt.Item as={Link} to="/company">Empresa</DropDownBt.Item>
-          <DropDownBt.Item>Info. Fiscal</DropDownBt.Item>
-          <DropDownBt.Item>Outros</DropDownBt.Item>
+          <DropDownBt.Item as={Link} to="/infofiscal">Info. Fiscal</DropDownBt.Item>
+          <DropDownBt.Item as={Link} to="/outros">Outros</DropDownBt.Item>
         </DropDownBt.Menu>
       </DropDownBt>
     </>
