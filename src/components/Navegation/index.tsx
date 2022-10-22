@@ -1,3 +1,4 @@
+import { Company } from '../../page/Company'
 import { ClientModal } from '../Cliente/index'
 import { ProductsModal } from '../Products/index'
 
@@ -7,6 +8,7 @@ export function Navegation() {
     <Div>
       <ClientModal />
       <ProductsModal />
+      <Company/>
     </Div>
   )
 }

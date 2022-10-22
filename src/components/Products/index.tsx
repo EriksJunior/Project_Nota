@@ -13,18 +13,18 @@ export function ProductsModal() {
 
   return (
     <>
-      <ButtonBt variant="info" onClick={handleShow}>
+      <ButtonBt variant="secondary" onClick={handleShow}>
         Produtos
       </ButtonBt>
 
       <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header style={{ background:"#1C1C1C" , color:"whitesmoke" }} closeButton>
           <Offcanvas.Title>Cadastro de Produto</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-        <Form>
+        <Offcanvas.Body style={{ background:"#1C1C1C" , color:"whitesmoke" }}>
+        <Form >
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Nome Do Produto </Form.Label>
+        <Form.Label >Nome Do Produto </Form.Label>
         <Form.Control type="text" placeholder="Digite o Nome do produto" />
       </Form.Group>
 
