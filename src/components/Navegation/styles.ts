@@ -19,6 +19,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 50%;
+  height: 40px;
   display: flex;
   gap: 20px;
 

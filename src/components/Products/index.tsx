@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import Form from 'react-bootstrap/Form';
+import { BiBox } from "react-icons/bi";
 
 import { ButtonBt } from '../Styles/bootstrap';
+import { Form, Offcanvas, Button } from 'react-bootstrap';
+
+import { ContentIcon, Text } from '../Styles/general';
 
 export function ProductsModal() {
   const [show, setShow] = useState(false);
@@ -13,8 +14,13 @@ export function ProductsModal() {
 
   return (
     <>
-      <ButtonBt variant="secondary" onClick={handleShow}>
-        Produtos
+      <ButtonBt variant="outiline-ligth" onClick={handleShow}>
+      <ContentIcon style={{ paddingRight: '5px' }}>
+          <BiBox size={25} />
+        </ContentIcon>
+        <Text>
+          Produtos
+        </Text>
       </ButtonBt>
 
       <Offcanvas show={show} onHide={handleClose}>

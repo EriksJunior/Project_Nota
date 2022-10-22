@@ -24,7 +24,7 @@ export function Registration() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-          <Row className="mb-3">
+        <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridRazão">
           <Form.Label>Razão Social</Form.Label>
           <Form.Control type="text"  />
