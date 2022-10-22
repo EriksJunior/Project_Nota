@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex; 
   width: 100%; 
-  height: auto; 
+  height: 60px; 
   background: #1C1C1C; 
   align-items: center;
   justify-content: space-between;
@@ -14,6 +14,8 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    height: auto;
+
   }
 `
 
