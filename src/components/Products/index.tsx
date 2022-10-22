@@ -3,7 +3,7 @@ import { BiBox } from "react-icons/bi";
 
 import { ButtonBt } from '../Styles/bootstrap';
 import { Form, Offcanvas, Button } from 'react-bootstrap';
-
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { ContentIcon, Text } from '../Styles/general';
 
 export function ProductsModal() {
@@ -24,40 +24,35 @@ export function ProductsModal() {
       </ButtonBt>
 
       <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header style={{ background:"#1C1C1C" , color:"whitesmoke" }} closeButton>
-          <Offcanvas.Title>Cadastro de Produto</Offcanvas.Title>
+        <Offcanvas.Header style={{ background:"#1C1C1C"  }} closeButton>
+          <Offcanvas.Title style={{ background:"#1C1C1C" , color:"BlueViolet", fontWeight:"bold" , fontSize: "30px"}}  >Cadastro de Produto</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{ background:"#1C1C1C" , color:"whitesmoke" }}>
+        <Offcanvas.Body style={{ background:"#1C1C1C" , color:"MediumPurple" , fontWeight:"bold" }}>
         <Form >
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label >Nome Do Produto </Form.Label>
-        <Form.Control type="text" placeholder="Digite o Nome do produto" />
-      </Form.Group>
+          <FloatingLabel className="mb-4" label="Nome Do Produto">
+            <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke"}} type="text" placeholder="Nome Do Produto"  />
+          </FloatingLabel>
 
-      <Form.Group className="mb-3" controlId="formBasicValue">
-        <Form.Label>valor</Form.Label>
-        <Form.Control type="number" placeholder="Ex: R$ 200,00" />
-      </Form.Group>
+          <FloatingLabel className="mb-4" label="Valor">
+            <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke" }} type="number" placeholder="Valor"/>
+          </FloatingLabel>
 
-      <Form.Group className="mb-3" controlId="formBasicUnd">
-        <Form.Label>Unidade</Form.Label>
-        <Form.Control type="number"  />
-      </Form.Group>
+          <FloatingLabel className="mb-4" label="Unidade">
+            <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke" }} type="number" placeholder="Unidade" />
+          </FloatingLabel>
+          
+          <FloatingLabel className="mb-4" label="Código de Barras">
+            <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke" }} type="number" placeholder="Código de Barras"/>
+          </FloatingLabel>
 
-      <Form.Group className="mb-3" controlId="formBasicBars">
-        <Form.Label>Código de Barras</Form.Label>
-        <Form.Control type="number"  />
-      </Form.Group>
+          <FloatingLabel className="mb-4" label="Código de Referência">
+            <Form.Control style={{ background:"#1C1C1C" , color:"whitesmoke" }} type="number" placeholder="Código de Referência"/>
+          </FloatingLabel>
 
-      <Form.Group className="mb-3" controlId="formBasicRef">
-        <Form.Label>Código de Referência</Form.Label>
-        <Form.Control type="number" placeholder="Ex: R$ TH-12345" />
-      </Form.Group>
+          <FloatingLabel className="mb-4" label="Descrição">
+            <Form.Control as="textarea" style={{ background:"#1C1C1C" , color:"whitesmoke" }} type="text" placeholder="Descrição"/>
+          </FloatingLabel>
 
-      <Form.Group className="mb-3" controlId="formBasicDescription">
-        <Form.Label>Descrição</Form.Label>
-        <Form.Control type="text" />
-      </Form.Group>
 
       <Button variant="primary" type="button">
         Cadastrar
