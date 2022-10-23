@@ -1,7 +1,7 @@
+import { InfoCompany } from "../../components/Company";
+
 export function Company() {
   return (
-    <>
-      Componente company
-    </>
+      <InfoCompany/>
   )
 }
