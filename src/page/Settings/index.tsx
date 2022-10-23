@@ -1,5 +1,5 @@
 import { IoSettingsSharp } from "react-icons/io5";
-import { DropDownBt } from "../../components/Styles/bootstrap";
+import { DropDownBt, IconIoHome , IconIoNewspaper , IconIoHelpCircleOutline } from "../../components/Styles/bootstrap";
 import { Link } from "react-router-dom";
 
 export function Settings() {
@@ -11,9 +11,14 @@ export function Settings() {
         </DropDownBt.Toggle>
 
         <DropDownBt.Menu style={{ background: "#1C1C1C" }} variant='dark' className="mt-2">
-          <DropDownBt.Item as={Link} to="/company">Empresa</DropDownBt.Item>
-          <DropDownBt.Item as={Link} to="/infofiscal">Info. Fiscal</DropDownBt.Item>
-          <DropDownBt.Item as={Link} to="/outros">Outros</DropDownBt.Item>
+          <DropDownBt.Item as={Link} to="/company">
+             <IconIoHome size={20} />  Empresa</DropDownBt.Item>
+
+          <DropDownBt.Item as={Link} to="/infofiscal">
+             <IconIoNewspaper size={20}/>  Info. Fiscal</DropDownBt.Item>
+
+          <DropDownBt.Item as={Link} to="/outros"> 
+          <IconIoHelpCircleOutline size={20}/> Outros</DropDownBt.Item>
         </DropDownBt.Menu>
       </DropDownBt>
     </>

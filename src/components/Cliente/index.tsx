@@ -26,9 +26,9 @@ export function ClientModal() {
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header style={{ background: "#1C1C1C", color: "whitesmoke" }} closeButton>
-          <Offcanvas.Title>Cadastre o Cliente</Offcanvas.Title>
+          <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "30px" }}>Cadastre o Cliente</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{ background: "#1C1C1C", color: "whitesmoke" }}>
+        <Offcanvas.Body style={{  background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }}>
 
           <Form >
             <FloatingLabel className="mb-4" label="Nome do Cliente">
@@ -53,7 +53,7 @@ export function ClientModal() {
             </FloatingLabel>
 
               <FloatingLabel className="mb-4" label="Estado">
-                <Form.Select style={{ background: "#1C1C1C", color: "whitesmoke" }} defaultValue="">
+                <Form.Select style={{  background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} defaultValue="">
                   <option value="">Selecione...</option>
                   <option value="AC">Acre</option>
                   <option value="AL">Alagoas</option>
@@ -98,7 +98,7 @@ export function ClientModal() {
             </FloatingLabel>
 
             <div className="d-grid gap-2">
-              <Button variant="" type="button" style={{background:"BlueViolet" , color:"whitesmoke"}}>
+              <Button variant="" type="button" size='lg' style={{background:"BlueViolet" , color:"whitesmoke"}}>
                 Cadastrar
               </Button>
             </div>

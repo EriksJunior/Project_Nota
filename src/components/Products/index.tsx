@@ -53,7 +53,7 @@ export function ProductsModal() {
             </FloatingLabel>
 
             <div className="d-grid gap-2">
-              <Button variant="" type="button" size='lg' style={{ background: "BlueViolet" }}>
+              <Button variant="" type="button" size='lg' style={{background:"BlueViolet" , color:"whitesmoke"}}>
                 Cadastrar
               </Button>
             </div>
