@@ -1,8 +1,10 @@
 import Accordion from 'react-bootstrap/Accordion';
-import { ContextLeaf , ButtonLeaf } from '../Styles/general';
 import { Form, Button , Col , Row } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
+import {StyledAccordion} from './styles';
 import { IoCheckboxOutline , IoRefresh } from "react-icons/io5";
+import { ContextLeaf , ButtonLeaf } from '../Styles/general';
 
 
 
@@ -14,9 +16,9 @@ export function Leaf(props : LeafProps){
   return (
     <div >
       <ContextLeaf>
-        <Accordion defaultActiveKey="0" style={{ width:"80vw" , height:"90vh" }}>
+        <StyledAccordion defaultActiveKey="0" style={{ width:"80vw" , height:"90vh" }}>
           <Accordion.Item eventKey="0">
-            <Accordion.Header >1 - Dados Gerais</Accordion.Header>
+            <Accordion.Button >1 - Dados Gerais</Accordion.Button>
             <Accordion.Body>
               <Form>
                 <Row as={Col} className="mb-3">
@@ -296,7 +298,7 @@ export function Leaf(props : LeafProps){
               </Form>
             </Accordion.Body>
           </Accordion.Item>
-        </Accordion>
+        </StyledAccordion>
       </ContextLeaf>
     </div>
   );
