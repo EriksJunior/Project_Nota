@@ -1,6 +1,5 @@
 export interface ICliente {
   id: string
-  idEmpresa: string
   nome: string
   cpfCnpj: string
   endereco: string

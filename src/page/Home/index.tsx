@@ -1,9 +1,9 @@
 import { Leaf } from '../../components/Leaf'
 
-export function Home(){
-  return(
+export function Home() {
+  return (
     <div>
-      <Leaf/>
+      <Leaf />
     </div>
   )
 }

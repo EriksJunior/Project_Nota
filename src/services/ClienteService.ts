@@ -1,6 +1,6 @@
 import { api } from '../utils/configs/api';
 import { ICliente } from '../interface/ICliente';
-export class Cliente {
+ class ClienteService {
   async save(dataCliente: ICliente) {
     const { data } = await api.post('/customers', dataCliente)
     return data
@@ -24,3 +24,5 @@ export class Cliente {
     return data
   }
 }
+
+export default new ClienteService()

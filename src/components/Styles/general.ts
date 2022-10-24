@@ -9,15 +9,13 @@ export const Text = styled.div`
 `
 
 export const ContentLeaf = styled.div`
-  align-items: center;
-  align-content: center;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
   padding: 10px;
+  margin-top: 25px;
+  flex-direction: column;
 `
 
 export const ButtonLeaf = styled.div`

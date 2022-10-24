@@ -1,6 +1,4 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Stack from 'react-bootstrap/Stack';
+import { Button, Form, Stack } from 'react-bootstrap';
 
 export function Search() {
   return (
