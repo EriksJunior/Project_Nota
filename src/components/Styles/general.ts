@@ -9,26 +9,23 @@ export const Text = styled.div`
 `
 
 export const ContentLeaf = styled.div`
+  align-items: center;
+  align-content: center;
   display: flex;
-  width: 100%;
-  height: 100vh;
-  align-items: center;
-  padding: 10px;
-  align-items: center;
-  padding: 10px;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-content: center;
   justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
 `
 
 export const ButtonLeaf = styled.div`
+  align-items: center;
+  align-content: center;
   display: flex;
-  align-items: center;
-  align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: center;
   justify-content: space-between;
 `
 
