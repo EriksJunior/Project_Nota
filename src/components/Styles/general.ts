@@ -8,7 +8,7 @@ export const Text = styled.div`
   margin-top: 5px;
 `
 
-export const ContextLeaf = styled.div`
+export const ContentLeaf = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
