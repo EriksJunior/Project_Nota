@@ -1,15 +1,27 @@
+import { Button , Card , Col , Form , Row } from 'react-bootstrap';
+import { IconIoHome } from '../Styles/bootstrap';
+import { IoCheckboxOutline } from "react-icons/io5";
 
-import { Button, Card, Col, Form, Row } from 'react-bootstrap';
+import { ButtonCompany, CardCompany , ImgLogo } from './styles'
+
+import { Link } from "react-router-dom";
+
 
 export function InfoCompany() {
   return (
-    <Card className="text-center">
+    <div style={{ justifyContent:"center" , display:"flex" }}>
+    <CardCompany className="text-center">
       <Card.Header>Cadastro da Empresa</Card.Header>
       <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
+        <Card.Title > <ImgLogo src="https://www.istoedinheiro.com.br/wp-content/uploads/sites/17/2022/07/3a20fba188391ee4671aa3b9f27a92f808b67c71.jpg" alt="" /> </Card.Title>
         <Card.Text>
-          <Form>
+        <Form>
             <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Código</Form.Label>
+                <Form.Control disabled />
+              </Form.Group>
+
               <Form.Group as={Col} controlId="formGridRazão">
                 <Form.Label>Razão Social</Form.Label>
                 <Form.Control type="text" />
@@ -19,24 +31,45 @@ export function InfoCompany() {
                 <Form.Label>Nome Fantasia</Form.Label>
                 <Form.Control type="text" />
               </Form.Group>
+
+              
             </Row>
-
-            <Form.Group className="mb-3" controlId="formGridAddress">
-              <Form.Label>Endereço</Form.Label>
-              <Form.Control />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formGridAddress1">
-              <Form.Label>Bairro</Form.Label>
-              <Form.Control />
-            </Form.Group>
-
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Cidade</Form.Label>
+              <Form.Group as={Col} controlId="formGridAddress">
+                <Form.Label>CPF/CNPJ</Form.Label>
                 <Form.Control />
               </Form.Group>
 
+              <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Label>IE</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Registro</Form.Label>
+                <Form.Control />
+              </Form.Group>
+            </Row>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridAddress">
+                <Form.Label>Endereço</Form.Label>
+                <Form.Control />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Label>Bairro</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Número</Form.Label>
+                <Form.Control />
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridZip">
+                <Form.Label>Cidade</Form.Label>
+                <Form.Control />
+              </Form.Group>
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Estado</Form.Label>
                 <Form.Select defaultValue="Escolha um Estado">
@@ -70,18 +103,26 @@ export function InfoCompany() {
                   <option value="TO">Tocantins</option>
                 </Form.Select>
               </Form.Group>
-
               <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>CEP</Form.Label>
                 <Form.Control />
               </Form.Group>
             </Row>
-
           </Form>
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
       </Card.Body>
-      <Card.Footer className="text-muted">2 days ago</Card.Footer>
-    </Card>
+      <Card.Footer className="text-muted">
+      <ButtonCompany>
+        <Button variant="" size='lg' style={{ background: "Lavender", width: "20%", color: "black" }}>
+          <IconIoHome/>  Página Principal
+        </Button>
+
+        <Button variant="" size='lg' style={{ background: "#8A2BE2", width: "20%", color: "whitesmoke" }}>
+          <IoCheckboxOutline/> Atualizar cadastro
+        </Button>
+      </ButtonCompany>
+      </Card.Footer>
+    </CardCompany>
+    </div>
   );
 }
