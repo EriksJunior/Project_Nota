@@ -14,7 +14,7 @@ export const StyledAccordion = styled(Accordion)`
 }
 
 .accordion-button::after {
-    background-image: ;
+    /* background-image: ; */
     background: white;
 }
 `

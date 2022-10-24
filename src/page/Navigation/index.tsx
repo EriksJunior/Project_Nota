@@ -1,6 +1,6 @@
-import {Navegation} from '../../components/Navegation/index'
+import { Navegation } from '../../components/Navegation/index'
 
-export function PageNavegation(){
+export function PageNavegation() {
   return (
     <Navegation />
   )

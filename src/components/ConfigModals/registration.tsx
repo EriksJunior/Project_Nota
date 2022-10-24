@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Modal from 'react-bootstrap/Modal';
+import {Button, Card, Col, Form, Row, Modal} from 'react-bootstrap';
+
 import { ButtonBt } from '../Styles/bootstrap';
 
 export function Registration() {
