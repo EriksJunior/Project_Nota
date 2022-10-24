@@ -1,5 +1,5 @@
 
-import {Button, Card, Col, Form, Row} from 'react-bootstrap';
+import { Button, Card, Col, Form, Row } from 'react-bootstrap';
 
 export function InfoCompany() {
   return (
