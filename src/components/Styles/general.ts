@@ -19,12 +19,11 @@ export const ContentLeaf = styled.div`
 `
 
 export const ButtonLeaf = styled.div`
+  align-items: center;
+  align-content: center;
   display: flex;
-  align-items: center;
-  align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: center;
   justify-content: space-between;
 `
 

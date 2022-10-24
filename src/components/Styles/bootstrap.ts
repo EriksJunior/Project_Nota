@@ -27,10 +27,10 @@ color: #8A2BE2;
 export const ButtonBt = styled(Button)`
   background-color: transparent	;
   color: #c0c0c0;
-  outline: none;
-  font-weight: bold;
-  width: auto;
   display: flex;
+  font-weight: bold;
+  outline: none;
+  width: auto;
 
   &:hover {
     border-bottom: solid 2px #9d74e0;

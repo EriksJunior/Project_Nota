@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { Form, Button , FloatingLabel , Offcanvas } from 'react-bootstrap';
 
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
-import { Col, Form, Offcanvas, Button } from 'react-bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
 export function ClientModal() {

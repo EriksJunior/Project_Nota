@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Form, Offcanvas, Button, FloatingLabel } from 'react-bootstrap';
 
 import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
+
+import { Form, Offcanvas, Button , FloatingLabel } from 'react-bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
 export function ProductsModal() {
