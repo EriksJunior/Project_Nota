@@ -28,7 +28,7 @@ export function GeneralLeafData() {
           </Col>
 
           <Row className="mb-3">
-            <Col lg={5} xl={5}>
+            <Col lg={6} xl={6}>
               <Form.Group as={Col} controlId="formGridState">
                 <FloatingLabel className="mb-4" label="Cliente">
                   <Form.Select>
@@ -39,7 +39,7 @@ export function GeneralLeafData() {
               </Form.Group>
             </Col>
 
-            <Col lg={5} xl={6}>
+            <Col lg={6} xl={6}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Nome do Cliente">
                   <Form.Control type="text" disabled placeholder="Nome do Cliente:" />
