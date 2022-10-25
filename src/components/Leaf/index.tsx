@@ -1,4 +1,4 @@
-import { Accordion } from 'react-bootstrap';
+import { Accordion , Button} from 'react-bootstrap';
 
 import { DataLeafProducts } from '../DataLeafProducts';
 import { GeneralLeafInformation } from '../GeneralLeafInformation';
@@ -25,6 +25,8 @@ export function Leaf(props: LeafProps) {
             <GeneralLeafInformation />
           </Accordion.Item>
         </StyledAccordion>
+
+        <Button className="mt-5">Salvar</Button>
       </ContentLeaf>
     </div>
   );
