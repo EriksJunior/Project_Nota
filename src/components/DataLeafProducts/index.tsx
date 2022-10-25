@@ -1,13 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
-import { ICliente } from '../../interface/ICliente'
 import { IProducts } from '../../interface/IProducts';
 
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
 
-import ClienteService from '../../services/ClienteService'
-
 export function DataLeafProducts() {
-  const [cliente, setCliente] = useState<ICliente[]>([])
   const [products, setProducts] = useState<IProducts>({
     id: "",
     quantidade: 0,
@@ -19,15 +15,6 @@ export function DataLeafProducts() {
     unidade: "",
   })
 
-  useEffect(() => {
-    getClientesFromSelectBox()
-  }, [])
-
-  async function getClientesFromSelectBox() {
-    const { data } = await ClienteService.getFromSelectBox()
-    setCliente(data)
-  }
-
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setProducts({ ...products, [e.currentTarget.name]: e.currentTarget.value })
   }, [products])
@@ -38,29 +25,15 @@ export function DataLeafProducts() {
 
   return (
     <div>
-      <Accordion.Header>1 - Informações da NF-e</Accordion.Header>
+      <Accordion.Header>1 - Produtos</Accordion.Header>
       <Accordion.Body>
         <Form>
-          <Row xs={12}>
-            <Col sm={12} md={12} lg={12} xl={12}>
-              <Form.Group as={Col} controlId="formGridState">
-                <FloatingLabel className="mb-4" label="Cliente">
-                  <Form.Select>
-                    <option value="">Selecione...</option>
-                    {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
-                  </Form.Select>
-                </FloatingLabel>
-              </Form.Group>
-            </Col>
-          </Row>
-
           <Row xs={2}>
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col} controlId="formGridState">
                 <FloatingLabel className="mb-4" label="Produtos">
                   <Form.Select name="id">
                     <option value="">Selecione...</option>
-                    {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
                   </Form.Select>
                 </FloatingLabel>
               </Form.Group>

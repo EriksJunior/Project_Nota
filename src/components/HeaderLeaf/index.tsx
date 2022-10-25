@@ -1,8 +1,24 @@
-import { Row, Col, Form } from 'react-bootstrap'
+import { useState, useEffect, useCallback } from 'react'
+
+import { Row, Col, Form, FloatingLabel } from 'react-bootstrap'
+import { ICliente } from '../../interface/ICliente'
+
+import ClienteService from '../../services/ClienteService'
 
 import { Container } from './styles'
 
 export function HeaderLeaf() {
+  const [cliente, setCliente] = useState<ICliente[]>([])
+
+  useEffect(() => {
+    getClientesFromSelectBox()
+  }, [])
+
+  async function getClientesFromSelectBox() {
+    const { data } = await ClienteService.getFromSelectBox()
+    setCliente(data)
+  }
+
   return (
     <Container>
       <Row xs={2} sm={12} md={12} lg={12} xl={12}>
@@ -76,6 +92,19 @@ export function HeaderLeaf() {
             disabled
             className='switchToSmallerscreens'
           />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col sm={12} md={12} lg={12} xl={12}>
+          <Form.Group as={Col} controlId="formGridState">
+            <FloatingLabel className="" label="Cliente">
+              <Form.Select>
+                <option value="">Selecione...</option>
+                {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
+              </Form.Select>
+            </FloatingLabel>
+          </Form.Group>
         </Col>
       </Row>
     </Container>

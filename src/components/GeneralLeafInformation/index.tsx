@@ -6,7 +6,7 @@ import { ButtonLeaf } from '../Styles/general';
 export function GeneralLeafInformation() {
   return (
     <div>
-      <Accordion.Header> 3 - Dados Finais</Accordion.Header>
+      <Accordion.Header>2 - Dados Finais</Accordion.Header>
       <Accordion.Body>
         <Form>
           <Row as={Col} className="mb-3">
