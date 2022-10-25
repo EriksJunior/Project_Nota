@@ -1,6 +1,5 @@
 import { Accordion } from 'react-bootstrap';
 
-import { GeneralLeafData } from '../GeneralLeafData';
 import { DataLeafProducts } from '../DataLeafProducts';
 import { GeneralLeafInformation } from '../GeneralLeafInformation';
 import { HeaderLeaf } from '../HeaderLeaf';
@@ -19,14 +18,10 @@ export function Leaf(props: LeafProps) {
 
         <StyledAccordion defaultActiveKey="0" style={{ width: "80vw", height: "auto" }}>
           <Accordion.Item eventKey="0">
-            <GeneralLeafData />
-          </Accordion.Item>
-
-          <Accordion.Item eventKey="1">
             <DataLeafProducts />
           </Accordion.Item>
 
-          <Accordion.Item eventKey="2">
+          <Accordion.Item eventKey="1">
             <GeneralLeafInformation />
           </Accordion.Item>
         </StyledAccordion>
