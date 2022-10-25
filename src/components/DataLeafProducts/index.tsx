@@ -28,11 +28,7 @@ export function DataLeafProducts() {
     setCliente(data)
   }
 
-  const handleChangeInputs = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setProducts({ ...products, [e.currentTarget.name]: e.currentTarget.value })
-  }, [products])
-
-  const handleChangeSelect = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setProducts({ ...products, [e.currentTarget.name]: e.currentTarget.value })
   }, [products])
 
@@ -81,7 +77,7 @@ export function DataLeafProducts() {
             <Col sm={3} md={3} lg={2} xl={1}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Qnt">
-                  <Form.Control type="number" onChange={handleChangeInputs} name="quantidade" />
+                  <Form.Control type="number" onChange={handleChange} name="quantidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -89,7 +85,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={9} md={9} lg={4} xl={5}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Dados adicionais">
-                  <Form.Control type="text" onChange={handleChangeInputs} name="informacoes_adicionais" />
+                  <Form.Control type="text" onChange={handleChange} name="informacoes_adicionais" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -97,7 +93,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Vl. Unitário">
-                  <Form.Control type="text" onChange={handleChangeInputs} name="subtotal" />
+                  <Form.Control type="text" onChange={handleChange} name="subtotal" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -105,7 +101,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Desc">
-                  <Form.Control type="text" onChange={handleChangeInputs} name="desconto" />
+                  <Form.Control type="text" onChange={handleChange} name="desconto" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -113,7 +109,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Vl. Total">
-                  <Form.Control type="text" onChange={handleChangeInputs} name="total" />
+                  <Form.Control type="text" onChange={handleChange} name="total" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -121,7 +117,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} controlId="formGridState">
                 <FloatingLabel className="mb-4" label="Origen">
-                  <Form.Select onChange={handleChangeSelect} value={products?.origem} name="origem">
+                  <Form.Select onChange={handleChange} value={products?.origem} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>
@@ -139,7 +135,7 @@ export function DataLeafProducts() {
             <Col xs={6} sm={3} md={3} lg={3} xl={1}>
               <Form.Group as={Col} controlId="formGridPassword">
                 <FloatingLabel className="mb-4" label="Und">
-                  <Form.Control type="text" onChange={handleChangeInputs} name="unidade" />
+                  <Form.Control type="text" onChange={handleChange} name="unidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
