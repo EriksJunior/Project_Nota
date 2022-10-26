@@ -1,4 +1,5 @@
-import { Accordion , Button} from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux'
 
 import { DataLeafProducts } from '../DataLeafProducts';
 import { GeneralLeafInformation } from '../GeneralLeafInformation';
@@ -11,6 +12,9 @@ interface LeafProps {
 }
 
 export function Leaf(props: LeafProps) {
+  const dispath = useDispatch()
+  const idCliente = useSelector(state => state)
+
   return (
     <div >
       <ContentLeaf>
@@ -26,7 +30,7 @@ export function Leaf(props: LeafProps) {
           </Accordion.Item>
         </StyledAccordion>
 
-        <Button className="mt-5">Salvar</Button>
+        <Button className="mt-5" onClick={() => console.log(idCliente)}>Salvar</Button>
       </ContentLeaf>
     </div>
   );
