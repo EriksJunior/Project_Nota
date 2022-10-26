@@ -2,7 +2,7 @@ import { Button , Card , Col , Form , Row } from 'react-bootstrap';
 import { IconIoHome } from '../Styles/bootstrap';
 import { IoCheckboxOutline } from "react-icons/io5";
 
-import { ButtonCompany, CardCompany , ImgLogo } from './styles'
+import { ButtonAtt , ButtonReturn , ButtonContent ,  CardCompany , ImgLogo } from './styles'
 
 import { Link } from "react-router-dom";
 
@@ -112,15 +112,18 @@ export function InfoCompany() {
         </Card.Text>
       </Card.Body>
       <Card.Footer className="text-muted">
-      <ButtonCompany>
-        <Button variant="" size='lg' style={{ background: "Lavender", width: "20%", color: "black" }}>
-          <IconIoHome/>  Página Principal
-        </Button>
-
-        <Button variant="" size='lg' style={{ background: "#8A2BE2", width: "20%", color: "whitesmoke" }}>
-          <IoCheckboxOutline/> Atualizar cadastro
-        </Button>
-      </ButtonCompany>
+      <ButtonContent>
+        <ButtonReturn as={Link} to="/">
+          <Button variant="" size='lg'>
+            <IconIoHome/> <span>Página Principal</span>
+          </Button>
+        </ButtonReturn>
+        <ButtonAtt>
+          <Button variant="" size='lg' style={{ color: "white"}}>
+            <IoCheckboxOutline/> Atualizar cadastro
+          </Button>
+        </ButtonAtt>
+      </ButtonContent>
       </Card.Footer>
     </CardCompany>
     </div>
