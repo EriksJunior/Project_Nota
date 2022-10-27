@@ -109,8 +109,8 @@ export function HeaderLeaf() {
 
         <Col xs={4} sm={4} md={4} lg={4} xl={4}>
           <Form.Group as={Col} controlId="formGridPassword">
-            <FloatingLabel className="mb-4" label="CPF/CNPJ">
-              <Form.Control disabled type="text" name="CPF/CNPJ" />
+            <FloatingLabel  className="mb-4" label="CPF/CNPJ">
+              <Form.Control style={{ height: "48px" }} disabled type="text" name="CPF/CNPJ" />
             </FloatingLabel>
           </Form.Group>
         </Col>
