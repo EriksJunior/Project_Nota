@@ -93,13 +93,21 @@ export function HeaderLeaf() {
       </Row>
 
       <Row>
-        <Col sm={12} md={12} lg={12} xl={12}>
+        <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col} controlId="formGridState">
             <FloatingLabel className="" label="Cliente">
-              <Form.Select onChange={handleChange} name={'idCliente'}>
+              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'}>
                 <option value="">Selecione...</option>
                 {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
               </Form.Select>
+            </FloatingLabel>
+          </Form.Group>
+        </Col>
+
+        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+          <Form.Group as={Col} controlId="formGridPassword">
+            <FloatingLabel  className="mb-4" label="CPF/CNPJ">
+              <Form.Control style={{ height: "48px" }} disabled type="text" name="CPF/CNPJ" />
             </FloatingLabel>
           </Form.Group>
         </Col>

@@ -36,4 +36,16 @@ export const Container = styled.div`
   height: 41vh;
   gap: 10px;
   }
+
+  .form-select{
+    height: 48px;
+  }
+  .form-floating>.form-select{
+    padding-top: 1.325rem;
+    padding-bottom: 0.175rem;
+  }
+  .form-floating{
+    height: 48px;
+    
+  }
 `
