@@ -2,54 +2,74 @@ import { Form, Col, Row, Button, Accordion, FloatingLabel } from 'react-bootstra
 import { IoCheckboxOutline, IoRefresh } from "react-icons/io5";
 
 import { ButtonLeaf } from '../Styles/general';
+import { StyledAccordion } from '../Leaf/styles'
+
 
 export function GeneralLeafInformation() {
   return (
     <div>
+    <StyledAccordion>
       <Accordion.Header>2 - Dados Finais</Accordion.Header>
       <Accordion.Body>
         <Form>
           <Row as={Col} className="mb-3">
-            <Form.Group as={Col} controlId="formGridPassword">
-              <FloatingLabel className="mb-4" label="Nome do Cliente">
-                <Form.Control type="text" placeholder="Nome do Cliente:" />
-              </FloatingLabel>
-            </Form.Group>
+            <Col sm={4} md={4} lg={3} xl={2}>
+              <Form.Group as={Col} controlId="formGridPassword">
+                <FloatingLabel className="mb-4" label="Número do Pedido">
+                  <Form.Control type="text" />
+                </FloatingLabel>
+              </Form.Group>
+            </Col>
 
+            <Col sm={4} md={4} lg={3} xl={2}>
+              <Form.Group as={Col} controlId="formGridPassword">
+                <FloatingLabel className="mb-4" label="Data de Entrada ou Saída">
+                 <Form.Control type="text" />
+                </FloatingLabel>
+              </Form.Group>
+            </Col>
 
-            <Form.Group as={Col} controlId="formGridPassword">
-              <FloatingLabel className="mb-4" label="Nome do Cliente">
-                <Form.Control type="text" placeholder="Nome do Cliente:" />
-              </FloatingLabel>
-            </Form.Group>
+            <Form.Group as={Col} controlId="formGridState">
+                <FloatingLabel className="mb-4" label="Presença">
+                  <Form.Select name="id">
+                    <option value="">1 - Operação Presencial</option>
+                    <option value="">1 - Operação Presencial</option>
+                    <option value="">1 - Operação Presencial</option>
+                    <option value="">1 - Operação Presencial</option>
+                    <option value="">1 - Operação Presencial</option>
+
+                  </Form.Select>
+                </FloatingLabel>
+              </Form.Group>
           </Row>
           <Row as={Col} className="mb-3">
             <Form.Group as={Col} controlId="formGridPassword">
-              <FloatingLabel className="mb-4" label="Nome do Cliente">
-                <Form.Control type="text" placeholder="Nome do Cliente:" />
+              <FloatingLabel className="mb-4" label="Total Frete">
+                <Form.Control type="text"  />
               </FloatingLabel>
             </Form.Group>
 
 
             <Form.Group as={Col} controlId="formGridPassword">
-              <FloatingLabel className="mb-4" label="Nome do Cliente">
-                <Form.Control type="text" placeholder="Nome do Cliente:" />
+              <FloatingLabel className="mb-4" label="Total Desconto">
+                <Form.Control type="text"  />
               </FloatingLabel>
             </Form.Group>
-          </Row>
 
-          <Form.Group className="mb-3" controlId="formGridAddress1">
-            <FloatingLabel className="mb-4" label="Nome do Cliente">
-              <Form.Control type="text" placeholder="Nome do Cliente:" />
+            <Form.Group  as={Col} className="mb-3" controlId="formGridAddress1">
+            <FloatingLabel className="mb-4" label="Outras Despesas">
+              <Form.Control type="text"  />
             </FloatingLabel>
           </Form.Group>
 
+          <Form.Group  as={Col} className="mb-3" controlId="formGridAddress1">
+            <FloatingLabel className="mb-4" label="Total do Pedido">
+              <Form.Control type="text"  />
+            </FloatingLabel>
+          </Form.Group>
+          </Row>
+
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridCity">
-              <FloatingLabel label="Nome do Cliente">
-                <Form.Control type="text" placeholder="Nome do Cliente:" />
-              </FloatingLabel>
-            </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <FloatingLabel className="mb-4" label="Estado">
@@ -87,8 +107,29 @@ export function GeneralLeafInformation() {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridZip">
-              <FloatingLabel label="Nome do Cliente">
-                <Form.Control type="text" placeholder="Nome do Cliente:" />
+              <FloatingLabel label="CNPJ do Intermediador">
+                <Form.Control type="text"  />
+              </FloatingLabel>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridCity">
+              <FloatingLabel label="Nome do Intermediador">
+                <Form.Control type="text" />
+              </FloatingLabel>
+            </Form.Group>
+          </Row>
+
+          <Row className="mb-3">
+
+            <Form.Group as={Col} controlId="formGridZip">
+              <FloatingLabel label="Informações Complementares">
+                <Form.Control type="text"  />
+              </FloatingLabel>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridCity">
+              <FloatingLabel label="Informações Gerais">
+                <Form.Control type="text" />
               </FloatingLabel>
             </Form.Group>
           </Row>
@@ -105,6 +146,7 @@ export function GeneralLeafInformation() {
 
         </Form>
       </Accordion.Body>
+    </StyledAccordion>
     </div>
   )
 }
