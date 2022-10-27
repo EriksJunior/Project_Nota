@@ -1,11 +1,12 @@
 import { Leaf } from '../../components/Leaf'
-// import { LeafProvider } from '../../context/leaf'
+import { LeafProvider } from '../../context/leaf'
+
 export function Home() {
   return (
     <div>
-      {/* <LeafProvider> */}
+      <LeafProvider>
         <Leaf />
-      {/* </LeafProvider> */}
+      </LeafProvider>
     </div>
   )
 }

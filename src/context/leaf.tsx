@@ -1,21 +1,21 @@
-// import { createContext } from "react";
-// import Leaf from "./hooks/leafContext";
+import { createContext } from "react";
+import Leaf from "./hooks/leafContext";
 
-// interface AuxProps {
-//   children: JSX.Element[] | JSX.Element
-// }
+interface AuxProps {
+  children: JSX.Element[] | JSX.Element
+}
 
-// const LeafContext = createContext({})
+const LeafContext = createContext({})
 
-// function LeafProvider({ children }: AuxProps) {
-//   const { getClientesFromSelectBox, cliente } = Leaf()
+function LeafProvider({ children }: AuxProps) {
+  const { getClientesFromSelectBox, cliente, produto, setProduto, pedido, setPedido } = Leaf()
 
-//   return (
-//     <LeafContext.Provider value={{ cliente, getClientesFromSelectBox }}>
-//       {children}
-//     </LeafContext.Provider>
-//   )
-// }
+  return (
+    <LeafContext.Provider value={{ cliente, getClientesFromSelectBox, produto, setProduto, pedido, setPedido }}>
+      {children}
+    </LeafContext.Provider>
+  )
+}
 
 
-// export { LeafProvider, LeafContext }
+export { LeafProvider, LeafContext }
