@@ -1,8 +1,10 @@
 import{ useState } from 'react';
-import { Form, Offcanvas, Button, FloatingLabel } from 'react-bootstrap';
+import { Form, Offcanvas, Button, FloatingLabel , Tab , Tabs } from 'react-bootstrap';
 
 import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
+
+import { Search } from '../Search/index';
 
 
 export function ProductsModal() {
@@ -27,7 +29,13 @@ export function ProductsModal() {
           <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "30px" }}  >Cadastro de Produto</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }}>
-          <Form >
+        <Tabs
+          defaultActiveKey="Cadastro"
+          id="clientTabs"
+          className="mb-3"
+    >
+          <Tab eventKey="Cadastro" title="Cadastro">
+            <Form >
             <FloatingLabel className="mb-4" label="Nome Do Produto">
               <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Nome Do Produto" />
             </FloatingLabel>
@@ -57,7 +65,16 @@ export function ProductsModal() {
                 Cadastrar
               </Button>
             </div>
-          </Form>
+            </Form>
+          </Tab>
+          <Tab eventKey="Pesquisar" title="Pesquisar">
+            <Search />
+          </Tab>
+
+        </Tabs>
+
+
+          
         </Offcanvas.Body>
       </Offcanvas>
     </>

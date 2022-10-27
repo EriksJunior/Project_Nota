@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
-import { Form, Button , FloatingLabel , Offcanvas } from 'react-bootstrap';
+import { Form, Button , FloatingLabel , Offcanvas , Tab , Tabs } from 'react-bootstrap';
 
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
+
+import { Search } from '../Search/index';
 
 export function ClientModal() {
   const [show, setShow] = useState(false);
@@ -27,8 +29,13 @@ export function ClientModal() {
           <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "30px" }}>Cadastre o Cliente</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }}>
-
-          <Form >
+          <Tabs
+            defaultActiveKey="Cadastro"
+            id="clientTabs"
+            className="mb-3"
+    >
+            <Tab eventKey="Cadastro" title="Cadastro">
+              <Form >
             <FloatingLabel className="mb-4" label="Nome do Cliente">
               <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Nome do Cliente:" />
             </FloatingLabel>
@@ -101,7 +108,14 @@ export function ClientModal() {
               </Button>
             </div>
 
-          </Form>
+              </Form>
+            </Tab>
+            <Tab eventKey="Pesquisar" title="Pesquisar">
+              <Search />
+            </Tab>
+
+          </Tabs>
+          
         </Offcanvas.Body>
       </Offcanvas>
     </>
