@@ -1,0 +1,43 @@
+.dropzone{
+    height: 150px;
+    width: 150px;
+    background: #D8BFD8;
+    border-radius: 100px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+}
+
+.dropzone:hover{
+    background: #8A2BE2;
+    color: whitesmoke;
+    
+}
+
+.dropzone img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.dropzone p {
+    width: calc(100% - 60px);
+    height: calc( 100% - 60px );
+    border-radius: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.dropzone p svg {
+    color: black;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 8px;
+}

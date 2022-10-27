@@ -1,8 +1,8 @@
-import { Button , Card , Col , Form , Row } from 'react-bootstrap';
+import { Button , Card , Col , Form , FormLabel, Row } from 'react-bootstrap';
 import { IconIoHome } from '../Styles/bootstrap';
 import { IoCheckboxOutline } from "react-icons/io5";
-
-import { ButtonAtt , ButtonReturn , ButtonContent ,  CardCompany , ImgLogo } from './styles'
+import { Dropzone } from '../DropzoneLogo/index'
+import { ButtonAtt , ButtonReturn , ButtonContent ,  CardCompany , LogoEmpresa } from './styles'
 
 import { Link } from "react-router-dom";
 
@@ -11,26 +11,30 @@ export function InfoCompany() {
   return (
     <div style={{ justifyContent:"center" , display:"flex" }}>
     <CardCompany className="text-center">
-      <Card.Header>Cadastro da Empresa</Card.Header>
+      <Card.Header style={{ fontSize:"30px" , fontWeight:"bold" }} >Cadastro da Empresa</Card.Header>
       <Card.Body>
-        <Card.Title > <ImgLogo src="https://www.istoedinheiro.com.br/wp-content/uploads/sites/17/2022/07/3a20fba188391ee4671aa3b9f27a92f808b67c71.jpg" alt="" /> </Card.Title>
+        <Card.Title style={{ justifyContent:"center" , display:"flex" }} >
+          <LogoEmpresa>
+            <Dropzone/>
+          </LogoEmpresa>
+        </Card.Title>
         <Card.Text>
         <Form>
-            <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Código</Form.Label>
-                <Form.Control disabled />
-              </Form.Group>
+          <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridCity">
+              <Form.Label>Código</Form.Label>
+              <Form.Control disabled />
+            </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridRazão">
-                <Form.Label>Razão Social</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
+            <Form.Group as={Col} controlId="formGridRazão">
+              <Form.Label>Razão Social</Form.Label>
+              <Form.Control type="text" />
+            </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridFantasia">
-                <Form.Label>Nome Fantasia</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
+            <Form.Group as={Col} controlId="formGridFantasia">
+              <Form.Label>Nome Fantasia</Form.Label>
+              <Form.Control type="text" />
+            </Form.Group>
 
               
             </Row>
@@ -72,7 +76,7 @@ export function InfoCompany() {
               </Form.Group>
               <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Estado</Form.Label>
-                <Form.Select defaultValue="Escolha um Estado">
+                <Form.Select >
                   <option value="">Selecione...</option>
                   <option value="AC">Acre</option>
                   <option value="AL">Alagoas</option>

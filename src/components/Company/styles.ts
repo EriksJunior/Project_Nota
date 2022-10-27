@@ -1,5 +1,14 @@
 import styled from "styled-components";
-import { Card } from 'react-bootstrap';
+import { Card , Form } from 'react-bootstrap';
+
+
+export const LogoEmpresa = styled.div`
+  align-items: center;
+  align-content: center;
+  display: flex;
+
+
+`
 
 export const CardCompany = styled(Card)`
 align-content: center;
@@ -10,11 +19,6 @@ height: auto;
 margin-top: 25px;
 `
 
-export const ImgLogo = styled.img`
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 100px;
-`
 
 export const ButtonContent = styled.div`
   align-items: center;
