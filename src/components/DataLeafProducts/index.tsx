@@ -1,27 +1,14 @@
-import { useState, useEffect, useCallback } from 'react'
-import { IProducts } from '../../interface/IProducts';
-
+import { useState, useEffect, useCallback, useContext } from 'react'
+import { LeafContext } from '../../context/leaf';
+import { ProdutosLeaf } from '../../interface/ILeaf';
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
 
 export function DataLeafProducts() {
-  const [products, setProducts] = useState<IProducts>({
-    id: "",
-    quantidade: 0,
-    informacoes_adicionais: "",
-    subtotal: "",
-    desconto: "",
-    total: "",
-    origem: "0",
-    unidade: "",
-  })
+  const { produto, setProduto } = useContext(LeafContext) as { produto: ProdutosLeaf, setProduto: any }
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    setProducts({ ...products, [e.currentTarget.name]: e.currentTarget.value })
-  }, [products])
-
-  function teste() {
-    console.log(products)
-  }
+    setProduto({ ...produto, [e.currentTarget.name]: e.currentTarget.value })
+  }, [produto])
 
   return (
     <div>
@@ -90,7 +77,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} controlId="formGridState">
                 <FloatingLabel className="mb-4" label="Origen">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={products?.origem} name="origem">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={produto?.origem} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>
@@ -124,7 +111,7 @@ export function DataLeafProducts() {
 
           <Row>
             <Col sm={12} md={12} lg={12} xl={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button onClick={teste} variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }}>
+              <Button  variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }}>
                 Adicionar
               </Button>
             </Col>

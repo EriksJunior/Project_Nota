@@ -1,23 +1,20 @@
-import { useState, useEffect, useCallback } from 'react'
-
-import { Row, Col, Form, FloatingLabel } from 'react-bootstrap'
+import { useEffect, useContext, useCallback } from 'react'
+import { Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
 import { ICliente } from '../../interface/ICliente'
-
-import ClienteService from '../../services/ClienteService'
-
+import { PedidoLeaf } from '../../interface/ILeaf'
 import { Container } from './styles'
+import { LeafContext } from '../../context/leaf'
 
 export function HeaderLeaf() {
-  const [cliente, setCliente] = useState<ICliente[]>([])
+  const { cliente, getClientesFromSelectBox, pedido, setPedido } = useContext(LeafContext) as { cliente: Array<ICliente>, getClientesFromSelectBox: any, pedido: PedidoLeaf, setPedido: any }
+
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
+  }, [pedido])
 
   useEffect(() => {
     getClientesFromSelectBox()
   }, [])
-
-  async function getClientesFromSelectBox() {
-    const { data } = await ClienteService.getFromSelectBox()
-    setCliente(data)
-  }
 
   return (
     <Container>
@@ -99,7 +96,7 @@ export function HeaderLeaf() {
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col} controlId="formGridState">
             <FloatingLabel className="" label="Cliente">
-              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }}>
+              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'}>
                 <option value="">Selecione...</option>
                 {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
               </Form.Select>
@@ -115,6 +112,7 @@ export function HeaderLeaf() {
           </Form.Group>
         </Col>
       </Row>
+
     </Container>
   )
 }

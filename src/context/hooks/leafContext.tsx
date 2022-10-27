@@ -1,16 +1,22 @@
-// import { useState } from "react";
-// import { ICliente } from "../../interface/ICliente";
-// import { IProducts } from "../../interface/IProducts";
+import { useState } from "react";
+import { ICliente } from "../../interface/ICliente";
+import {ProdutosLeaf, PedidoLeaf} from "../../interface/ILeaf"
+import ClienteService from "../../services/ClienteService";
+import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS } from "../initialStates/initialStateLeaf";
 
-// import ClienteService from "../../services/ClienteService";
+export default function Leaf() {
+  const [cliente, setCliente] = useState<ICliente[]>([])
+  const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
+  const [produto, setProduto] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
 
-// export default function Leaf() {
-//   const [cliente, setCliente] = useState<ICliente[]>([])
+  async function getClientesFromSelectBox() {
+    try {
+      const { data } = await ClienteService.getFromSelectBox()
+      setCliente(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-//   async function getClientesFromSelectBox() {
-//     const { data } = await ClienteService.getFromSelectBox()
-//     setCliente(data)
-//   }
-
-//   return { getClientesFromSelectBox, cliente, setCliente }
-// }
+  return { getClientesFromSelectBox, cliente, pedido, setPedido, produto, setProduto }
+}
