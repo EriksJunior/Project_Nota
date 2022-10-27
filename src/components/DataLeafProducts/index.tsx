@@ -10,10 +10,6 @@ export function DataLeafProducts() {
     setProduto({ ...produto, [e.currentTarget.name]: e.currentTarget.value })
   }, [produto])
 
-  function teste() {
-    console.log(produto)
-  }
-
   return (
     <div>
       <Accordion.Header>1 - Produtos</Accordion.Header>
@@ -115,7 +111,7 @@ export function DataLeafProducts() {
 
           <Row>
             <Col sm={12} md={12} lg={12} xl={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button onClick={teste} variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }}>
+              <Button  variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }}>
                 Adicionar
               </Button>
             </Col>

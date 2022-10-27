@@ -15,12 +15,6 @@ interface LeafProps {
 }
 
 export function Leaf(props: LeafProps) {
-  const { produto, pedido } = useContext(LeafContext) as { produto: ProdutosLeaf, pedido: PedidoLeaf }
-
-  function teste() {
-    console.log('line 22 component leaf', pedido)
-  }
-
   return (
     <div >
         <ContentLeaf>
@@ -36,8 +30,6 @@ export function Leaf(props: LeafProps) {
             </Accordion.Item>
           </StyledAccordion>
         </ContentLeaf>
-
-        <Button onClick={teste}>Salvar</Button>
     </div>
   );
 }

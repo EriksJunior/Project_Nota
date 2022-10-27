@@ -16,10 +16,6 @@ export function HeaderLeaf() {
     getClientesFromSelectBox()
   }, [])
 
-  function teste() {
-    console.log(pedido)
-  }
-
   return (
     <Container>
       <Row xs={2} sm={12} md={12} lg={12} xl={12}>
@@ -97,7 +93,7 @@ export function HeaderLeaf() {
       </Row>
 
       <Row>
-        <Col sm={12} md={12} lg={12} xl={6}>
+        <Col sm={12} md={12} lg={12} xl={12}>
           <Form.Group as={Col} controlId="formGridState">
             <FloatingLabel className="" label="Cliente">
               <Form.Select onChange={handleChange} name={'idCliente'}>
@@ -106,9 +102,6 @@ export function HeaderLeaf() {
               </Form.Select>
             </FloatingLabel>
           </Form.Group>
-        </Col>
-        <Col xl={6}>
-          <Button onClick={teste}>Teste</Button>
         </Col>
       </Row>
 
