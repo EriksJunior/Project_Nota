@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { IoCameraOutline } from "react-icons/io5";
 
@@ -16,7 +16,7 @@ export function Dropzone() {
     }, [])
     
     const { getRootProps, getInputProps } = useDropzone({ onDrop })
-    
+
     return (
         <div className='dropzone' {...getRootProps()}>
             <input {...getInputProps()} />
