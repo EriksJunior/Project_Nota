@@ -1,10 +1,13 @@
 export interface IProducts {
-  id: string
-  quantidade: number
-  informacoes_adicionais: string
-  subtotal: string
-  desconto: string
-  total: string
-  origem: string
-  unidade: string
+  id?: string
+  nome?: string
+  valor?: number | string
+  valorVenda?: number | string
+  unidade?: string
+  descricao?: string
+  codBarras?: string
+  codReferencia?: string
+  estoque?: number | string
+  estoqueMin?: number | string
+
 }
