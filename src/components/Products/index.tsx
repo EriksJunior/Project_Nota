@@ -1,9 +1,9 @@
-import { useState } from 'react';
-
+import{ useState } from 'react';
 import { Form, Offcanvas, Button, FloatingLabel } from 'react-bootstrap';
 
 import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
+
 
 export function ProductsModal() {
   const [show, setShow] = useState(false);
