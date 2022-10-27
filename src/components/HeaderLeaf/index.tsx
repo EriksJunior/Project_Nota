@@ -99,7 +99,7 @@ export function HeaderLeaf() {
         <Col sm={12} md={12} lg={12} xl={12}>
           <Form.Group as={Col} controlId="formGridState">
             <FloatingLabel className="" label="Cliente">
-              <Form.Select>
+              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }}>
                 <option value="">Selecione...</option>
                 {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
               </Form.Select>

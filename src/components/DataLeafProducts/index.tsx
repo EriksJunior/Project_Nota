@@ -32,7 +32,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col} controlId="formGridState">
                 <FloatingLabel className="mb-4" label="Produtos">
-                  <Form.Select name="id">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
                     <option value="">Selecione...</option>
                   </Form.Select>
                 </FloatingLabel>
@@ -90,7 +90,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} controlId="formGridState">
                 <FloatingLabel className="mb-4" label="Origen">
-                  <Form.Select onChange={handleChange} value={products?.origem} name="origem">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={products?.origem} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>
