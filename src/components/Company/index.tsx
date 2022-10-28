@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export function InfoCompany() {
   return (
     <div style={{ justifyContent:"center" , display:"flex" }}>
-    <CardCompany className="text-center">
+    <CardCompany style={{ background:"#483D8B" , color:"white" }} className="text-center">
       <Card.Header style={{ fontSize:"30px" , fontWeight:"bold" }} >Cadastro da Empresa</Card.Header>
       <Card.Body>
         <Card.Title style={{ justifyContent:"center" , display:"flex" }} >
@@ -21,10 +21,12 @@ export function InfoCompany() {
         <Card.Text>
         <Form>
           <Row className="mb-3">
+          <Col sm={3} md={3} lg={2} xl={2}>
           <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>Código</Form.Label>
               <Form.Control disabled />
             </Form.Group>
+            </Col>
 
             <Form.Group as={Col} controlId="formGridRazão">
               <Form.Label>Razão Social</Form.Label>
@@ -39,6 +41,13 @@ export function InfoCompany() {
               
             </Row>
             <Row className="mb-3">
+            <Col sm={3} md={3} lg={2} xl={2}>
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>Registro</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              </Col>
+
               <Form.Group as={Col} controlId="formGridAddress">
                 <Form.Label>CPF/CNPJ</Form.Label>
                 <Form.Control />
@@ -48,25 +57,30 @@ export function InfoCompany() {
                 <Form.Label>IE</Form.Label>
                 <Form.Control />
               </Form.Group>
-              <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>Registro</Form.Label>
-                <Form.Control />
-              </Form.Group>
+              
             </Row>
             <Row className="mb-3">
+            <Col sm={6} md={6} lg={6} xl={7}>
               <Form.Group as={Col} controlId="formGridAddress">
                 <Form.Label>Endereço</Form.Label>
                 <Form.Control />
               </Form.Group>
+              </Col>
 
-              <Form.Group as={Col} controlId="formGridAddress1">
-                <Form.Label>Bairro</Form.Label>
-                <Form.Control />
-              </Form.Group>
+              <Col sm={3} md={3} lg={2} xl={2}>
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Número</Form.Label>
                 <Form.Control />
               </Form.Group>
+              </Col>
+
+              <Col sm={3} md={3} lg={2} xl={3}>
+              <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Label>Bairro</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              </Col>
+
             </Row>
 
             <Row className="mb-3">
@@ -107,10 +121,36 @@ export function InfoCompany() {
                   <option value="TO">Tocantins</option>
                 </Form.Select>
               </Form.Group>
+
+              <Col sm={3} md={3} lg={2} xl={3}>
               <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>CEP</Form.Label>
                 <Form.Control />
               </Form.Group>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col sm={3} md={3} lg={2} xl={6}>
+              <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Label>Email</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              </Col>
+            <Col sm={3} md={3} lg={2} xl={3}>
+              <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Label>Telefone</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              </Col>
+
+              <Col sm={3} md={3} lg={2} xl={3}>
+              <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Label>Celular</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              </Col>
+
             </Row>
           </Form>
         </Card.Text>
