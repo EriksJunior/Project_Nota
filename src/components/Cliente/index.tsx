@@ -1,17 +1,31 @@
-import { useState } from 'react';
+import { useState , useCallback } from 'react';
 
 import { Form, Button , FloatingLabel , Offcanvas , Tab , Tabs } from 'react-bootstrap';
 
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
-
 import { Search } from '../Search/index';
+
+import ClienteService from '../../services/ClienteService';
+import { ICliente } from '../../interface/ICliente';
+
 
 export function ClientModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [client , setClient] = useState<ICliente>();
+
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>)=>{
+    setClient ({ ...client , [e.target.name]: e.target.value})
+  }, [client]);
+
+  async function saveClient() {
+    const result = await ClienteService.save(client as ICliente)
+    console.log(result)
+  }
 
   return (
     <>
@@ -37,24 +51,24 @@ export function ClientModal() {
             <Tab eventKey="Cadastro" title="Cadastro">
               <Form >
             <FloatingLabel className="mb-4" label="Nome do Cliente">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Nome do Cliente:" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" placeholder="Nome do Cliente:" />
             </FloatingLabel>
 
             <FloatingLabel className="mb-4" label="CPF/CNPJ">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="CPF/CNPJ" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" placeholder="CPF/CNPJ" />
             </FloatingLabel>
 
             <FloatingLabel className="mb-4" label="Endereço">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Endereço" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" placeholder="Endereço" />
             </FloatingLabel>
 
 
             <FloatingLabel className="mb-4" label="Cidade">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Cidade" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cidade" type="text" placeholder="Cidade" />
             </FloatingLabel>
 
             <FloatingLabel className="mb-4" label="Bairro">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Bairro" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" placeholder="Bairro" />
             </FloatingLabel>
 
             <FloatingLabel className="mb-4" label="Estado">
@@ -91,19 +105,19 @@ export function ClientModal() {
             </FloatingLabel>
 
             <FloatingLabel className="mb-4" label="CEP">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="CEP" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cep" type="text" placeholder="CEP" />
             </FloatingLabel>
 
             <FloatingLabel className="mb-4" label="Email">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="email" placeholder="Email" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="email" placeholder="Email" />
             </FloatingLabel>
 
             <FloatingLabel className="mb-3" label="Telefone">
-              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" placeholder="Telefone" />
+              <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" placeholder="Telefone" />
             </FloatingLabel>
 
             <div className="d-grid gap-2">
-              <Button variant="" type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+              <Button variant="" onClick={saveClient} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
                 Cadastrar
               </Button>
             </div>
