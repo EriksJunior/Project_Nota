@@ -1,4 +1,6 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
+
+import { toast } from "react-toastify";
 
 import { Search } from '../Search/index';
 import { ICliente } from '../../interface/ICliente';
@@ -33,16 +35,28 @@ export function ClientModal() {
     try {
       const result = await ClienteService.save(client as ICliente)
       setClient({ ...client, id: result.id })
+
+      toast("Salvo com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     } catch (error: any) {
-      console.log(error?.response?.data?.erros)
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   }
 
   const updateClient = async () => {
     try {
       await ClienteService.update(client as ICliente)
+
+      toast("Atualizado com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     } catch (error: any) {
-      console.log(error?.response.data)
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   }
 
