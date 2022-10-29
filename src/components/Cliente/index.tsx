@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 import { Search } from '../Search/index';
 import { ICliente } from '../../interface/ICliente';
@@ -6,36 +6,52 @@ import { INITIAL_STATE_CLIENTE } from './initialState';
 
 import ClienteService from '../../services/ClienteService';
 
-import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs } from 'react-bootstrap';
+import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
-import { contentOffcanvas } from './styles'
 
 export function ClientModal() {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    clearAllInputs()
+    setShow(false)
+  };
+  const handleShow = () => {
+    clearAllInputs()
+    setShow(true)
+  };
 
   const [client, setClient] = useState<ICliente>(INITIAL_STATE_CLIENTE);
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setClient({ ...client, [e.target.name]: e.target.value })
   }, [client]);
 
 
   const saveClient = async () => {
-    const result = await ClienteService.save(client as ICliente)
-    setClient({ ...client, id: result.id })
+    try {
+      const result = await ClienteService.save(client as ICliente)
+      setClient({ ...client, id: result.id })
+    } catch (error: any) {
+      console.log(error?.response?.data?.erros)
+    }
   }
 
   const updateClient = async () => {
-    await console.log('atualizando algum dia')
+    try {
+      await ClienteService.update(client as ICliente)
+    } catch (error: any) {
+      console.log(error?.response.data)
+    }
   }
 
   const handleSaveOrUpdate = async () => {
     client?.id === "" ? saveClient() : updateClient()
-    console.log(client?.id)
+  }
+
+  const clearAllInputs = () => {
+    setClient(INITIAL_STATE_CLIENTE)
   }
 
   return (
@@ -64,36 +80,36 @@ export function ClientModal() {
                 <Form.Control onChange={handleChange} hidden name="id" type="text" />
 
                 <FloatingLabel className="mb-4" label="Nome do Cliente">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" value={client.nome || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="CPF/CNPJ">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Endereço">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Número">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="numero" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Complemento">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="complemento" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="complemento" type="text" value={client.complemento || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Bairro">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Cidade">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cidade" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
                 </FloatingLabel>
 
 
                 <FloatingLabel className="mb-4" label="Estado">
-                  <Form.Select style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} name="uf">
+                  <Form.Select style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} onChange={handleChange} name="uf" value={client.uf || ""}>
                     <option>Selecione...</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
@@ -126,34 +142,42 @@ export function ClientModal() {
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="CEP">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cep" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cep" type="text" value={client.cep || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-3" label="Telefone">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" value={client.telefone || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-3" label="Celular">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="celular" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="celular" type="text" value={client.celular || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Email">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="text" value={client.email || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Observação">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="observacao" type="text" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Data nascimento">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="dataNascimento" type="date" />
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento || ""} />
                 </FloatingLabel>
 
-                <div className="d-grid gap-2">
-                  <Button variant="" onClick={handleSaveOrUpdate} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
-                    Cadastrar
-                  </Button>
-                </div>
+                <Row className=" gap-5">
+                  <Col className='d-flex justify-content-center'>
+                    <Button variant="" onClick={handleSaveOrUpdate} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                      Cadastrar
+                    </Button>
+                  </Col>
+
+                  <Col className='d-flex justify-content-center'>
+                    <Button variant="" onClick={() => clearAllInputs()} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                      Limpar
+                    </Button>
+                  </Col>
+                </Row>
 
               </Form>
             </Tab>
