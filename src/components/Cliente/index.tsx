@@ -3,8 +3,9 @@ import { useState, useCallback } from 'react';
 import { toast } from "react-toastify";
 
 import { Search } from '../Search/index';
-import { ICliente } from '../../interface/ICliente';
-import { INITIAL_STATE_CLIENTE } from './initialState';
+import { ICliente, ISearch } from '../../interface/ICliente';
+import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from './initialState';
+
 
 import ClienteService from '../../services/ClienteService';
 
@@ -25,6 +26,7 @@ export function ClientModal() {
   };
 
   const [client, setClient] = useState<ICliente>(INITIAL_STATE_CLIENTE);
+  const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setClient({ ...client, [e.target.name]: e.target.value })
@@ -58,6 +60,11 @@ export function ClientModal() {
         position: toast.POSITION.TOP_RIGHT
       });
     }
+  }
+
+  const searchClient = async () => {
+    const result = await ClienteService.search(search.text, search.page)
+    console.log(result)
   }
 
   const handleSaveOrUpdate = async () => {
@@ -187,7 +194,7 @@ export function ClientModal() {
                   </Col>
 
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={() => clearAllInputs()} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                    <Button variant="" onClick={clearAllInputs} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
                       Limpar
                     </Button>
                   </Col>
@@ -196,9 +203,12 @@ export function ClientModal() {
               </Form>
             </Tab>
             <Tab eventKey="Pesquisar" title="Pesquisar">
-              <Search />
-            </Tab>
+              <Search>
+                <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
 
+                <Button variant="secondary" onClick={searchClient}>Pesquisar</Button>
+              </Search>
+            </Tab>
           </Tabs>
 
         </Offcanvas.Body>

@@ -15,3 +15,8 @@ export interface ICliente {
   dataNascimento?: string
   observacao?: string
 }
+
+export interface ISearch {
+  text: string
+  page: number
+}

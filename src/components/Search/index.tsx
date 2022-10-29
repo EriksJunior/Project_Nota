@@ -1,10 +1,12 @@
-import { Button, Form, Stack } from 'react-bootstrap';
+import { Stack } from 'react-bootstrap';
+interface ISearchComponent {
+  children: JSX.Element[] | JSX.Element
+}
 
-export function Search() {
+export function Search({ children }: ISearchComponent) {
   return (
     <Stack direction="horizontal" gap={3}>
-      <Form.Control className="me-auto" placeholder="Faça sua pesquisa" />
-      <Button variant="secondary">Pesquisar</Button>
+      {children}
       <div className="vr" />
     </Stack>
   );

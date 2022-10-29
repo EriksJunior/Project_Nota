@@ -15,3 +15,8 @@ export const INITIAL_STATE_CLIENTE = {
   dataNascimento: "",
   observacao: "",
 }
+
+export const INITIAL_STATE_SEARCH = {
+  text: "",
+  page: 1
+}
