@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react';
 import { toast } from "react-toastify";
 
 import { Search } from '../Search/index';
+import { GenericTable } from '../GenericTable';
 import { ICliente, ISearch } from '../../interface/ICliente';
 import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from './initialState';
 
@@ -27,6 +28,8 @@ export function ClientModal() {
 
   const [client, setClient] = useState<ICliente>(INITIAL_STATE_CLIENTE);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
+  const [returnedClient, setReturnedClient] = useState<ICliente[]>()
+
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setClient({ ...client, [e.target.name]: e.target.value })
@@ -63,8 +66,12 @@ export function ClientModal() {
   }
 
   const searchClient = async () => {
-    const result = await ClienteService.search(search.text, search.page)
-    console.log(result)
+    try {
+      const result = await ClienteService.search(search.text, search.page)
+      setReturnedClient(result.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const handleSaveOrUpdate = async () => {
@@ -203,11 +210,16 @@ export function ClientModal() {
               </Form>
             </Tab>
             <Tab eventKey="Pesquisar" title="Pesquisar">
-              <Search>
-                <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
+              <Row>
+                <Search>
+                  <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
+                  <Button variant="secondary" onClick={searchClient}>Pesquisar</Button>
+                </Search>
+              </Row>
 
-                <Button variant="secondary" onClick={searchClient}>Pesquisar</Button>
-              </Search>
+              <Row className="mt-5">
+                <GenericTable textHeader1={'Nome'} textHeader2={'CPF/CNPJ'} textHeader3={'Dt Nascimento'} data={returnedClient}/>
+              </Row>
             </Tab>
           </Tabs>
 
