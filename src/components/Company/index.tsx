@@ -1,4 +1,4 @@
-import { Button, Card, Col, Form, FormLabel, FloatingLabel, Row } from 'react-bootstrap';
+import { Button, Card, Col, Form, FloatingLabel, Row } from 'react-bootstrap';
 import { IconIoHome } from '../Styles/bootstrap';
 import { IoCheckboxOutline } from "react-icons/io5";
 import { Dropzone } from '../DropzoneLogo/index';
@@ -21,7 +21,7 @@ export function InfoCompany() {
   }, [company]);
 
   async function updateCompany() {
-    const result = await CompanyService.save(company as ICompany)
+    const result = await CompanyService.update(company as ICompany)
     console.log(result)
   }
 
@@ -98,10 +98,9 @@ export function InfoCompany() {
                   <Form.Control type="text" onChange={handleChange} name="cidade" />
                 </FloatingLabel>
 
-                <Form.Group as={Col} controlId="formGridState">
-                  <Form.Label>Estado</Form.Label>
-                  <Form.Select >
-                    <option value="">Selecione...</option>
+                <FloatingLabel as={Col} className="mb-4" label="Estado">
+                  <Form.Select style={{ fontWeight: "bolder" }}>
+                    <option>Selecione...</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
                     <option value="AP">Amapá</option>
@@ -130,7 +129,7 @@ export function InfoCompany() {
                     <option value="SE">Sergipe</option>
                     <option value="TO">Tocantins</option>
                   </Form.Select>
-                </Form.Group>
+                </FloatingLabel>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
                   <FloatingLabel as={Col} className="mb-4" label="CEP">
