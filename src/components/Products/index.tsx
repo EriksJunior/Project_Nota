@@ -100,7 +100,7 @@ export function ProductsModal() {
               </Form>
             </Tab>
             <Tab eventKey="Pesquisar" title="Pesquisar">
-              <Search />
+              <h1>campo de pesquisa</h1>
             </Tab>
 
           </Tabs>
