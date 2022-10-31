@@ -1,8 +1,8 @@
 import { Table } from 'react-bootstrap';
-import { ICliente } from '../../interface/ICliente';
+import { ICliente } from '../../../../interface/ICliente';
 import {Row, Col} from 'react-bootstrap';
 
-import { IconBsPen, IconBsTrash } from '../../components/Styles/bootstrap'
+import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
 
 interface ITable {
   textHeader1?: string
@@ -11,7 +11,7 @@ interface ITable {
   data?: Array<ICliente>
 }
 
-export function GenericTable({ textHeader1, textHeader2, textHeader3, data }: ITable) {
+export function ClienteTable({ textHeader1, textHeader2, textHeader3, data }: ITable) {
   return (
     <Table striped bordered hover variant="dark">
       <thead>

@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import { toast } from "react-toastify";
 
 import { Search } from '../Search/index';
-import { GenericTable } from '../GenericTable';
+import { ClienteTable } from './components/ClienteTable';
 import { ICliente, ISearch } from '../../interface/ICliente';
 import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from './initialState';
 
@@ -263,7 +263,7 @@ export function ClientModal() {
               </Row>
 
               <Row className="mt-5">
-                <GenericTable textHeader1={'Nome'} textHeader2={'CPF/CNPJ'} textHeader3={'Dt Nascimento'} data={returnedClient} />
+                <ClienteTable textHeader1={'Nome'} textHeader2={'CPF/CNPJ'} textHeader3={'Dt Nascimento'} data={returnedClient} />
               </Row>
             </Tab>
           </Tabs>

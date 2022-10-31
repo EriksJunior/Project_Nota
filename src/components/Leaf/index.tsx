@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { LeafContext } from '../../context/leaf';
 import { Accordion, Button } from 'react-bootstrap';
 
-import { DataLeafProducts } from '../DataLeafProducts';
-import { GeneralLeafInformation } from '../GeneralLeafInformation';
-import { HeaderLeaf } from '../HeaderLeaf';
+import { DataLeafProducts } from './components/DataLeafProducts';
+import { GeneralLeafInformation } from './components/GeneralLeafInformation';
+import { HeaderLeaf } from './components/HeaderLeaf';
 
 import { ContentLeaf } from '../Styles/general';
 import { StyledAccordion } from './styles';

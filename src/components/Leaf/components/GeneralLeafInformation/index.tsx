@@ -1,8 +1,8 @@
 import { Form, Col, Row, Button, Accordion, FloatingLabel } from 'react-bootstrap';
 import { IoCheckboxOutline, IoRefresh } from "react-icons/io5";
 
-import { ButtonLeaf } from '../Styles/general';
-import { StyledAccordion } from '../Leaf/styles'
+import { ButtonLeaf } from '../../../Styles/general';
+import { StyledAccordion } from '../../styles'
 
 
 export function GeneralLeafInformation() {

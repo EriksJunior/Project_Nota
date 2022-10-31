@@ -1,9 +1,9 @@
 import { useEffect, useContext, useCallback } from 'react'
 import { Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
-import { ICliente } from '../../interface/ICliente'
-import { PedidoLeaf } from '../../interface/ILeaf'
+import { ICliente } from '../../../../interface/ICliente'
+import { PedidoLeaf } from '../../../../interface/ILeaf'
 import { Container } from './styles'
-import { LeafContext } from '../../context/leaf'
+import { LeafContext } from '../../../../context/leaf'
 
 export function HeaderLeaf() {
   const { cliente, getClientesFromSelectBox, pedido, setPedido } = useContext(LeafContext) as { cliente: Array<ICliente>, getClientesFromSelectBox: any, pedido: PedidoLeaf, setPedido: any }
