@@ -10,6 +10,8 @@ import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from './initialState';
 
 import ClienteService from '../../services/ClienteService';
 
+import { contentTabs } from './styles'
+
 import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
@@ -93,17 +95,18 @@ export function ClientModal() {
         </Text>
       </ButtonBt>
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} style={{ width: "50vw" }} >
         <Offcanvas.Header style={{ background: "#1C1C1C", color: "whitesmoke" }} closeButton>
-          <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "30px" }}>Cadastre o Cliente</Offcanvas.Title>
+          <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}>Cadastre o Cliente</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }}>
           <Tabs
             defaultActiveKey="Cadastro"
             id="clientTabs"
-            className="mb-3"
+            className="mb-3" 
+            style={{ fontSize:"20px" , gap:"20px" , background:"#363636" , borderRadius:"10px 20px 0px 2px" }}
           >
-            <Tab eventKey="Cadastro" title="Cadastro">
+            <Tab eventKey="Cadastro"  title="Cadastro" >
               <Form >
                 <Form.Control onChange={handleChange} hidden name="id" type="text" />
 
@@ -111,32 +114,45 @@ export function ClientModal() {
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" value={client.nome || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="CPF/CNPJ">
+                <Row className="mb-4 ">
+                <FloatingLabel as={Col}  label="CPF/CNPJ">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
                 </FloatingLabel>
+
+                <FloatingLabel as={Col}  label="Data nascimento">
+                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento || ""} />
+                </FloatingLabel>
+                </Row>
 
                 <FloatingLabel className="mb-4" label="Endereço">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Número">
+                <Row className="mb-4 ">
+                <FloatingLabel as={Col}  label="Número">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Complemento">
+                <FloatingLabel as={Col} label="Complemento">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="complemento" type="text" value={client.complemento || ""} />
                 </FloatingLabel>
+                </Row>
 
-                <FloatingLabel className="mb-4" label="Bairro">
+                
+                <Row className="mb-4 ">
+
+                <FloatingLabel as={Col} label="Bairro">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Cidade">
+                <FloatingLabel as={Col} label="Cidade">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
                 </FloatingLabel>
+                </Row>
 
+                <Row className="mb-4 ">
 
-                <FloatingLabel className="mb-4" label="Estado">
+                <FloatingLabel as={Col} label="Estado">
                   <Form.Select style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} onChange={handleChange} name="uf" value={client.uf || ""}>
                     <option>Selecione...</option>
                     <option value="AC">Acre</option>
@@ -169,19 +185,25 @@ export function ClientModal() {
                   </Form.Select>
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="CEP">
+                <FloatingLabel as={Col} label="CEP">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cep" type="text" value={client.cep || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-3" label="Telefone">
+                </Row>
+
+                <Row className="mb-4 ">
+
+                <FloatingLabel as={Col} label="Telefone">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" value={client.telefone || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-3" label="Celular">
+                <FloatingLabel as={Col} label="Celular">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="celular" type="text" value={client.celular || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Email">
+                </Row>
+
+                <FloatingLabel className="mb-4 " label="Email">
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="text" value={client.email || ""} />
                 </FloatingLabel>
 
@@ -189,19 +211,17 @@ export function ClientModal() {
                   <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Data nascimento">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento || ""} />
-                </FloatingLabel>
+                
 
                 <Row className=" gap-5">
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={handleSaveOrUpdate} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                    <Button variant="" onClick={handleSaveOrUpdate} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" , width:"300px" }}>
                       Cadastrar
                     </Button>
                   </Col>
 
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={clearAllInputs} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                    <Button variant="" onClick={clearAllInputs} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" , width:"300px" }}>
                       Limpar
                     </Button>
                   </Col>
@@ -218,7 +238,7 @@ export function ClientModal() {
               </Row>
 
               <Row className="mt-5">
-                <GenericTable textHeader1={'Nome'} textHeader2={'CPF/CNPJ'} textHeader3={'Dt Nascimento'} data={returnedClient}/>
+                <GenericTable textHeader1={'Nome'} textHeader2={'CPF/CNPJ'} textHeader3={'Dt Nascimento'} data={returnedClient} />
               </Row>
             </Tab>
           </Tabs>

@@ -38,56 +38,57 @@ export function ProductsModal() {
         </Text>
       </ButtonBt>
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} style={{ width: "50%" }}>
         <Offcanvas.Header style={{ background: "#1C1C1C" }} closeButton>
-          <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "30px" }}  >Cadastro de Produto</Offcanvas.Title>
+          <Offcanvas.Title style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}  >Cadastro de Produto</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }}>
           <Tabs
             defaultActiveKey="Cadastro"
             id="clientTabs"
             className="mb-3"
+            style={{ fontSize:"20px" , gap:"20px" , background:"#363636" , borderRadius:"10px 20px 0px 2px" }}
           >
             <Tab eventKey="Cadastro" title="Cadastro">
               <Form >
                 <FloatingLabel className="mb-4" label="Nome Do Produto">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="nome" placeholder="Nome Do Produto" />
+                  <Form.Control style={{ background: "#1C1C1C" }} type="text" onChange={handleChange} name="nome"/>
                 </FloatingLabel >
                 <Row className="mb-3 ">
 
                   <FloatingLabel as={Col} className="mb-4" label="Valor">
-                    <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="valor" placeholder="Valor" />
+                    <Form.Control style={{ background: "#1C1C1C" }} type="text" onChange={handleChange} name="valor"/>
                   </FloatingLabel>
 
                   <FloatingLabel as={Col} className="mb-4" label="Valor de Venda">
-                    <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="valorVenda" placeholder="Valor de Venda" />
+                    <Form.Control style={{ background: "#1C1C1C" }} type="text" onChange={handleChange} name="valorVenda"/>
                   </FloatingLabel>
+
+                  <FloatingLabel as={Col} className="mb-4" label="Unidade">
+                  <Form.Control style={{ background: "#1C1C1C" }} type="text" onChange={handleChange} name="unidade"/>
+                </FloatingLabel>
 
                 </Row>
 
-                <FloatingLabel className="mb-4" label="Unidade">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="unidade" placeholder="Unidade" />
-                </FloatingLabel>
-
                 <FloatingLabel className="mb-4" label="Descrição">
-                  <Form.Control as="textarea" style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="descricao" placeholder="Descrição" />
+                  <Form.Control as="textarea" style={{ background: "#1C1C1C" }} type="text" onChange={handleChange} name="descricao"/>
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Código de Barras">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="codBarras" placeholder="Código de Barras" />
+                  <Form.Control style={{ background: "#1C1C1C"}} type="text" onChange={handleChange} name="codBarras"/>
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Código de Referência">
-                  <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="codReferencia" placeholder="Código de Referência" />
+                  <Form.Control style={{ background: "#1C1C1C"}} type="text" onChange={handleChange} name="codReferencia"/>
                 </FloatingLabel>
 
                 <Row className="mb-3">
                   <FloatingLabel as={Col} className="mb-4" label="Estoque">
-                    <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="estoque" placeholder="Estoque" />
+                    <Form.Control style={{ background: "#1C1C1C"}} type="text" onChange={handleChange} name="estoque"/>
                   </FloatingLabel>
 
                   <FloatingLabel as={Col} className="mb-4" label="Estoque Mínimo">
-                    <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} type="text" onChange={handleChange} name="estoqueMin" placeholder="Estoque Mínimo" />
+                    <Form.Control style={{ background: "#1C1C1C"}} type="text" onChange={handleChange} name="estoqueMin"/>
                   </FloatingLabel>
                 </Row>
 

@@ -16,6 +16,9 @@ export const ContentLeaf = styled.div`
   padding: 10px;
   margin-top: 25px;
   flex-direction: column;
+  border: 20px solid #DCDCDC;
+  border-style: double;
+  border-radius: 50px 50px 10px 10px;
 `
 
 export const ButtonLeaf = styled.div`
