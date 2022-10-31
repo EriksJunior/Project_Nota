@@ -104,10 +104,10 @@ export function ClientModal() {
             style={{ fontSize: "20px", gap: "20px", background: "#363636", borderRadius: "10px 20px 0px 2px" }}
           >
             <Tab eventKey="Cadastro" title="Cadastro" >
-              <Form >
+              <Form className="d-flex flex-column gap-3">
                 <Form.Control onChange={handleChange} hidden name="id" type="text" />
 
-                <Row className="mb-4">
+                <Row>
                   <Col>
                     <FloatingLabel label="Nome do Cliente">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" value={client.nome || ""} />
@@ -115,7 +115,7 @@ export function ClientModal() {
                   </Col>
                 </Row>
 
-                <Row className="mb-4 ">
+                <Row>
                   <Col>
                     <FloatingLabel label="CPF/CNPJ">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
@@ -131,13 +131,13 @@ export function ClientModal() {
 
                 <Row>
                   <Col>
-                    <FloatingLabel className="mb-4" label="Endereço">
+                    <FloatingLabel label="Endereço">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
-                <Row className="mb-4 ">
+                <Row>
                   <Col>
                     <FloatingLabel label="Número">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
@@ -152,7 +152,7 @@ export function ClientModal() {
                 </Row>
 
 
-                <Row className="mb-4 ">
+                <Row>
                   <Col>
                     <FloatingLabel label="Bairro">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
@@ -166,7 +166,7 @@ export function ClientModal() {
                   </Col>
                 </Row>
 
-                <Row className="mb-4 ">
+                <Row>
                   <Col>
                     <FloatingLabel label="Estado">
                       <Form.Select style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} onChange={handleChange} name="uf" value={client.uf || ""}>
@@ -209,7 +209,7 @@ export function ClientModal() {
                   </Col>
                 </Row>
 
-                <Row className="mb-4 ">
+                <Row>
                   <Col>
                     <FloatingLabel label="Telefone">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" value={client.telefone || ""} />
@@ -225,13 +225,13 @@ export function ClientModal() {
 
                 <Row>
                   <Col>
-                    <FloatingLabel className="mb-4 " label="Email">
+                    <FloatingLabel label="Email">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="text" value={client.email || ""} />
                     </FloatingLabel>
                   </Col>
 
                   <Col>
-                    <FloatingLabel className="mb-4" label="Observação">
+                    <FloatingLabel label="Observação">
                       <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
                     </FloatingLabel>
                   </Col>

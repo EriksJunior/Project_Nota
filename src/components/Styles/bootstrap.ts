@@ -1,6 +1,7 @@
 import { Button, Dropdown } from "react-bootstrap";
 import { IoHome, IoNewspaper, IoHelpCircleOutline } from "react-icons/io5";
-import { BiBox, BiUser } from "react-icons/bi";
+import { BiBox, BiUser } from "react-icons/bi"; 
+import { BsPen, BsTrash } from "react-icons/bs";
 import styled from "styled-components";
 
 
@@ -21,6 +22,14 @@ color: #8A2BE2;
 `
 
 export const IconIoHelpCircleOutline = styled(IoHelpCircleOutline)`
+color: #8A2BE2;
+`
+
+export const IconBsPen = styled(BsPen)`
+color: #8A2BE2;
+`
+
+export const IconBsTrash = styled(BsTrash)`
 color: #8A2BE2;
 `
 

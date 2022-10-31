@@ -1,5 +1,8 @@
 import { Table } from 'react-bootstrap';
 import { ICliente } from '../../interface/ICliente';
+import {Row, Col} from 'react-bootstrap';
+
+import { IconBsPen, IconBsTrash } from '../../components/Styles/bootstrap'
 
 interface ITable {
   textHeader1?: string
@@ -16,7 +19,7 @@ export function GenericTable({ textHeader1, textHeader2, textHeader3, data }: IT
           <th>{textHeader1}</th>
           <th>{textHeader2}</th>
           <th>{textHeader3}</th>
-          <th>Ações</th>
+          <th className='text-center'>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +28,17 @@ export function GenericTable({ textHeader1, textHeader2, textHeader3, data }: IT
             <td>{e?.nome}</td>
             <td>{e.cpfCnpj}</td>
             <td>{e.dataNascimento}</td>
-            <td>X</td>
+            <td className='text-center' >
+              <Row>
+                <Col role="button" className='p-0'>
+                  <IconBsPen size={20}/>
+                </Col>
+
+                <Col role="button" className='p-0'>
+                  <IconBsTrash size={20}/>
+                </Col>
+              </Row>
+            </td>
           </tr>
         )}
       </tbody>
