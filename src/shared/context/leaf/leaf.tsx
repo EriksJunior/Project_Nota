@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import Leaf from "./hooks/leafContext";
+import UseLeaf from "../../hooks/useLeaf";
 
 interface AuxProps {
   children: JSX.Element[] | JSX.Element
@@ -8,7 +8,7 @@ interface AuxProps {
 const LeafContext = createContext({})
 
 function LeafProvider({ children }: AuxProps) {
-  const { getClientesFromSelectBox, cliente, produto, setProduto, pedido, setPedido } = Leaf()
+  const { getClientesFromSelectBox, cliente, produto, setProduto, pedido, setPedido } = UseLeaf()
 
   return (
     <LeafContext.Provider value={{ cliente, getClientesFromSelectBox, produto, setProduto, pedido, setPedido }}>

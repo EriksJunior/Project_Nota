@@ -1,5 +1,5 @@
 import { Table } from 'react-bootstrap';
-import { ICliente } from '../../../../interface/ICliente';
+import { ICliente } from '../../../../../interface/ICliente';
 import {Row, Col} from 'react-bootstrap';
 
 import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'

@@ -1,5 +1,5 @@
-import { Leaf } from '../../components/Leaf'
-import { LeafProvider } from '../../context/leaf'
+import { Leaf } from '../../shared/components/Leaf'
+import { LeafProvider } from '../../shared/context/leaf/leaf'
 
 export function Home() {
   return (

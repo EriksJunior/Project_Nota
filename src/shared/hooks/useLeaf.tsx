@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ICliente } from "../../interface/ICliente";
 import {ProdutosLeaf, PedidoLeaf} from "../../interface/ILeaf"
 import ClienteService from "../../services/ClienteService";
-import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS } from "../initialStates/initialStateLeaf";
+import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS } from "../context/leaf/initialStates/initialStateLeaf";
 
-export default function Leaf() {
+export default function UseLeaf() {
   const [cliente, setCliente] = useState<ICliente[]>([])
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produto, setProduto] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)

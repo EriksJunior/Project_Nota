@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react'
-import { LeafContext } from '../../../../context/leaf';
-import { ProdutosLeaf } from '../../../../interface/ILeaf';
+import { LeafContext } from '../../../../context/leaf/leaf';
+import { ProdutosLeaf } from '../../../../../interface/ILeaf';
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
 
 export function DataLeafProducts() {
