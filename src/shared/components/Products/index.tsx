@@ -5,8 +5,8 @@ import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
 import { Search } from '../Search/index';
-import ProductServices from '../../services/ProductService';
-import { IProducts } from '../../interface/IProducts';
+import ProductServices from '../../../services/ProductService';
+import { IProducts } from '../../../interface/IProducts';
 
 
 

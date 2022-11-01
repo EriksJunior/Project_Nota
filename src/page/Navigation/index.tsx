@@ -1,4 +1,4 @@
-import { Navegation } from '../../components/Navegation/index'
+import { Navegation } from '../../shared/components/Navegation/index'
 
 export function PageNavegation() {
   return (

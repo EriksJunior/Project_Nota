@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LeafContext } from '../../context/leaf';
+import { LeafContext } from '../../context/leaf/leaf';
 import { Accordion, Button } from 'react-bootstrap';
 
 import { DataLeafProducts } from './components/DataLeafProducts';
@@ -8,7 +8,7 @@ import { HeaderLeaf } from './components/HeaderLeaf';
 
 import { ContentLeaf } from '../Styles/general';
 import { StyledAccordion } from './styles';
-import { ProdutosLeaf, PedidoLeaf } from '../../interface/ILeaf';
+import { ProdutosLeaf, PedidoLeaf } from '../../../interface/ILeaf';
 
 interface LeafProps {
 

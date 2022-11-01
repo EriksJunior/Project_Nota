@@ -1,5 +1,5 @@
 import { IoSettingsSharp } from "react-icons/io5";
-import { DropDownBt, IconIoHome, IconIoNewspaper, IconIoHelpCircleOutline } from "../../components/Styles/bootstrap";
+import { DropDownBt, IconIoHome, IconIoNewspaper, IconIoHelpCircleOutline } from "../../shared/components/Styles/bootstrap";
 import { Link } from "react-router-dom";
 
 export function Settings() {

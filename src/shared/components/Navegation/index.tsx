@@ -1,4 +1,4 @@
-import { Settings } from '../../page/Settings'
+import { Settings } from '../../../page/Settings'
 import { ClientModal } from '../Cliente/index'
 import { ProductsModal } from '../Products/index'
 

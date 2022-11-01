@@ -4,11 +4,11 @@ import { IoCheckboxOutline } from "react-icons/io5";
 import { Dropzone } from '../DropzoneLogo/index';
 import { ButtonAtt, ButtonReturn, ButtonContent, CardCompany, LogoEmpresa } from './styles'
 
-import { ICompany } from '../../interface/ICompany';
+import { ICompany } from '../../../interface/ICompany';
 
 import { Link } from "react-router-dom";
 import { useCallback, useState } from 'react';
-import CompanyService from '../../services/CompanyService';
+import CompanyService from '../../../services/CompanyService';
 
 
 export function InfoCompany() {

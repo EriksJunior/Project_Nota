@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
-import { ICliente, ISearch } from '../../interface/ICliente';
+import { ICliente, ISearch } from '../../../interface/ICliente';
 import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from './initialState';
 
-import ClienteService from '../../services/ClienteService';
+import ClienteService from '../../../services/ClienteService';
 
 import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
