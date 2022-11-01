@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 
 
 
-export function MainInfoFiscale() {
+export function IpiInfo() {
     return (
         <>
             <Card className="text-center">
@@ -39,10 +39,14 @@ export function MainInfoFiscale() {
                             </FloatingLabel>
                         </Form.Group>
 
+                        <FloatingLabel className="mb-4" controlId="" label="Códido de enquadramento">
+                            <Form.Control type="text" />
+                        </FloatingLabel>
+
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
-                            <FloatingLabel controlId="floatingPassword" label="Aliquota">
-                                <Form.Control type="password" />
+                            <FloatingLabel controlId="" label="Aliquota">
+                                <Form.Control type="text" />
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

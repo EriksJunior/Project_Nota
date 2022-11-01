@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 
 
 
-export function MainInfoFiscale() {
+export function IssqnInfo() {
     return (
         <>
             <Card className="text-center">
@@ -29,20 +29,37 @@ export function MainInfoFiscale() {
                             </FloatingLabel>
                         </Form.Group>
 
+                        <FloatingLabel className="mb-4" controlId="" label="Código CFOP">
+                            <Form.Control type="text" />
+                        </FloatingLabel>
+
                         <Form.Group as={Col} controlId="formGridState">
-                            <FloatingLabel className="mb-4" label="Situação Tributária">
+                            <FloatingLabel className="mb-4" label="Indicador da exigibilidade do ISS">
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
-                                    <option value="">99 - Outras saídas</option>
-                                    <option value="">99 - Outras saídas</option>
-                                    <option value="">99 - Outras saídas</option>
+                                    <option value="">Exigível</option>
+                                    <option value="">Exigível</option>
+                                    <option value="">Exigível</option>
+                                </Form.Select>
+                            </FloatingLabel>
+                        </Form.Group>
+
+                        <FloatingLabel className="mb-4" controlId="" label="Item da lista de serviços">
+                            <Form.Control type="text" />
+                        </FloatingLabel>
+
+                        <Form.Group as={Col} controlId="formGridState">
+                            <FloatingLabel className="mb-4" label="Indicador de incentivo Fiscal">
+                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
+                                    <option value="">Não</option>
+                                    <option value="">Sim</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
-                            <FloatingLabel controlId="floatingPassword" label="Aliquota">
-                                <Form.Control type="password" />
+                            <FloatingLabel controlId="" label="Aliquota do ISSQN">
+                                <Form.Control type="text" />
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

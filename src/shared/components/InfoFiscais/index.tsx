@@ -1,9 +1,14 @@
-import { Col, Nav, Row, Tab, Card } from 'react-bootstrap';
+import { Col, Nav, Row, Tab, Card , Button } from 'react-bootstrap';
 import { GeneralDataInfoFiscale } from './components/GeneralDataInfoFiscale';
 import { GeneralinfoFiscale } from './components/GeneralinfoFiscale';
 import { MainInfoFiscale } from './components/MainInfoFiscale';
 import { CardInfoFiscale } from './styles';
-
+import { IoCheckboxOutline } from 'react-icons/io5';
+import { ButtonContent } from '../../../shared/components/Company/styles';
+import { IconIoHome } from '../../../shared/components/Styles/bootstrap';
+import { IcmsInfo } from './components/MainInfoFiscale/ICMS';
+import { IpiInfo } from './components/MainInfoFiscale/IPI';
+import { IssqnInfo } from './components/MainInfoFiscale/ISSQN';
 
 
 export function InfoFiscaisGlobal() {
@@ -45,10 +50,10 @@ export function InfoFiscaisGlobal() {
                                     <GeneralDataInfoFiscale/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="second">
-                                    <GeneralinfoFiscale/>
+                                    <IcmsInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="terciary">
-                                    <MainInfoFiscale/>
+                                    <IpiInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fourth">
                                     <MainInfoFiscale/>
@@ -57,7 +62,7 @@ export function InfoFiscaisGlobal() {
                                     <MainInfoFiscale/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="sixth">
-                                    <MainInfoFiscale/>
+                                    <IssqnInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="seventh">
                                     <GeneralinfoFiscale/>
@@ -67,6 +72,16 @@ export function InfoFiscaisGlobal() {
                     </Row>
                 </Tab.Container>
             </Card.Body>
+            <Card.Footer className="text-muted">
+                    <ButtonContent>
+                        <Button variant="secondary" size='lg'>
+                            <IconIoHome /> <span>Limpar Campos</span>
+                        </Button>
+                        <Button variant="success" size='lg' style={{ color: "white" }}>
+                            <IoCheckboxOutline /> Salvar alterações
+                        </Button>
+                    </ButtonContent>
+                </Card.Footer>
         </CardInfoFiscale>
     </div>
     );
