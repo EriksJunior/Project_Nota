@@ -46,14 +46,17 @@ export function InfoCompany() {
                   </FloatingLabel>
                 </Col>
 
+                <Col>
+                  <FloatingLabel as={Col} className="mb-4" label=" Razão Social">
+                    <Form.Control type="text" onChange={handleChange} name="razaoSocial" />
+                  </FloatingLabel>
+                </Col>
 
-                <FloatingLabel as={Col} className="mb-4" label=" Razão Social">
-                  <Form.Control type="text" onChange={handleChange} name="razaoSocial" />
-                </FloatingLabel>
-
-                <FloatingLabel as={Col} className="mb-4" label=" Nome Fantasia">
-                  <Form.Control type="text" onChange={handleChange} name="nomeFant" />
-                </FloatingLabel>
+                <Col>
+                  <FloatingLabel as={Col} className="mb-4" label=" Nome Fantasia">
+                    <Form.Control type="text" onChange={handleChange} name="nomeFant" />
+                  </FloatingLabel>
+                </Col>
               </Row>
 
               <Row className="mb-3">
@@ -63,13 +66,16 @@ export function InfoCompany() {
                   </FloatingLabel>
                 </Col>
 
-                <FloatingLabel as={Col} className="mb-4" label="CPF/CNPJ">
-                  <Form.Control type="text" onChange={handleChange} name="cpfCnpj" />
-                </FloatingLabel>
-
-                <FloatingLabel as={Col} className="mb-4" label="IE">
-                  <Form.Control type="text" onChange={handleChange} name="IE" />
-                </FloatingLabel>
+                <Col>
+                  <FloatingLabel as={Col} className="mb-4" label="CPF/CNPJ">
+                    <Form.Control type="text" onChange={handleChange} name="cpfCnpj" />
+                  </FloatingLabel>
+                </Col>
+                <Col>
+                  <FloatingLabel as={Col} className="mb-4" label="IE">
+                    <Form.Control type="text" onChange={handleChange} name="IE" />
+                  </FloatingLabel>
+                </Col>
 
               </Row>
               <Row className="mb-3">
@@ -94,42 +100,46 @@ export function InfoCompany() {
               </Row>
 
               <Row className="mb-3">
-                <FloatingLabel as={Col} className="mb-4" label="Cidade">
-                  <Form.Control type="text" onChange={handleChange} name="cidade" />
-                </FloatingLabel>
+                <Col>
+                  <FloatingLabel as={Col} className="mb-4" label="Cidade">
+                    <Form.Control type="text" onChange={handleChange} name="cidade" />
+                  </FloatingLabel>
+                </Col>
 
-                <FloatingLabel as={Col} className="mb-4" label="Estado">
-                  <Form.Select style={{ fontWeight: "bolder" }}>
-                    <option>Selecione...</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espirito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                  </Form.Select>
-                </FloatingLabel>
+                <Col>
+                  <FloatingLabel as={Col} className="mb-4" label="Estado">
+                    <Form.Select style={{ fontWeight: "bolder" }}>
+                      <option>Selecione...</option>
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espirito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                    </Form.Select>
+                  </FloatingLabel>
+                </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
                   <FloatingLabel as={Col} className="mb-4" label="CEP">
