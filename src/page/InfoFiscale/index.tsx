@@ -1,4 +1,4 @@
-import { InfoFiscaisGlobal } from '../../components/InfoFiscais/index'
+import { InfoFiscaisGlobal } from '../../shared/components/InfoFiscais/index'
 
 export function InfoFiscale() {
     return (
