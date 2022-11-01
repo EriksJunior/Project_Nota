@@ -10,7 +10,7 @@ export function Navegation() {
         <ClientModal />
         <ProductsModal />
       </Content>
-
+      <h1 style={{ color:"white"}}> Empresa </h1>
       <SettingsContent>
         <Settings />
       </SettingsContent>
