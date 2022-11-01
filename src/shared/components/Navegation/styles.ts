@@ -44,3 +44,13 @@ export const SettingsContent = styled.div`
     flex-direction: column;
   }
 `
+
+export const TextCompany = styled.h1`
+    color: #DCDCDC;
+    align-items: center;
+    text-shadow: -0.1em 0em #8A2BE2;
+    letter-spacing: 8px;
+    display: flex;
+    font-weight: bold;
+    outline: none;
+`

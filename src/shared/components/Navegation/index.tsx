@@ -1,8 +1,9 @@
 import { Settings } from '../../../page/Settings'
 import { ClientModal } from '../Cliente/index'
 import { ProductsModal } from '../Products/index'
+import { Link } from "react-router-dom";
 
-import { Container, Content, SettingsContent } from './styles'
+import { Container, Content, SettingsContent, TextCompany } from './styles'
 export function Navegation() {
   return (
     <Container>
@@ -10,7 +11,7 @@ export function Navegation() {
         <ClientModal />
         <ProductsModal />
       </Content>
-      <h1 style={{ color:"white"}}> Empresa </h1>
+      <TextCompany as={Link} to="/"> Empresa </TextCompany>
       <SettingsContent>
         <Settings />
       </SettingsContent>

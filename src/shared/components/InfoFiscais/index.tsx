@@ -16,10 +16,10 @@ export function InfoFiscaisGlobal() {
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
             <Card.Header>Dados Fiscais</Card.Header>
-            <Card.Body>
+            <Card.Body style={{ height:"80vh" }}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
-                        <Col sm={3}>
+                        <Col sm={2}>
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item>
                                     <Nav.Link eventKey="first">Informações Gerais</Nav.Link>
@@ -44,7 +44,7 @@ export function InfoFiscaisGlobal() {
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col sm={9}>
+                        <Col sm={10}>
                             <Tab.Content>
                                 <Tab.Pane eventKey="first">
                                     <GeneralDataInfoFiscale/>
@@ -77,7 +77,7 @@ export function InfoFiscaisGlobal() {
                         <Button variant="secondary" size='lg'>
                             <IconIoHome /> <span>Limpar Campos</span>
                         </Button>
-                        <Button variant="success" size='lg' style={{ color: "white" }}>
+                        <Button variant="" size='lg' style={{ background:"#8A2BE2" , color: "white" }}>
                             <IoCheckboxOutline /> Salvar alterações
                         </Button>
                     </ButtonContent>
