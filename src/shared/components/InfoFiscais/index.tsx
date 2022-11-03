@@ -2,7 +2,7 @@ import { Col, Nav, Row, Tab, Card , Button } from 'react-bootstrap';
 import { GeneralDataInfoFiscale } from './components/GeneralDataInfoFiscale';
 import { GeneralinfoFiscale } from './components/GeneralinfoFiscale';
 import { MainInfoFiscale } from './components/MainInfoFiscale';
-import { CardInfoFiscale } from './styles';
+import { CardInfoFiscale , NavFiscale } from './styles';
 import { IoCheckboxOutline } from 'react-icons/io5';
 import { ButtonContent } from '../../../shared/components/Company/styles';
 import { IconIoHome } from '../../../shared/components/Styles/bootstrap';
@@ -15,12 +15,12 @@ export function InfoFiscaisGlobal() {
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
-            <Card.Header>Dados Fiscais</Card.Header>
+            <Card.Header >Dados Fiscais</Card.Header>
             <Card.Body style={{ height:"80vh" }}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
                         <Col sm={2}>
-                            <Nav variant="pills" className="flex-column">
+                            <NavFiscale variant="pills" className="flex-column">
                                 <Nav.Item>
                                     <Nav.Link eventKey="first">Informações Gerais</Nav.Link>
                                 </Nav.Item>
@@ -42,7 +42,7 @@ export function InfoFiscaisGlobal() {
                                 <Nav.Item>
                                     <Nav.Link eventKey="seventh">Informações Complementares</Nav.Link>
                                 </Nav.Item>
-                            </Nav>
+                            </NavFiscale>
                         </Col>
                         <Col sm={10}>
                             <Tab.Content>
