@@ -5,27 +5,13 @@ import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
 import { Search } from '../Search/index';
-import ProductServices from '../../../services/ProductService';
-import { IProducts } from '../../../interface/IProducts';
+
+import { UseProducts } from '../../hooks/useProducts';
 
 
 
 export function ProductsModal() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const [produtos, setProdutos] = useState<IProducts>();
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setProdutos({ ...produtos, [e.target.name]: e.target.value })
-  }, [produtos]);
-
-  async function saveProducts() {
-    const result = await ProductServices.save(produtos as IProducts)
-    console.log(result)
-  }
+  const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, show} = UseProducts();
 
   return (
     <>
@@ -94,7 +80,7 @@ export function ProductsModal() {
 
 
                 <div className="d-grid gap-2">
-                  <Button variant="" type="button" onClick={saveProducts} size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                  <Button variant="" type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
                     Cadastrar
                   </Button>
                 </div>

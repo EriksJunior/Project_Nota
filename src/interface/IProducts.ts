@@ -11,3 +11,8 @@ export interface IProducts {
   estoqueMin?: number | string
 
 }
+
+export interface ISearch {
+  text: string
+  page: number
+}
