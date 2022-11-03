@@ -52,5 +52,7 @@ export const TextCompany = styled.h1`
     letter-spacing: 8px;
     display: flex;
     font-weight: bold;
-    outline: none;
+    outline: none !important;
+    text-decoration: none;
+    font-size: 30px;
 `
