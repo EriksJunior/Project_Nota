@@ -55,4 +55,8 @@ export const TextCompany = styled.h1`
     outline: none !important;
     text-decoration: none;
     font-size: 30px;
+  .a:hover {
+    color: #ffffff;
+
+    }
 `

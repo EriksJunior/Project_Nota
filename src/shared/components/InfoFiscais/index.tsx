@@ -5,7 +5,7 @@ import { MainInfoFiscale } from './components/MainInfoFiscale';
 import { CardInfoFiscale , NavFiscale } from './styles';
 import { IoCheckboxOutline } from 'react-icons/io5';
 import { ButtonContent } from '../../../shared/components/Company/styles';
-import { IconIoHome } from '../../../shared/components/Styles/bootstrap';
+import { IconIoHome , IconBsPen } from '../../../shared/components/Styles/bootstrap';
 import { IcmsInfo } from './components/MainInfoFiscale/ICMS';
 import { IpiInfo } from './components/MainInfoFiscale/IPI';
 import { IssqnInfo } from './components/MainInfoFiscale/ISSQN';
@@ -15,8 +15,8 @@ export function InfoFiscaisGlobal() {
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
-            <Card.Header >Dados Fiscais</Card.Header>
-            <Card.Body style={{ height:"80vh" }}>
+            <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#8A2BE2" , color:"whitesmoke" }} >Dados Fiscais</Card.Header>
+            <Card.Body style={{ height:"auto" }}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
                         <Col sm={2}>
@@ -74,8 +74,8 @@ export function InfoFiscaisGlobal() {
             </Card.Body>
             <Card.Footer className="text-muted">
                     <ButtonContent>
-                        <Button variant="secondary" size='lg'>
-                            <IconIoHome /> <span>Limpar Campos</span>
+                        <Button variant="" size='lg' style={{ background:"#8A2BE2" , color: "white" }}>
+                            <IconBsPen />Limpar Campos
                         </Button>
                         <Button variant="" size='lg' style={{ background:"#8A2BE2" , color: "white" }}>
                             <IoCheckboxOutline /> Salvar alterações
