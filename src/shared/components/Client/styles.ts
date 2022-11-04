@@ -3,7 +3,5 @@ import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs } from 'react-bootstr
 
 
 export const contentTabs = styled(Tabs)`
-     {
         background: "red";
-}
 `

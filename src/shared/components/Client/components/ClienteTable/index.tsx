@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import { ICliente } from '../../../../../interface/ICliente';
-import {Row, Col} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
+import ClienteService from '../../../../../services/ClienteService'
+import { ClientContext } from '../../../../context/client/client'
 
 interface ITable {
   textHeader1?: string
@@ -11,14 +14,21 @@ interface ITable {
   data?: Array<ICliente>
 }
 
-export function ClienteTable({ textHeader1, textHeader2, textHeader3, data }: ITable) {
+export function ClienteTable({ data }: ITable) {
+  const { setClient } = useContext(ClientContext) as { setClient: any }
+
+  const findClientById = async (id: string | undefined) => {
+    const result = await ClienteService.findById(id)
+    setClient(result)
+  }
+
   return (
     <Table striped bordered hover variant="dark">
       <thead>
         <tr>
-          <th>{textHeader1}</th>
-          <th>{textHeader2}</th>
-          <th>{textHeader3}</th>
+          <th>Nome</th>
+          <th>CPF/CNPJ</th>
+          <th>Dt Nascimento</th>
           <th className='text-center'>Ações</th>
         </tr>
       </thead>
@@ -31,11 +41,11 @@ export function ClienteTable({ textHeader1, textHeader2, textHeader3, data }: IT
             <td className='text-center' >
               <Row>
                 <Col role="button" className='p-0'>
-                  <IconBsPen size={20}/>
+                  <IconBsPen size={20} onClick={() => findClientById(e.id)} />
                 </Col>
 
                 <Col role="button" className='p-0'>
-                  <IconBsTrash size={20}/>
+                  <IconBsTrash size={20} />
                 </Col>
               </Row>
             </td>

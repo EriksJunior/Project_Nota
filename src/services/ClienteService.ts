@@ -1,6 +1,6 @@
 import { api } from '../utils/configs/api';
 import { ICliente } from '../interface/ICliente';
- class ClienteService {
+class ClienteService {
   async save(dataCliente: ICliente) {
     const { data } = await api.post('/customers', dataCliente)
     return data
@@ -16,6 +16,11 @@ import { ICliente } from '../interface/ICliente';
 
   async getFromSelectBox() {
     const { data } = await api.get('/customers/combobox')
+    return data
+  }
+
+  async findById(id: string | undefined) {
+    const { data } = await api.get(`/customers/${id}`)
     return data
   }
 

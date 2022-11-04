@@ -1,17 +1,17 @@
 import { useState, useCallback } from 'react';
 
-import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../components/Cliente/initialState';
+import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../components/Client/initialState';
 import ClienteService from '../../services/ClienteService'
 import { toast } from "react-toastify";
 
 import { ICliente, ISearch } from '../../interface/ICliente';
 
-export function UseCliente(){
+export function UseCliente() {
   const [show, setShow] = useState(false);
   const [client, setClient] = useState<ICliente>(INITIAL_STATE_CLIENTE);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedClient, setReturnedClient] = useState<ICliente[]>()
-  
+
   const handleClose = () => {
     clearAllInputs()
     setShow(false)
@@ -26,12 +26,10 @@ export function UseCliente(){
     setClient({ ...client, [e.target.name]: e.target.value })
   }, [client]);
 
-
-  const saveClient = async () => {
+  const save = async () => {
     try {
       const result = await ClienteService.save(client as ICliente)
       setClient({ ...client, id: result.id })
-
       toast("Salvo com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -42,7 +40,7 @@ export function UseCliente(){
     }
   }
 
-  const updateClient = async () => {
+  const update = async () => {
     try {
       await ClienteService.update(client as ICliente)
 
@@ -56,25 +54,36 @@ export function UseCliente(){
     }
   }
 
-  
-
+  const findById = async (id: string | undefined) => {
+    try {
+      const result = await ClienteService.findById(id)
+      setClient(result)
+      console.log(client)
+    } catch (error: any) {
+      return toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
 
   const searchClient = async () => {
     try {
       const result = await ClienteService.search(search.text, search.page)
       setReturnedClient(result.data)
-    } catch (error) {
-      console.log(error)
+    } catch (error: any) {
+      return toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   }
-  
+
   const handleSaveOrUpdate = async () => {
-    client?.id === "" ? saveClient() : updateClient()
+    client?.id === "" ? save() : update()
   }
 
   const clearAllInputs = () => {
     setClient(INITIAL_STATE_CLIENTE)
   }
 
-  return{client, search, setSearch, searchClient, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show}
+  return { client, setClient, search, setSearch, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show }
 }

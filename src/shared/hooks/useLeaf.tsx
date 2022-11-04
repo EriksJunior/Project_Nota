@@ -17,6 +17,6 @@ export function UseLeaf() {
       console.log(error)
     }
   }
-
+ 
   return { getClientesFromSelectBox, cliente, pedido, setPedido, produto, setProduto }
 }
