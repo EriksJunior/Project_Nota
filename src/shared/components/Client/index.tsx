@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
 
@@ -7,12 +6,9 @@ import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
 import { UseCliente } from '../../hooks/useCliente';
-import { ClientContext } from '../../context/client/client';
-import { ICliente } from '../../../interface/ICliente';
 
 export function ClientModal() {
-  const { search, setSearch, searchClient, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseCliente();
-  const { client } = useContext(ClientContext) as { client: ICliente}
+  const { client, search, setSearch, searchClient, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseCliente();
 
   return (
     <>
@@ -38,12 +34,12 @@ export function ClientModal() {
           >
             <Tab eventKey="Cadastro" title="Cadastro" >
               <Form className="d-flex flex-column gap-3">
-                <Form.Control onChange={handleChange} hidden value={client.id} name="id" type="text" />
+                <Form.Control onChange={handleChange} hidden value={client.id || ""} name="id" type="text" />
 
                 <Row>
                   <Col>
                     <FloatingLabel label="Nome do Cliente">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" value={client.nome} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="nome" type="text" value={client.nome || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -51,13 +47,13 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="CPF/CNPJ">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" value={client.cpfCnpj} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
                     </FloatingLabel>
                   </Col>
 
                   <Col>
                     <FloatingLabel label="Data nascimento">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -65,7 +61,7 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="Endereço">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" value={client.endereco} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -73,13 +69,13 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="Número">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="numero" type="text" value={client.numero} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
                     </FloatingLabel>
                   </Col>
 
                   <Col>
                     <FloatingLabel label="Complemento">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="complemento" type="text" value={client.complemento} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="complemento" type="text" value={client.complemento || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -88,13 +84,13 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="Bairro">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" value={client.bairro} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
                     </FloatingLabel>
                   </Col>
 
                   <Col>
                     <FloatingLabel label="Cidade">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cidade" type="text" value={client.cidade} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -102,7 +98,7 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="Estado">
-                      <Form.Select style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} onChange={handleChange} name="uf" value={client.uf}>
+                      <Form.Select style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }} onChange={handleChange} name="uf" value={client.uf || ""}>
                         <option>Selecione...</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -137,7 +133,7 @@ export function ClientModal() {
 
                   <Col>
                     <FloatingLabel label="CEP">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cep" type="text" value={client.cep} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="cep" type="text" value={client.cep || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -145,13 +141,13 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="Telefone">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" value={client.telefone} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="telefone" type="text" value={client.telefone || ""} />
                     </FloatingLabel>
                   </Col>
 
                   <Col>
                     <FloatingLabel label="Celular">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="celular" type="text" value={client.celular} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="celular" type="text" value={client.celular || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
@@ -159,13 +155,13 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="Email">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="text" value={client.email} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="email" type="text" value={client.email || ""} />
                     </FloatingLabel>
                   </Col>
 
                   <Col>
                     <FloatingLabel label="Observação">
-                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="observacao" type="text" value={client.observacao} />
+                      <Form.Control style={{ background: "#1C1C1C", color: "whitesmoke" }} onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
                     </FloatingLabel>
                   </Col>
 

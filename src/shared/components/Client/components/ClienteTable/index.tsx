@@ -1,12 +1,9 @@
-import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import { ICliente } from '../../../../../interface/ICliente';
 import { Row, Col } from 'react-bootstrap';
 
 import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
-import ClienteService from '../../../../../services/ClienteService'
-import { ClientContext } from '../../../../context/client/client'
-
+import { UseCliente } from '../../../../hooks/useCliente'
 interface ITable {
   textHeader1?: string
   textHeader2?: string
@@ -15,12 +12,7 @@ interface ITable {
 }
 
 export function ClienteTable({ data }: ITable) {
-  const { setClient } = useContext(ClientContext) as { setClient: any }
-
-  const findClientById = async (id: string | undefined) => {
-    const result = await ClienteService.findById(id)
-    setClient(result)
-  }
+  const { findById } = UseCliente()
 
   return (
     <Table striped bordered hover variant="dark">
@@ -41,7 +33,7 @@ export function ClienteTable({ data }: ITable) {
             <td className='text-center' >
               <Row>
                 <Col role="button" className='p-0'>
-                  <IconBsPen size={20} onClick={() => findClientById(e.id)} />
+                  <IconBsPen size={20} onClick={() => findById(e.id)} />
                 </Col>
 
                 <Col role="button" className='p-0'>
