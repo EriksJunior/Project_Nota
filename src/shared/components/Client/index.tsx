@@ -9,7 +9,7 @@ import { UseCliente } from '../../hooks/useCliente';
 
 export function ClientModal() {
   const { client, search, setSearch, searchClient, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseCliente();
-
+  //teste
   return (
     <>
       <ButtonBt variant="outiline-ligth" onClick={handleShow}>
