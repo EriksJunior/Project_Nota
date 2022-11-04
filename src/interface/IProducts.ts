@@ -12,6 +12,8 @@ export interface IProducts {
 
 }
 
+// teste
+
 export interface ISearch {
   text: string
   page: number
