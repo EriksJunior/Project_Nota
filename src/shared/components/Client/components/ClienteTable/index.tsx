@@ -3,7 +3,8 @@ import { ICliente } from '../../../../../interface/ICliente';
 import { Row, Col } from 'react-bootstrap';
 
 import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
-import { UseCliente } from '../../../../hooks/useCliente'
+import { useContext } from 'react';
+import { ClientContext } from '../../../../context/client/client'
 interface ITable {
   textHeader1?: string
   textHeader2?: string
@@ -12,7 +13,7 @@ interface ITable {
 }
 
 export function ClienteTable({ data }: ITable) {
-  const { findById } = UseCliente()
+  const { findById } = useContext(ClientContext) as { findById: any }
 
   return (
     <Table striped bordered hover variant="dark">

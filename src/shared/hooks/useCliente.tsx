@@ -58,7 +58,6 @@ export function UseCliente() {
     try {
       const result = await ClienteService.findById(id)
       setClient(result)
-      console.log(client)
     } catch (error: any) {
       return toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT

@@ -1,3 +1,7 @@
+import { useContext } from 'react';
+import { ClientContext } from '../../context/client/client';
+import { UseCliente } from '../../hooks/useCliente';
+
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
 
@@ -5,11 +9,11 @@ import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'rea
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
-import { UseCliente } from '../../hooks/useCliente';
+import { ICliente } from '../../../interface/ICliente';
 
 export function ClientModal() {
-  const { client, search, setSearch, searchClient, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseCliente();
-  //teste
+  const { client, handleChange, clearAllInputs, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show } = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, clearAllInputs: any, handleSaveOrUpdate: any, handleClose: any, handleShow: any, returnedClient: any, search: any, searchClient: any, setSearch: any, show: any }
+
   return (
     <>
       <ButtonBt variant="outiline-ligth" onClick={handleShow}>
