@@ -54,6 +54,21 @@ export function UseCliente() {
     }
   }
 
+  const deleteClient = async (id: string | undefined) => {
+    try {
+      await ClienteService.delete(id)
+      await searchClient()
+
+      toast("Registro deletado com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
   const findById = async (id: string | undefined) => {
     try {
       const result = await ClienteService.findById(id)
@@ -84,5 +99,5 @@ export function UseCliente() {
     setClient(INITIAL_STATE_CLIENTE)
   }
 
-  return { client, setClient, search, setSearch, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show }
+  return { client, setClient, search, setSearch, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show, deleteClient }
 }

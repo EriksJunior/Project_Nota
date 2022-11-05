@@ -13,7 +13,7 @@ interface ITable {
 }
 
 export function ClienteTable({ data }: ITable) {
-  const { findById } = useContext(ClientContext) as { findById: any }
+  const { findById, deleteClient } = useContext(ClientContext) as { findById: any, deleteClient: any }
 
   return (
     <Table striped bordered hover variant="dark">
@@ -38,7 +38,7 @@ export function ClienteTable({ data }: ITable) {
                 </Col>
 
                 <Col role="button" className='p-0'>
-                  <IconBsTrash size={20} />
+                  <IconBsTrash size={20} onClick={() => deleteClient(e.id)}/>
                 </Col>
               </Row>
             </td>

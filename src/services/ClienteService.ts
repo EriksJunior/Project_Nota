@@ -10,7 +10,7 @@ class ClienteService {
     await api.put(`/customers/${dataCliente.id}`, dataCliente)
   }
 
-  async delete(id: string) {
+  async delete(id: string | undefined) {
     await api.delete(`/customers/${id}`)
   }
 
