@@ -92,7 +92,10 @@ export function ProductsModal() {
               </Form>
             </Tab>
             <Tab eventKey="Pesquisar" title="Pesquisar">
-              <h1>campo de pesquisa</h1>
+            <Search>
+                  <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
+                  <Button variant="secondary" onClick={searchProduct}>Pesquisar</Button>
+                </Search>
             </Tab>
 
           </Tabs>

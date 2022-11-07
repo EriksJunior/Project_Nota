@@ -29,7 +29,7 @@ export function InfoCompany() {
 
 
     <div style={{ justifyContent: "center", display: "flex" }}>
-      <CardCompany style={{ background: "#483D8B", color: "black" }} className="text-center">
+      <CardCompany style={{ background: "#696969", color: "black" }} className="text-center">
         <Card.Header style={{ fontSize: "30px", fontWeight: "bold" }} >Cadastro da Empresa</Card.Header>
         <Card.Body>
           <Card.Title style={{ justifyContent: "center", display: "flex" }} >
@@ -179,7 +179,7 @@ export function InfoCompany() {
               </Button>
             </ButtonReturn>
             <ButtonAtt>
-              <Button onClick={updateCompany} variant="" size='lg' style={{ color: "white" }}>
+              <Button onClick={updateCompany} variant="" size='lg'>
                 <IoCheckboxOutline /> Atualizar cadastro
               </Button>
             </ButtonAtt>

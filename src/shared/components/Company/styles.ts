@@ -30,13 +30,15 @@ export const ButtonContent = styled.div`
 `
 
 export const ButtonReturn = styled.div`
-background: Lavender;
+background: #D3D3D3;
 border-radius: 10px;
+border: 2px solid #8A2BE2;
+
 `
 
 export const ButtonAtt= styled.div`{}
-  background: #8A2BE2;
-  color: red;
+  background: #D3D3D3;
+  border: 2px solid #8A2BE2;
   border-radius: 10px;
 }
 `
