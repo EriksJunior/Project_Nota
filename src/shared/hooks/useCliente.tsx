@@ -11,15 +11,18 @@ export function UseCliente() {
   const [client, setClient] = useState<ICliente>(INITIAL_STATE_CLIENTE);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedClient, setReturnedClient] = useState<ICliente[]>()
+  const [alterTab, setAlterTab] = useState<string>("pesquisar")
 
   const handleClose = () => {
     clearAllInputs()
     setShow(false)
+    setAlterTab("pesquisar")
   };
 
   const handleShow = () => {
     clearAllInputs()
     setShow(true)
+    setAlterTab("pesquisar")
   };
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
@@ -73,6 +76,7 @@ export function UseCliente() {
     try {
       const result = await ClienteService.findById(id)
       setClient(result)
+      setAlterTab('cadastro')
     } catch (error: any) {
       return toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
@@ -99,5 +103,5 @@ export function UseCliente() {
     setClient(INITIAL_STATE_CLIENTE)
   }
 
-  return { client, setClient, search, setSearch, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show, deleteClient }
+  return { client, setClient, search, setSearch, alterTab, setAlterTab, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show, deleteClient }
 }

@@ -1,6 +1,5 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ClientContext } from '../../context/client/client';
-import { UseCliente } from '../../hooks/useCliente';
 
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
@@ -9,10 +8,10 @@ import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'rea
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
-import { ICliente } from '../../../interface/ICliente';
+import { ICliente, ISearch } from '../../../interface/ICliente';
 
 export function ClientModal() {
-  const { client, handleChange, clearAllInputs, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show } = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, clearAllInputs: any, handleSaveOrUpdate: any, handleClose: any, handleShow: any, returnedClient: any, search: any, searchClient: any, setSearch: any, show: any }
+  const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show } = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, alterTab: string, setAlterTab: (value: string | null) => void, clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose:  () => void, handleShow:  () => void, returnedClient: ICliente[], search: ISearch, searchClient: () => void, setSearch: any, show: Boolean }
 
   return (
     <>
@@ -31,12 +30,13 @@ export function ClientModal() {
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#1C1C1C", color: "LightGrey", fontWeight: "bolder" }}>
           <Tabs
-            defaultActiveKey="Cadastro"
+            activeKey={alterTab}
             id="clientTabs"
+            onSelect={(tabSelected) => setAlterTab(tabSelected)}
             className="mb-3"
             style={{ fontSize: "20px", gap: "20px", background: "#363636", borderRadius: "10px 20px 0px 2px" }}
           >
-            <Tab eventKey="Cadastro" title="Cadastro" >
+            <Tab eventKey="cadastro" title="Cadastro" >
               <Form className="d-flex flex-column gap-3">
                 <Form.Control onChange={handleChange} hidden value={client.id || ""} name="id" type="text" />
 
@@ -187,7 +187,7 @@ export function ClientModal() {
 
               </Form>
             </Tab>
-            <Tab eventKey="Pesquisar" title="Pesquisar">
+            <Tab eventKey="pesquisar" title="Pesquisar">
               <Row>
                 <Search>
                   <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />

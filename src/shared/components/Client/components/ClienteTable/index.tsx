@@ -31,7 +31,7 @@ export function ClienteTable({ data }: ITable) {
             <td>{e?.nome}</td>
             <td>{e.cpfCnpj}</td>
             <td>{e.dataNascimento}</td>
-            <td className='text-center' >
+            <td className='text-center'>
               <Row>
                 <Col role="button" className='p-0'>
                   <IconBsPen size={20} onClick={() => findById(e.id)} />
