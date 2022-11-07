@@ -10,6 +10,7 @@ export function UseProducts() {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedProduct, setReturnedProduct] = useState<IProducts[]>()
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -19,9 +20,17 @@ export function UseProducts() {
     setProdutos({ ...produtos, [e.target.name]: e.target.value })
   }, [produtos]);
 
-  async function saveProducts() {
+  const saveProducts = async () => {
+    try{
     const result = await ProductServices.save(produtos as IProducts)
-    console.log(result)
+    setProdutos({ ...produtos , id: result.id })
+    } catch(error: any){
+      return (error)
+    }
+  }
+
+  const updateProducts = async () => {
+    await ProductServices.update(produtos as IProducts)
   }
 
   const searchProduct = async () => {
@@ -33,5 +42,9 @@ export function UseProducts() {
     }
   }
 
-  return{ produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, show}
+  const handleSaveOrUpdate = async () => {
+    produtos?.id === "" ? saveProducts() : updateProducts()
+  }
+
+  return{ produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , handleSaveOrUpdate , show}
 }

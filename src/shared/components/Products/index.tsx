@@ -11,7 +11,7 @@ import { UseProducts } from '../../hooks/useProducts';
 
 
 export function ProductsModal() {
-  const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, show } = UseProducts();
+  const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , handleSaveOrUpdate , show } = UseProducts();
 
   return (
     <>
@@ -85,7 +85,7 @@ export function ProductsModal() {
 
 
                 <div className="d-grid gap-2">
-                  <Button variant="" type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
+                  <Button variant="" onClick={handleSaveOrUpdate} type="button" size='lg' style={{ background: "BlueViolet", color: "whitesmoke" }}>
                     Cadastrar
                   </Button>
                 </div>
