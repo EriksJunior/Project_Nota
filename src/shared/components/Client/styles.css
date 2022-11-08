@@ -1,0 +1,27 @@
+.nav {
+   width: 100%;
+   background-color: rgba(201, 200, 201, 0.513);
+}
+
+.nav-tabs{
+   font-size: 20px;
+   color: white;
+   border-radius: 10px 20px 0px 2px;
+   width: 100%;
+}
+
+.nav-item{
+   width: 50%!important;
+}
+
+.nav-link{
+   color: white!important;
+   border: none!important;
+   width: 100%!important;
+
+}
+
+.nav-link.active{
+   background-color: blueviolet!important;
+   color: white!important;
+}

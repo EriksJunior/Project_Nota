@@ -33,7 +33,7 @@ export function ProductsModal() {
             defaultActiveKey="Cadastro"
             id="clientTabs"
             className="mb-3"
-            style={{ fontSize: "20px", gap: "20px", background: "#363636", borderRadius: "10px 20px 0px 2px" }}
+            style={{ fontSize: "20px", background: "#363636", borderRadius: "10px 20px 0px 2px" }}
           >
             <Tab eventKey="Cadastro" title="Cadastro">
               <Form >

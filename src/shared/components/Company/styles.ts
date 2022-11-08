@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card , Form } from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
 
 
 export const LogoEmpresa = styled.div`
@@ -36,10 +36,9 @@ border: 2px solid #8A2BE2;
 
 `
 
-export const ButtonAtt= styled.div`{}
+export const ButtonAtt = styled.div`
   background: #D3D3D3;
   border: 2px solid #8A2BE2;
   border-radius: 10px;
-}
 `
 
