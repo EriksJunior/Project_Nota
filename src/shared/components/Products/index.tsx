@@ -37,9 +37,12 @@ export function ProductsModal() {
           >
             <Tab eventKey="Cadastro" title="Cadastro">
               <Form >
+              <Form.Control onChange={handleChange} hidden value={produtos?.id} name="id" type="text" />
+                <Row>
                 <FloatingLabel className="mb-4" label="Nome Do Produto" style={{color: "black"}}>
                   <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="nome" />
                 </FloatingLabel >
+                </Row>
                 <Row className="mb-3 ">
                   <Col>
                     <FloatingLabel as={Col} className="mb-4" label="Valor" style={{color: "black"}}>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Form } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 
 export const LogoEmpresa = styled.div`

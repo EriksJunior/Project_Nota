@@ -14,7 +14,7 @@ export function GeneralLeafInformation() {
         <Form>
           <Row as={Col} className="mb-3">
             <Col sm={4} md={4} lg={3} xl={2}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Número do Pedido">
                   <Form.Control type="text" />
                 </FloatingLabel>
@@ -22,14 +22,14 @@ export function GeneralLeafInformation() {
             </Col>
 
             <Col sm={4} md={4} lg={3} xl={2}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Data de Entrada ou Saída">
                  <Form.Control type="text" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Presença">
                   <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
                     <option value="">1 - Operação Presencial</option>
@@ -43,26 +43,26 @@ export function GeneralLeafInformation() {
               </Form.Group>
           </Row>
           <Row as={Col} className="mb-3">
-            <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Group as={Col}>
               <FloatingLabel className="mb-4" label="Total Frete">
                 <Form.Control type="text"  />
               </FloatingLabel>
             </Form.Group>
 
 
-            <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Group as={Col}>
               <FloatingLabel className="mb-4" label="Total Desconto">
                 <Form.Control type="text"  />
               </FloatingLabel>
             </Form.Group>
 
-            <Form.Group  as={Col} className="mb-3" controlId="formGridAddress1">
+            <Form.Group  as={Col} className="mb-3">
             <FloatingLabel className="mb-4" label="Outras Despesas">
               <Form.Control type="text"  />
             </FloatingLabel>
           </Form.Group>
 
-          <Form.Group  as={Col} className="mb-3" controlId="formGridAddress1">
+          <Form.Group  as={Col} className="mb-3">
             <FloatingLabel className="mb-4" label="Total do Pedido">
               <Form.Control type="text"  />
             </FloatingLabel>
@@ -71,7 +71,7 @@ export function GeneralLeafInformation() {
 
           <Row className="mb-3">
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col}>
               <FloatingLabel className="mb-4" label="Intermediador">
                 <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} defaultValue="">
                   <option value="">0 - Operação sem intermediador</option>
@@ -83,13 +83,13 @@ export function GeneralLeafInformation() {
               </FloatingLabel>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
+            <Form.Group as={Col}>
               <FloatingLabel label="CNPJ do Intermediador">
                 <Form.Control type="text"  />
               </FloatingLabel>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col}>
               <FloatingLabel label="Nome do Intermediador">
                 <Form.Control type="text" />
               </FloatingLabel>
@@ -98,13 +98,13 @@ export function GeneralLeafInformation() {
 
           <Row className="mb-3">
 
-            <Form.Group as={Col} controlId="formGridZip">
+            <Form.Group as={Col}>
               <FloatingLabel label="Informações Complementares">
                 <Form.Control type="text"  />
               </FloatingLabel>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridCity">
+            <Form.Group as={Col}>
               <FloatingLabel label="Informações Gerais">
                 <Form.Control type="text" />
               </FloatingLabel>

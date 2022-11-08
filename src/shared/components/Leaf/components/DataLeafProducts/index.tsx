@@ -17,7 +17,7 @@ export function DataLeafProducts() {
         <Form>
           <Row xs={2}>
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Produtos">
                   <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
                     <option value="">Selecione...</option>
@@ -27,7 +27,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col sm={4} md={4} lg={3} xl={2}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Cod Ref">
                   <Form.Control disabled type="text" />
                 </FloatingLabel>
@@ -35,7 +35,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col sm={3} md={3} lg={2} xl={1}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Qnt">
                   <Form.Control type="number" onChange={handleChange} name="quantidade" />
                 </FloatingLabel>
@@ -43,7 +43,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={12} sm={9} md={9} lg={4} xl={5}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Dados adicionais">
                   <Form.Control type="text" onChange={handleChange} name="informacoes_adicionais" />
                 </FloatingLabel>
@@ -51,7 +51,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Vl. Unitário">
                   <Form.Control type="text" onChange={handleChange} name="subtotal" />
                 </FloatingLabel>
@@ -59,7 +59,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Desc">
                   <Form.Control type="text" onChange={handleChange} name="desconto" />
                 </FloatingLabel>
@@ -67,7 +67,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Vl. Total">
                   <Form.Control type="text" onChange={handleChange} name="total" />
                 </FloatingLabel>
@@ -75,7 +75,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Origen">
                   <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={produto?.origem} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
@@ -93,7 +93,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={6} sm={3} md={3} lg={3} xl={1}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Und">
                   <Form.Control type="text" onChange={handleChange} name="unidade" />
                 </FloatingLabel>
@@ -101,7 +101,7 @@ export function DataLeafProducts() {
             </Col>
 
             <Col xs={6} sm={3} md={3} lg={3} xl={2}>
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Peso">
                   <Form.Control type="text" />
                 </FloatingLabel>

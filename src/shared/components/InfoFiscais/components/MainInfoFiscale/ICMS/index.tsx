@@ -9,9 +9,9 @@ export function IcmsInfo() {
             <Card className="text-center">
                 <Card.Body>
                     <Form>
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col}>
                             <FloatingLabel className="mb-4" label="Tipo de Tributação">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
+                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="tributos">
                                     <option value="">0 - Simples Nacional</option>
                                     <option value="">1 - Simples Nacional</option>
                                     <option value="">2 - Simples Nacional</option>
@@ -19,9 +19,9 @@ export function IcmsInfo() {
                             </FloatingLabel>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col} >
                             <FloatingLabel className="mb-4" label="Cenário">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
+                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="cenario">
                                     <option value="">0 - Padrão</option>
                                     <option value="">1 - Padrão</option>
                                     <option value="">2 - Padrão</option>
@@ -29,9 +29,9 @@ export function IcmsInfo() {
                             </FloatingLabel>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col} >
                             <FloatingLabel className="mb-4" label="Tipo de Pessoa">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
+                                <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="tipoPessoa">
                                     <option value="">0 - pessoa Física</option>
                                     <option value="">1 - Pessoa Juridíca</option>
                                     <option value="">2 - Outros</option>
@@ -39,17 +39,17 @@ export function IcmsInfo() {
                             </FloatingLabel>
                         </Form.Group>
 
-                        <FloatingLabel className="mb-4" controlId="" label="Código CFOP">
+                        <FloatingLabel className="mb-4" label="Código CFOP">
                             <Form.Control type="text" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> Situação Tributária </InputGroup.Text>
                             <FloatingLabel controlId="" label="Definição Imposto">
-                            <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
+                            <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="defImposto">
                                     <option value="">102 - Tributada sem permissão de crédito</option>
-                                    <option value="">102 - Tributada sem permissão de crédito</option>
-                                    <option value="">102 - Tributada sem permissão de crédito</option>
+                                    <option>103 - Tributada com permissão de crédito</option>
+                                    <option>104 - Tributada </option>
                                 </Form.Select>
                             </FloatingLabel>
                         </InputGroup>
