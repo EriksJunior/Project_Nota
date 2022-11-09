@@ -7,6 +7,7 @@ import { ContentIcon, Text } from '../Styles/general';
 import { Search } from '../Search/index';
 
 import { UseProducts } from '../../hooks/useProducts';
+import { ProductTable } from './components/ProductTable';
 
 
 
@@ -106,10 +107,15 @@ export function ProductsModal() {
               </Form>
             </Tab>
             <Tab eventKey="Pesquisar" title="Pesquisar">
-              <Search>
-                <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
-                <Button variant="secondary" onClick={searchProduct}>Pesquisar</Button>
-              </Search>
+              <Row>
+                <Search>
+                  <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
+                  <Button variant="secondary" onClick={searchProduct}>Pesquisar</Button>
+                </Search>
+              </Row>
+              <Row className='mt-5'>
+                <ProductTable data={returnedProduct} />
+              </Row>
             </Tab>
 
           </Tabs>
