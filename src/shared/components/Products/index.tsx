@@ -42,63 +42,63 @@ export function ProductsModal() {
 
                 <Row>
                   <Col>
-                    <FloatingLabel className="mb-4" label="Nome Do Produto" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="nome" value={produtos?.nome || ""} />
+                    <FloatingLabel className="mb-4" label="Nome Do Produto" style={{ color: "black" , fontSize:"14px"}}>
+                      <Form.Control style={{ background: "#f5f5f5" ,height: "48px"  }} type="text" onChange={handleChange} name="nome" value={produtos?.nome || ""} />
                     </FloatingLabel >
                   </Col>
                 </Row>
-                <Row className="mb-3 ">
+                <Row className="mb-4 ">
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Valor" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="valor" />
+                    <FloatingLabel as={Col} label="Valor" style={{ color: "black" , fontSize:"14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5" , height: "48px"  }} type="text" onChange={handleChange} name="valor" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Valor de Venda" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="valorVenda" />
+                    <FloatingLabel as={Col} label="Valor de Venda" style={{ color: "black" , fontSize:"14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="valorVenda" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Unidade" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="unidade" />
-                    </FloatingLabel>
-                  </Col>
-                </Row>
-
-                <FloatingLabel className="mb-4" label="Descrição" style={{ color: "black" }}>
-                  <Form.Control as="textarea" style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="descricao" />
-                </FloatingLabel>
-
-                <FloatingLabel className="mb-4" label="Código de Barras" style={{ color: "black" }}>
-                  <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="codBarras" />
-                </FloatingLabel>
-
-                <FloatingLabel className="mb-4" label="Código de Referência" style={{ color: "black" }}>
-                  <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="codReferencia" />
-                </FloatingLabel>
-
-                <Row className="mb-3">
-                  <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Estoque" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black" }} type="text" onChange={handleChange} name="estoque" />
-                    </FloatingLabel>
-                  </Col>
-                  <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Estoque Mínimo" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="estoqueMin" />
+                    <FloatingLabel as={Col} label="Unidade" style={{ color: "black" , fontSize:"14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="unidade" />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
-                <Row className=" gap-5">
+                <FloatingLabel className="mb-4" label="Código de Barras" style={{ color: "black" , fontSize:"14px" }}>
+                  <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="codBarras" />
+                </FloatingLabel>
+
+                <FloatingLabel className="mb-4" label="Código de Referência" style={{ color: "black" , fontSize:"14px" }}>
+                  <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="codReferencia" />
+                </FloatingLabel>
+
+                <Row className="mb-4">
+                  <Col>
+                    <FloatingLabel as={Col} label="Estoque" style={{ color: "black" , fontSize:"14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoque" />
+                    </FloatingLabel>
+                  </Col>
+                  <Col>
+                    <FloatingLabel as={Col} label="Estoque Mínimo" style={{ color: "black" , fontSize:"14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="estoqueMin" />
+                    </FloatingLabel>
+                  </Col>
+                </Row>
+
+                <FloatingLabel className="mb-4" label="Descrição" style={{ color: "black"  , fontSize:"14px" }}>
+                  <Form.Control as="textarea" style={{ background: "#f5f5f5" , height: "100px"  }} type="text" onChange={handleChange} name="descricao" />
+                </FloatingLabel>
+
+                <Row className="gap-5" style={{marginTop:"80px"}} >
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={handleSaveOrUpdate} type="button" size='lg' style={{ background: "BlueViolet", color: "white", width: "300px" }}>
+                    <Button variant="" onClick={handleSaveOrUpdate} type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
                       Cadastrar
                     </Button>
                   </Col>
 
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" type="button" size='lg' style={{ background: "BlueViolet", color: "white", width: "300px" }}>
+                    <Button variant="" type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
                       Limpar
                     </Button>
                   </Col>
