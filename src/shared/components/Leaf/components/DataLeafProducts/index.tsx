@@ -5,11 +5,7 @@ import { IProducts } from '../../../../../interface/IProducts';
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
 
 export function DataLeafProducts() {
-  const { produtoLeaf, setProdutoLeaf, getProductsFromSelectBox, produtoSelectBox } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, setProdutoLeaf: any, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[] }
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
-  }, [produtoLeaf])
+  const { produtoLeaf, setProdutoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, setProdutoLeaf: any, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler }
 
   useEffect(() => {
     getProductsFromSelectBox()
@@ -24,10 +20,10 @@ export function DataLeafProducts() {
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Produtos">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChangeProductLeaf} name="idProduto">
                     <option value="">Selecione...</option>
-                    {produtoSelectBox.map((e) => 
-                    <option  key={e.id} value={e.id}>{e.nome}</option>
+                    {produtoSelectBox.map((e) =>
+                      <option key={e.id} value={e.id}>{e.nome}</option>
                     )}
                   </Form.Select>
                 </FloatingLabel>
@@ -37,7 +33,7 @@ export function DataLeafProducts() {
             <Col sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Cod Ref">
-                  <Form.Control disabled type="text" />
+                  <Form.Control disabled type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.codigo || ""} name="codigo" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -45,7 +41,7 @@ export function DataLeafProducts() {
             <Col sm={3} md={3} lg={2} xl={1}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Qnt">
-                  <Form.Control type="number" onChange={handleChange} name="quantidade" />
+                  <Form.Control type="number" onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -53,7 +49,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={9} md={9} lg={4} xl={5}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Dados adicionais">
-                  <Form.Control type="text" onChange={handleChange} name="informacoes_adicionais" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.informacoes_adicionais || ""} name="informacoes_adicionais" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -61,7 +57,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Vl. Unitário">
-                  <Form.Control type="text" onChange={handleChange} name="subtotal" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} name="subtotal" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -69,7 +65,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Desc">
-                  <Form.Control type="text" onChange={handleChange} name="desconto" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} name="desconto" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -77,7 +73,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Vl. Total">
-                  <Form.Control type="text" onChange={handleChange} name="total" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} name="total" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -85,7 +81,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Origen">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={produtoLeaf?.origem} name="origem">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChangeProductLeaf} value={produtoLeaf.origem || "0"} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>
@@ -103,7 +99,7 @@ export function DataLeafProducts() {
             <Col xs={6} sm={3} md={3} lg={3} xl={1}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Und">
-                  <Form.Control type="text" onChange={handleChange} name="unidade" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.unidade || ""} name="unidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -111,7 +107,7 @@ export function DataLeafProducts() {
             <Col xs={6} sm={3} md={3} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Peso">
-                  <Form.Control type="text" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso"/>
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -119,7 +115,7 @@ export function DataLeafProducts() {
 
           <Row>
             <Col sm={12} md={12} lg={12} xl={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button  variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }}>
+              <Button variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }} onClick={() => console.log(produtoLeaf)}>
                 Adicionar
               </Button>
             </Col>

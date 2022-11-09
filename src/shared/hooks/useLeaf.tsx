@@ -20,6 +20,11 @@ export function UseLeaf() {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
   }, [pedido])
 
+  
+  const handleChangeProductLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
+  }, [produtoLeaf])
+
   async function getClientesFromSelectBox() {
     try {
       const { data } = await ClienteService.getFromSelectBox()
@@ -38,5 +43,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, responseWebmania }
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania }
 }
