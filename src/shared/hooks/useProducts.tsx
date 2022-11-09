@@ -29,9 +29,11 @@ export function UseProducts() {
     }
   }
 
-  // const updateProducts = async () => {
-  //   await ProductServices.update(produtos as IProducts)
-  // }
+  const updateProducts = async () => {
+    console.log(updateProducts)
+     await ProductServices.update(produtos as IProducts)
+
+   }
 
   const searchProduct = async () => {
     try {
@@ -43,7 +45,7 @@ export function UseProducts() {
   }
 
   const handleSaveOrUpdate = async () => {
-    produtos?.id === "" ? saveProducts() : "teste"
+    produtos?.id === "" ? saveProducts() : updateProducts()
   }
 
   return{ produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , handleSaveOrUpdate , show}

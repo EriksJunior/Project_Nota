@@ -13,10 +13,10 @@ class ProductServices {
         return data
     }
 
-    // async update(dataProducts: IProducts) {
-    //     console.log(dataProducts)
-    //     await api.put(`/products/${dataProducts.id}`, dataProducts)
-    // }
+    async update(dataProducts: IProducts) {
+        console.log(dataProducts)
+        await api.put(`/products/${dataProducts.id}`, dataProducts)
+    }
 }
 
 export default new ProductServices()
