@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon'
+
 export const INITIAL_VALUE_PRODUTOS = {
   idProduto: "",
   idNota: "",
@@ -25,7 +27,7 @@ export const INITIAL_VALUE_PEDIDO = {
   idCliente: "",
   finalidade: "1",
   url_notificacao: "teste",
-  data_nfe: new Date(),
+  data_nfe: DateTime.local().toFormat('yyyy-MM-dd'),
   id_webmania: "",
   response: "",
   response_cancelamento: "",
