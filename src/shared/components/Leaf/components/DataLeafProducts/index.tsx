@@ -1,14 +1,19 @@
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext, useEffect } from 'react'
 import { LeafContext } from '../../../../context/leaf/leaf';
 import { ProdutosLeaf } from '../../../../../interface/ILeaf';
+import { IProducts } from '../../../../../interface/IProducts';
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
 
 export function DataLeafProducts() {
-  const { produto, setProduto } = useContext(LeafContext) as { produto: ProdutosLeaf, setProduto: any }
+  const { produtoLeaf, setProdutoLeaf, getProductsFromSelectBox, produtoSelectBox } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, setProdutoLeaf: any, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[] }
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    setProduto({ ...produto, [e.currentTarget.name]: e.currentTarget.value })
-  }, [produto])
+    setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
+  }, [produtoLeaf])
+
+  useEffect(() => {
+    getProductsFromSelectBox()
+  }, [])
 
   return (
     <div>
@@ -21,6 +26,9 @@ export function DataLeafProducts() {
                 <FloatingLabel className="mb-4" label="Produtos">
                   <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} name="id">
                     <option value="">Selecione...</option>
+                    {produtoSelectBox.map((e) => 
+                    <option  key={e.id} value={e.id}>{e.nome}</option>
+                    )}
                   </Form.Select>
                 </FloatingLabel>
               </Form.Group>
@@ -77,7 +85,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Origen">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={produto?.origem} name="origem">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} value={produtoLeaf?.origem} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>

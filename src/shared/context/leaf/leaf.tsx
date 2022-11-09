@@ -8,10 +8,10 @@ interface AuxProps {
 const LeafContext = createContext({})
 
 function LeafProvider({ children }: AuxProps) {
-  const { getClientesFromSelectBox, cliente, produto, setProduto, pedido, setPedido } = UseLeaf()
+  const { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, produtoLeaf, setProdutoLeaf, pedido, setPedido, handleChange, responseWebmania } = UseLeaf()
 
   return (
-    <LeafContext.Provider value={{ cliente, getClientesFromSelectBox, produto, setProduto, pedido, setPedido }}>
+    <LeafContext.Provider value={{ cliente, getClientesFromSelectBox, getProductsFromSelectBox, produtoSelectBox, produtoLeaf, setProdutoLeaf, pedido, setPedido, handleChange, responseWebmania }}>
       {children}
     </LeafContext.Provider>
   )

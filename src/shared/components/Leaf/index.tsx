@@ -10,11 +10,8 @@ import { ContentLeaf } from '../Styles/general';
 import { StyledAccordion } from './styles';
 import { ProdutosLeaf, PedidoLeaf } from '../../../interface/ILeaf';
 
-interface LeafProps {
-
-}
-
-export function Leaf(props: LeafProps) {
+export function Leaf() {
+  const {pedido} = useContext(LeafContext) as {pedido: PedidoLeaf}
   return (
     <div >
         <ContentLeaf>
@@ -29,6 +26,8 @@ export function Leaf(props: LeafProps) {
               <GeneralLeafInformation />
             </Accordion.Item>
           </StyledAccordion>
+
+          <button onClick={() => console.log(pedido)}>SALVAR</button>
         </ContentLeaf>
     </div>
   );

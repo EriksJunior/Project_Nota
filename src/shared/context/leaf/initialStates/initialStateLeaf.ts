@@ -39,3 +39,18 @@ export const INITIAL_VALUE_PEDIDO = {
   cnpj_intermediador: "",
   id_intermediador: "",
 }
+
+export const INITIAL_VALUE_RESPONSE_WEBMANIA = {
+  chave: "",
+  danfe: "",
+  danfe_etiqueta: "",
+  danfe_simples: "",
+  log: "",
+  modelo: "",
+  motivo: "",
+  nfe: "",
+  serie: "",
+  status: "",
+  uuid: "",
+  xml: "",
+}

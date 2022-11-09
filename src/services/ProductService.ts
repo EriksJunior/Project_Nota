@@ -17,6 +17,11 @@ class ProductServices {
         console.log(dataProducts)
         await api.put(`/products/${dataProducts.id}`, dataProducts)
     }
+
+    async getFromSelectBox() {
+        const { data } = await api.get('/products')
+        return data
+    }
 }
 
 export default new ProductServices()

@@ -1,16 +1,12 @@
 import { useEffect, useContext, useCallback } from 'react'
 import { Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
 import { ICliente } from '../../../../../interface/ICliente'
-import { PedidoLeaf } from '../../../../../interface/ILeaf'
+import { PedidoLeaf, IResponseWebmaniaLeaf } from '../../../../../interface/ILeaf'
 import { Container } from './styles'
 import { LeafContext } from '../../../../context/leaf/leaf'
 
 export function HeaderLeaf() {
-  const { cliente, getClientesFromSelectBox, pedido, setPedido } = useContext(LeafContext) as { cliente: Array<ICliente>, getClientesFromSelectBox: any, pedido: PedidoLeaf, setPedido: any }
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
-  }, [pedido])
+  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf}
 
   useEffect(() => {
     getClientesFromSelectBox()
@@ -24,6 +20,7 @@ export function HeaderLeaf() {
             type="date"
             placeholder='Data emissão'
             disabled
+            value={pedido.data_nfe}
           />
         </Col>
 
@@ -32,6 +29,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Natuzera da operação'
             disabled
+            value={pedido.natureza_operacao || ""}
             className='naturezaSwitchToSmallerscreens'
           />
         </Col>
@@ -41,6 +39,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Finalidade'
             disabled
+            value={pedido.finalidade || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -50,6 +49,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Tip. Emiss'
             disabled
+            value={pedido.operacao || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -61,6 +61,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Chave NF-e'
             disabled
+            value={responseWebmania.chave || ""}
           />
         </Col>
 
@@ -69,6 +70,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Serie'
             disabled
+            value={responseWebmania.serie || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -78,6 +80,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Nº NF-e'
             disabled
+            value={responseWebmania.nfe || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -87,6 +90,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Status'
             disabled
+            value={responseWebmania.status || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -106,7 +110,7 @@ export function HeaderLeaf() {
 
         <Col xs={4} sm={4} md={4} lg={4} xl={4}>
           <Form.Group as={Col}>
-            <FloatingLabel  className="mb-4" label="CPF/CNPJ">
+            <FloatingLabel className="mb-4" label="CPF/CNPJ">
               <Form.Control style={{ height: "48px" }} disabled type="text" name="CPF/CNPJ" />
             </FloatingLabel>
           </Form.Group>

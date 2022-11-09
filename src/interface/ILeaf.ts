@@ -25,7 +25,7 @@ export interface PedidoLeaf {
   idCliente: string
   finalidade: string
   url_notificacao: string
-  data_nfe: Date
+  data_nfe: Date | any
   id_webmania: string
   response: string
   response_cancelamento: string
@@ -38,4 +38,19 @@ export interface PedidoLeaf {
   intermediador: string
   cnpj_intermediador: string
   id_intermediador: string
+}
+
+export interface IResponseWebmaniaLeaf {
+  chave: string,
+  danfe: string,
+  danfe_etiqueta: string,
+  danfe_simples: string,
+  log: string,
+  modelo: string,
+  motivo: string,
+  nfe: string,
+  serie: string,
+  status: string,
+  uuid: string,
+  xml: string,
 }
