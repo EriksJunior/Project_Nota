@@ -6,7 +6,7 @@ import { Container } from './styles'
 import { LeafContext } from '../../../../context/leaf/leaf'
 
 export function HeaderLeaf() {
-  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf}
+  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf }
 
   useEffect(() => {
     getClientesFromSelectBox()
