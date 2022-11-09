@@ -14,7 +14,7 @@ export function UseProducts() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [produtos, setProdutos] = useState<IProducts>();
+  const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setProdutos({ ...produtos, [e.target.name]: e.target.value })
@@ -29,9 +29,9 @@ export function UseProducts() {
     }
   }
 
-  const updateProducts = async () => {
-    await ProductServices.update(produtos as IProducts)
-  }
+  // const updateProducts = async () => {
+  //   await ProductServices.update(produtos as IProducts)
+  // }
 
   const searchProduct = async () => {
     try {
@@ -43,7 +43,7 @@ export function UseProducts() {
   }
 
   const handleSaveOrUpdate = async () => {
-    produtos?.id === "" ? saveProducts() : updateProducts()
+    produtos?.id === "" ? saveProducts() : "teste"
   }
 
   return{ produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , handleSaveOrUpdate , show}

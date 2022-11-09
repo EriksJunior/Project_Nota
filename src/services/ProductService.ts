@@ -9,14 +9,14 @@ class ProductServices {
     }
 
     async search(q: string, page: number) {
-        const { data } = await api.get(`products?q=${q}&page=${page}`)
+        const { data } = await api.get(`/products?q=${q}&page=${page}`)
         return data
     }
 
-    async update(dataProducts: IProducts) {
-        console.log(dataProducts)
-        await api.put(`/products/${dataProducts.id}`, dataProducts)
-    }
+    // async update(dataProducts: IProducts) {
+    //     console.log(dataProducts)
+    //     await api.put(`/products/${dataProducts.id}`, dataProducts)
+    // }
 }
 
 export default new ProductServices()

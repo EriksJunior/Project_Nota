@@ -11,7 +11,7 @@ import { UseProducts } from '../../hooks/useProducts';
 
 
 export function ProductsModal() {
-  const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , handleSaveOrUpdate , show } = UseProducts();
+  const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseProducts();
 
   return (
     <>
@@ -26,7 +26,7 @@ export function ProductsModal() {
 
       <Offcanvas show={show} onHide={handleClose} style={{ width: "50%" }}>
         <Offcanvas.Header style={{ background: "#1C1C1C" }} closeButton>
-          <Offcanvas.Title style={{  color: "LightGrey", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}  >Cadastro de Produto</Offcanvas.Title>
+          <Offcanvas.Title style={{ color: "LightGrey", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}  >Cadastro de Produto</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#DCDCDC", color: "LightGrey", fontWeight: "bolder" }}>
           <Tabs
@@ -37,50 +37,53 @@ export function ProductsModal() {
           >
             <Tab eventKey="Cadastro" title="Cadastro">
               <Form >
-              <Form.Control onChange={handleChange} hidden value={produtos?.id} name="id" type="text" />
+                <Form.Control onChange={handleChange} hidden value={produtos.id} name="id" type="text" />
+
                 <Row>
-                <FloatingLabel className="mb-4" label="Nome Do Produto" style={{color: "black"}}>
-                  <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="nome" />
-                </FloatingLabel >
+                  <Col>
+                    <FloatingLabel className="mb-4" label="Nome Do Produto" style={{ color: "black" }}>
+                      <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="nome" value={produtos?.nome || ""} />
+                    </FloatingLabel >
+                  </Col>
                 </Row>
                 <Row className="mb-3 ">
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Valor" style={{color: "black"}}>
+                    <FloatingLabel as={Col} className="mb-4" label="Valor" style={{ color: "black" }}>
                       <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="valor" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Valor de Venda" style={{color: "black"}}>
+                    <FloatingLabel as={Col} className="mb-4" label="Valor de Venda" style={{ color: "black" }}>
                       <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="valorVenda" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Unidade" style={{color: "black"}}>
+                    <FloatingLabel as={Col} className="mb-4" label="Unidade" style={{ color: "black" }}>
                       <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="unidade" />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
-                <FloatingLabel className="mb-4" label="Descrição" style={{color: "black"}}>
+                <FloatingLabel className="mb-4" label="Descrição" style={{ color: "black" }}>
                   <Form.Control as="textarea" style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="descricao" />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Código de Barras" style={{color: "black"}}>
+                <FloatingLabel className="mb-4" label="Código de Barras" style={{ color: "black" }}>
                   <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="codBarras" />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Código de Referência" style={{color: "black"}}>
+                <FloatingLabel className="mb-4" label="Código de Referência" style={{ color: "black" }}>
                   <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="codReferencia" />
                 </FloatingLabel>
 
                 <Row className="mb-3">
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Estoque" style={{color: "black"}}>
-                      <Form.Control style={{ background: "#f5f5f5" , color: "black" }} type="text" onChange={handleChange} name="estoque" />
+                    <FloatingLabel as={Col} className="mb-4" label="Estoque" style={{ color: "black" }}>
+                      <Form.Control style={{ background: "#f5f5f5", color: "black" }} type="text" onChange={handleChange} name="estoque" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} className="mb-4" label="Estoque Mínimo" style={{color: "black"}}>
+                    <FloatingLabel as={Col} className="mb-4" label="Estoque Mínimo" style={{ color: "black" }}>
                       <Form.Control style={{ background: "#f5f5f5" }} type="text" onChange={handleChange} name="estoqueMin" />
                     </FloatingLabel>
                   </Col>
@@ -103,10 +106,10 @@ export function ProductsModal() {
               </Form>
             </Tab>
             <Tab eventKey="Pesquisar" title="Pesquisar">
-            <Search>
-                  <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
-                  <Button variant="secondary" onClick={searchProduct}>Pesquisar</Button>
-                </Search>
+              <Search>
+                <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
+                <Button variant="secondary" onClick={searchProduct}>Pesquisar</Button>
+              </Search>
             </Tab>
 
           </Tabs>

@@ -1,5 +1,6 @@
 export interface IProducts {
-  id?: string
+  id: string
+  idEmpresa?: string
   nome?: string
   valor?: number | string
   valorVenda?: number | string
@@ -11,8 +12,6 @@ export interface IProducts {
   estoqueMin?: number | string
 
 }
-
-// teste
 
 export interface ISearch {
   text: string
