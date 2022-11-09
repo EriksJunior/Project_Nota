@@ -11,7 +11,7 @@
 }
 
 .nav-item{
-   width: 50%!important;
+   width: 50%;
 }
 
 .nav-link{
@@ -23,7 +23,7 @@
 
 .nav-link.active{
    background-color: blueviolet!important;
-   color: white!important;
+   color: white;
    border-radius: 10px 20px 0px 2px;
 
 }

@@ -14,17 +14,16 @@ margin-top: 25px;
 export const NavFiscale = styled(Nav)`
 
   .nav-item{
-    background: #F8F8FF;
+    background: #A9A9A9;
+    width:100%;
   }
 
   .nav-link{
     color: black;
   }
 
-  .nav-link.active {
-    background-color: #8A2BE2;
-    color: white;
-  }
+  .nav-link.active{
+    color: black;
 
-  
+  } 
 `
