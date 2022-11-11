@@ -1,18 +1,20 @@
-import { useCallback, useState } from 'react';
 import { Form, Offcanvas, Button, FloatingLabel, Tab, Tabs, Col, Row } from 'react-bootstrap';
 
 import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 
 import { Search } from '../Search/index';
+import { ProductTable } from './components/ProductTable';
+
+import { Masks } from "../../../utils/masks/Masks"
 
 import { UseProducts } from '../../hooks/useProducts';
-import { ProductTable } from './components/ProductTable';
 
 
 
 export function ProductsModal() {
   const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseProducts();
+  const { maskCurrency } = Masks()
 
   return (
     <>
@@ -42,57 +44,57 @@ export function ProductsModal() {
 
                 <Row>
                   <Col>
-                    <FloatingLabel className="mb-4" label="Nome Do Produto" style={{ color: "black" , fontSize:"14px"}}>
-                      <Form.Control style={{ background: "#f5f5f5" ,height: "48px"  }} type="text" onChange={handleChange} name="nome" value={produtos?.nome || ""} />
+                    <FloatingLabel className="mb-4" label="Nome Do Produto" style={{ color: "black", fontSize: "14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="nome" value={produtos?.nome || ""} />
                     </FloatingLabel >
                   </Col>
                 </Row>
                 <Row className="mb-4 ">
                   <Col>
-                    <FloatingLabel as={Col} label="Valor" style={{ color: "black" , fontSize:"14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5" , height: "48px"  }} type="text" onChange={handleChange} name="valor" />
+                    <FloatingLabel as={Col} label="Valor" style={{ color: "black", fontSize: "14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valor" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} label="Valor de Venda" style={{ color: "black" , fontSize:"14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="valorVenda" />
+                    <FloatingLabel as={Col} label="Valor de Venda" style={{ color: "black", fontSize: "14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valorVenda" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} label="Unidade" style={{ color: "black" , fontSize:"14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="unidade" />
+                    <FloatingLabel as={Col} label="Unidade" style={{ color: "black", fontSize: "14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="unidade" />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
-                <FloatingLabel className="mb-4" label="Código de Barras" style={{ color: "black" , fontSize:"14px" }}>
-                  <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="codBarras" />
+                <FloatingLabel className="mb-4" label="Código de Barras" style={{ color: "black", fontSize: "14px" }}>
+                  <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="codBarras" />
                 </FloatingLabel>
 
-                <FloatingLabel className="mb-4" label="Código de Referência" style={{ color: "black" , fontSize:"14px" }}>
-                  <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="codReferencia" />
+                <FloatingLabel className="mb-4" label="Código de Referência" style={{ color: "black", fontSize: "14px" }}>
+                  <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="codReferencia" />
                 </FloatingLabel>
 
                 <Row className="mb-4">
                   <Col>
-                    <FloatingLabel as={Col} label="Estoque" style={{ color: "black" , fontSize:"14px" }}>
+                    <FloatingLabel as={Col} label="Estoque" style={{ color: "black", fontSize: "14px" }}>
                       <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoque" />
                     </FloatingLabel>
                   </Col>
                   <Col>
-                    <FloatingLabel as={Col} label="Estoque Mínimo" style={{ color: "black" , fontSize:"14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5" , height: "48px" }} type="text" onChange={handleChange} name="estoqueMin" />
+                    <FloatingLabel as={Col} label="Estoque Mínimo" style={{ color: "black", fontSize: "14px" }}>
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoqueMin" />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
-                <FloatingLabel className="mb-4" label="Descrição" style={{ color: "black"  , fontSize:"14px" }}>
-                  <Form.Control as="textarea" style={{ background: "#f5f5f5" , height: "100px"  }} type="text" onChange={handleChange} name="descricao" />
+                <FloatingLabel className="mb-4" label="Descrição" style={{ color: "black", fontSize: "14px" }}>
+                  <Form.Control as="textarea" style={{ background: "#f5f5f5", height: "100px" }} type="text" onChange={handleChange} name="descricao" />
                 </FloatingLabel>
 
-                <Row className="gap-5" style={{marginTop:"80px"}} >
+                <Row className="gap-5" style={{ marginTop: "80px" }} >
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={handleSaveOrUpdate} type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
+                    <Button variant="" onClick={() => console.log(produtos)} type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
                       Cadastrar
                     </Button>
                   </Col>
