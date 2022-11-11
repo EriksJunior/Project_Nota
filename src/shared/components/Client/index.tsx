@@ -16,7 +16,7 @@ import './styles.css';
 export function ClientModal() {
   const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show } = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, alterTab: string, setAlterTab: (value: string | null) => void, clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose: () => void, handleShow: () => void, returnedClient: ICliente[], search: ISearch, searchClient: () => void, setSearch: any, show: Boolean }
 
-  const { maskCep } = Masks()
+  const { maskCep, maskCpfCnpj } = Masks()
 
   return (
     <>
@@ -56,7 +56,7 @@ export function ClientModal() {
                 <Row>
                   <Col>
                     <FloatingLabel label="CPF/CNPJ" style={{ color: "black" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black" }} onChange={handleChange} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
+                      <Form.Control style={{ background: "#f5f5f5", color: "black" }} onChange={handleChange} onKeyUp={maskCpfCnpj} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
                     </FloatingLabel>
                   </Col>
 
