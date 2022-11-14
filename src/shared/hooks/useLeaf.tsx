@@ -1,10 +1,13 @@
 import { useState, useCallback } from "react";
-import { ICliente } from "../../interface/ICliente";
-import { IProducts } from "../../interface/IProducts";
-import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf } from "../../interface/ILeaf"
+import { toast } from "react-toastify";
 
 import ClienteService from "../../services/ClienteService";
 import ProductService from "../../services/ProductService";
+import LeafService from "../../services/LeafService";
+
+import { ICliente } from "../../interface/ICliente";
+import { IProducts } from "../../interface/IProducts";
+import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf } from "../../interface/ILeaf"
 
 import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA } from "../context/leaf/initialStates/initialStateLeaf";
 
@@ -20,7 +23,7 @@ export function UseLeaf() {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
   }, [pedido])
 
-  
+
   const handleChangeProductLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
   }, [produtoLeaf])
@@ -43,5 +46,33 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania }
+  async function saveLeaf() {
+    try {
+      const { id } = await LeafService.save(pedido)
+      setPedido({ ...pedido, id: id })
+      toast("Salvo com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  async function updateLeaf(){
+    try {
+      
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  const handleSaveOrUpdate = async () => {
+    pedido.id === "" ? saveLeaf() : updateLeaf()
+  }
+
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, handleSaveOrUpdate }
 }
