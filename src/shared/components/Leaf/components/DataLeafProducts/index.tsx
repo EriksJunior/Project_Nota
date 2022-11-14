@@ -1,11 +1,14 @@
-import { useCallback, useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { LeafContext } from '../../../../context/leaf/leaf';
 import { ProdutosLeaf } from '../../../../../interface/ILeaf';
 import { IProducts } from '../../../../../interface/IProducts';
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
+import { Masks } from '../../../../../utils/masks/Masks'
 
 export function DataLeafProducts() {
-  const { produtoLeaf, setProdutoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, setProdutoLeaf: any, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler }
+  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler }
+
+  const { maskCurrency } = Masks()
 
   useEffect(() => {
     getProductsFromSelectBox()
@@ -57,7 +60,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Vl. Unitário">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} name="subtotal" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -65,7 +68,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
               <Form.Group as={Col} >
                 <FloatingLabel className="mb-4" label="Desc">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} name="desconto" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -73,7 +76,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Vl. Total">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} name="total" />
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} onKeyDown={maskCurrency} name="total" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -107,7 +110,7 @@ export function DataLeafProducts() {
             <Col xs={6} sm={3} md={3} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel className="mb-4" label="Peso">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso"/>
+                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
