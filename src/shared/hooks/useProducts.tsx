@@ -35,6 +35,15 @@ export function UseProducts() {
 
    }
 
+   const deleteProduct = async (id: string | undefined) => {
+    try {
+      await ProductServices.delete(id)
+      await searchProduct()
+    } catch (error: any) {
+      return (error)
+    }
+  }
+
   const searchProduct = async () => {
     try {
       const result = await ProductServices.search(search.text, search.page)
@@ -44,9 +53,18 @@ export function UseProducts() {
     }
   }
 
+  const findById = async (id: string | undefined) => {
+    try {
+      const result = await ProductServices.findById(id)
+      setProdutos(result)
+    } catch (error: any) {
+      return (error)
+      }
+    }
+
   const handleSaveOrUpdate = async () => {
     produtos?.id === "" ? saveProducts() : updateProducts()
   }
 
-  return{ produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , handleSaveOrUpdate , show}
+  return{ produtos, setProdutos , deleteProduct , search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , findById , handleSaveOrUpdate , show}
 }

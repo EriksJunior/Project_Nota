@@ -1,7 +1,9 @@
-import { Table } from "react-bootstrap";
+import { Table , Row , Col } from "react-bootstrap";
+import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
 
 import { IProducts } from "../../../../../interface/IProducts";
-
+import { useContext } from 'react';
+import { ProductContext } from '../../../../context/Product/product';
 interface ITablePrd{
   HeadProd?: string
   HeadValue?: string
@@ -10,6 +12,7 @@ interface ITablePrd{
 }
 
 export function ProductTable({ data }: ITablePrd) {
+  const{ findById , deleteProduct } = useContext(ProductContext) as { findById: any , deleteProduct:any }
 
   return(
     <Table striped bordered hover variant="dark">
@@ -27,7 +30,17 @@ export function ProductTable({ data }: ITablePrd) {
             <td> {e.nome} </td>
             <td> {e.valor} </td>
             <td> {e.estoque} </td>
-            <td> botão das açoes</td>
+            <td> 
+              <Row className='text-center'>
+              <Col role="button" >
+                  <IconBsPen onClick={() => findById(e.id)} />
+                </Col>
+
+                <Col role="button">
+                  <IconBsTrash onClick={() => deleteProduct(e.id)}/>
+                </Col>
+              </Row>
+            </td>
           </tr>
           )}
       </tbody>

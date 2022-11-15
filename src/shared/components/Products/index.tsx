@@ -33,7 +33,7 @@ export function ProductsModal() {
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#DCDCDC", color: "LightGrey", fontWeight: "bolder" }}>
           <Tabs
-            defaultActiveKey="Cadastro"
+            defaultActiveKey="Pesquisar"
             id="clientTabs"
             className="mb-3"
             style={{ fontSize: "20px", background: "#363636", borderRadius: "10px 20px 0px 2px" }}
@@ -94,7 +94,7 @@ export function ProductsModal() {
 
                 <Row className="gap-5" style={{ marginTop: "80px" }} >
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={() => console.log(produtos)} type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
+                    <Button variant="" onClick={handleSaveOrUpdate} type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
                       Cadastrar
                     </Button>
                   </Col>

@@ -17,10 +17,19 @@ class ProductServices {
         await api.put(`/products/${dataProducts.id}`, dataProducts)
     }
 
+    async delete(id: string | undefined) {
+        await api.delete(`/products/${id}`)
+      }
+
     async getFromSelectBox() {
         const { data } = await api.get('/products')
         return data
     }
+
+    async findById(id: string | undefined) {
+        const { data } = await api.get(`/products/${id}`)
+        return data
+      }
 }
 
 export default new ProductServices()
