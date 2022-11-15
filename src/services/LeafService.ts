@@ -5,6 +5,10 @@ class LeafService {
     const { data } = await api.post('/nota', nota)
     return data
   }
+
+  async update(nota: PedidoLeaf) {
+    await api.put(`/nota/${nota.id}`, nota)
+  }
 }
 
 export default new LeafService()

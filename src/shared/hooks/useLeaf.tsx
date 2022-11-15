@@ -60,9 +60,12 @@ export function UseLeaf() {
     }
   }
 
-  async function updateLeaf(){
+  async function updateLeaf() {
     try {
-      
+      await LeafService.update(pedido);
+      toast("Atualizado com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
