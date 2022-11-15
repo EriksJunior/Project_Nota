@@ -1,6 +1,5 @@
 import { Button, Card, Col, Form, FloatingLabel, Row } from 'react-bootstrap';
-import { IconIoHome } from '../Styles/bootstrap';
-import { IoCheckboxOutline } from "react-icons/io5";
+import { IoCheckboxOutline , IoHome } from "react-icons/io5";
 import { Dropzone } from '../DropzoneLogo/index';
 import { ButtonAtt, ButtonReturn, ButtonContent, CardCompany, LogoEmpresa } from './styles'
 
@@ -29,8 +28,8 @@ export function InfoCompany() {
 
 
     <div style={{ justifyContent: "center", display: "flex" }}>
-      <CardCompany style={{ background: "#696969", color: "black" }} className="text-center">
-        <Card.Header style={{ fontSize: "30px", fontWeight: "bold" }} >Cadastro da Empresa</Card.Header>
+      <CardCompany style={{ background: "#D3D3D3", color: "black" }} className="text-center">
+        <Card.Header style={{ fontSize: "30px", fontWeight: "bold" , background:"#8A2BE2" }} >Cadastro da Empresa</Card.Header>
         <Card.Body>
           <Card.Title style={{ justifyContent: "center", display: "flex" }} >
             <LogoEmpresa>
@@ -41,59 +40,59 @@ export function InfoCompany() {
             <Form>
               <Row className="mb-3">
                 <Col sm={3} md={3} lg={2} xl={2}>
-                  <FloatingLabel as={Col} className="mb-4" label="Código">
-                    <Form.Control disabled type="text" onChange={handleChange} name="codigo" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Código">
+                    <Form.Control disabled type="text" style={{ height: "48px" }} onChange={handleChange} name="codigo" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
-                  <FloatingLabel as={Col} className="mb-4" label=" Razão Social">
-                    <Form.Control type="text" onChange={handleChange} name="razaoSocial" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label=" Razão Social">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="razaoSocial" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
-                  <FloatingLabel as={Col} className="mb-4" label=" Nome Fantasia">
-                    <Form.Control type="text" onChange={handleChange} name="nomeFant" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label=" Nome Fantasia">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="nomeFant" />
                   </FloatingLabel>
                 </Col>
               </Row>
 
               <Row className="mb-3">
                 <Col sm={3} md={3} lg={2} xl={2}>
-                  <FloatingLabel as={Col} className="mb-4" label=" Registro">
-                    <Form.Control type="text" onChange={handleChange} name="registro" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label=" Registro">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="registro" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
-                  <FloatingLabel as={Col} className="mb-4" label="CPF/CNPJ">
-                    <Form.Control type="text" onChange={handleChange} name="cpfCnpj" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="CPF/CNPJ">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="cpfCnpj" />
                   </FloatingLabel>
                 </Col>
                 <Col>
-                  <FloatingLabel as={Col} className="mb-4" label="IE">
-                    <Form.Control type="text" onChange={handleChange} name="IE" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="IE">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="IE" />
                   </FloatingLabel>
                 </Col>
 
               </Row>
               <Row className="mb-3">
                 <Col sm={6} md={6} lg={6} xl={7}>
-                  <FloatingLabel as={Col} className="mb-4" label="Endereço">
-                    <Form.Control type="text" onChange={handleChange} name="endereco" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Endereço">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="endereco" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={2}>
-                  <FloatingLabel as={Col} className="mb-4" label="Número">
-                    <Form.Control type="text" onChange={handleChange} name="numero" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Número">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="numero" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
-                  <FloatingLabel as={Col} className="mb-4" label="Bairro">
-                    <Form.Control type="text" onChange={handleChange} name="bairro" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Bairro">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="bairro" />
                   </FloatingLabel>
                 </Col>
 
@@ -101,14 +100,14 @@ export function InfoCompany() {
 
               <Row className="mb-3">
                 <Col>
-                  <FloatingLabel as={Col} className="mb-4" label="Cidade">
-                    <Form.Control type="text" onChange={handleChange} name="cidade" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Cidade">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="cidade" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
-                  <FloatingLabel as={Col} className="mb-4" label="Estado">
-                    <Form.Select style={{ fontWeight: "bolder" }}>
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Estado">
+                    <Form.Select style={{ fontWeight: "bolder" , height: "48px" }}>
                       <option>Selecione...</option>
                       <option value="AC">Acre</option>
                       <option value="AL">Alagoas</option>
@@ -142,28 +141,28 @@ export function InfoCompany() {
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
-                  <FloatingLabel as={Col} className="mb-4" label="CEP">
-                    <Form.Control type="text" onChange={handleChange} name="cep" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="CEP">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="cep" />
                   </FloatingLabel>
                 </Col>
               </Row>
 
-              <Row>
+              <Row className="mb-3">
                 <Col sm={3} md={3} lg={2} xl={6}>
-                  <FloatingLabel as={Col} className="mb-4" label="Email">
-                    <Form.Control type="text" onChange={handleChange} name="email" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Email">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="email" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
-                  <FloatingLabel as={Col} className="mb-4" label="Telefone">
-                    <Form.Control type="text" onChange={handleChange} name="telefone" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Telefone">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="telefone" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
-                  <FloatingLabel as={Col} className="mb-4" label="Celular">
-                    <Form.Control type="text" onChange={handleChange} name="celular" />
+                  <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Celular">
+                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="celular" />
                   </FloatingLabel>
                 </Col>
 
@@ -174,12 +173,12 @@ export function InfoCompany() {
         <Card.Footer className="text-muted">
           <ButtonContent>
             <ButtonReturn as={Link} to="/">
-              <Button variant="" size='lg'>
-                <IconIoHome /> <span>Página Principal</span>
+              <Button variant="">
+                <IoHome /> <a>Página Principal</a>
               </Button>
             </ButtonReturn>
             <ButtonAtt>
-              <Button onClick={updateCompany} variant="" size='lg'>
+              <Button onClick={updateCompany} variant="">
                 <IoCheckboxOutline /> Atualizar cadastro
               </Button>
             </ButtonAtt>

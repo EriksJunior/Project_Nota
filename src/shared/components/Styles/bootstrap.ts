@@ -15,6 +15,7 @@ color: #461269;
 
 export const IconIoHome = styled(IoHome)`
 color: #8A2BE2;
+}
 `
 
 export const IconIoEnter = styled(IoEnter)`
