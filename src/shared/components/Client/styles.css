@@ -27,3 +27,14 @@
    border-radius: 10px 20px 0px 2px;
 
 }
+.form-select{
+   height: 48px;
+ }
+ .form-floating>.form-select{
+   padding-top: 1.325rem;
+   padding-bottom: 0.175rem;
+ }
+ .form-floating{
+   height: 48px;
+   
+ }
