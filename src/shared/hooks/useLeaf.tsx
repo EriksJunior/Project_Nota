@@ -103,6 +103,7 @@ export function UseLeaf() {
   const findLeafProductsByIdNota = async () => {
     try {
       const result = await LeafService.findLeafProductsByIdNota(pedido.id)
+      console.log(result)
       setReturnedProductsLeaf(result.noteItem)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {

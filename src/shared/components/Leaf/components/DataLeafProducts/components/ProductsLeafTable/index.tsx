@@ -25,7 +25,7 @@ export function ProductsLeafTable({ data }: ITable) {
       <tbody>
         {data?.map(e =>
           <tr key={e.idProduto}>
-            <td>Nome teste</td>
+            <td>{e.nome}</td>
             <td>{e.subtotal}</td>
             <td>{e.total}</td>
             <td className='text-center'>

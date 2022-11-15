@@ -1,4 +1,5 @@
 export interface ProdutosLeaf {
+  nome?: string
   idProduto: string
   idNota: string
   codigo: string
