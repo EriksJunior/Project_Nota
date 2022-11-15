@@ -10,7 +10,6 @@ export interface IProducts {
   codReferencia?: string
   estoque?: number | string
   estoqueMin?: number | string
-
 }
 
 export interface ISearch {
