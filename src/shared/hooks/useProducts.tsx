@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 
 import { INITIAL_STATE_PRODUCT, INITIAL_STATE_SEARCH } from '../components/Products/InicialStateProd';
 import ProductServices from '../../services/ProductService';
-import { IProducts , ISearch } from '../../interface/IProducts';
+import { IProducts, ISearch } from '../../interface/IProducts';
 
 
 
@@ -10,37 +10,42 @@ export function UseProducts() {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedProduct, setReturnedProduct] = useState<IProducts[]>()
+  const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setProdutos({ ...produtos, [e.target.name]: e.target.value })
   }, [produtos]);
 
   const saveProducts = async () => {
-    try{
-    const result = await ProductServices.save(produtos as IProducts)
-    setProdutos({ ...produtos , id: result.id })
-    } catch(error: any){
+    try {
+      const result = await ProductServices.save(produtos as IProducts)
+      setProdutos({ ...produtos, id: result.id })
+    } catch (error: any) {
       return (error)
     }
   }
 
-  const updateProducts = async () => {
-    console.log(updateProducts)
-     await ProductServices.update(produtos as IProducts)
+  const update = async () => {
+    try {
+      await ProductServices.update(produtos as IProducts)
+      console.log(update)
+    } catch (error: any) {
+      return error
+    }
 
-   }
 
-   const deleteProduct = async (id: string | undefined) => {
+  }
+
+  const deleteProduct = async (id: string | undefined) => {
     try {
       await ProductServices.delete(id)
       await searchProduct()
     } catch (error: any) {
-      return (error)
+      return console.log(error)
     }
   }
 
@@ -59,12 +64,12 @@ export function UseProducts() {
       setProdutos(result)
     } catch (error: any) {
       return (error)
-      }
     }
-
-  const handleSaveOrUpdate = async () => {
-    produtos?.id === "" ? saveProducts() : updateProducts()
   }
 
-  return{ produtos, setProdutos , deleteProduct , search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange , findById , handleSaveOrUpdate , show}
+  const handleSaveOrUpdate = async () => {
+    produtos?.id === "" ? saveProducts() : update()
+  }
+
+  return { produtos, setProdutos, deleteProduct, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
 }
