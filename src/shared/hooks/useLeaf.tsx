@@ -28,7 +28,7 @@ export function UseLeaf() {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
   }, [produtoLeaf])
 
-  async function getClientesFromSelectBox() {
+  const getClientesFromSelectBox = async () => {
     try {
       const { data } = await ClienteService.getFromSelectBox()
       setCliente(data)
@@ -37,7 +37,7 @@ export function UseLeaf() {
     }
   }
 
-  async function getProductsFromSelectBox() {
+  const getProductsFromSelectBox = async () => {
     try {
       const { data } = await ProductService.getFromSelectBox()
       setProdutoSelectBox(data)
@@ -46,7 +46,7 @@ export function UseLeaf() {
     }
   }
 
-  async function saveLeaf() {
+  const saveLeaf = async () => {
     try {
       const { id } = await LeafService.save(pedido)
       setPedido({ ...pedido, id: id })
@@ -60,7 +60,7 @@ export function UseLeaf() {
     }
   }
 
-  async function updateLeaf() {
+  const updateLeaf = async () => {
     try {
       await LeafService.update(pedido);
       toast("Atualizado com sucesso! ✅", {
@@ -77,5 +77,25 @@ export function UseLeaf() {
     pedido.id === "" ? saveLeaf() : updateLeaf()
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, handleSaveOrUpdate }
+  const addProduct = async () => {
+    try {
+      await LeafService.addProduct({
+        ...produtoLeaf,
+        idNota: pedido.id,
+        subtotal: produtoLeaf.subtotal.replace(".", "").replace(",", "."),
+        total: produtoLeaf.total.replace(".", "").replace(",", "."),
+        desconto: produtoLeaf.desconto.replace(".", "").replace(",", ".")
+      })
+
+      toast("Produto adicionado! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, handleSaveOrUpdate, addProduct }
 }

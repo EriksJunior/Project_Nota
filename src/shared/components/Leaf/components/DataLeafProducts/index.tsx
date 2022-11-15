@@ -6,7 +6,7 @@ import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstra
 import { Masks } from '../../../../../utils/masks/Masks'
 
 export function DataLeafProducts() {
-  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler }
+  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler , addProduct: () => void}
 
   const { maskCurrency } = Masks()
 
@@ -118,7 +118,7 @@ export function DataLeafProducts() {
 
           <Row>
             <Col sm={12} md={12} lg={12} xl={12} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }} onClick={() => console.log(produtoLeaf)}>
+              <Button variant="" type="button" style={{ background: "BlueViolet", color: "whitesmoke", fontWeight: 'bold' }} onClick={addProduct}>
                 Adicionar
               </Button>
             </Col>
