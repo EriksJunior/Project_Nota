@@ -5,8 +5,10 @@ import { IProducts } from '../../../../../interface/IProducts';
 import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstrap';
 import { Masks } from '../../../../../utils/masks/Masks'
 
+import { ProductsLeafTable } from './components/ProductsLeafTable';
+
 export function DataLeafProducts() {
-  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler , addProduct: () => void}
+  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct, returnedProductsLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler , addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[]}
 
   const { maskCurrency } = Masks()
 
@@ -122,6 +124,10 @@ export function DataLeafProducts() {
                 Adicionar
               </Button>
             </Col>
+          </Row>
+
+          <Row>
+            <ProductsLeafTable data={returnedProductsLeaf}/>
           </Row>
         </Form>
       </Accordion.Body>

@@ -16,6 +16,7 @@ export function UseLeaf() {
   const [produtoSelectBox, setProdutoSelectBox] = useState<IProducts[]>([])
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
+  const [returnedProductsLeaf, setReturnedProductsLeaf] = useState<ProdutosLeaf[]>([])
   const [responseWebmania, setResponseWebmania] = useState<IResponseWebmaniaLeaf>(INITIAL_VALUE_RESPONSE_WEBMANIA)
 
 
@@ -87,6 +88,8 @@ export function UseLeaf() {
         desconto: produtoLeaf.desconto.replace(".", "").replace(",", ".")
       })
 
+      await findLeafProductsByIdNota()
+
       toast("Produto adicionado! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -97,5 +100,16 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, handleSaveOrUpdate, addProduct }
+  const findLeafProductsByIdNota = async () => {
+    try {
+      const result = await LeafService.findLeafProductsByIdNota(pedido.id)
+      setReturnedProductsLeaf(result.noteItem)
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct }
 }
