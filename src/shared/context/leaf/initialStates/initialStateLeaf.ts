@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
 
 export const INITIAL_VALUE_PRODUTOS = {
+  id: "",
   idProduto: "",
   idNota: "",
   codigo: "",

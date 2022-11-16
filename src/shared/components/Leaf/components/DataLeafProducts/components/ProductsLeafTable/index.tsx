@@ -12,25 +12,29 @@ interface ITable {
 }
 
 export function ProductsLeafTable({ data }: ITable) {
+  const { deleteProduct } = useContext(LeafContext) as { deleteProduct: (value: string) => void }
+
   return (
-    <Table striped bordered hover variant="dark">
+    <Table striped bordered hover variant="dark" className={'mt-3'}>
       <thead>
         <tr>
           <th>Nome</th>
           <th>Sub Total</th>
           <th>Total</th>
-          <th className='text-center' style={{width: '100px'}}>Ações</th>
+          <th className='text-center' style={{ width: '120px' }}>Desconto</th>
+          <th className='text-center' style={{ width: '100px' }}>Ações</th>
         </tr>
       </thead>
       <tbody>
         {data?.map(e =>
-          <tr key={e.idProduto}>
+          <tr key={e.id}>
             <td>{e.nome}</td>
             <td>{e.subtotal}</td>
             <td>{e.total}</td>
+            <td>{e.desconto}</td>
             <td className='text-center'>
               <Row>
-                <Col role="button">
+                <Col role="button" onClick={() => deleteProduct(e.id)}>
                   <IconBsTrash size={20} />
                 </Col>
               </Row>
