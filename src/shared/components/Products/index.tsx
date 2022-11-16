@@ -9,11 +9,21 @@ import { ProductTable } from './components/ProductTable';
 import { Masks } from "../../../utils/masks/Masks"
 
 import { UseProducts } from '../../hooks/useProducts';
+import { useContext } from 'react';
+import { ProductContext } from '../../context/Product/product';
+import { IProducts, ISearch } from '../../../interface/IProducts';
 
 
 
 export function ProductsModal() {
-  const { produtos, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, handleSaveOrUpdate, show } = UseProducts();
+  const { produtos, search , setSearch , searchProduct, returnedProduct, handleShow,
+     handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
+      produtos: IProducts , search: ISearch , setSearch: any , searchProduct: () => void , returnedProduct: IProducts[],
+      handleShow: () => void , handleClose: () => void , handleChange: React.ChangeEventHandler , 
+      handleSaveOrUpdate: () => void , show: Boolean }
+
+  
+
   const { maskCurrency } = Masks()
 
   return (
@@ -40,7 +50,7 @@ export function ProductsModal() {
           >
             <Tab eventKey="Cadastro" title="Cadastro">
               <Form >
-                <Form.Control onChange={handleChange} hidden value={produtos.id} name="id" type="text" />
+                <Form.Control onChange={handleChange} hidden value={produtos?.id || ""} name="id" type="text" />
 
                 <Row>
                   <Col>

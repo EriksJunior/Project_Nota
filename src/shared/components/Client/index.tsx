@@ -14,7 +14,13 @@ import { ICliente, ISearch } from '../../../interface/ICliente';
 import './styles.css';
 
 export function ClientModal() {
-  const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show } = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, alterTab: string, setAlterTab: (value: string | null) => void, clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose: () => void, handleShow: () => void, returnedClient: ICliente[], search: ISearch, searchClient: () => void, setSearch: any, show: Boolean }
+  const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate, 
+    handleClose, handleShow, returnedClient, search, searchClient, setSearch, show }
+   = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, 
+    alterTab: string, setAlterTab: (value: string | null) => void, 
+    clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose: () => void,
+     handleShow: () => void, returnedClient: ICliente[],
+     search: ISearch, searchClient: () => void, setSearch: any, show: Boolean }
 
   const { maskCep, maskCpfCnpj } = Masks()
 
