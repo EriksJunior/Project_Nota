@@ -14,9 +14,13 @@ class LeafService {
     await api.post('/nota-item', product)
   }
 
-  async findLeafProductsByIdNota(id: string){
+  async findLeafProductsByIdNota(id: string) {
     const { data } = await api.get(`/nota-item/${id}`)
     return data
+  }
+
+  async deleteProduct(id: string) {
+    await api.delete(`/nota-item/${id}`)
   }
 }
 

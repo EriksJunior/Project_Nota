@@ -1,6 +1,7 @@
 export interface ProdutosLeaf {
-  nome?: string
+  id: string
   idProduto: string
+  nome?: string
   idNota: string
   codigo: string
   ncm: string
@@ -23,7 +24,7 @@ export interface PedidoLeaf {
   natureza_operacao: string
   modelo: string 
   ambiente: string 
-  idCliente: string
+  idCliente: string | undefined
   finalidade: string
   url_notificacao: string
   data_nfe: Date | any

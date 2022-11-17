@@ -8,7 +8,7 @@ import { Masks } from '../../../../../utils/masks/Masks'
 import { ProductsLeafTable } from './components/ProductsLeafTable';
 
 export function DataLeafProducts() {
-  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct, returnedProductsLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler , addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[]}
+  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct, returnedProductsLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[] }
 
   const { maskCurrency } = Masks()
 
@@ -127,7 +127,9 @@ export function DataLeafProducts() {
           </Row>
 
           <Row>
-            <ProductsLeafTable data={returnedProductsLeaf}/>
+            <Col>
+              <ProductsLeafTable data={returnedProductsLeaf} />
+            </Col>
           </Row>
         </Form>
       </Accordion.Body>

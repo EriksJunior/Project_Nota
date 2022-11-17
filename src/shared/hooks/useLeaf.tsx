@@ -19,11 +19,18 @@ export function UseLeaf() {
   const [returnedProductsLeaf, setReturnedProductsLeaf] = useState<ProdutosLeaf[]>([])
   const [responseWebmania, setResponseWebmania] = useState<IResponseWebmaniaLeaf>(INITIAL_VALUE_RESPONSE_WEBMANIA)
 
+  const [cpfCnpjCliente, setCpfCnpjCliente] = useState<ICliente>({ cpfCnpj: "" });
+
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
   }, [pedido])
 
+  const onChangeCliente = (e: string) => {
+    const result: ICliente = JSON.parse(e)
+    setPedido({ ...pedido, idCliente: result.id })
+    setCpfCnpjCliente({ cpfCnpj: result.cpfCnpj })
+  }
 
   const handleChangeProductLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
@@ -87,7 +94,6 @@ export function UseLeaf() {
         total: produtoLeaf.total.replace(".", "").replace(",", "."),
         desconto: produtoLeaf.desconto.replace(".", "").replace(",", ".")
       })
-
       await findLeafProductsByIdNota()
 
       toast("Produto adicionado! ✅", {
@@ -103,7 +109,6 @@ export function UseLeaf() {
   const findLeafProductsByIdNota = async () => {
     try {
       const result = await LeafService.findLeafProductsByIdNota(pedido.id)
-      console.log(result)
       setReturnedProductsLeaf(result.noteItem)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
@@ -112,5 +117,20 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct }
+  const deleteProduct = async (id: string) => {
+    try {
+      await LeafService.deleteProduct(id)
+      await findLeafProductsByIdNota()
+
+      toast("Produto removido! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente }
 }
