@@ -24,8 +24,8 @@ export function DataLeafProducts() {
           <Row xs={2}>
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col}>
-                <FloatingLabel className="mb-4" label="Produtos">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChangeProductLeaf} name="idProduto">
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Produtos">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} onChange={handleChangeProductLeaf} name="idProduto">
                     <option value="">Selecione...</option>
                     {produtoSelectBox.map((e) =>
                       <option key={e.id} value={e.id}>{e.nome}</option>
@@ -37,56 +37,56 @@ export function DataLeafProducts() {
 
             <Col sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
-                <FloatingLabel className="mb-4" label="Cod Ref">
-                  <Form.Control disabled type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.codigo || ""} name="codigo" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Cod Ref">
+                  <Form.Control disabled type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.codigo || ""} name="codigo" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col sm={3} md={3} lg={2} xl={1}>
               <Form.Group as={Col}>
-                <FloatingLabel className="mb-4" label="Qnt">
-                  <Form.Control type="number" onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Qnt">
+                  <Form.Control type="number" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col xs={12} sm={9} md={9} lg={4} xl={5}>
               <Form.Group as={Col} >
-                <FloatingLabel className="mb-4" label="Dados adicionais">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.informacoes_adicionais || ""} name="informacoes_adicionais" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Dados adicionais">
+                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.informacoes_adicionais || ""} name="informacoes_adicionais" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
-                <FloatingLabel className="mb-4" label="Vl. Unitário">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Vl. Unitário">
+                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
               <Form.Group as={Col} >
-                <FloatingLabel className="mb-4" label="Desc">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Desc">
+                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col}>
-                <FloatingLabel className="mb-4" label="Vl. Total">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} onKeyDown={maskCurrency} name="total" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Vl. Total">
+                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} onKeyDown={maskCurrency} name="total" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} >
-                <FloatingLabel className="mb-4" label="Origen">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChangeProductLeaf} value={produtoLeaf.origem || "0"} name="origem">
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Origen">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.origem || "0"} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>
@@ -103,16 +103,16 @@ export function DataLeafProducts() {
 
             <Col xs={6} sm={3} md={3} lg={3} xl={1}>
               <Form.Group as={Col}>
-                <FloatingLabel className="mb-4" label="Und">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.unidade || ""} name="unidade" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Und">
+                  <Form.Control style={{ height: "48px" }} type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.unidade || ""} name="unidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
 
             <Col xs={6} sm={3} md={3} lg={3} xl={2}>
               <Form.Group as={Col}>
-                <FloatingLabel className="mb-4" label="Peso">
-                  <Form.Control type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso" />
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Peso">
+                  <Form.Control style={{ height: "48px" }} type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso" />
                 </FloatingLabel>
               </Form.Group>
             </Col>

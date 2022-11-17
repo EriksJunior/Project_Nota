@@ -1,5 +1,5 @@
 import { Table , Row , Col } from "react-bootstrap";
-import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
+import { IconBsPen, IconBsTrash , IconEdit } from '../../../Styles/bootstrap'
 
 import { IProducts } from "../../../../../interface/IProducts";
 import { useContext } from 'react';
@@ -33,11 +33,11 @@ export function ProductTable({ data }: ITablePrd) {
             <td> 
               <Row className='text-center'>
               <Col role="button" >
-                  <IconBsPen onClick={() => findById(e.id)} />
+                  <IconEdit size={26} onClick={() => findById(e.id)} />
                 </Col>
 
                 <Col role="button">
-                  <IconBsTrash onClick={() => deleteProduct(e.id)}/>
+                  <IconBsTrash size={26} onClick={() => deleteProduct(e.id)}/>
                 </Col>
               </Row>
             </td>

@@ -3,7 +3,7 @@ import { IoHome, IoNewspaper, IoHelpCircleOutline , IoEnter } from "react-icons/
 import { BiBox, BiUser } from "react-icons/bi"; 
 import { BsPen, BsTrash } from "react-icons/bs";
 import styled from "styled-components";
-
+import { TbEdit } from "react-icons/tb";
 
 export const IconBiBox = styled(BiBox)`
 color: #461269;
@@ -31,6 +31,10 @@ color: #8A2BE2;
 `
 
 export const IconBsPen = styled(BsPen)`
+color: #8A2BE2;
+`
+
+export const IconEdit = styled(TbEdit)`
 color: #8A2BE2;
 `
 
