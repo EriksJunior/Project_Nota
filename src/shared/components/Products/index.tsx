@@ -8,7 +8,6 @@ import { ProductTable } from './components/ProductTable';
 
 import { Masks } from "../../../utils/masks/Masks"
 
-import { UseProducts } from '../../hooks/useProducts';
 import { useContext } from 'react';
 import { ProductContext } from '../../context/Product/product';
 import { IProducts, ISearch } from '../../../interface/IProducts';
@@ -16,9 +15,9 @@ import { IProducts, ISearch } from '../../../interface/IProducts';
 
 
 export function ProductsModal() {
-  const { produtos, search , setSearch , searchProduct, returnedProduct, handleShow,
+  const { produtos, alterTab , setAlterTab , clearInputs , search , setSearch , searchProduct, returnedProduct, handleShow,
      handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
-      produtos: IProducts , search: ISearch , setSearch: any , searchProduct: () => void , returnedProduct: IProducts[],
+      produtos: IProducts , alterTab: string , setAlterTab: ( value: string | null ) => void , clearInputs: () => void , search: ISearch , setSearch: any , searchProduct: () => void , returnedProduct: IProducts[],
       handleShow: () => void , handleClose: () => void , handleChange: React.ChangeEventHandler , 
       handleSaveOrUpdate: () => void , show: Boolean }
 
@@ -43,8 +42,9 @@ export function ProductsModal() {
         </Offcanvas.Header>
         <Offcanvas.Body style={{ background: "#DCDCDC", color: "LightGrey", fontWeight: "bolder" }}>
           <Tabs
-            defaultActiveKey="Pesquisar"
+            activeKey={alterTab}
             id="clientTabs"
+            onSelect={(tabSelected) => setAlterTab(tabSelected)}
             className="mb-3"
             style={{ fontSize: "20px", background: "#363636", borderRadius: "10px 20px 0px 2px" }}
           >
@@ -62,44 +62,44 @@ export function ProductsModal() {
                 <Row className="mb-4 ">
                   <Col>
                     <FloatingLabel as={Col} label="Valor" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valor" />
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valor" value={produtos?.valor || ""} />
                     </FloatingLabel>
                   </Col>
                   <Col>
                     <FloatingLabel as={Col} label="Valor de Venda" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valorVenda" />
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valorVenda" value={produtos?.valorVenda || ""} />
                     </FloatingLabel>
                   </Col>
                   <Col>
                     <FloatingLabel as={Col} label="Unidade" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="unidade" />
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="unidade" value={produtos?.unidade || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
                 <FloatingLabel className="mb-4" label="Código de Barras" style={{ color: "black", fontSize: "14px" }}>
-                  <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="codBarras" />
+                  <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="codBarras" value={produtos?.codBarras || ""} />
                 </FloatingLabel>
 
                 <FloatingLabel className="mb-4" label="Código de Referência" style={{ color: "black", fontSize: "14px" }}>
-                  <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="codReferencia" />
+                  <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="codReferencia" value={produtos?.codReferencia || ""} />
                 </FloatingLabel>
 
                 <Row className="mb-4">
                   <Col>
                     <FloatingLabel as={Col} label="Estoque" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoque" />
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoque" value={produtos?.estoque || ""} />
                     </FloatingLabel>
                   </Col>
                   <Col>
                     <FloatingLabel as={Col} label="Estoque Mínimo" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoqueMin" />
+                      <Form.Control style={{ background: "#f5f5f5", height: "48px" }} type="text" onChange={handleChange} name="estoqueMin" value={produtos?.estoqueMin || ""} />
                     </FloatingLabel>
                   </Col>
                 </Row>
 
                 <FloatingLabel className="mb-4" label="Descrição" style={{ color: "black", fontSize: "14px" }}>
-                  <Form.Control as="textarea" style={{ background: "#f5f5f5", height: "100px" }} type="text" onChange={handleChange} name="descricao" />
+                  <Form.Control as="textarea" style={{ background: "#f5f5f5", height: "100px" }} type="text" onChange={handleChange} name="descricao" value={produtos?.descricao || ""} />
                 </FloatingLabel>
 
                 <Row className="gap-5" style={{ marginTop: "80px" }} >
@@ -110,7 +110,7 @@ export function ProductsModal() {
                   </Col>
 
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
+                    <Button variant="" onClick={clearInputs} type="button" style={{ background: "BlueViolet", color: "white", width: "320px" }}>
                       Limpar
                     </Button>
                   </Col>

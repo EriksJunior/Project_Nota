@@ -11,9 +11,18 @@ export function UseProducts() {
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedProduct, setReturnedProduct] = useState<IProducts[]>()
   const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
+  const [ alterTab , setAlterTab ] = useState<string>("Pesquisar")
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () =>{
+    setShow(false)
+    setAlterTab("Pesquisar")
+    clearInputs()
+  };
+  const handleShow = () => {
+    setShow(true)
+    setAlterTab("Pesquisar")
+    clearInputs()
+  };
 
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +41,7 @@ export function UseProducts() {
   const update = async () => {
     try {
       await ProductServices.update(produtos as IProducts)
-      console.log(update)
+      setAlterTab("Pesquisar")
     } catch (error: any) {
       return error
     }
@@ -62,6 +71,7 @@ export function UseProducts() {
     try {
       const result = await ProductServices.findById(id)
       setProdutos(result)
+      setAlterTab("Cadastro")
     } catch (error: any) {
       return (error)
     }
@@ -71,5 +81,9 @@ export function UseProducts() {
     produtos?.id === "" ? saveProducts() : update()
   }
 
-  return { produtos, setProdutos, deleteProduct, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
+  const clearInputs = () => {
+    setProdutos(INITIAL_STATE_PRODUCT)
+  }
+
+  return { produtos, setProdutos, deleteProduct, alterTab , setAlterTab , clearInputs , search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
 }
