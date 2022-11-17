@@ -4,6 +4,7 @@ import { IconBsPen, IconBsTrash , IconEdit } from '../../../Styles/bootstrap'
 import { IProducts } from "../../../../../interface/IProducts";
 import { useContext } from 'react';
 import { ProductContext } from '../../../../context/Product/product';
+import { StyleTable } from "./styles";
 interface ITablePrd{
   HeadProd?: string
   HeadValue?: string
@@ -15,7 +16,7 @@ export function ProductTable({ data }: ITablePrd) {
   const{ findById , deleteProduct } = useContext(ProductContext) as { findById: any , deleteProduct:any }
 
   return(
-    <Table striped bordered hover variant="dark">
+    <StyleTable bordered >
       <thead>
         <tr className='text-center'>
           <th> Nome </th>
@@ -44,6 +45,6 @@ export function ProductTable({ data }: ITablePrd) {
           </tr>
           )}
       </tbody>
-    </Table>
+    </StyleTable>
   )
 }

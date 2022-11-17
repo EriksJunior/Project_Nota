@@ -36,10 +36,16 @@ color: #8A2BE2;
 
 export const IconEdit = styled(TbEdit)`
 color: #8A2BE2;
+:hover{
+  color: green;
+}
 `
 
 export const IconBsTrash = styled(BsTrash)`
 color: #8A2BE2;
+:hover{
+  color: red;
+}
 `
 
 export const ButtonBt = styled(Button)`
