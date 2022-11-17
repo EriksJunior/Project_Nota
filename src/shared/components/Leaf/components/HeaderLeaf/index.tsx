@@ -1,12 +1,12 @@
-import { useEffect, useContext, useCallback } from 'react'
-import { Row, Col, Form, FloatingLabel, Button } from 'react-bootstrap'
+import { useEffect, useContext } from 'react'
+import { Row, Col, Form, FloatingLabel } from 'react-bootstrap'
 import { ICliente } from '../../../../../interface/ICliente'
 import { PedidoLeaf, IResponseWebmaniaLeaf } from '../../../../../interface/ILeaf'
 import { Container } from './styles'
 import { LeafContext } from '../../../../context/leaf/leaf'
 
 export function HeaderLeaf() {
-  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf }
+  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania, onChangeCliente, cpfCnpjCliente } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, onChangeCliente: (e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => void, cpfCnpjCliente: ICliente }
 
   useEffect(() => {
     getClientesFromSelectBox()
@@ -100,9 +100,9 @@ export function HeaderLeaf() {
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col}>
             <FloatingLabel className="" label="Cliente">
-              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'}>
+              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement> | any) => onChangeCliente(e.target.value)} name={'idCliente'}>
                 <option value="">Selecione...</option>
-                {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
+                {cliente.map((e) => <option key={e.id} value={JSON.stringify(e)}>{e.nome}</option>)}
               </Form.Select>
             </FloatingLabel>
           </Form.Group>
@@ -111,7 +111,7 @@ export function HeaderLeaf() {
         <Col xs={4} sm={4} md={4} lg={4} xl={4}>
           <Form.Group as={Col}>
             <FloatingLabel className="mb-4" label="CPF/CNPJ">
-              <Form.Control style={{ height: "48px" }} disabled type="text" name="CPF/CNPJ" />
+              <Form.Control style={{ height: "48px" }} disabled value={cpfCnpjCliente.cpfCnpj || ""} type="text" name="CPF/CNPJ" />
             </FloatingLabel>
           </Form.Group>
         </Col>
