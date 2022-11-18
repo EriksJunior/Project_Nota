@@ -36,6 +36,18 @@ export function UseLeaf() {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
   }, [produtoLeaf])
 
+  const handleTotalValueProducts = () => {
+    const quantidade = produtoLeaf.quantidade
+    const subtotal = produtoLeaf.subtotal.replace(".","").replace(",",".")
+    let desconto = produtoLeaf.desconto.replace(".","").replace(",",".")
+    if(produtoLeaf.desconto === "") {
+      desconto = "0"
+    }
+
+    const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
+    setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', {minimumFractionDigits: 2})})
+  }
+
   const getClientesFromSelectBox = async () => {
     try {
       const { data } = await ClienteService.getFromSelectBox()
@@ -132,5 +144,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente }
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts }
 }
