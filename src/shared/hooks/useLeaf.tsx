@@ -37,15 +37,22 @@ export function UseLeaf() {
   }, [produtoLeaf])
 
   const handleTotalValueProducts = () => {
-    const quantidade = produtoLeaf.quantidade
-    const subtotal = produtoLeaf.subtotal.replace(".","").replace(",",".")
-    let desconto = produtoLeaf.desconto.replace(".","").replace(",",".")
-    if(produtoLeaf.desconto === "") {
+    let quantidade = produtoLeaf.quantidade
+    let subtotal = produtoLeaf.subtotal.replace(".", "").replace(",", ".")
+    let desconto = produtoLeaf.desconto.replace(".", "").replace(",", ".")
+
+    if (produtoLeaf.desconto === "") {
       desconto = "0"
+    } if (produtoLeaf.subtotal === "") {
+      console.log('teste')
+      subtotal = "0"
+    } if (produtoLeaf.quantidade === "") {
+      quantidade = "1"
     }
 
     const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
-    setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', {minimumFractionDigits: 2})})
+    console.log(`quantidade: ${quantidade}, subTotal: ${subtotal}, desconto: ${desconto}`)
+    setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
   }
 
   const getClientesFromSelectBox = async () => {
