@@ -41,6 +41,9 @@ export const INITIAL_VALUE_PEDIDO = {
   intermediador: "",
   cnpj_intermediador: "",
   id_intermediador: "",
+  despesas_acessorias: "",
+  informacoes_fisco: "",
+  informacoes_complementares: "",
 }
 
 export const INITIAL_VALUE_RESPONSE_WEBMANIA = {

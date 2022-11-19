@@ -19,11 +19,11 @@ export interface ProdutosLeaf {
 
 export interface PedidoLeaf {
   id: string
-  ID: string 
+  ID: string
   operacao: string
   natureza_operacao: string
-  modelo: string 
-  ambiente: string 
+  modelo: string
+  ambiente: string
   idCliente: string | undefined
   finalidade: string
   url_notificacao: string
@@ -40,6 +40,9 @@ export interface PedidoLeaf {
   intermediador: string
   cnpj_intermediador: string
   id_intermediador: string
+  despesas_acessorias: string
+  informacoes_fisco: string
+  informacoes_complementares: string
 }
 
 export interface IResponseWebmaniaLeaf {
