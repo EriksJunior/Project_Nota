@@ -51,7 +51,6 @@ export function UseLeaf() {
     }
 
     const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
-    console.log(`quantidade: ${quantidade}, subTotal: ${subtotal}, desconto: ${desconto}`)
     setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
   }
 

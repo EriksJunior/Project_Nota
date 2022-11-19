@@ -29,9 +29,9 @@ export function ProductsLeafTable({ data }: ITable) {
         {data?.map(e =>
           <tr key={e.id}>
             <td>{e.nome}</td>
-            <td>{e.subtotal}</td>
-            <td>{e.total}</td>
-            <td>{e.desconto}</td>
+            <td>{parseFloat(e.subtotal).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
+            <td>{parseFloat(e.total).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
+            <td>{parseFloat(e.desconto).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
             <td className='text-center'>
               <Row>
                 <Col role="button" onClick={() => deleteProduct(e.id)}>
