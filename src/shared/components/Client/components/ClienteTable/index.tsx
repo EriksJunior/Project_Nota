@@ -2,9 +2,10 @@ import { Table } from 'react-bootstrap';
 import { ICliente } from '../../../../../interface/ICliente';
 import { Row, Col } from 'react-bootstrap';
 
-import { IconBsPen, IconBsTrash } from '../../../Styles/bootstrap'
+import { IconBsPen, IconBsTrash, IconEdit } from '../../../Styles/bootstrap'
 import { useContext } from 'react';
 import { ClientContext } from '../../../../context/client/client'
+import { StyleTable } from './styles';
 interface ITable {
   textHeader1?: string
   textHeader2?: string
@@ -16,7 +17,7 @@ export function ClienteTable({ data }: ITable) {
   const { findById, deleteClient } = useContext(ClientContext) as { findById: any, deleteClient: any }
 
   return (
-    <Table striped bordered hover variant="dark">
+    <StyleTable bordered>
       <thead>
         <tr>
           <th>Nome</th>
@@ -34,7 +35,7 @@ export function ClienteTable({ data }: ITable) {
             <td className='text-center'>
               <Row>
                 <Col role="button" className='p-0'>
-                  <IconBsPen size={20} onClick={() => findById(e.id)} />
+                  <IconEdit size={20} onClick={() => findById(e.id)} />
                 </Col>
 
                 <Col role="button" className='p-0'>
@@ -45,6 +46,6 @@ export function ClienteTable({ data }: ITable) {
           </tr>
         )}
       </tbody>
-    </Table>
+    </StyleTable>
   )
 }

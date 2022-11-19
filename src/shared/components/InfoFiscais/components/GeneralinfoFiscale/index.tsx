@@ -6,7 +6,7 @@ export function GeneralinfoFiscale() {
     <>
 
       <FloatingLabel className="mb-4" label="Informações ao Fisco">
-        <Form.Control as="textarea" style={{ height:"200px" }}  type="text"/>
+        <Form.Control as="textarea" style={{ height:"60px" }}  type="text"/>
       </FloatingLabel>
 
       <FloatingLabel className="mb-4" label="informações Complementares ao Consumidor">

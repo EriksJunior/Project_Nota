@@ -74,10 +74,10 @@ export function InfoFiscaisGlobal() {
             </Card.Body>
             <Card.Footer className="text-muted">
                     <ButtonContent>
-                        <Button variant="" size='lg' style={{ background:"#8A2BE2" , color: "white" }}>
+                        <Button variant="" style={{ background:"#8A2BE2" , color: "white" }}>
                             <IconBsPen />Limpar Campos
                         </Button>
-                        <Button variant="" size='lg' style={{ background:"#8A2BE2" , color: "white" }}>
+                        <Button variant="" style={{ background:"#8A2BE2" , color: "white" }}>
                             <IoCheckboxOutline /> Salvar alterações
                         </Button>
                     </ButtonContent>
