@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
-      <PageNavegation />
+      <PageNavegation visible />
       <AppRoutes />
       <ToastContainer theme="dark"/>
     </>

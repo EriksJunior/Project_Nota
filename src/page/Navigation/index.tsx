@@ -1,7 +1,16 @@
 import { Navegation } from '../../shared/components/Navegation/index'
 
-export function PageNavegation() {
+interface NavegationProps {
+  visible: boolean;
+}
+
+export function PageNavegation({ visible }:NavegationProps) {
   return (
+  <>
+    { visible ? (
     <Navegation />
+    ): <></>
+  }
+  </>
   )
 }

@@ -23,7 +23,7 @@ export function Settings() {
             <IconIoHelpCircleOutline size={20} /> Outros
           </DropDownBt.Item>
 
-          <DropDownBt.Item as={Link} to="/logOut">
+          <DropDownBt.Item as={Link} to="/login">
             <IconIoEnter size={20} /> Sair
           </DropDownBt.Item>
         </DropDownBt.Menu>
