@@ -38,7 +38,7 @@ export const INITIAL_VALUE_PEDIDO = {
   frete: "",
   desconto: "",
   total: "",
-  intermediador: "",
+  intermediador: "0",
   cnpj_intermediador: "",
   id_intermediador: "",
   despesas_acessorias: "",

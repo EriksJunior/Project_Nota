@@ -21,7 +21,7 @@ export function GeneralLeafInformation() {
           <Row as={Col} className="mb-4">
             <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} label="Presença">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} name="id" onChange={handleChange}>
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} value={pedido.presenca} name="presenca" onChange={handleChange}>
                     <option value="0">0 - Não se aplica (por exemplo, Nota Fiscal complementar ou de ajuste)</option>
                     <option value="1">1 - Operação presencial</option>
                     <option value="2">2 - Operação não presencial, pela Internet</option>
@@ -37,26 +37,26 @@ export function GeneralLeafInformation() {
           <Row as={Col} className="mb-4">
             <Form.Group as={Col}>
               <FloatingLabel style={{ fontSize: "14px" }} label="Total Frete">
-                <Form.Control style={{ height: "48px" }} type="text"  onChange={handleChange} value={pedido.frete}/>
+                <Form.Control style={{ height: "48px" }} type="text" name="frete"  onChange={handleChange} value={pedido.frete}/>
               </FloatingLabel>
             </Form.Group>
 
 
             <Form.Group as={Col} >
               <FloatingLabel style={{ fontSize: "14px" }} label="Total Desconto">
-                <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.desconto}/>
+                <Form.Control style={{ height: "48px" }} type="text" name="desconto" onChange={handleChange} value={pedido.desconto}/>
               </FloatingLabel>
             </Form.Group>
 
             <Form.Group  as={Col}>
             <FloatingLabel style={{ fontSize: "14px" }} label="Outras Despesas">
-              <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.despesas_acessorias}/>
+              <Form.Control style={{ height: "48px" }} type="text" name="despesas_acessorias" onChange={handleChange} value={pedido.despesas_acessorias}/>
             </FloatingLabel>
           </Form.Group>
 
           <Form.Group  as={Col}>
             <FloatingLabel style={{ fontSize: "14px" }} label="Total do Pedido">
-              <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.total}/>
+              <Form.Control style={{ height: "48px" }} type="text" name="total" onChange={handleChange} value={pedido.total}/>
             </FloatingLabel>
           </Form.Group>
           </Row>
@@ -64,7 +64,7 @@ export function GeneralLeafInformation() {
           <Row className="mb-4">
             <Form.Group as={Col}>
               <FloatingLabel style={{ fontSize: "14px" }} label="Intermediador">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height:"48px" }} onChange={handleChange} value={pedido.intermediador}>
+                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height:"48px" }} value={pedido.intermediador}  name="intermediador" onChange={handleChange}>
                   <option value="0">0 - Operação sem intermediador (em site ou plataforma própria)</option>
                   <option value="1">1 - Operação em site ou plataforma de terceiros (intermediadores/marketplace)</option>
                 </Form.Select>
@@ -73,13 +73,13 @@ export function GeneralLeafInformation() {
 
             <Form.Group as={Col}>
               <FloatingLabel style={{ fontSize: "14px" }} label="CNPJ do Intermediador">
-                <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.cnpj_intermediador}/>
+                <Form.Control style={{ height: "48px" }} type="text" name="cnpj_intermediador" onChange={handleChange} value={pedido.cnpj_intermediador}/>
               </FloatingLabel>
             </Form.Group>
 
             <Form.Group as={Col}>
               <FloatingLabel style={{ fontSize: "14px" }} label="Nome do Intermediador">
-                <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.id_intermediador}/>
+                <Form.Control style={{ height: "48px" }} type="text" name="id_intermediador" onChange={handleChange} value={pedido.id_intermediador}/>
               </FloatingLabel>
             </Form.Group>
           </Row>
@@ -87,13 +87,13 @@ export function GeneralLeafInformation() {
           <Row className="mb-3">
             <Form.Group as={Col}>
               <FloatingLabel style={{ fontSize: "14px" }} label="Informações Complementares">
-                <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.informacoes_complementares}/>
+                <Form.Control style={{ height: "48px" }} type="text" name="informacoes_complementares" onChange={handleChange} value={pedido.informacoes_complementares}/>
               </FloatingLabel>
             </Form.Group>
 
             <Form.Group as={Col}>
               <FloatingLabel style={{ fontSize: "14px" }} label="Informações ao fisco">
-                <Form.Control style={{ height: "48px" }} type="text" onChange={handleChange} value={pedido.informacoes_fisco}/>
+                <Form.Control style={{ height: "48px" }} type="text" name="informacoes_fisco" onChange={handleChange} value={pedido.informacoes_fisco}/>
               </FloatingLabel>
             </Form.Group>
           </Row>
@@ -103,7 +103,7 @@ export function GeneralLeafInformation() {
               <IoRefresh />  Limpar Dados
             </Button>
 
-            <Button variant="" style={{ background: "LimeGreen", width: "20%", color: "whitesmoke" }}>
+            <Button onClick={() => console.log(pedido)} variant="" style={{ background: "LimeGreen", width: "20%", color: "whitesmoke" }}>
               <IoCheckboxOutline />  Emitir Nota
             </Button>
           </ButtonLeaf>
