@@ -10,6 +10,11 @@ class LeafService {
     await api.put(`/nota/${nota.id}`, nota)
   }
 
+  async sendLeaf(id: string) {
+    const { data } = await api.get(`/nota/send/${id}`)
+    return data
+  }
+
   async addProduct(product: ProdutosLeaf) {
     await api.post('/nota-item', product)
   }

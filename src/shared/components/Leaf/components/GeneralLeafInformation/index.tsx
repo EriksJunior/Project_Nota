@@ -6,12 +6,15 @@ import { PedidoLeaf } from '../../../../../interface/ILeaf';
 import { Form, Col, Row, Button, Accordion, FloatingLabel } from 'react-bootstrap';
 import { IoCheckboxOutline, IoRefresh } from "react-icons/io5";
 
+import LeafService from '../../../../../services/LeafService';
+
 import { ButtonLeaf } from '../../../Styles/general';
 import { StyledAccordion } from '../../styles'
 
 
 export function GeneralLeafInformation() {
-  const {handleChange, pedido} = useContext(LeafContext) as {handleChange: React.ChangeEventHandler, pedido: PedidoLeaf}
+  const {handleChange, pedido, sendLeaf} = useContext(LeafContext) as {handleChange: React.ChangeEventHandler, pedido: PedidoLeaf, sendLeaf: () => void}
+
   return (
     <div>
     <StyledAccordion>
@@ -103,7 +106,7 @@ export function GeneralLeafInformation() {
               <IoRefresh />  Limpar Dados
             </Button>
 
-            <Button onClick={() => console.log(pedido)} variant="" style={{ background: "LimeGreen", width: "20%", color: "whitesmoke" }}>
+            <Button onClick={sendLeaf} variant="" style={{ background: "LimeGreen", width: "20%", color: "whitesmoke" }}>
               <IoCheckboxOutline />  Emitir Nota
             </Button>
           </ButtonLeaf>
