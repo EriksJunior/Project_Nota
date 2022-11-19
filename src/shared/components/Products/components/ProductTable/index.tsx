@@ -29,7 +29,7 @@ export function ProductTable({ data }: ITablePrd) {
         {data?.map(e =>
           <tr key={e.id} >
             <td> {e.nome} </td>
-            <td> {e.valor} </td>
+            <td> {e.valor?.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})} </td>
             <td> {e.estoque} </td>
             <td> 
               <Row className='text-center'>

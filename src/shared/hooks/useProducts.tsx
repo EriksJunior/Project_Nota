@@ -4,6 +4,7 @@ import { INITIAL_STATE_PRODUCT, INITIAL_STATE_SEARCH } from '../components/Produ
 import ProductServices from '../../services/ProductService';
 import { IProducts, ISearch } from '../../interface/IProducts';
 
+import { toast } from "react-toastify";
 
 
 export function UseProducts() {
@@ -11,7 +12,7 @@ export function UseProducts() {
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedProduct, setReturnedProduct] = useState<IProducts[]>()
   const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
-  const [ alterTab , setAlterTab ] = useState<string>("Pesquisar")
+  const [alterTab , setAlterTab] = useState<string>("Pesquisar")
 
   const handleClose = () =>{
     setShow(false)
@@ -33,17 +34,23 @@ export function UseProducts() {
     try {
       const result = await ProductServices.save(produtos as IProducts)
       setProdutos({ ...produtos, id: result.id })
+  
+      toast ("Produto salvo com sucesso!" ,
+       {position: toast.POSITION.TOP_RIGHT} );
     } catch (error: any) {
-      return (error)
+      toast.error(error ,
+        {position: toast.POSITION.TOP_RIGHT})
     }
   }
 
   const update = async () => {
     try {
       await ProductServices.update(produtos as IProducts)
-      setAlterTab("Pesquisar")
+      toast("Produto atualizado com sucesso!" , 
+      {position: toast.POSITION.TOP_RIGHT },)
     } catch (error: any) {
-      return error
+      toast.error( error , 
+        {position: toast.POSITION.TOP_RIGHT})
     }
 
 
@@ -53,8 +60,12 @@ export function UseProducts() {
     try {
       await ProductServices.delete(id)
       await searchProduct()
+
+      toast("Produto deletado com sucesso!" , 
+      {position: toast.POSITION.TOP_RIGHT})
     } catch (error: any) {
-      return console.log(error)
+      toast.error(error , 
+        {position: toast.POSITION.TOP_RIGHT})
     }
   }
 
