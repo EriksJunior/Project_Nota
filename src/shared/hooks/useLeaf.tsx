@@ -103,6 +103,21 @@ export function UseLeaf() {
     try {
       const result = await LeafService.sendLeaf(pedido.id)
       console.log(result)
+      await findLeafById()
+      toast("Nota emitida com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  const findLeafById = async () => {
+    try {
+      const result = await LeafService.findLeafById(pedido.id)
+      console.log(result)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT

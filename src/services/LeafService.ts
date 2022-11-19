@@ -15,6 +15,11 @@ class LeafService {
     return data
   }
 
+  async findLeafById(id: string) {
+    const { data } = await api.get(`/nota/${id}`)
+    return data
+  }
+
   async addProduct(product: ProdutosLeaf) {
     await api.post('/nota-item', product)
   }
