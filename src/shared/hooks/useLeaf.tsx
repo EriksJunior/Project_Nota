@@ -36,6 +36,24 @@ export function UseLeaf() {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
   }, [produtoLeaf])
 
+  const handleTotalValueProducts = () => {
+    let quantidade = produtoLeaf.quantidade
+    let subtotal = produtoLeaf.subtotal.replace(".", "").replace(",", ".")
+    let desconto = produtoLeaf.desconto.replace(".", "").replace(",", ".")
+
+    if (produtoLeaf.desconto === "") {
+      desconto = "0"
+    } if (produtoLeaf.subtotal === "") {
+      console.log('teste')
+      subtotal = "0"
+    } if (produtoLeaf.quantidade === "") {
+      quantidade = "1"
+    }
+
+    const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
+    setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
+  }
+
   const getClientesFromSelectBox = async () => {
     try {
       const { data } = await ClienteService.getFromSelectBox()
@@ -74,6 +92,32 @@ export function UseLeaf() {
       toast("Atualizado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  const sendLeaf = async () => {
+    try {
+      const result = await LeafService.sendLeaf(pedido.id)
+      console.log(result)
+      await findLeafById()
+      toast("Nota emitida com sucesso! ✅", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } catch (error: any) {
+      toast.error(error?.response?.data?.erros, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+  }
+
+  const findLeafById = async () => {
+    try {
+      const result = await LeafService.findLeafById(pedido.id)
+      console.log(result)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
@@ -132,5 +176,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente }
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts, sendLeaf }
 }

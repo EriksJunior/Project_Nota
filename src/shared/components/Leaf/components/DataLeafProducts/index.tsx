@@ -8,13 +8,14 @@ import { Masks } from '../../../../../utils/masks/Masks'
 import { ProductsLeafTable } from './components/ProductsLeafTable';
 
 export function DataLeafProducts() {
-  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct, returnedProductsLeaf } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[] }
+  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct, returnedProductsLeaf, handleTotalValueProducts  } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[], handleTotalValueProducts: () => void }
 
   const { maskCurrency } = Masks()
 
   useEffect(() => {
     getProductsFromSelectBox()
   }, [])
+
 
   return (
     <div>
@@ -46,7 +47,7 @@ export function DataLeafProducts() {
             <Col sm={3} md={3} lg={2} xl={1}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Qnt">
-                  <Form.Control type="number" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
+                  <Form.Control type="number" style={{ height: "48px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -62,7 +63,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Vl. Unitário">
-                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
+                  <Form.Control type="text" style={{ height: "48px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -70,7 +71,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Desc">
-                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
+                  <Form.Control type="text" style={{ height: "48px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -78,7 +79,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Vl. Total">
-                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} onKeyDown={maskCurrency} name="total" />
+                  <Form.Control type="text" disabled style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} name="total" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
