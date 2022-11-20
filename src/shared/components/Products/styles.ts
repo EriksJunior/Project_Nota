@@ -1,1 +1,24 @@
 import styled from "styled-components";
+import { Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody } from 'react-bootstrap';
+
+export const OffcanvasBt = styled(Offcanvas)`
+  width: 50%!important;
+`
+
+export const OffcanvasHeaderBt = styled(OffcanvasHeader)`
+  background-color: #1C1C1C!important;
+`
+
+export const OffcanvasTitleBt = styled(OffcanvasTitle)`
+  color: LightGrey!important;
+   font-weight: bold!important;
+   font-size: 36px!important;
+   justify-content: center!important;
+   padding-left: 50px!important;
+`
+
+export const OffcanvasBodyBt = styled(OffcanvasBody)`
+  background-color: #DCDCDC!important;
+  color: lightgrey!important;
+  font-weight: bolder!important;
+`

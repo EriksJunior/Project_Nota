@@ -1,14 +1,15 @@
+import { useContext } from 'react';
+
 import { Form, Offcanvas, Button, FloatingLabel, Tab, Tabs, Col, Row } from 'react-bootstrap';
-
-import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
-import { ContentIcon, Text } from '../Styles/general';
-
 import { Search } from '../Search/index';
 import { ProductTable } from './components/ProductTable';
 
 import { Masks } from "../../../utils/masks/Masks"
 
-import { useContext } from 'react';
+import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
+import { ContentIcon, Text } from '../Styles/general';
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt } from "./styles"
+
 import { ProductContext } from '../../context/Product/product';
 import { IProducts, ISearch } from '../../../interface/IProducts';
 
@@ -36,11 +37,11 @@ export function ProductsModal() {
         </Text>
       </ButtonBt>
 
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "50%" }}>
-        <Offcanvas.Header style={{ background: "#1C1C1C" }} closeButton>
-          <Offcanvas.Title style={{ color: "LightGrey", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}  >Cadastro de Produto</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body style={{ background: "#DCDCDC", color: "LightGrey", fontWeight: "bolder" }}>
+      <OffcanvasBt show={show} onHide={handleClose}>
+        <OffcanvasHeaderBt closeButton>
+          <OffcanvasTitleBt >Cadastro de Produto</OffcanvasTitleBt>
+        </OffcanvasHeaderBt>
+        <OffcanvasBodyBt>
           <Tabs
             activeKey={alterTab}
             id="clientTabs"
@@ -134,8 +135,8 @@ export function ProductsModal() {
 
 
 
-        </Offcanvas.Body>
-      </Offcanvas>
+        </OffcanvasBodyBt>
+      </OffcanvasBt>
     </>
   );
 }
