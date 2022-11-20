@@ -9,6 +9,7 @@ justify-content: center;
 width: 80%;
 height: auto;
 margin-top: 25px;
+background-color: #DCDCDC;
 
 .form-floating>.form-select {
   padding-top: 1.225rem;
@@ -19,12 +20,12 @@ margin-top: 25px;
 export const NavFiscale = styled(Nav)`
 
   .nav-item{
-    background: #A9A9A9;
     width:100%;
   }
 
   .nav-link{
-    color: black;
+    color: black !important;
+    font-weight: bold;
     @media screen and (min-width: 320px) and (max-width: 800px){
       display:flex;
     

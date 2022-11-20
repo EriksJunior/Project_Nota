@@ -1,7 +1,16 @@
+import { useCallback, useState } from 'react';
+import { ILogin } from '../../../../../interface/ILogin'
 import { FloatingLabel, Form, Card, Button } from 'react-bootstrap';
 import { ButtonLogin, CardStyled } from './styles';
 
+
 export function CardGeneral() {
+
+  const [login , setLogin] = useState<ILogin>();
+
+  // const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setLogin({ ...login, [e.target.email]: e.target.value })
+  // }, [login]);
   return (
     <CardStyled >
       <Card.Header style={{ background: "#4B0082" , fontSize: "30px", width: "100%", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>
