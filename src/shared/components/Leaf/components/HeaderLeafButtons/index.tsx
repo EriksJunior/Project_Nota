@@ -6,7 +6,7 @@ import { ContentButtons, BButton } from '../../styles';
 import { PedidoLeaf } from '../../../../../interface/ILeaf';
 
 export function HeaderLeafButtons() {
-  const {handleSaveOrUpdate, pedido} = useContext(LeafContext) as {handleSaveOrUpdate: () => void, pedido: PedidoLeaf}
+  const {handleSaveOrUpdate, pedido, handleShow} = useContext(LeafContext) as {handleSaveOrUpdate: () => void, pedido: PedidoLeaf, handleShow: () => void}
   
   return (
     <ContentButtons>
@@ -18,6 +18,7 @@ export function HeaderLeafButtons() {
           <BButton variant="" type="button" onClick={() => console.log(pedido)}>Imprimir</BButton>
         {/* </Col>
       </Row> */}
+      <BButton variant="" type="button" onClick={handleShow}>Pesquisar</BButton>
     </ContentButtons>
   )
 }
