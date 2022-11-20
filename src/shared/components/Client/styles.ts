@@ -21,6 +21,11 @@ export const OffcanvasBodyBt = styled(OffcanvasBody)`
   background-color: #f5f5f5!important;
   color: LightGrey!important;
   font-weight: bolder!important;
+
+  .form-floating>.form-select {
+    padding-top: 1.225rem;
+    padding-bottom: 0.625rem;
+}
 `
 
 export const FloatingLabelBt = styled(FloatingLabel)`
