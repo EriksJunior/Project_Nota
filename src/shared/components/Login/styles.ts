@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const LoginGeneral = styled.div`
 align-content: center;
 display: flex;
+position: absolute;
 justify-content: center;
 width: 100vw;
 background: rgb(0,0,0);

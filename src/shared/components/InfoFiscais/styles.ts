@@ -20,10 +20,14 @@ export const NavFiscale = styled(Nav)`
 
   .nav-link{
     color: black;
+    @media screen and (min-width: 320px) and (max-width: 800px){
+      display:flex;
+    
+  }
   }
 
   .nav-link.active{
     color: black;
 
-  } 
+  }
 `

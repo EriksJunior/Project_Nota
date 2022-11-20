@@ -28,5 +28,11 @@ export const ButtonLeaf = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+
+  @media screen and (min-width: 320px) and (max-width: 560px){
+    flex-direction: column;
+    width: 100%;
+    gap: 20px; 
+  }
 `
 

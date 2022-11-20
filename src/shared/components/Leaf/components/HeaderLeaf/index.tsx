@@ -96,10 +96,10 @@ export function HeaderLeaf() {
         </Col>
       </Row>
 
-      <Row>
+      <Row style={{ display:"flex" }}>
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col}>
-            <FloatingLabel className="" label="Cliente">
+            <FloatingLabel className="mb-4" label="Cliente">
               <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement> | any) => onChangeCliente(e.target.value)} name={'idCliente'}>
                 <option value="">Selecione...</option>
                 {cliente.map((e) => <option key={e.id} value={JSON.stringify(e)}>{e.nome}</option>)}
@@ -110,7 +110,7 @@ export function HeaderLeaf() {
 
         <Col xs={4} sm={4} md={4} lg={4} xl={4}>
           <Form.Group as={Col}>
-            <FloatingLabel className="mb-4" label="CPF/CNPJ">
+            <FloatingLabel label="CPF/CNPJ">
               <Form.Control style={{ height: "48px" }} disabled value={cpfCnpjCliente.cpfCnpj || ""} type="text" name="CPF/CNPJ" />
             </FloatingLabel>
           </Form.Group>

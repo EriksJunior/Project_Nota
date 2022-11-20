@@ -18,14 +18,14 @@ export const Container = styled.div`
 
   @media screen and (max-width: 991px){
   display: flex;
-  height: 26vh;
+  height: 24vh;
   gap: 10px;
   }
 
   @media screen and (max-width: 767px){
   display: flex;
   flex-direction: column;
-  height: 41vh;
+  height: 35vh;
   .switchToSmallerscreens {
       margin-top: 10px;
     }
@@ -46,6 +46,15 @@ export const Container = styled.div`
   }
   .form-floating{
     height: 48px;
+  }
+    .form-floating>.form-control{
+      @media screen and (min-width: 320px) and (max-width: 566px){
+        max-width:506px;
+        min-width: 250px;
+      
+    }
+
+    
     
   }
 `

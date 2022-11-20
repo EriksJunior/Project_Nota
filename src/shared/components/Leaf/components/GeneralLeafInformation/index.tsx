@@ -102,11 +102,11 @@ export function GeneralLeafInformation() {
           </Row>
 
           <ButtonLeaf>
-            <Button variant="" style={{ background: "Lavender", width: "20%", color: "black" }}>
+            <Button variant="" style={{ background: "Lavender", width: "150px", color: "black" }}>
               <IoRefresh />  Limpar Dados
             </Button>
 
-            <Button onClick={sendLeaf} variant="" style={{ background: "LimeGreen", width: "20%", color: "whitesmoke" }}>
+            <Button onClick={sendLeaf} variant="" style={{ background: "LimeGreen", width: "150px", color: "whitesmoke" }}>
               <IoCheckboxOutline />  Emitir Nota
             </Button>
           </ButtonLeaf>

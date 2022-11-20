@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex; 
-  width: 100%; 
+  width: 100%;
   height: 60px; 
   background: #1C1C1C; 
   align-items: center;
@@ -23,7 +23,7 @@ export const Content = styled.div`
   width: 50%;
   height: 40px;
   display: flex;
-  gap: 20px;
+  gap: 30px;
 
   @media screen and (max-width: 361px){
     display: flex;
@@ -55,8 +55,10 @@ export const TextCompany = styled.h1`
     outline: none !important;
     text-decoration: none;
     font-size: 30px;
-  .a:hover {
-    color: #ffffff;
+
+  @media screen and (min-width: 320px) and (max-width: 1000px){
+      display: none;
+    }
 
     }
 `
