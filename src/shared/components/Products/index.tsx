@@ -123,7 +123,7 @@ export function ProductsModal() {
               <Row>
                 <Search>
                   <FormControlBt className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
-                  <Button variant="secondary" onClick={searchProduct}>Pesquisar</Button>
+                  <Button style={{ background:"black"}} onClick={searchProduct}>Pesquisar</Button>
                 </Search>
               </Row>
               <Row className='mt-5'>

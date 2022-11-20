@@ -6,7 +6,7 @@ export const OffcanvasBt = styled(Offcanvas)`
 `
 
 export const OffcanvasHeaderBt = styled(OffcanvasHeader)`
-  background-color: blueviolet!important;
+  background-color: #1C1C1C!important;
 `
 
 export const OffcanvasTitleBt = styled(OffcanvasTitle)`
@@ -18,7 +18,7 @@ export const OffcanvasTitleBt = styled(OffcanvasTitle)`
 `
 
 export const OffcanvasBodyBt = styled(OffcanvasBody)`
-  background-color: #f5f5f5!important;
+  background-color: #DCDCDC!important;
   color: LightGrey!important;
   font-weight: bolder!important;
 
@@ -48,6 +48,6 @@ export const FormSelectBt = styled(FormSelect)`
 
 export const ButtonClient = styled(Button)`
   background-color: BlueViolet!important;
-  color: black!important;
+  color: white!important;
   width: 300px!important;
 `
