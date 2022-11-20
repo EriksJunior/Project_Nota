@@ -4,8 +4,9 @@ import { ClientContext } from '../../context/client/client';
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
 
-import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'react-bootstrap';
+import { Form, Button, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, FormSelectBt, ButtonClient } from "./styles"
 import { ContentIcon, Text } from '../Styles/general';
 
 import { Masks } from "../../../utils/masks/Masks"
@@ -14,13 +15,15 @@ import { ICliente, ISearch } from '../../../interface/ICliente';
 import './styles.css';
 
 export function ClientModal() {
-  const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate, 
+  const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate,
     handleClose, handleShow, returnedClient, search, searchClient, setSearch, show }
-   = useContext(ClientContext) as { client: ICliente, handleChange: React.ChangeEventHandler, 
-    alterTab: string, setAlterTab: (value: string | null) => void, 
-    clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose: () => void,
-     handleShow: () => void, returnedClient: ICliente[],
-     search: ISearch, searchClient: () => void, setSearch: any, show: Boolean }
+    = useContext(ClientContext) as {
+      client: ICliente, handleChange: React.ChangeEventHandler,
+      alterTab: string, setAlterTab: (value: string | null) => void,
+      clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose: () => void,
+      handleShow: () => void, returnedClient: ICliente[],
+      search: ISearch, searchClient: () => void, setSearch: any, show: Boolean
+    }
 
   const { maskCep, maskCpfCnpj } = Masks()
 
@@ -35,11 +38,11 @@ export function ClientModal() {
         </Text>
       </ButtonBt>
 
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "50vw" }} >
-        <Offcanvas.Header style={{ backgroundColor: "blueViolet" }} closeButton>
-          <Offcanvas.Title style={{ color: "white", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}>Cadastre o Cliente</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body style={{ background: "#f5f5f5", color: "LightGrey", fontWeight: "bolder" }}>
+      <OffcanvasBt show={show} onHide={handleClose}>
+        <OffcanvasHeaderBt closeButton>
+          <OffcanvasTitleBt>Cadastre o Cliente</OffcanvasTitleBt>
+        </OffcanvasHeaderBt>
+        <OffcanvasBodyBt>
           <Tabs
             activeKey={alterTab}
             id="clientTabs"
@@ -49,71 +52,71 @@ export function ClientModal() {
           >
             <Tab eventKey="cadastro" title="Cadastro">
               <Form className="d-flex flex-column gap-3">
-                <Form.Control onChange={handleChange} hidden value={client.id || ""} name="id" type="text" />
+                <FormControlBt onChange={handleChange} hidden value={client.id || ""} name="id" type="text" />
 
                 <Row>
                   <Col>
-                    <FloatingLabel label="Nome do Cliente" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="nome" type="text" value={client.nome || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Nome do Cliente">
+                      <FormControlBt onChange={handleChange} name="nome" type="text" value={client.nome || ""} />
+                    </FloatingLabelBt>
                   </Col>
                 </Row>
 
                 <Row>
                   <Col>
-                    <FloatingLabel label="CPF/CNPJ" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} onKeyUp={maskCpfCnpj} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="CPF/CNPJ">
+                      <FormControlBt onChange={handleChange} onKeyUp={maskCpfCnpj} name="cpfCnpj" type="text" value={client.cpfCnpj || ""} />
+                    </FloatingLabelBt>
                   </Col>
 
                   <Col>
-                    <FloatingLabel label="Data nascimento" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento || ""} />
-                    </FloatingLabel>
-                  </Col>
-                </Row>
-
-                <Row>
-                  <Col>
-                    <FloatingLabel label="Endereço" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Data nascimento">
+                      <FormControlBt onChange={handleChange} name="dataNascimento" type="date" value={client.dataNascimento || ""} />
+                    </FloatingLabelBt>
                   </Col>
                 </Row>
 
                 <Row>
                   <Col>
-                    <FloatingLabel label="Número" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Endereço">
+                      <FormControlBt onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
+                    </FloatingLabelBt>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col>
+                    <FloatingLabelBt label="Número">
+                      <FormControlBt onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
+                    </FloatingLabelBt>
                   </Col>
 
                   <Col>
-                    <FloatingLabel label="Complemento" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="complemento" type="text" value={client.complemento || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Complemento">
+                      <FormControlBt onChange={handleChange} name="complemento" type="text" value={client.complemento || ""} />
+                    </FloatingLabelBt>
                   </Col>
                 </Row>
 
 
                 <Row>
                   <Col>
-                    <FloatingLabel label="Bairro" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Bairro">
+                      <FormControlBt onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
+                    </FloatingLabelBt>
                   </Col>
 
                   <Col>
-                    <FloatingLabel label="Cidade" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Cidade">
+                      <FormControlBt onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
+                    </FloatingLabelBt>
                   </Col>
                 </Row>
 
                 <Row>
                   <Col>
-                    <FloatingLabel label="Estado" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Select style={{ background: "#f5f5f5", color: "black", fontWeight: "bolder", height: "48px" }} onChange={handleChange} name="uf" value={client.uf || ""}>
+                    <FloatingLabelBt label="Estado">
+                      <FormSelectBt onChange={handleChange} name="uf" value={client.uf || ""}>
                         <option>Selecione...</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -142,57 +145,57 @@ export function ClientModal() {
                         <option value="SP">São Paulo</option>
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
-                      </Form.Select>
-                    </FloatingLabel>
+                      </FormSelectBt>
+                    </FloatingLabelBt>
                   </Col>
 
                   <Col>
-                    <FloatingLabel label="CEP" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} onKeyUp={maskCep} name="cep" type="text" value={client.cep || ""} />
-                    </FloatingLabel>
-                  </Col>
-                </Row>
-
-                <Row>
-                  <Col>
-                    <FloatingLabel label="Telefone" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="telefone" type="text" value={client.telefone || ""} />
-                    </FloatingLabel>
-                  </Col>
-
-                  <Col>
-                    <FloatingLabel label="Celular" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="celular" type="text" value={client.celular || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="CEP">
+                      <FormControlBt onChange={handleChange} onKeyUp={maskCep} name="cep" type="text" value={client.cep || ""} />
+                    </FloatingLabelBt>
                   </Col>
                 </Row>
 
                 <Row>
                   <Col>
-                    <FloatingLabel label="Email" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="email" type="text" value={client.email || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Telefone">
+                      <FormControlBt onChange={handleChange} name="telefone" type="text" value={client.telefone || ""} />
+                    </FloatingLabelBt>
                   </Col>
 
                   <Col>
-                    <FloatingLabel label="Observação" style={{ color: "black", fontSize: "14px" }}>
-                      <Form.Control style={{ background: "#f5f5f5", color: "black", height: "48px" }} onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
-                    </FloatingLabel>
+                    <FloatingLabelBt label="Celular">
+                      <FormControlBt onChange={handleChange} name="celular" type="text" value={client.celular || ""} />
+                    </FloatingLabelBt>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col>
+                    <FloatingLabelBt label="Email">
+                      <FormControlBt onChange={handleChange} name="email" type="text" value={client.email || ""} />
+                    </FloatingLabelBt>
+                  </Col>
+
+                  <Col>
+                    <FloatingLabelBt label="Observação">
+                      <FormControlBt onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
+                    </FloatingLabelBt>
                   </Col>
 
                 </Row>
 
                 <Row className=" gap-5">
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={handleSaveOrUpdate} type="button" style={{ background: "BlueViolet", color: "black", width: "300px" }}>
+                    <ButtonClient variant="" onClick={handleSaveOrUpdate} type="button">
                       Cadastrar
-                    </Button>
+                    </ButtonClient>
                   </Col>
 
                   <Col className='d-flex justify-content-center'>
-                    <Button variant="" onClick={clearAllInputs} type="button" style={{ background: "BlueViolet", color: "black", width: "300px" }}>
+                    <ButtonClient variant="" onClick={clearAllInputs} type="button">
                       Limpar
-                    </Button>
+                    </ButtonClient>
                   </Col>
                 </Row>
 
@@ -201,7 +204,7 @@ export function ClientModal() {
             <Tab eventKey="pesquisar" title="Pesquisar">
               <Row>
                 <Search>
-                  <Form.Control className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
+                  <FormControlBt className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
                   <Button variant="secondary" onClick={searchClient}>Pesquisar</Button>
                 </Search>
               </Row>
@@ -212,8 +215,8 @@ export function ClientModal() {
             </Tab>
           </Tabs>
 
-        </Offcanvas.Body>
-      </Offcanvas>
+        </OffcanvasBodyBt>
+      </OffcanvasBt>
     </>
   );
 }

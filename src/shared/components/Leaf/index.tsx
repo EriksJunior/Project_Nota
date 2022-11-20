@@ -4,6 +4,7 @@ import { DataLeafProducts } from './components/DataLeafProducts';
 import { GeneralLeafInformation } from './components/GeneralLeafInformation';
 import { HeaderLeaf } from './components/HeaderLeaf';
 import { HeaderLeafButtons } from './components/HeaderLeafButtons';
+import { ModalSearch } from './components/Modals/ModalSearch';
 
 import { ContentLeaf } from '../Styles/general';
 import { StyledAccordion } from './styles';
@@ -24,6 +25,8 @@ export function Leaf() {
             <GeneralLeafInformation />
           </Accordion.Item>
         </StyledAccordion>
+
+        <ModalSearch />
       </ContentLeaf>
     </div>
   );
