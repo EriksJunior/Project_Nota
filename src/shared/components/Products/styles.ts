@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody } from 'react-bootstrap';
+import { Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody, Form, FloatingLabel, FormControl, FormSelect, Button } from 'react-bootstrap';
 
 export const OffcanvasBt = styled(Offcanvas)`
   width: 50%!important;
@@ -21,4 +21,24 @@ export const OffcanvasBodyBt = styled(OffcanvasBody)`
   background-color: #DCDCDC!important;
   color: lightgrey!important;
   font-weight: bolder!important;
+`
+
+export const FormBt = styled(Form)`
+
+`
+
+export const FloatingLabelBt = styled(FloatingLabel)`
+  color: black!important;
+  font-size: 14px!important;
+`
+
+export const FormControlBt = styled(FormControl)`
+  background-color: #f5f5f5!important;
+  height: 48px!important;
+`
+
+export const ButtonProduct = styled(Button)`
+  background: BlueViolet!important;
+  color: white!important;
+  width: 320px!important;
 `

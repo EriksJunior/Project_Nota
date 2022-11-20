@@ -4,9 +4,9 @@ import { ClientContext } from '../../context/client/client';
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
 
-import { Button, Tab, Tabs, Row, Col } from 'react-bootstrap';
+import { Form, Button, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
-import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FormBt, FloatingLabelBt, FormControlBt, FormSelectBt, ButtonClient } from "./styles"
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, FormSelectBt, ButtonClient } from "./styles"
 import { ContentIcon, Text } from '../Styles/general';
 
 import { Masks } from "../../../utils/masks/Masks"
@@ -51,7 +51,7 @@ export function ClientModal() {
 
           >
             <Tab eventKey="cadastro" title="Cadastro">
-              <FormBt className="d-flex flex-column gap-3">
+              <Form className="d-flex flex-column gap-3">
                 <FormControlBt onChange={handleChange} hidden value={client.id || ""} name="id" type="text" />
 
                 <Row>
@@ -199,7 +199,7 @@ export function ClientModal() {
                   </Col>
                 </Row>
 
-              </FormBt>
+              </Form>
             </Tab>
             <Tab eventKey="pesquisar" title="Pesquisar">
               <Row>

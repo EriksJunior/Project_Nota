@@ -23,30 +23,26 @@ export const OffcanvasBodyBt = styled(OffcanvasBody)`
   font-weight: bolder!important;
 `
 
-export const FormBt = styled(Form)`
-
-`
-
 export const FloatingLabelBt = styled(FloatingLabel)`
-  color: black;
-  font-size: 14px;
+  color: black!important;
+  font-size: 14px!important;
 `
 
 export const FormControlBt = styled(FormControl)`
-  background-color: #f5f5f5;
-  color: black;
-  height: 48px;
+  background-color: #f5f5f5!important;
+  color: black!important;
+  height: 48px!important;
 `
 
 export const FormSelectBt = styled(FormSelect)`
-  background-color: #f5f5f5;
-  color: black;
-  font-weight: bolder;
-  height: 48px;
+  background-color: #f5f5f5!important;
+  color: black!important;
+  font-weight: bolder!important;
+  height: 48px!important;
 `
 
 export const ButtonClient = styled(Button)`
-  background-color: BlueViolet;
-  color: black;
-  width: 300px;
+  background-color: BlueViolet!important;
+  color: black!important;
+  width: 300px!important;
 `
