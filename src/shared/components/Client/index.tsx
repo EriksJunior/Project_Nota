@@ -4,8 +4,9 @@ import { ClientContext } from '../../context/client/client';
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
 
-import { Form, Button, FloatingLabel, Offcanvas, Tab, Tabs, Row, Col } from 'react-bootstrap';
+import { Form, Button, FloatingLabel, Tab, Tabs, Row, Col } from 'react-bootstrap';
 import { ButtonBt, IconBiUser } from '../Styles/bootstrap';
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt } from "./styles"
 import { ContentIcon, Text } from '../Styles/general';
 
 import { Masks } from "../../../utils/masks/Masks"
@@ -35,11 +36,11 @@ export function ClientModal() {
         </Text>
       </ButtonBt>
 
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "50vw" }} >
-        <Offcanvas.Header style={{ backgroundColor: "blueViolet" }} closeButton>
-          <Offcanvas.Title style={{ color: "white", fontWeight: "bold", fontSize: "36px", justifyContent: "center", paddingLeft: "50px" }}>Cadastre o Cliente</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body style={{ background: "#f5f5f5", color: "LightGrey", fontWeight: "bolder" }}>
+      <OffcanvasBt show={show} onHide={handleClose}>
+        <OffcanvasHeaderBt closeButton>
+          <OffcanvasTitleBt>Cadastre o Cliente</OffcanvasTitleBt>
+        </OffcanvasHeaderBt>
+        <OffcanvasBodyBt>
           <Tabs
             activeKey={alterTab}
             id="clientTabs"
@@ -212,8 +213,8 @@ export function ClientModal() {
             </Tab>
           </Tabs>
 
-        </Offcanvas.Body>
-      </Offcanvas>
+        </OffcanvasBodyBt>
+      </OffcanvasBt>
     </>
   );
 }

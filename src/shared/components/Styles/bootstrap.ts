@@ -70,25 +70,3 @@ export const DropDownBt = styled(Dropdown)`
   inset: 0px -28px auto auto;
   margin: 0 !important;
   `
-
-export const OffcanvasBt = styled(Offcanvas)`
-  width: 50vw;
-`
-
-export const OffcanvasHeaderBt = styled(OffcanvasHeader)`
-  background-color: blueviolet;
-`
-
-export const OffcanvasTitleBt = styled(OffcanvasTitle)`
-  color: white;
-  font-weight: bold;
-  font-size: 36px;
-  justify-content: center;
-  padding-left: 50px;
-`
-
-export const OffcanvasBodyBt = styled(OffcanvasBody)`
-  background-color: #f5f5f5;
-  color: LightGrey;
-  font-weight: bolder;
-`

@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { LeafContext } from "../../../../../context/leaf/leaf"
 import { Search } from "../../../../Search"
 
-import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt } from "../../../../Styles/bootstrap"
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt } from "./styles"
 
 export function ModalSearch(){
   const { handleClose, show} = useContext(LeafContext) as {handleShow: () => void, handleClose: () => void, show: Boolean}
