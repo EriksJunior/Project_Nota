@@ -11,8 +11,8 @@ export function LoginCarrousel() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h2>O Melhor emissor de nota fiscal</h2>
+          <p>Uma solução gratuita para seu negocio!!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -23,8 +23,8 @@ export function LoginCarrousel() {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h2>O Melhor emissor de nota fiscal</h2>
+          <p>Uma solução gratuita para seu negocio!!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -35,10 +35,8 @@ export function LoginCarrousel() {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h2>O Melhor emissor de nota fiscal</h2>
+          <p>Uma solução gratuita para seu negocio!!</p>
         </Carousel.Caption>
       </Carousel.Item>
     </CarouselStyled>

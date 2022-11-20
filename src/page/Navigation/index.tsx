@@ -1,3 +1,4 @@
+import { Login } from '../../shared/components/Login';
 import { Navegation } from '../../shared/components/Navegation/index'
 
 interface NavegationProps {
@@ -6,11 +7,11 @@ interface NavegationProps {
 
 export function PageNavegation({ visible }:NavegationProps) {
   return (
-  <>
+    <>
     { visible ? (
     <Navegation />
     ): <></>
   }
-  </>
-  )
+    </>
+ ) 
 }
