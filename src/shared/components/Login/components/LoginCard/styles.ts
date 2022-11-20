@@ -13,6 +13,17 @@ background: #1C1C1C;
 height: 70vh;
 box-shadow: 8px 15px 50px black;
 border-radius: 20px;
+
+@media screen and (min-width: 320px) and (max-width: 1099px){
+  height: 60vh;
+  width:100%;
+ 
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1400px){
+  height: 60vh;
+  width:100%;
+}
 `
 
 export const ButtonLogin = styled(Button)`
