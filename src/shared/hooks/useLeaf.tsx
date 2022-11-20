@@ -9,7 +9,7 @@ import { ICliente } from "../../interface/ICliente";
 import { IProducts } from "../../interface/IProducts";
 import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf } from "../../interface/ILeaf"
 
-import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA } from "../context/leaf/initialStates/initialStateLeaf";
+import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA } from "../context/leaf/initialState";
 
 export function UseLeaf() {
   const [cliente, setCliente] = useState<ICliente[]>([])
@@ -18,9 +18,16 @@ export function UseLeaf() {
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
   const [returnedProductsLeaf, setReturnedProductsLeaf] = useState<ProdutosLeaf[]>([])
   const [responseWebmania, setResponseWebmania] = useState<IResponseWebmaniaLeaf>(INITIAL_VALUE_RESPONSE_WEBMANIA)
-
   const [cpfCnpjCliente, setCpfCnpjCliente] = useState<ICliente>({ cpfCnpj: "" });
+  const [show, setShow] = useState(false);
 
+  const handleShow = () => {
+    setShow(true)
+  }
+
+  const handleClose = () => {
+    setShow(false)
+  }
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
@@ -117,7 +124,7 @@ export function UseLeaf() {
   const findLeafById = async () => {
     try {
       const result = await LeafService.findLeafById(pedido.id)
-      console.log(result)
+      setPedido(result)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
@@ -176,5 +183,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts, sendLeaf }
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show }
 }

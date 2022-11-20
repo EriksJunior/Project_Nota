@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../components/Client/initialState';
+import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../context/client/initialState';
 import ClienteService from '../../services/ClienteService'
 import { toast } from "react-toastify";
 
