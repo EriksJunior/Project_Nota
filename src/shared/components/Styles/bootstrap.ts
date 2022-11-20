@@ -1,8 +1,9 @@
-import { Button, Dropdown } from "react-bootstrap";
-import { IoHome, IoNewspaper, IoHelpCircleOutline , IoEnter } from "react-icons/io5";
-import { BiBox, BiUser } from "react-icons/bi"; 
-import { BsPen, BsTrash } from "react-icons/bs";
 import styled from "styled-components";
+
+import { Button, Dropdown, Offcanvas, OffcanvasTitle, OffcanvasHeader, OffcanvasBody } from "react-bootstrap";
+import { IoHome, IoNewspaper, IoHelpCircleOutline, IoEnter } from "react-icons/io5";
+import { BiBox, BiUser } from "react-icons/bi";
+import { BsPen, BsTrash } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";
 
 export const IconBiBox = styled(BiBox)`
@@ -15,7 +16,6 @@ color: #461269;
 
 export const IconIoHome = styled(IoHome)`
 color: #8A2BE2;
-}
 `
 
 export const IconIoEnter = styled(IoEnter)`
@@ -70,3 +70,25 @@ export const DropDownBt = styled(Dropdown)`
   inset: 0px -28px auto auto;
   margin: 0 !important;
   `
+
+export const OffcanvasBt = styled(Offcanvas)`
+  width: 50vw;
+`
+
+export const OffcanvasHeaderBt = styled(OffcanvasHeader)`
+  background-color: blueviolet;
+`
+
+export const OffcanvasTitleBt = styled(OffcanvasTitle)`
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  justify-content: center;
+  padding-left: 50px;
+`
+
+export const OffcanvasBodyBt = styled(OffcanvasBody)`
+  background-color: #f5f5f5;
+  color: LightGrey;
+  font-weight: bolder;
+`
