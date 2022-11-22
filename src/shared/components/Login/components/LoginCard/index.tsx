@@ -13,11 +13,11 @@ export function CardGeneral() {
   // }, [login]);
   return (
     <CardStyled >
-      <Card.Header style={{ background: "#4B0082" , fontSize: "30px", width: "100%", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>
+      {/* <Card.Header style={{ background: "#4B0082", position: "relative" , fontSize: "30px", width: "100%", justifyContent: "center" , fontWeight:"bold" }}>
         Web Fiscale
-        </Card.Header>
+        </Card.Header> */}
       <Card.Body style={{ width:"100%" }}>
-        <Card.Title className='mb-4' style={{ fontSize: "24px", display: "flex", justifyContent: "center" }}>Faça seu Login!!</Card.Title>
+        <Card.Title className='mb-4' style={{ width: "100%", fontSize: "24px", display: "flex", justifyContent: "center" }}>Faça seu Login!!</Card.Title>
         <Card.Text style={{  width: "100%", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>
           Pronto para começar de forma fácil <br />
           e rapida a emissão da sua nota fiscal ?

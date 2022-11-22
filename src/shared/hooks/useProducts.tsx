@@ -46,7 +46,7 @@ export function UseProducts() {
   const update = async () => {
     try {
       await ProductServices.update(produtos as IProducts)
-      toast("Produto atualizado com sucesso!✅ " , 
+      toast("Produto atualizado com sucesso!✅" , 
       {position: toast.POSITION.TOP_RIGHT },)
     } catch (error: any) {
       toast.error( error , 
