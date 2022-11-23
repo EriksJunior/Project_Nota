@@ -5,10 +5,10 @@ import { IImpostos } from "../../interface/IImpostos";
 import { INITIAL_STATE_IMPOSTOS } from "../context/impostos/InicialState";
 
 export function UseImpostos() {
-  const [impostos , setImpostos] = useState<IImpostos>();
+  const [impostos , setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) =>{
-    // setImpostos({ ...impostos, [e.target.name]: e.target.value })
+    setImpostos({ ...impostos, [e.target.name]: e.target.value })
   }, [impostos]);
 
   const saveImpostos = async () => {
