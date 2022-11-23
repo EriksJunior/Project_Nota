@@ -1,8 +1,7 @@
-import { Table } from 'react-bootstrap';
 import { ICliente } from '../../../../../interface/ICliente';
 import { Row, Col } from 'react-bootstrap';
 
-import { IconBsPen, IconBsTrash, IconEdit } from '../../../Styles/bootstrap'
+import { IconBsTrash, IconEdit } from '../../../Styles/bootstrap'
 import { useContext } from 'react';
 import { ClientContext } from '../../../../context/client/client'
 import { StyleTable } from './styles';

@@ -1,4 +1,4 @@
-import { FloatingLabel, Col, Row, InputGroup, Button, Card , Form } from 'react-bootstrap';
+import { FloatingLabel, Col, InputGroup, Card , Form } from 'react-bootstrap';
 
 
 export function IpiInfo() {

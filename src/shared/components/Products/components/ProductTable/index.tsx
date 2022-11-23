@@ -1,5 +1,5 @@
-import { Table , Row , Col } from "react-bootstrap";
-import { IconBsPen, IconBsTrash , IconEdit } from '../../../Styles/bootstrap'
+import { Row , Col } from "react-bootstrap";
+import { IconBsTrash , IconEdit } from '../../../Styles/bootstrap'
 
 import { IProducts } from "../../../../../interface/IProducts";
 import { useContext } from 'react';

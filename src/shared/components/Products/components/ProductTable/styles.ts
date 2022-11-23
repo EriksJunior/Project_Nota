@@ -11,5 +11,4 @@ export const StyleTable = styled(Table)`
   tr:hover{
     background: #1C1C1C;
   }
-
   `

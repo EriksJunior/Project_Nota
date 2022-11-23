@@ -6,8 +6,6 @@ export const LogoEmpresa = styled.div`
   align-items: center;
   align-content: center;
   display: flex;
-
-
 `
 
 export const CardCompany = styled(Card)`
@@ -43,7 +41,6 @@ border-right: 2px solid #8A2BE2;
   background: #8A2BE2;
   color: white;
 }
-
 `
 
 export const ButtonAtt = styled.div`

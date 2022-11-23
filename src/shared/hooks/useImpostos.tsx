@@ -1,4 +1,4 @@
-import React, { useCallback , useState } from "react";
+import { useCallback , useState } from "react";
 
 import ImpostosService from '../../services/ImpostosService';
 import { IImpostos } from "../../interface/IImpostos";

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-import { Button, Dropdown, Offcanvas, OffcanvasTitle, OffcanvasHeader, OffcanvasBody } from "react-bootstrap";
+import { Button, Dropdown } from "react-bootstrap";
 import { IoHome, IoNewspaper, IoHelpCircleOutline, IoEnter } from "react-icons/io5";
+
 import { BiBox, BiUser } from "react-icons/bi";
 import { BsPen, BsTrash } from "react-icons/bs";
 import { TbEdit } from "react-icons/tb";

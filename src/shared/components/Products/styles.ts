@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody, Form, FloatingLabel, FormControl, FormSelect, Button } from 'react-bootstrap';
+import { Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody, Form, FloatingLabel, FormControl, Button } from 'react-bootstrap';
 
 export const OffcanvasBt = styled(Offcanvas)`
   width: 50%!important;
@@ -24,7 +24,6 @@ export const OffcanvasBodyBt = styled(OffcanvasBody)`
 `
 
 export const FormBt = styled(Form)`
-
 `
 
 export const FloatingLabelBt = styled(FloatingLabel)`

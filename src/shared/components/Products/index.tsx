@@ -14,15 +14,12 @@ import { ProductContext } from '../../context/Product/product';
 import { IProducts, ISearch } from '../../../interface/IProducts';
 
 
-
 export function ProductsModal() {
   const { produtos, alterTab , setAlterTab , clearInputs , search , setSearch , searchProduct, returnedProduct, handleShow,
      handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
       produtos: IProducts , alterTab: string , setAlterTab: ( value: string | null ) => void , clearInputs: () => void , search: ISearch , setSearch: any , searchProduct: () => void , returnedProduct: IProducts[],
       handleShow: () => void , handleClose: () => void , handleChange: React.ChangeEventHandler , 
       handleSaveOrUpdate: () => void , show: Boolean }
-
-  
 
   const { maskCurrency } = Masks()
 

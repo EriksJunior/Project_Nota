@@ -2,9 +2,10 @@ import { useState, useCallback } from 'react';
 
 import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../context/client/initialState';
 import ClienteService from '../../services/ClienteService'
+import { ICliente, ISearch } from '../../interface/ICliente';
+
 import { toast } from "react-toastify";
 
-import { ICliente, ISearch } from '../../interface/ICliente';
 
 export function UseCliente() {
   const [show, setShow] = useState(false);

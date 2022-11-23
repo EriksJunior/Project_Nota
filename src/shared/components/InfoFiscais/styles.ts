@@ -28,8 +28,7 @@ export const NavFiscale = styled(Nav)`
     font-weight: bold;
     @media screen and (min-width: 320px) and (max-width: 800px){
       display:flex;
-    
-  }
+    }
   }
 
   .nav-link.active{

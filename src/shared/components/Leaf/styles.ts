@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Accordion, Button } from 'react-bootstrap';
 
-
-
 export const StyledAccordion = styled(Accordion)`
 
 .accordion-button:focus{
@@ -34,5 +32,4 @@ export const BButton = styled(Button)`
     background: BlueViolet;
     color: whitesmoke;
   }
-
 `

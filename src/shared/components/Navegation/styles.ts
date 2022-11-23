@@ -58,7 +58,5 @@ export const TextCompany = styled.h1`
 
   @media screen and (min-width: 320px) and (max-width: 1000px){
       display: none;
-    }
-
-    }
+  }
 `
