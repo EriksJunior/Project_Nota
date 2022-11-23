@@ -1,5 +1,4 @@
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
+import { FloatingLabel , Form } from 'react-bootstrap';
 
 export function GeneralDataInfoFiscale() {
   return (

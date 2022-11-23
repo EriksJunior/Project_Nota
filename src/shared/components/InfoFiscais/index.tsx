@@ -1,11 +1,14 @@
 import { Col, Nav, Row, Tab, Card , Button } from 'react-bootstrap';
+
 import { GeneralDataInfoFiscale } from './components/GeneralDataInfoFiscale';
 import { GeneralinfoFiscale } from './components/GeneralinfoFiscale';
 import { MainInfoFiscale } from './components/MainInfoFiscale';
 import { CardInfoFiscale , NavFiscale } from './styles';
+
 import { IoCheckboxOutline } from 'react-icons/io5';
 import { ButtonContent } from '../../../shared/components/Company/styles';
-import { IconIoHome , IconBsPen } from '../../../shared/components/Styles/bootstrap';
+import { IconBsPen } from '../../../shared/components/Styles/bootstrap';
+
 import { IcmsInfo } from './components/MainInfoFiscale/ICMS';
 import { IpiInfo } from './components/MainInfoFiscale/IPI';
 import { IssqnInfo } from './components/MainInfoFiscale/ISSQN';

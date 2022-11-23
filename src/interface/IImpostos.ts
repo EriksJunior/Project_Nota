@@ -1,35 +1,35 @@
-export interface IInfoFiscale {
+export interface IImpostos {
   id: string
-  icms: [
+  icms?: [
     cenario: string,
     tipo_pessoa: string,
     codigo_cfop: string,
     situacao_tributaria:string
   ],
-  ipi: [
+  ipi?: [
     cenario: string,
     tipo_pessoa: string,
     situacao_tributaria: string,
     codigo_enquadramento: string,
     aliquota: string
   ],
-  pis: [
+  pis?: [
     cenario: string,
     tipo_pessoa: string,
     situacao_tributaria: string,
     aliquota: string
   ],
-  confins: [
+  confins?: [
     cenario: string,
     tipo_pessoa: string,
     codigo_cfop: string,
     aliquota: string
   ], 
-  issqn: [
+  issqn?: [
     cenario: string,
     tipo_pessoa: string,
     codigo_cfop: string,
-    exigibilidade: [
+    exigibilidade?: [
       '1',
       '2',
       '3',
@@ -38,10 +38,10 @@ export interface IInfoFiscale {
       '6',
       '7'
     ],
-    item_servico: string,
-    incentivo_fiscal: string,
-    aliquota: string
+    item_servico?: string,
+    incentivo_fiscal?: string,
+    aliquota?: string
   ],
-  informacoes_fisco: string,
-  informacoes_complementares: string
+  informacoes_fisco?: string,
+  informacoes_complementares?: string
 }

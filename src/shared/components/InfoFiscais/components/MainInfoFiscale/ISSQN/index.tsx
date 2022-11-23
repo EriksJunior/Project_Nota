@@ -1,6 +1,9 @@
-import { FloatingLabel, Col, Row, InputGroup, Button, Card } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-
+import {
+    FloatingLabel,
+    Col,
+    InputGroup,
+    Card ,
+    Form } from 'react-bootstrap';
 
 
 export function IssqnInfo() {
