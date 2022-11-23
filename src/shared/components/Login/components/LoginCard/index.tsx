@@ -1,23 +1,15 @@
 import { useCallback, useState } from 'react';
 import { ILogin } from '../../../../../interface/ILogin'
-import { FloatingLabel, Form, Card, Button } from 'react-bootstrap';
+import { FloatingLabel, Form, Card } from 'react-bootstrap';
 import { ButtonLogin, CardStyled } from './styles';
 
 
 export function CardGeneral() {
 
-  const [login , setLogin] = useState<ILogin>();
-
-  // const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setLogin({ ...login, [e.target.email]: e.target.value })
-  // }, [login]);
   return (
     <CardStyled >
-      {/* <Card.Header style={{ background: "#4B0082", position: "relative" , fontSize: "30px", width: "100%", justifyContent: "center" , fontWeight:"bold" }}>
-        Web Fiscale
-        </Card.Header> */}
       <Card.Body style={{ width:"100%" }}>
-        <Card.Title className='mb-4' style={{ width: "100%", fontSize: "24px", display: "flex", justifyContent: "center" }}>Faça seu Login!!</Card.Title>
+        <Card.Title className='mb-4' style={{ width: "100%", fontSize: "26px", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>Faça seu Login!!</Card.Title>
         <Card.Text style={{  width: "100%", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>
           Pronto para começar de forma fácil <br />
           e rapida a emissão da sua nota fiscal ?
