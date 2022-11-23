@@ -7,9 +7,6 @@ import { useContext } from 'react';
 import { ClientContext } from '../../../../context/client/client'
 import { StyleTable } from './styles';
 interface ITable {
-  textHeader1?: string
-  textHeader2?: string
-  textHeader3?: string
   data?: Array<ICliente>
 }
 

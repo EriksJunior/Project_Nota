@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { FormControl, Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody, Button, Row, Col, FormSelect } from 'react-bootstrap';
+import { FormControl, Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody, Button, Row, Col, FormSelect, FloatingLabel } from 'react-bootstrap';
 
 export const OffcanvasBt = styled(Offcanvas)`
-width: 50%!important;
+  width: 50%!important;
 
   @media screen and (max-width: 1000px){
     width: 60%!important;
@@ -44,6 +44,7 @@ font-weight: bolder!important;
 `
 
 export const FormControlBt = styled(FormControl)`
+  height: 48px!important;
 
 `
 
@@ -59,7 +60,12 @@ export const ColBt = styled(Col)`
 `
 
 export const FormSelectBt = styled(FormSelect)`
+  height: 48px!important;
+  
+`
+
+export const FloatingLabelBt = styled(FloatingLabel)`
   color: black!important;
-  font-weight: bolder!important;
-  height: 38px!important;
+  font-size: 14px!important;
+
 `

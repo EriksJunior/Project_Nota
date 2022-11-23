@@ -20,6 +20,15 @@ class LeafService {
     return data
   }
 
+  async searchLeaf(text: string, filter: string, page: string, startDate: string, endDate: string) {
+    const { data } = await api.get(`/nota/?q=${text}&type=${filter}&page=${page}&startDate=${startDate}&endDate=${endDate}`)
+    return data
+  }
+
+  async deleteLeafAndProducts(id: string) {
+    await api.delete(`/nota-item/delete-all/${id}`)
+  }
+
   async addProduct(product: ProdutosLeaf) {
     await api.post('/nota-item', product)
   }

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { toast } from "react-toastify";
 
 import ClienteService from "../../services/ClienteService";
@@ -7,9 +7,9 @@ import LeafService from "../../services/LeafService";
 
 import { ICliente } from "../../interface/ICliente";
 import { IProducts } from "../../interface/IProducts";
-import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf } from "../../interface/ILeaf"
+import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf } from "../../interface/ILeaf"
 
-import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA } from "../context/leaf/initialState";
+import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA, INITIAL_STATE_SEARCH } from "../context/leaf/initialState";
 
 export function UseLeaf() {
   const [cliente, setCliente] = useState<ICliente[]>([])
@@ -20,6 +20,9 @@ export function UseLeaf() {
   const [responseWebmania, setResponseWebmania] = useState<IResponseWebmaniaLeaf>(INITIAL_VALUE_RESPONSE_WEBMANIA)
   const [cpfCnpjCliente, setCpfCnpjCliente] = useState<ICliente>({ cpfCnpj: "" });
   const [show, setShow] = useState(false);
+  const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
+  const [resultSearchLeaf, setResultSearchLeaf] = useState<IResultSearchLeaf[]>()
+
 
   const handleShow = () => {
     setShow(true)
@@ -42,6 +45,10 @@ export function UseLeaf() {
   const handleChangeProductLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
   }, [produtoLeaf])
+
+  const handleChangeSeachLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) =>{
+      setSearch({...search, [e.currentTarget.name]: e.currentTarget.value})
+  }, [search])
 
   const handleTotalValueProducts = () => {
     let quantidade = produtoLeaf.quantidade
@@ -110,7 +117,7 @@ export function UseLeaf() {
     try {
       const result = await LeafService.sendLeaf(pedido.id)
       console.log(result)
-      await findLeafById()
+      await findLeafById(pedido.id)
       toast("Nota emitida com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -121,15 +128,27 @@ export function UseLeaf() {
     }
   }
 
-  const findLeafById = async () => {
+  const findLeafById = async (id: string) => {
     try {
-      const result = await LeafService.findLeafById(pedido.id)
-      setPedido(result)
+      const result = await LeafService.findLeafById(id)
+      setPedido({...result})
+      await findLeafProductsByIdNota(id)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
       });
     }
+  }
+
+  const searchLeaf = async () => {
+    const page = "1"
+    const result = await LeafService.searchLeaf(search.text, search.filter, page, search.startDate, search.endDate)
+    setResultSearchLeaf(result.data)
+  }
+
+  const deleteLeafAndProducts = async (id: string) => {
+    await LeafService.deleteLeafAndProducts(id)
+    await searchLeaf()
   }
 
   const handleSaveOrUpdate = async () => {
@@ -145,7 +164,7 @@ export function UseLeaf() {
         total: produtoLeaf.total.replace(".", "").replace(",", "."),
         desconto: produtoLeaf.desconto.replace(".", "").replace(",", ".")
       })
-      await findLeafProductsByIdNota()
+      await findLeafProductsByIdNota(pedido.id)
 
       toast("Produto adicionado! ✅", {
         position: toast.POSITION.TOP_RIGHT
@@ -157,9 +176,9 @@ export function UseLeaf() {
     }
   }
 
-  const findLeafProductsByIdNota = async () => {
+  const findLeafProductsByIdNota = async (id: string) => {
     try {
-      const result = await LeafService.findLeafProductsByIdNota(pedido.id)
+      const result = await LeafService.findLeafProductsByIdNota(id)
       setReturnedProductsLeaf(result.noteItem)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
@@ -171,7 +190,7 @@ export function UseLeaf() {
   const deleteProduct = async (id: string) => {
     try {
       await LeafService.deleteProduct(id)
-      await findLeafProductsByIdNota()
+      await findLeafProductsByIdNota(pedido.id)
 
       toast("Produto removido! ✅", {
         position: toast.POSITION.TOP_RIGHT
@@ -183,5 +202,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show }
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts }
 }
