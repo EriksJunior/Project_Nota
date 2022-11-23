@@ -59,3 +59,20 @@ export interface IResponseWebmaniaLeaf {
   uuid: string,
   xml: string,
 }
+
+export interface ISearch {
+  text: string,
+  filter: string,
+  startDate: string,
+  endDate: string,
+}
+
+export interface IResultSearchLeaf {
+  cpfCnpj: string,
+  data: string,
+  id: string,
+  idCliente: string,
+  nomeCliente: string,
+  response: string,
+  status: string,
+}

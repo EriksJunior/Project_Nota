@@ -60,3 +60,10 @@ export const INITIAL_VALUE_RESPONSE_WEBMANIA = {
   uuid: "",
   xml: "",
 }
+
+export const INITIAL_STATE_SEARCH = {
+  text: "",
+  filter: "nome",
+  startDate: "",
+  endDate: "",
+}
