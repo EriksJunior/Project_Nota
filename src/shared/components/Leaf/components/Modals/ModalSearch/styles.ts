@@ -61,11 +61,12 @@ export const ColBt = styled(Col)`
 
 export const FormSelectBt = styled(FormSelect)`
   height: 48px!important;
+  padding-top: 1.325rem!important;
+  padding-bottom: 0.175rem!important;
   
 `
 
 export const FloatingLabelBt = styled(FloatingLabel)`
   color: black!important;
   font-size: 14px!important;
-
 `
