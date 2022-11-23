@@ -19,8 +19,8 @@ height: auto;
 margin-top: 25px;
 
 .form-floating>.form-select {
-  padding-top: 1.225rem;
-  padding-bottom: 0.625rem;
+  padding-top: 1.325rem!important;
+   padding-bottom: 0.175rem!important;
 }
 `
 
