@@ -8,7 +8,7 @@ interface NavegationProps {
 export function PageNavegation({ visible }:NavegationProps) {
   return (
     <>
-    { visible ? (
+    { !visible ? (
     <Navegation />
     ): <></>
   }

@@ -19,6 +19,11 @@ export const ContentLeaf = styled.div`
   border: 20px solid #DCDCDC;
   border-style: double;
   border-radius: 50px 50px 10px 10px;
+
+  .form-floating>.form-select {
+    padding-top: 1.025rem;
+    padding-bottom: 0.625rem;
+}
 `
 
 export const ButtonLeaf = styled.div`

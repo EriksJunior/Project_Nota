@@ -48,6 +48,7 @@ export function ClientModal() {
             id="clientTabs"
             onSelect={(tabSelected) => setAlterTab(tabSelected)}
             className="mb-3"
+            style={{ background: "#363636" }}
 
           >
             <Tab eventKey="cadastro" title="Cadastro">
@@ -205,7 +206,7 @@ export function ClientModal() {
               <Row>
                 <Search>
                   <FormControlBt className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
-                  <Button variant="secondary" onClick={searchClient}>Pesquisar</Button>
+                  <Button style={{ background:"black"}} onClick={searchClient}>Pesquisar</Button>
                 </Search>
               </Row>
 

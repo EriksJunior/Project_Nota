@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { LeafContext } from '../../../../../../context/leaf/leaf';
 
 import { IconBsTrash } from '../../../../../Styles/bootstrap'
+import { StyleTable } from '../../../LeafTable/styles';
 
 interface ITable {
   data?: Array<ProdutosLeaf>
@@ -15,7 +16,7 @@ export function ProductsLeafTable({ data }: ITable) {
   const { deleteProduct } = useContext(LeafContext) as { deleteProduct: (value: string) => void }
 
   return (
-    <Table striped bordered hover variant="dark" className={'mt-3'}>
+    <StyleTable bordered  className={'mt-3'}>
       <thead>
         <tr>
           <th>Nome</th>
@@ -42,6 +43,6 @@ export function ProductsLeafTable({ data }: ITable) {
           </tr>
         )}
       </tbody>
-    </Table>
+    </StyleTable>
   )
 }
