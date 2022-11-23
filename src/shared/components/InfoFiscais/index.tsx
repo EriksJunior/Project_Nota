@@ -13,8 +13,14 @@ import { IcmsInfo } from './components/MainInfoFiscale/ICMS';
 import { IpiInfo } from './components/MainInfoFiscale/IPI';
 import { IssqnInfo } from './components/MainInfoFiscale/ISSQN';
 
+import { useContext } from 'react';
+import { ImpostosContext } from '../../context/impostos/impostos';
+import { IImpostos } from '../../../interface/IImpostos';
+
 
 export function InfoFiscaisGlobal() {
+    const { impostos , handleChange , handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void }
+   
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
@@ -77,7 +83,7 @@ export function InfoFiscaisGlobal() {
             </Card.Body>
             <Card.Footer className="text-muted">
                     <ButtonContent>
-                        <Button variant="" style={{ background:"#8A2BE2" , color: "white" }}>
+                        <Button onClick={handleSaveOrUpdate}  variant="" style={{ background:"#8A2BE2" , color: "white" }}>
                             <IconBsPen />Limpar Campos
                         </Button>
                         <Button variant="" style={{ background:"#8A2BE2" , color: "white" }}>

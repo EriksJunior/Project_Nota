@@ -1,10 +1,10 @@
 export interface IImpostos {
   id: string
-  icms?: Iicms[],
-  ipi?: IIpi[],
-  pis?: IPis[],
-  confins?:  IConfins[],
-  issqn?: IIssqn[],
+  icms?: Iicms,
+  ipi?: IIpi,
+  pis?: IPis,
+  confins?:  IConfins,
+  issqn?: IIssqn,
   informacoes_fisco?: string,
   informacoes_complementares?: string,
 }
