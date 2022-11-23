@@ -2,8 +2,9 @@ import {
     FloatingLabel,
     Col,
     InputGroup,
-    Card ,
-    Form } from 'react-bootstrap';
+    Card,
+    Form
+} from 'react-bootstrap';
 
 
 export function IssqnInfo() {
@@ -17,7 +18,7 @@ export function IssqnInfo() {
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
                                     <option value="">0 - pessoa Física</option>
                                     <option value="">1 - Pessoa Juridíca</option>
-                                    <option value="">2 - Outros</option>
+                                    <option value="">2 - Estrangeira</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -25,9 +26,13 @@ export function IssqnInfo() {
                         <Form.Group as={Col}>
                             <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Cenário">
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
-                                    <option value="">0 - Padrão</option>
-                                    <option value="">1 - Padrão</option>
-                                    <option value="">2 - Padrão</option>
+                                    <option value="">0 -Padrão (Abrange todos os cenários)</option>
+                                    <option>0 - Saída dentro do estado</option>
+                                    <option>1 - Saída para fora do estado</option>
+                                    <option>2 - Saída para o exterior</option>
+                                    <option>3 - Entrada de dentro do estado</option>
+                                    <option>4 - Entrada de fora do estado</option>
+                                    <option>5 - Entrada do exterior</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -40,8 +45,11 @@ export function IssqnInfo() {
                             <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Indicador da exigibilidade do ISS">
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
                                     <option value="">Exigível</option>
-                                    <option value="">Exigível</option>
-                                    <option value="">Exigível</option>
+                                    <option value="">Não incidência</option>
+                                    <option value="">Isenção</option>
+                                    <option value="">Exportação</option>
+                                    <option value="">Imunidade</option>
+                                    <option value="">Exigibilidade Suspensa por Decisão Judicial</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>

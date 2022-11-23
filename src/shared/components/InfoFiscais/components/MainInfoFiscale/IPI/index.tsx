@@ -1,4 +1,4 @@
-import { FloatingLabel, Col, InputGroup, Card , Form } from 'react-bootstrap';
+import { FloatingLabel, Col, InputGroup, Card, Form } from 'react-bootstrap';
 
 
 export function IpiInfo() {
@@ -12,7 +12,7 @@ export function IpiInfo() {
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
                                     <option value="">0 - pessoa Física</option>
                                     <option value="">1 - Pessoa Juridíca</option>
-                                    <option value="">2 - Outros</option>
+                                    <option value="">2 - Estrangeiro</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -20,9 +20,13 @@ export function IpiInfo() {
                         <Form.Group as={Col} controlId="formGridState">
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Cenário">
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
-                                    <option value="">0 - Padrão</option>
-                                    <option value="">1 - Padrão</option>
-                                    <option value="">2 - Padrão</option>
+                                    <option value="">0 -Padrão (Abrange todos os cenários)</option>
+                                    <option>0 - Saída dentro do estado</option>
+                                    <option>1 - Saída para fora do estado</option>
+                                    <option>2 - Saída para o exterior</option>
+                                    <option>3 - Entrada de dentro do estado</option>
+                                    <option>4 - Entrada de fora do estado</option>
+                                    <option>5 - Entrada do exterior</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -30,8 +34,19 @@ export function IpiInfo() {
                         <Form.Group as={Col} controlId="formGridState">
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Situação Tributária">
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
-                                    <option value="">99 - Outras saídas</option>
-                                    <option value="">99 - Outras saídas</option>
+                                    <option value="">00 - Entrada com recuperação de crédito</option>
+                                    <option value="">01 - Entrada tributada com alíquota zero</option>
+                                    <option value="">02 - Entrada isenta</option>
+                                    <option value="">03 - Entrada não-tributada</option>
+                                    <option value="">04 - Entrada imune</option>
+                                    <option value="">05 - Entrada com suspensão</option>
+                                    <option value="">49 - Outras entradas</option>
+                                    <option value="">50 - Saída tributada</option>
+                                    <option value="">51 - Saída tributada com alíquota zero</option>
+                                    <option value="">52 - Saída isenta</option>
+                                    <option value="">53 - Saída não-tributada</option>
+                                    <option value="">54 - Saída imune</option>
+                                    <option value="">55 - Saída com suspensão</option>
                                     <option value="">99 - Outras saídas</option>
                                 </Form.Select>
                             </FloatingLabel>
