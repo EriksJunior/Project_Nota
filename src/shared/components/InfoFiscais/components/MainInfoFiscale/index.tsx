@@ -87,9 +87,6 @@ export function MainInfoFiscale() {
                     </Form>
                 </Card.Body>
             </Card>
-
-
-
         </>
     );
 }

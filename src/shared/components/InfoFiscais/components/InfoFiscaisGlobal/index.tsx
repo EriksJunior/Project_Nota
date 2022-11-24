@@ -16,6 +16,8 @@ import { IssqnInfo } from '../MainInfoFiscale/ISSQN';
 import { useContext } from 'react';
 import { ImpostosContext } from '../../../../context/impostos/impostos';
 import { IImpostos } from '../../../../../interface/IImpostos';
+import { PisInfo } from '../MainInfoFiscale/PIS';
+import { CofinsInfo } from '../MainInfoFiscale/COFINS';
 
 
 export function InfoFiscaisGlobal() {
@@ -65,10 +67,10 @@ export function InfoFiscaisGlobal() {
                                     <IpiInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fourth">
-                                    <MainInfoFiscale/>
+                                    <PisInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="fifth">
-                                    <MainInfoFiscale/>
+                                    <CofinsInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="sixth">
                                     <IssqnInfo/>

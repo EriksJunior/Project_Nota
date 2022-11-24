@@ -59,13 +59,13 @@ export function IpiInfo() {
                         </Form.Group>
 
                         <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" controlId="" label="Códido de enquadramento">
-                            <Form.Control style={{ height: "48px" }} type="text" />
+                            <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.ipi?.codigo_enquadramento || " "} name="codigo_enquadramento" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} controlId="" label="Aliquota">
-                                <Form.Control style={{ height: "48px" }} type="text" />
+                                <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.ipi?.aliquota || " "} name="aliquota" />
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

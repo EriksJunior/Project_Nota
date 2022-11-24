@@ -37,7 +37,7 @@ export function IssqnInfo() {
                         </Form.Group>
 
                         <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Código CFOP">
-                            <Form.Control style={{ height: "48px" }} type="text" />
+                            <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.issqn?.codigo_cfop || " "} name="codigo_cfop"/>
                         </FloatingLabel>
 
                         <Form.Group as={Col} >
@@ -69,7 +69,7 @@ export function IssqnInfo() {
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
                             <FloatingLabel style={{ fontSize: "14px" }} label="Aliquota do ISSQN">
-                                <Form.Control style={{ height: "48px" }} type="text" />
+                                <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.issqn?.aliquota || " "} name="aliquota"/>
                             </FloatingLabel>
                         </InputGroup>
                     </Form>
