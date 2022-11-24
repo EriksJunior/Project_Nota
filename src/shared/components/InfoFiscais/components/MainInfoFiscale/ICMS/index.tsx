@@ -15,7 +15,7 @@ export function IcmsInfo() {
                         <Form.Control onChange={handleChange} hidden style={{ height: "48px" }} type="text" defaultValue={impostos?.id || " "} name="id" />
                         <Form.Group as={Col}>
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Tipo de Tributação">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tributos">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos?.icms?.situacao_tributaria || " "}>
                                     <option value="">0 - Simples Nacional</option>
                                     <option value="">1 - Tributação Normal</option>
                                     <option value="">2 - Outros</option>
@@ -25,7 +25,7 @@ export function IcmsInfo() {
 
                         <Form.Group as={Col} >
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Cenário">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos?.icms?.cenario || " " }>
                                     <option value="">0 - Saída dentro do estado</option>
                                     <option value="">1 - Saída para fora do estado</option>
                                     <option value="">2 - Saída para o exterior</option>
@@ -38,7 +38,7 @@ export function IcmsInfo() {
 
                         <Form.Group as={Col} >
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Tipo de Pessoa">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipoPessoa">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos?.icms?.tipo_pessoa || " " }>
                                     <option value="">0 - pessoa Física</option>
                                     <option value="">1 - Pessoa Juridíca</option>
                                     <option value="">2 - Estrangeiro</option>
@@ -52,8 +52,8 @@ export function IcmsInfo() {
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> Situação Tributária </InputGroup.Text>
-                            <FloatingLabel controlId="" style={{ color: "black", fontSize: "14px" }} label="Definição Imposto">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="defImposto">
+                            <FloatingLabel style={{ color: "black", fontSize: "14px" }} label="Definição Imposto">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos?.icms?.situacao_tributaria || " " }>
                                     <option>101 - Tributada com permissão de crédito</option>
                                     <option>102 - Tributada sem permissão de crédito</option>
                                     <option>103 - Isenção do ICMS para faixa de receita bruta</option>

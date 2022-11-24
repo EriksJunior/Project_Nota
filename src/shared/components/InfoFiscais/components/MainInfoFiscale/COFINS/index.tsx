@@ -15,7 +15,7 @@ export function CofinsInfo() {
           <Form>
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Tipo de Pessoa">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipPessoa">
+                <Form.Select onChange={handleChange}  style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" value={impostos.cofins?.tipo_pessoa || " "}>
                   <option value="">0 - pessoa Física</option>
                   <option value="">1 - Pessoa Juridíca</option>
                   <option value="">2 - Estrangeira</option>
@@ -25,7 +25,7 @@ export function CofinsInfo() {
 
             <Form.Group as={Col} >
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Cenário">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario">
+                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" value={impostos.cofins?.cenario || " "}>
                   <option value="">0 -Padrão (Abrange todos os cenários)</option>
                   <option>0 - Saída dentro do estado</option>
                   <option>1 - Saída para fora do estado</option>
@@ -39,7 +39,7 @@ export function CofinsInfo() {
 
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Situação Tributária">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} onChange={handleChange} defaultValue={impostos?.confins?.tipo_pessoa || " "}  name="sitTributo">
+                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} onChange={handleChange} defaultValue={impostos?.cofins?.tipo_pessoa || " "}  name="sitTributo">
                   <option value="">01 - Operação Tributável - Base de Cálculo = Valor da Operação Alíquota Normal (Cumulativo/Não cumulativo)</option>
                   <option value="">02 - Operação Tributável - Base de Cálculo = Valor da Operação (Alíquota diferenciada)</option>
                   <option value="">03 - Operação Tributável - Base de Cálculo = Quantidade Vendida X Alíquota por Unidade de Produto</option>
@@ -81,7 +81,7 @@ export function CofinsInfo() {
             <InputGroup className="mb-3">
               <InputGroup.Text> % </InputGroup.Text>
               <FloatingLabel style={{ fontSize: "14px" }} label="Aliquota">
-                <Form.Control style={{ height: "48px" }} onChange={handleChange} type="text" defaultValue={impostos?.confins?.aliquota || " "} name="aliquota" />
+                <Form.Control style={{ height: "48px" }} onChange={handleChange} type="text" defaultValue={impostos?.cofins?.aliquota || " "} name="aliquota" />
               </FloatingLabel>
             </InputGroup>
           </Form>

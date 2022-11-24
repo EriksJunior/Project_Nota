@@ -13,9 +13,10 @@ export function IpiInfo() {
             <Card className="text-center">
                 <Card.Body>
                     <Form>
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Tipo de Pessoa">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos?.ipi?.tipo_pessoa || " "}>
+
                                     <option value="">0 - pessoa Física</option>
                                     <option value="">1 - Pessoa Juridíca</option>
                                     <option value="">2 - Estrangeiro</option>
@@ -23,9 +24,10 @@ export function IpiInfo() {
                             </FloatingLabel>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Cenário">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos?.ipi?.cenario || " "}>
+
                                     <option value="">0 -Padrão (Abrange todos os cenários)</option>
                                     <option>0 - Saída dentro do estado</option>
                                     <option>1 - Saída para fora do estado</option>
@@ -37,9 +39,9 @@ export function IpiInfo() {
                             </FloatingLabel>
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Situação Tributária">
-                                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="id">
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos?.ipi?.situacao_tributaria || " "}>
                                     <option value="">00 - Entrada com recuperação de crédito</option>
                                     <option value="">01 - Entrada tributada com alíquota zero</option>
                                     <option value="">02 - Entrada isenta</option>
@@ -58,13 +60,13 @@ export function IpiInfo() {
                             </FloatingLabel>
                         </Form.Group>
 
-                        <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" controlId="" label="Códido de enquadramento">
+                        <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Códido de enquadramento">
                             <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.ipi?.codigo_enquadramento || " "} name="codigo_enquadramento" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
-                            <FloatingLabel style={{ color: "black", fontSize: "14px" }} controlId="" label="Aliquota">
+                            <FloatingLabel style={{ color: "black", fontSize: "14px" }} label="Aliquota">
                                 <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.ipi?.aliquota || " "} name="aliquota" />
                             </FloatingLabel>
                         </InputGroup>

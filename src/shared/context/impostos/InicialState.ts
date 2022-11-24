@@ -25,7 +25,7 @@ export const INITIAL_STATE_IMPOSTOS = {
     aliquota: ""
   }
   ,
-  confins:
+  cofins:
   {
     cenario: "",
     tipo_pessoa: "",

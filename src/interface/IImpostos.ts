@@ -3,7 +3,7 @@ export interface IImpostos {
   icms?: Iicms,
   ipi?: IIpi,
   pis?: IPis,
-  confins?:  IConfins,
+  cofins?:  ICofins,
   issqn?: IIssqn,
   informacoes_fisco?: string,
   informacoes_complementares?: string,
@@ -31,7 +31,7 @@ interface IIpi {
   aliquota: string,
 }
 
-interface IConfins {
+interface ICofins {
   cenario: string,
   tipo_pessoa: string,
   codigo_cfop: string,

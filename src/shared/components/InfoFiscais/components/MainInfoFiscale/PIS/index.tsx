@@ -15,7 +15,8 @@ export function PisInfo() {
           <Form>
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Tipo de Pessoa">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipPessoa">
+                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos?.pis?.tipo_pessoa || " " } >
+
                   <option value="">0 - pessoa Física</option>
                   <option value="">1 - Pessoa Juridíca</option>
                   <option value="">2 - Estrangeira</option>
@@ -25,7 +26,8 @@ export function PisInfo() {
 
             <Form.Group as={Col} >
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Cenário">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario">
+                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos?.pis?.cenario || " " }>
+
                   <option value="">0 -Padrão (Abrange todos os cenários)</option>
                   <option>0 - Saída dentro do estado</option>
                   <option>1 - Saída para fora do estado</option>
@@ -39,7 +41,7 @@ export function PisInfo() {
 
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Situação Tributária">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="sitTributo">
+                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos?.pis?.situacao_tributaria|| " " }>
                   <option value="">01 - Operação Tributável - Base de Cálculo = Valor da Operação Alíquota Normal (Cumulativo/Não cumulativo)</option>
                   <option value="">02 - Operação Tributável - Base de Cálculo = Valor da Operação (Alíquota diferenciada)</option>
                   <option value="">03 - Operação Tributável - Base de Cálculo = Quantidade Vendida X Alíquota por Unidade de Produto</option>
