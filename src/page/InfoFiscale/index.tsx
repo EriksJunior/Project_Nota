@@ -1,11 +1,12 @@
-import { InfoFiscaisGlobal } from '../../shared/components/InfoFiscais/index'
+
+import { ImpostoGlobal } from '../../shared/components/InfoFiscais'
 import { Navegation } from '../../shared/components/Navegation'
 
 export function InfoFiscale() {
     return (
       <>
       <Navegation />
-      <InfoFiscaisGlobal />
+      <ImpostoGlobal/>
       </>
     )
   }

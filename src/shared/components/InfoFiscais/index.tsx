@@ -1,99 +1,25 @@
-import { Col, Nav, Row, Tab, Card , Button } from 'react-bootstrap';
+import { Button, Form, Row } from 'react-bootstrap';
+import Carousel from 'react-bootstrap/Carousel';
+import { Search } from '../Search';
+import { InfoFiscaisGlobal } from './components/InfoFiscaisGlobal';
+import { CardSearch } from './styles';
 
-import { GeneralDataInfoFiscale } from './components/GeneralDataInfoFiscale';
-import { GeneralinfoFiscale } from './components/GeneralinfoFiscale';
-import { MainInfoFiscale } from './components/MainInfoFiscale';
-import { CardInfoFiscale , NavFiscale } from './styles';
-
-import { IoCheckboxOutline } from 'react-icons/io5';
-import { ButtonContent } from '../../../shared/components/Company/styles';
-import { IconBsPen } from '../../../shared/components/Styles/bootstrap';
-
-import { IcmsInfo } from './components/MainInfoFiscale/ICMS';
-import { IpiInfo } from './components/MainInfoFiscale/IPI';
-import { IssqnInfo } from './components/MainInfoFiscale/ISSQN';
-
-import { useContext } from 'react';
-import { ImpostosContext } from '../../context/impostos/impostos';
-import { IImpostos } from '../../../interface/IImpostos';
-
-
-export function InfoFiscaisGlobal() {
-    const { impostos , handleChange , handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void }
-   
-    return (
-        <div style={{ justifyContent: "center", display: "flex" }}>
-        <CardInfoFiscale>
-            <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#8A2BE2" , color:"whitesmoke" }} >Dados Fiscais</Card.Header>
-            <Card.Body style={{ height:"auto" }}>
-                <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-                    <Row>
-                        <Col sm={2}>
-                            <NavFiscale variant="pills" className="flex-column">
-                                <Nav.Item>
-                                    <Nav.Link eventKey="first">Informações Gerais</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="second">ICMS</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="terciary">IPI</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="fourth">PIS</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="fifth">COFINS</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="sixth">ISSQN</Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item>
-                                    <Nav.Link eventKey="seventh">Informações Complementares</Nav.Link>
-                                </Nav.Item>
-                            </NavFiscale>
-                        </Col>
-                        <Col sm={10}>
-                            <Tab.Content>
-                                <Tab.Pane eventKey="first">
-                                    <GeneralDataInfoFiscale/>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="second">
-                                    <IcmsInfo/>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="terciary">
-                                    <IpiInfo/>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="fourth">
-                                    <MainInfoFiscale/>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="fifth">
-                                    <MainInfoFiscale/>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="sixth">
-                                    <IssqnInfo/>
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="seventh">
-                                    <GeneralinfoFiscale/>
-                                </Tab.Pane>
-                            </Tab.Content>
-                        </Col>
-                    </Row>
-                </Tab.Container>
-            </Card.Body>
-            <Card.Footer className="text-muted">
-                    <ButtonContent>
-                        <Button onClick={handleSaveOrUpdate}  variant="" style={{ background:"#8A2BE2" , color: "white" }}>
-                            <IconBsPen />Limpar Campos
-                        </Button>
-                        <Button variant="" style={{ background:"#8A2BE2" , color: "white" }}>
-                            <IoCheckboxOutline /> Salvar alterações
-                        </Button>
-                    </ButtonContent>
-                </Card.Footer>
-        </CardInfoFiscale>
-    </div>
-    );
+export function ImpostoGlobal() {
+  return (
+    <Carousel interval={9999999999999}>
+      <Carousel.Item>
+        <InfoFiscaisGlobal />
+      </Carousel.Item>
+      <Carousel.Item>
+        <Row>
+          <Search>
+            <CardSearch>
+              <Form.Control style={{ height: "48px" }} placeholder="Faça sua pesquisa" type="text" />
+              <Button style={{ background: "black" }}>Pesquisar</Button>
+            </CardSearch>
+          </Search>
+        </Row>
+      </Carousel.Item>
+    </Carousel>
+  );
 }
-
-
