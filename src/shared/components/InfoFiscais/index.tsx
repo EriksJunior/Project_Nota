@@ -2,11 +2,11 @@ import { Button, Form, Row } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import { Search } from '../Search';
 import { InfoFiscaisGlobal } from './components/InfoFiscaisGlobal';
-import { CardSearch } from './styles';
+import { CardSearch, CarouselStyled } from './styles';
 
 export function ImpostoGlobal() {
   return (
-    <Carousel interval={9999999999999}>
+    <CarouselStyled interval={9999999999999}>
       <Carousel.Item>
         <InfoFiscaisGlobal />
       </Carousel.Item>
@@ -20,6 +20,6 @@ export function ImpostoGlobal() {
           </Search>
         </div> */}
       </Carousel.Item>
-    </Carousel>
+    </CarouselStyled>
   );
 }

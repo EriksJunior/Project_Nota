@@ -1,14 +1,21 @@
 import { FloatingLabel , Form } from 'react-bootstrap';
 
+import { useContext } from 'react';
+import { IImpostos } from '../../../../../interface/IImpostos';
+import { ImpostosContext } from '../../../../context/impostos/impostos';
+
 export function GeneralinfoFiscale() {
+  const { impostos , handleChange } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler }
+ 
+
   return (
     <>
       <FloatingLabel className="mb-4" label="Informações ao Fisco">
-        <Form.Control as="textarea" style={{ height:"60px" }}  type="text"/>
+        <Form.Control onChange={handleChange} as="textarea" style={{ height:"60px" }}  type="text" defaultValue={impostos?.informacoes_fisco || " " } name="infoFisco"/>
       </FloatingLabel>
 
       <FloatingLabel className="mb-4" label="informações Complementares ao Consumidor">
-        <Form.Control as="textarea" style={{ height:"200px" }} type="text"/>
+        <Form.Control onChange={handleChange} as="textarea" style={{ height:"200px" }} type="text" defaultValue={impostos?.informacoes_complementares || " " } name="infoComplementares"/>
       </FloatingLabel>
     </>
   );

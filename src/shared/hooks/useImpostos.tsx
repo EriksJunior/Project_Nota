@@ -12,7 +12,6 @@ export function UseImpostos() {
   }, [impostos]);
 
   const saveImpostos = async () => {
-    console.log("teste")
     try {
       const result = await ImpostosService.save(impostos as IImpostos)
       setImpostos({ ...impostos, id: result.id })
@@ -24,7 +23,8 @@ export function UseImpostos() {
   }
 
   const handleSaveOrUpdate = async () => {
-    impostos?.id === "" ? saveImpostos() : "testando"
+    console.log("teste")
+    impostos?.id === "" ? saveImpostos() : "teste"
   }
 
   return { impostos, setImpostos, handleChange, handleSaveOrUpdate }

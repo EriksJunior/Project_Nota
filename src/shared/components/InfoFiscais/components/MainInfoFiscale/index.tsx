@@ -1,7 +1,13 @@
 import { FloatingLabel, Col, InputGroup, Card, Form } from 'react-bootstrap';
 
+import { useContext } from 'react';
+import { ImpostosContext } from '../../../../context/impostos/impostos';
+import { IImpostos } from '../../../../../interface/IImpostos';
+
 
 export function MainInfoFiscale() {
+    const { impostos , handleChange } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler }
+
     return (
         <>
             <Card className="text-center">
@@ -75,7 +81,7 @@ export function MainInfoFiscale() {
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
                             <FloatingLabel style={{ fontSize: "14px" }} label="Aliquota">
-                                <Form.Control style={{ height: "48px" }} type="text" />
+                                <Form.Control onChange={handleChange} style={{ height: "48px" }}  type="text" defaultValue={impostos?.pis?.aliquota || " " } name="aliquota" />
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

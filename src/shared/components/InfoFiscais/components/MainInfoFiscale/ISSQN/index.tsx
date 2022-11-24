@@ -1,13 +1,12 @@
-import {
-    FloatingLabel,
-    Col,
-    InputGroup,
-    Card,
-    Form
-} from 'react-bootstrap';
+import {FloatingLabel , Col , InputGroup , Card , Form} from 'react-bootstrap';
+
+import { useContext } from 'react';
+import { ImpostosContext } from '../../../../../context/impostos/impostos';
+import { IImpostos } from '../../../../../../interface/IImpostos';
 
 
 export function IssqnInfo() {
+    const { impostos , handleChange } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler }
     return (
         <>
             <Card className="text-center">

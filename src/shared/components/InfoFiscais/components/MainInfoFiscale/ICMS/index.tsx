@@ -6,12 +6,13 @@ import { FloatingLabel, Col, InputGroup, Card, Form } from 'react-bootstrap';
 
 
 export function IcmsInfo() {
-    const { impostos , handleChange , handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void }
+    const { impostos, handleChange, handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos, handleChange: React.ChangeEventHandler, handleSaveOrUpdate: () => void }
     return (
         <>
             <Card className="text-center">
                 <Card.Body>
                     <Form>
+                        <Form.Control onChange={handleChange} hidden style={{ height: "48px" }} type="text" defaultValue={impostos?.id || " "} name="id" />
                         <Form.Group as={Col}>
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Tipo de Tributação">
                                 <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tributos">
@@ -46,7 +47,7 @@ export function IcmsInfo() {
                         </Form.Group>
 
                         <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Código CFOP">
-                            <Form.Control  onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.icms?.codigo_cfop || " " } name="cfop" />
+                            <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.icms?.codigo_cfop || " "} name="cfop" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
