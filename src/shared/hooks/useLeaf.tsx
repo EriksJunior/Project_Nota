@@ -164,7 +164,7 @@ export function UseLeaf() {
         desconto: produtoLeaf.desconto.replace(".", "").replace(",", ".")
       })
       await findLeafProductsByIdNota(pedido.id)
-
+      clearDataProducts()
       toast("Produto adicionado! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -199,6 +199,10 @@ export function UseLeaf() {
         position: toast.POSITION.TOP_RIGHT
       });
     }
+  }
+
+  const clearDataProducts = () => {
+    setProdutoLeaf(INITIAL_VALUE_PRODUTOS)
   }
 
   return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts }
