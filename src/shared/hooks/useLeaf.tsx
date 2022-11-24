@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { toast } from "react-toastify";
 
 import ClienteService from "../../services/ClienteService";
@@ -32,22 +32,21 @@ export function UseLeaf() {
     setShow(false)
   }
 
+  useEffect(() => {
+    const result: any = cliente.filter((e) => e.id == pedido.idCliente)
+    setCpfCnpjCliente({...cpfCnpjCliente, cpfCnpj: result[0]?.cpfCnpj})
+  },[pedido.idCliente])
+
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
   }, [pedido])
-
-  const onChangeCliente = (e: string) => {
-    const result: ICliente = JSON.parse(e)
-    setPedido({ ...pedido, idCliente: result.id })
-    setCpfCnpjCliente({ cpfCnpj: result.cpfCnpj })
-  }
 
   const handleChangeProductLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setProdutoLeaf({ ...produtoLeaf, [e.currentTarget.name]: e.currentTarget.value })
   }, [produtoLeaf])
 
-  const handleChangeSeachLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) =>{
-      setSearch({...search, [e.currentTarget.name]: e.currentTarget.value})
+  const handleChangeSeachLeaf = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setSearch({ ...search, [e.currentTarget.name]: e.currentTarget.value })
   }, [search])
 
   const handleTotalValueProducts = () => {
@@ -131,7 +130,7 @@ export function UseLeaf() {
   const findLeafById = async (id: string) => {
     try {
       const result = await LeafService.findLeafById(id)
-      setPedido({...result})
+      setPedido({ ...result })
       await findLeafProductsByIdNota(id)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
@@ -202,5 +201,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, onChangeCliente, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts }
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts }
 }

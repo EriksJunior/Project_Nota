@@ -6,7 +6,7 @@ import { Container } from './styles'
 import { LeafContext } from '../../../../context/leaf/leaf'
 
 export function HeaderLeaf() {
-  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania, onChangeCliente, cpfCnpjCliente } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, onChangeCliente: (e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => void, cpfCnpjCliente: ICliente }
+  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania,  cpfCnpjCliente } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, cpfCnpjCliente: ICliente }
 
   useEffect(() => {
     getClientesFromSelectBox()
@@ -100,9 +100,9 @@ export function HeaderLeaf() {
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col}>
             <FloatingLabel className="mb-4" label="Cliente">
-              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement> | any) => onChangeCliente(e.target.value)} name={'idCliente'}>
+              <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'} value={pedido.idCliente || ""}>
                 <option value="">Selecione...</option>
-                {cliente.map((e) => <option key={e.id} value={JSON.stringify(e)}>{e.nome}</option>)}
+                {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
               </Form.Select>
             </FloatingLabel>
           </Form.Group>
