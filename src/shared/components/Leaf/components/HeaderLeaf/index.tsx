@@ -101,7 +101,7 @@ export function HeaderLeaf() {
           <Form.Group as={Col}>
             <FloatingLabel className="mb-4" label="Cliente">
               <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'} value={pedido.idCliente || ""}>
-                <option value="">Selecione...</option>
+                <option value="" >---selecione---</option>
                 {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
               </Form.Select>
             </FloatingLabel>

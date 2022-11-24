@@ -26,8 +26,8 @@ export function DataLeafProducts() {
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Produtos">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} onChange={handleChangeProductLeaf} name="idProduto">
-                    <option value="">Selecione...</option>
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} value={produtoLeaf.idProduto} onChange={handleChangeProductLeaf} name="idProduto">
+                    <option value="" >---selecione---</option>
                     {produtoSelectBox.map((e) =>
                       <option key={e.id} value={e.id}>{e.nome}</option>
                     )}
