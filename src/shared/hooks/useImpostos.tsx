@@ -9,6 +9,7 @@ export function UseImpostos() {
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setImpostos({ ...impostos, [e.target.name]: e.target.value })
+
   }, [impostos]);
 
   const saveImpostos = async () => {
@@ -23,7 +24,6 @@ export function UseImpostos() {
   }
 
   const handleSaveOrUpdate = async () => {
-    console.log("teste")
     impostos?.id === "" ? saveImpostos() : "teste"
   }
 

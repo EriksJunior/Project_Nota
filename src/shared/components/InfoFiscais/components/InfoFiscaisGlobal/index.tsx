@@ -83,7 +83,7 @@ export function InfoFiscaisGlobal() {
             </Card.Body>
             <Card.Footer className="text-muted">
                     <ButtonContent>
-                        <Button variant="" style={{ background:"#8A2BE2" , color: "white" }}>
+                        <Button onClick={()=> console.log(impostos)} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
                             <IconBsPen />Limpar Campos
                         </Button>
                         <Button onClick={handleSaveOrUpdate} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
