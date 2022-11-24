@@ -1,12 +1,13 @@
-import { Form } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import styled from "styled-components";
 
-export const CardSearch = styled(Form)`
-align-content: center;
+export const CardSearch = styled(Card)`
+
 display: flex;
-justify-content: center;
+flex-direction: column;
+gap: 50px;
 width: 80%;
-height: auto;
+height: 70vh;
 margin-top: 25px;
 background-color: #DCDCDC;
 

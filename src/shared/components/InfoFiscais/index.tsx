@@ -11,14 +11,14 @@ export function ImpostoGlobal() {
         <InfoFiscaisGlobal />
       </Carousel.Item>
       <Carousel.Item>
-        <Row>
+        {/* <div>
           <Search>
             <CardSearch>
               <Form.Control style={{ height: "48px" }} placeholder="Faça sua pesquisa" type="text" />
               <Button style={{ background: "black" }}>Pesquisar</Button>
             </CardSearch>
           </Search>
-        </Row>
+        </div> */}
       </Carousel.Item>
     </Carousel>
   );
