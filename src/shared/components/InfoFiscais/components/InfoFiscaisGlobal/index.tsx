@@ -2,26 +2,24 @@ import { Col, Nav, Row, Tab, Card , Button } from 'react-bootstrap';
 
 import { GeneralDataInfoFiscale } from '../GeneralDataInfoFiscale';
 import { GeneralinfoFiscale } from '../GeneralinfoFiscale';
-import { MainInfoFiscale } from '../MainInfoFiscale';
-import { CardInfoFiscale , NavFiscale } from './styles';
+import { IcmsInfo } from '../MainInfoFiscale/ICMS';
+import { IpiInfo } from '../MainInfoFiscale/IPI';
+import { IssqnInfo } from '../MainInfoFiscale/ISSQN';
+import { PisInfo } from '../MainInfoFiscale/PIS';
+import { CofinsInfo } from '../MainInfoFiscale/COFINS';
 
 import { IoCheckboxOutline } from 'react-icons/io5';
 import { ButtonContent } from '../../../Company/styles';
 import { IconBsPen } from '../../../Styles/bootstrap';
-
-import { IcmsInfo } from '../MainInfoFiscale/ICMS';
-import { IpiInfo } from '../MainInfoFiscale/IPI';
-import { IssqnInfo } from '../MainInfoFiscale/ISSQN';
+import { CardInfoFiscale , NavFiscale } from './styles';
 
 import { useContext } from 'react';
 import { ImpostosContext } from '../../../../context/impostos/impostos';
 import { IImpostos } from '../../../../../interface/IImpostos';
-import { PisInfo } from '../MainInfoFiscale/PIS';
-import { CofinsInfo } from '../MainInfoFiscale/COFINS';
 
 
 export function InfoFiscaisGlobal() {
-    const { impostos , handleChange , handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void }
+    const { impostos , handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void }
    
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
