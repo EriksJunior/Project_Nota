@@ -10,6 +10,7 @@ export function ImpostoGlobal() {
       </Carousel.Item>
       
       <Carousel.Item>
+        
       </Carousel.Item>
     </CarouselStyled>
   );
