@@ -9,6 +9,7 @@ export function ImpostoGlobal() {
         <InfoFiscaisGlobal />
       </Carousel.Item>
       <Carousel.Item>
+        
       </Carousel.Item>
     </CarouselStyled>
   );
