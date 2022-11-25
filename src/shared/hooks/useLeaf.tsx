@@ -34,8 +34,12 @@ export function UseLeaf() {
 
   useEffect(() => {
     const result: any = cliente.filter((e) => e.id == pedido.idCliente)
-    setCpfCnpjCliente({...cpfCnpjCliente, cpfCnpj: result[0]?.cpfCnpj})
-  },[pedido.idCliente])
+    setCpfCnpjCliente({ ...cpfCnpjCliente, cpfCnpj: result[0]?.cpfCnpj })
+  }, [pedido.idCliente])
+
+  useEffect(() => {
+    handleTotalValueGeneralLeafInformation()
+  }, [returnedProductsLeaf])
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
@@ -57,7 +61,6 @@ export function UseLeaf() {
     if (produtoLeaf.desconto === "") {
       desconto = "0"
     } if (produtoLeaf.subtotal === "") {
-      console.log('teste')
       subtotal = "0"
     } if (produtoLeaf.quantidade === "") {
       quantidade = "1"
@@ -66,6 +69,7 @@ export function UseLeaf() {
     const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
     setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
   }
+
 
   const getClientesFromSelectBox = async () => {
     try {
@@ -116,6 +120,7 @@ export function UseLeaf() {
     try {
       const result = await LeafService.sendLeaf(pedido.id)
       console.log(result)
+      updateLeaf()
       await findLeafById(pedido.id)
       toast("Nota emitida com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
@@ -130,7 +135,7 @@ export function UseLeaf() {
   const findLeafById = async (id: string) => {
     try {
       const result = await LeafService.findLeafById(id)
-      setPedido({ ...result })
+      setPedido(result)
       await findLeafProductsByIdNota(id)
     } catch (error: any) {
       toast.error(error?.response?.data?.erros, {
@@ -151,7 +156,7 @@ export function UseLeaf() {
   }
 
   const handleSaveOrUpdate = async () => {
-    pedido.id === "" ? saveLeaf() : updateLeaf()
+    pedido.id === "" ? await saveLeaf() : await updateLeaf()
   }
 
   const addProduct = async () => {
@@ -205,5 +210,22 @@ export function UseLeaf() {
     setProdutoLeaf(INITIAL_VALUE_PRODUTOS)
   }
 
-  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts }
+  const handleTotalValueGeneralLeafInformation = () => {
+    let descontoTotal = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.desconto), 0)
+    setPedido({...pedido, desconto: descontoTotal.toFixed(2)})
+    // let frete = pedido.frete.replace(".", "").replace(",", ".")
+    // let desconto = pedido.desconto.replace(".", "").replace(",", ".")
+    // let outrasDespesas = pedido.despesas_acessorias.replace(".", "").replace(",", ".")
+
+    // if (pedido.frete === "") {
+    //   frete = "0"
+    // }  if (pedido.despesas_acessorias === "") {
+    //   outrasDespesas = "0"
+    // }
+
+    // const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
+    // setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
+  }
+
+  return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
 }
