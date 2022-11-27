@@ -53,24 +53,6 @@ export function UseLeaf() {
     setSearch({ ...search, [e.currentTarget.name]: e.currentTarget.value })
   }, [search])
 
-  const handleTotalValueProducts = () => {
-    let quantidade = produtoLeaf.quantidade
-    let subtotal = produtoLeaf.subtotal.replace(".", "").replace(",", ".")
-    let desconto = produtoLeaf.desconto.replace(".", "").replace(",", ".")
-
-    if (produtoLeaf.desconto === "") {
-      desconto = "0"
-    } if (produtoLeaf.subtotal === "") {
-      subtotal = "0"
-    } if (produtoLeaf.quantidade === "") {
-      quantidade = "1"
-    }
-
-    const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
-    setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
-  }
-
-
   const getClientesFromSelectBox = async () => {
     try {
       const { data } = await ClienteService.getFromSelectBox()
@@ -110,7 +92,7 @@ export function UseLeaf() {
     try {
       const totalsValues = formatTotalValuesPedido()
       await LeafService.update({ ...pedido, ...totalsValues });
-      
+
       toast("Atualizado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -219,29 +201,45 @@ export function UseLeaf() {
   const handleTotalValueGeneralLeafInformation = () => {
     const descontoTotal = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.desconto), 0)
     const totalProdutos = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.total), 0)
-    const totalPedido = totalProdutos + parseFloat(pedido.frete)
+    let frete = pedido.frete.toString().replace(".", "").replace(".", "").replace(",", ".")
+
+    if(frete === ""){
+      frete = "0"
+    }
+    const totalPedido = totalProdutos + parseFloat(frete)
 
     setPedido({ ...pedido, desconto: descontoTotal.toLocaleString('pt-br', { minimumFractionDigits: 2 }), total: totalPedido.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
-    // let frete = pedido.frete.replace(".", "").replace(",", ".")
-    // let desconto = pedido.desconto.replace(".", "").replace(",", ".")
-    // let outrasDespesas = pedido.despesas_acessorias.replace(".", "").replace(",", ".")
+  }
 
-    // if (pedido.frete === "") {
-    //   frete = "0"
-    // }  if (pedido.despesas_acessorias === "") {
-    //   outrasDespesas = "0"
-    // }
+  const handleTotalValueProducts = () => {
+    let quantidade = produtoLeaf.quantidade
+    let subtotal = produtoLeaf.subtotal.replace(".", "").replace(",", ".")
+    let desconto = produtoLeaf.desconto.replace(".", "").replace(",", ".")
 
-    // const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
-    // setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
+    if (produtoLeaf.desconto === "") {
+      desconto = "0"
+    } if (produtoLeaf.subtotal === "") {
+      subtotal = "0"
+    } if (produtoLeaf.quantidade === "") {
+      quantidade = "1"
+    }
+
+    const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
+    setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
   }
 
   const formatTotalValuesPedido = () => {
+    let desconto = pedido.desconto.toString().replace(".", "").replace(".", "").replace(",", ".")
+    let outrasDespesas = pedido.despesas_acessorias.toString().replace(".", "").replace(".", "").replace(",", ".")
+    let total = pedido.total.toString().replace(".", "").replace(".", "").replace(",", ".")
+    let frete = pedido.frete.toString().replace(".", "").replace(".", "").replace(",", ".")
+
+
     return {
-      desconto: pedido.desconto.toString().replace(".", "").replace(",", "."),
-      total: pedido.total.toString().replace(".", "").replace(",", "."),
-      frete: pedido.frete.toString().replace(".", "").replace(",", "."),
-      despesas_acessorias: pedido.despesas_acessorias.toString().replace(".", "").replace(",", ".")
+      desconto: desconto,
+      total: total,
+      frete: frete,
+      despesas_acessorias: outrasDespesas,
     }
   }
 

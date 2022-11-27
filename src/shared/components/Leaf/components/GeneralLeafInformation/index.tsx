@@ -42,7 +42,7 @@ export function GeneralLeafInformation() {
             <Row as={Col} className="mb-4">
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} label="Total Frete">
-                  <Form.Control style={{ height: "48px" }} type="text" name="frete" onKeyDown={maskCurrency} onChange={handleChange} value={pedido.frete || ""} />
+                  <Form.Control style={{ height: "48px" }} type="text" name="frete" onKeyDown={maskCurrency} onKeyUp={handleTotalValueGeneralLeafInformation} onChange={handleChange} value={pedido.frete || ""} />
                 </FloatingLabel>
               </Form.Group>
 
