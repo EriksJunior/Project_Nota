@@ -76,13 +76,13 @@ export function GeneralLeafInformation() {
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group as={Col}>
+              <Form.Group as={Col} hidden={pedido.intermediador == "0"}>
                 <FloatingLabel style={{ fontSize: "14px" }} label="CNPJ do Intermediador">
                   <Form.Control style={{ height: "48px" }} type="text" name="cnpj_intermediador" onChange={handleChange} value={pedido.cnpj_intermediador || ""} />
                 </FloatingLabel>
               </Form.Group>
 
-              <Form.Group as={Col}>
+              <Form.Group as={Col} hidden={pedido.intermediador == "0"}>
                 <FloatingLabel style={{ fontSize: "14px" }} label="Nome do Intermediador">
                   <Form.Control style={{ height: "48px" }} type="text" name="id_intermediador" onChange={handleChange} value={pedido.id_intermediador || ""} />
                 </FloatingLabel>
