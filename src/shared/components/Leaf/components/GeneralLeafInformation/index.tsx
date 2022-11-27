@@ -48,7 +48,7 @@ export function GeneralLeafInformation() {
 
 
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Total Desconto">
+                <FloatingLabel style={{ fontSize: "14px" }} label="Desconto Total">
                   <Form.Control style={{ height: "48px" }} disabled type="text" name="desconto" onKeyDown={maskCurrency} onChange={handleChange} value={pedido.desconto || ""} />
                 </FloatingLabel>
               </Form.Group>

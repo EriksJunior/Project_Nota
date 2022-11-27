@@ -91,12 +91,15 @@ export function UseLeaf() {
 
   const saveLeaf = async () => {
     try {
-      const { id } = await LeafService.save(pedido)
+      const totalsValues = formatTotalValuesPedido()
+      const { id } = await LeafService.save({ ...pedido, ...totalsValues })
       setPedido({ ...pedido, id: id })
+
       toast("Salvo com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
     } catch (error: any) {
+      console.log(error)
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -105,12 +108,15 @@ export function UseLeaf() {
 
   const updateLeaf = async () => {
     try {
-      await LeafService.update(pedido);
+      const totalsValues = formatTotalValuesPedido()
+      await LeafService.update({ ...pedido, ...totalsValues });
+      
       toast("Atualizado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
     } catch (error: any) {
-      toast.error(error?.response?.data?.erros, {
+      console.log(error)
+      toast.error("Ocorreu um erro ao atualizar a nota", {
         position: toast.POSITION.TOP_RIGHT
       });
     }
@@ -211,8 +217,11 @@ export function UseLeaf() {
   }
 
   const handleTotalValueGeneralLeafInformation = () => {
-    let descontoTotal = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.desconto), 0)
-    setPedido({...pedido, desconto: descontoTotal.toFixed(2)})
+    const descontoTotal = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.desconto), 0)
+    const totalProdutos = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.total), 0)
+    const totalPedido = totalProdutos + parseFloat(pedido.frete)
+
+    setPedido({ ...pedido, desconto: descontoTotal.toLocaleString('pt-br', { minimumFractionDigits: 2 }), total: totalPedido.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
     // let frete = pedido.frete.replace(".", "").replace(",", ".")
     // let desconto = pedido.desconto.replace(".", "").replace(",", ".")
     // let outrasDespesas = pedido.despesas_acessorias.replace(".", "").replace(",", ".")
@@ -225,6 +234,15 @@ export function UseLeaf() {
 
     // const result = (parseInt(quantidade) * parseFloat(subtotal)) - parseFloat(desconto)
     // setProdutoLeaf({ ...produtoLeaf, total: result.toLocaleString('pt-br', { minimumFractionDigits: 2 }) })
+  }
+
+  const formatTotalValuesPedido = () => {
+    return {
+      desconto: pedido.desconto.toString().replace(".", "").replace(",", "."),
+      total: pedido.total.toString().replace(".", "").replace(",", "."),
+      frete: pedido.frete.toString().replace(".", "").replace(",", "."),
+      despesas_acessorias: pedido.despesas_acessorias.toString().replace(".", "").replace(",", ".")
+    }
   }
 
   return { getClientesFromSelectBox, cliente, getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
