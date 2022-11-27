@@ -8,7 +8,6 @@ export const CarouselStyled = styled(Carousel)`
   box-shadow: 8px 8px 20px black;
   border-radius: 20px;
   display: flex;
-  height: 90vh;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;

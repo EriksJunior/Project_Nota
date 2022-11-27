@@ -4,16 +4,16 @@ import { Button } from "react-bootstrap";
 
 export const CardStyled = styled(Card)`
 align-content: center;
-display: content;
+display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
-width: 70%;
+width: 100%;
 color: #DCDCDC;
 background: #1C1C1C;
-height: 70vh;
+height: 100vh;
 box-shadow: 8px 15px 50px black;
 border-radius: 20px;
-teste
 
 @media screen and (min-width: 320px) and (max-width: 1099px){
   height: 60vh;

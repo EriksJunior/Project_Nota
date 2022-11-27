@@ -3,7 +3,7 @@ import { CarouselStyled } from './styles';
 
 export function LoginCarrousel() {
   return (
-    <CarouselStyled>
+    <CarouselStyled style={{ height: "100vh" }}>
       <Carousel.Item>
         <img
           className="d-block w-100"

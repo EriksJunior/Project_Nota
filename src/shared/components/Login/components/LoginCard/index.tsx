@@ -7,8 +7,8 @@ import { ButtonLogin, CardStyled } from './styles';
 export function CardGeneral() {
 
   return (
-    <CardStyled >
-      <Card.Body style={{ width:"100%" }}>
+    <CardStyled style={{ height: "80vh" }}>
+      <Card.Body style={{ width:"100%" , height: "80vh" }}>
         <Card.Title className='mb-4' style={{ width: "100%", fontSize: "26px", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>Faça seu Login!!</Card.Title>
         <Card.Text style={{  width: "100%", display: "flex", justifyContent: "center" , fontWeight:"bold" }}>
           Pronto para começar de forma fácil <br />
