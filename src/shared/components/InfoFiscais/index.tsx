@@ -1,17 +1,17 @@
-import Carousel from 'react-bootstrap/Carousel';
 import { InfoFiscaisGlobal } from './components/InfoFiscaisGlobal';
-import { CarouselStyled } from './styles';
+import { RefFiscal } from './components/RefFiscal';
+import { InfoRefGeneral } from './styles';
 
 export function ImpostoGlobal() {
   return (
-    <CarouselStyled interval={9999999999999}>
-      <Carousel.Item>
+    <InfoRefGeneral>
+      <div style={{ width: "18%" , marginLeft:"15px" }}>
+        <RefFiscal/>
+      </div>
+
+      <div style={{ width: "78%"}}>
         <InfoFiscaisGlobal />
-      </Carousel.Item>
-      
-      <Carousel.Item>
-        
-      </Carousel.Item>
-    </CarouselStyled>
+      </div>
+    </InfoRefGeneral>
   );
 }

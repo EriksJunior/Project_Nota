@@ -9,7 +9,7 @@ export function IssqnInfo() {
     const { impostos , handleChange } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler }
     return (
         <>
-            <Card className="text-center">
+            <Card style={{ maxHeight:"60vh"}} className="text-center">
                 <Card.Body>
                     <Form>
                         <Form.Group as={Col}>
