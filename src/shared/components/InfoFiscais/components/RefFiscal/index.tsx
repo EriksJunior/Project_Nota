@@ -6,14 +6,12 @@ import { CardRef } from './styles';
 export function RefFiscal() {
   return (
     <CardRef>
-      <Card.Header>Featured</Card.Header>
+      <Card.Header style={{ background:"#8A2BE2" , fontSize:"22px" , fontWeight:"bold" , color: "white" }}>REF's cadastradas</Card.Header>
       <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
-        <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
+        <h6>
+          refs
+        </h6>
+     </Card.Body>
     </CardRef>
   );
 }

@@ -5,7 +5,7 @@ import { Card , Nav } from 'react-bootstrap';
 export const CardInfoFiscale = styled(Card)`
 width: 100%;
 display: flex;
-max-height: 70vh;
+max-height: 75vh;
 background-color: #DCDCDC;
 
 .form-floating>.form-select {
@@ -17,12 +17,12 @@ background-color: #DCDCDC;
 export const NavFiscale = styled(Nav)`
 
   .nav-item{
-    width:70%;
-    max-height: 60vh;
+    width:100%;
+    max-height: 70vh;
 
   }
   .nav-link{
-    max-height: 50px;
+    max-height: 70vh;
     color: black !important;
     font-weight: bold;
     @media screen and (min-width: 320px) and (max-width: 800px){

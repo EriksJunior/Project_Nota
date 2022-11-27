@@ -9,7 +9,7 @@ export function GeneralinfoFiscale() {
  
 
   return (
-    <div style={{ width:"70%" }}>
+    <div style={{ width:"100%" }}>
       <FloatingLabel className="mb-4" label="Informações ao Fisco">
         <Form.Control onChange={handleChange} as="textarea" style={{ height:"60px" }}  type="text" defaultValue={impostos?.informacoes_fisco || " " } name="info_fisco"/>
       </FloatingLabel>
