@@ -1,14 +1,15 @@
 import { CardGeneral } from "./components/LoginCard";
 import { LoginCarrousel } from "./components/LoginImg";
 import { LoginCard, LoginGeneral, LoginImg } from "./styles";
+import fundo from '../../../assets/fundo.jpg'
 
 
 export function Login(){
   return(
-    <LoginGeneral>
-      <LoginImg>
+    <LoginGeneral >
+      {/* <LoginImg>
       <LoginCarrousel/> 
-      </LoginImg>
+      </LoginImg> */}
       <LoginCard>
         <CardGeneral/>
       </LoginCard>
