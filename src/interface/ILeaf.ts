@@ -29,7 +29,20 @@ export interface PedidoLeaf {
   url_notificacao: string
   data_nfe: Date | any
   id_webmania: string
-  response: string
+  response: {
+    chave: string
+    danfe: string
+    danfe_etiqueta: string
+    danfe_simples: string
+    log: object
+    modelo: string
+    motivo: string
+    nfe: string
+    serie: string
+    status: string
+    uuid: string
+    xml: string
+  }
   response_cancelamento: string
   pagamento: string
   presenca: string
@@ -43,6 +56,7 @@ export interface PedidoLeaf {
   despesas_acessorias: string
   informacoes_fisco: string
   informacoes_complementares: string
+  status: string
 }
 
 export interface IResponseWebmaniaLeaf {

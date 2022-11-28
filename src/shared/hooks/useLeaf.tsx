@@ -88,14 +88,15 @@ export function UseLeaf() {
     }
   }
 
-  const updateLeaf = async () => {
+  const updateLeaf = async (sendToast?: boolean) => {
     try {
       const totalsValues = formatTotalValuesPedido()
       await LeafService.update({ ...pedido, ...totalsValues });
 
-      toast("Atualizado com sucesso! ✅", {
-        position: toast.POSITION.TOP_RIGHT
-      });
+      if (sendToast)
+        toast("Atualizado com sucesso! ✅", {
+          position: toast.POSITION.TOP_RIGHT
+        });
     } catch (error: any) {
       console.log(error)
       toast.error("Ocorreu um erro ao atualizar a nota", {
@@ -106,9 +107,7 @@ export function UseLeaf() {
 
   const sendLeaf = async () => {
     try {
-      const result = await LeafService.sendLeaf(pedido.id)
-      console.log(result)
-      updateLeaf()
+      await LeafService.sendLeaf(pedido.id)
       await findLeafById(pedido.id)
       toast("Nota emitida com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
@@ -144,7 +143,7 @@ export function UseLeaf() {
   }
 
   const handleSaveOrUpdate = async () => {
-    pedido.id === "" ? await saveLeaf() : await updateLeaf()
+    pedido.id === "" ? await saveLeaf() : await updateLeaf(true)
   }
 
   const addProduct = async () => {
@@ -203,7 +202,7 @@ export function UseLeaf() {
     const totalProdutos = returnedProductsLeaf.reduce((previousValue, newValue) => previousValue + parseFloat(newValue.total), 0)
     let frete = pedido.frete.toString().replace(".", "").replace(".", "").replace(",", ".")
 
-    if(frete === ""){
+    if (frete === "") {
       frete = "0"
     }
     const totalPedido = totalProdutos + parseFloat(frete)

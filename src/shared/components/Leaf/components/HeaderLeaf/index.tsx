@@ -61,7 +61,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Chave NF-e'
             disabled
-            value={responseWebmania.chave || ""}
+            value={pedido.response.chave || ""}
           />
         </Col>
 
@@ -70,7 +70,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Serie'
             disabled
-            value={responseWebmania.serie || ""}
+            value={pedido.response.serie || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -80,7 +80,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Nº NF-e'
             disabled
-            value={responseWebmania.nfe || ""}
+            value={pedido.response.nfe || ""}
             className='switchToSmallerscreens'
           />
         </Col>
@@ -90,7 +90,7 @@ export function HeaderLeaf() {
             type="text"
             placeholder='Status'
             disabled
-            value={responseWebmania.status || ""}
+            value={pedido.status || ""}
             className='switchToSmallerscreens'
           />
         </Col>

@@ -14,7 +14,7 @@ export const INITIAL_VALUE_PRODUTOS = {
   desconto: "0",
   subtotal: "0",
   total: "",
-  classe_imposto: "REF15466069",
+  classe_imposto: "REF63035063",
   informacoes_adicionais: "",
 }
 
@@ -30,7 +30,20 @@ export const INITIAL_VALUE_PEDIDO = {
   url_notificacao: "teste",
   data_nfe: DateTime.local().toFormat('yyyy-MM-dd'),
   id_webmania: "",
-  response: "",
+  response: {
+    chave: "",
+    danfe: "",
+    danfe_etiqueta: "",
+    danfe_simples: "",
+    log: {},
+    modelo: "",
+    motivo: "",
+    nfe: "",
+    serie: "",
+    status: "",
+    uuid: "",
+    xml: ""
+  },
   response_cancelamento: "",
   pagamento: "0",
   presenca: "1",
@@ -44,6 +57,7 @@ export const INITIAL_VALUE_PEDIDO = {
   despesas_acessorias: "0",
   informacoes_fisco: "",
   informacoes_complementares: "",
+  status: "",
 }
 
 export const INITIAL_VALUE_RESPONSE_WEBMANIA = {
