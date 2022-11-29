@@ -33,8 +33,13 @@ export function UseProducts() {
   const saveProducts = async () => {
     try {
       const result = await ProductServices.save(produtos as IProducts)
-      setProdutos({ ...produtos, id: result.id })
-  
+      setProdutos({ 
+        ...produtos,
+        id: result.id,
+        valor: produtos.valor.replace(".", "").replace(",", ""),
+        valorVenda: produtos.valorVenda.toString().replace(".", "").replace(".", "").replace(",", ".")
+        })
+
       toast ("Produto salvo com sucesso! ✅" ,
        {position: toast.POSITION.TOP_RIGHT} );
     } catch (error: any) {
