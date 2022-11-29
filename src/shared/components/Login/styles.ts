@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from '../../../assets/background.jpg'
+import fundo from '../../../assets/fundo.jpg'
 
 export const LoginGeneral = styled.div`
 align-content: center;
@@ -9,7 +9,7 @@ justify-content: center;
 align-items: center;
 width: 100vw;
 height: 100vh;
-background-image: url(${background});
+background-image: url(${fundo});
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;

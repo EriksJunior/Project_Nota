@@ -1,7 +1,7 @@
-import { Login } from "../../shared/components/Login";
+import { LoginNew } from "../../shared/components/Login";
 
 export function Company() {
   return (
-    <Login />
+    <LoginNew />
   )
 }
