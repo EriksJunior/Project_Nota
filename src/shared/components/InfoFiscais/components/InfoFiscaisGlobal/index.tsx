@@ -25,7 +25,7 @@ export function InfoFiscaisGlobal() {
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
             <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#8A2BE2" , color:"whitesmoke" }} >Dados Fiscais</Card.Header>
-            <Card.Body style={{ height:"65vh", width:"100%"}}>
+            <Card.Body style={{ maxHeight:"75vh", width:"100%"}}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
                         <Col sm={2}>
@@ -54,7 +54,7 @@ export function InfoFiscaisGlobal() {
                             </NavFiscale>
                         </Col>
                         <Col sm={10}>
-                            <Tab.Content>
+                            <Tab.Content >
                                 <Tab.Pane eventKey="first">
                                     <GeneralDataInfoFiscale/>
                                 </Tab.Pane>
@@ -70,7 +70,7 @@ export function InfoFiscaisGlobal() {
                                 <Tab.Pane eventKey="fifth">
                                     <CofinsInfo/>
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="sixth">
+                                <Tab.Pane  eventKey="sixth">
                                     <IssqnInfo/>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="seventh">

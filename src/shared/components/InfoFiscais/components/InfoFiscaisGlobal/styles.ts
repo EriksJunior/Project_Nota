@@ -5,7 +5,7 @@ import { Card , Nav } from 'react-bootstrap';
 export const CardInfoFiscale = styled(Card)`
 width: 100%;
 display: flex;
-max-height: 75vh;
+max-height: 79vh;
 background-color: #DCDCDC;
 
 .form-floating>.form-select {

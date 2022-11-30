@@ -8,9 +8,11 @@ align-items: center;
 justify-content: space-around;
 display: flex;
 width: 95%;
-height: 85vh;
+height: 78vh;
 flex-direction: row;
+background-color: #F5F5F5;
+
 flex-wrap: wrap;
-margin-top: 25px;
-background-color: #DCDCDC;
+border: none;
+margin-top: 12px;
 `

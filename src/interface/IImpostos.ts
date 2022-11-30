@@ -1,6 +1,6 @@
 export interface IImpostos {
   id: string
-  icms?: Iicms,
+  icms?: Iicms[],
   ipi?: IIpi,
   pis?: IPis,
   cofins?:  ICofins,
@@ -9,12 +9,13 @@ export interface IImpostos {
   informacoes_complementares?: string,
 }
 
-interface Iicms {
-  cenario: string,
+interface Iicms{
+  cenario: string ,
   tipo_pessoa: string,
   codigo_cfop: string,
   situacao_tributaria: string,
 }
+
 
 interface IPis {
   cenario: string,

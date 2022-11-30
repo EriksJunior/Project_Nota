@@ -1,13 +1,5 @@
 export const INITIAL_STATE_IMPOSTOS = {
   id: "",
-  icms:
-  {
-    cenario: "",
-    tipo_pessoa: "",
-    codigo_cfop: "",
-    situacao_tributaria: ""
-  }
-  ,
   ipi:
   {
     cenario: "",
@@ -15,8 +7,16 @@ export const INITIAL_STATE_IMPOSTOS = {
     situacao_tributaria: "",
     codigo_enquadramento: "",
     aliquota: ""
-  }
+  },
+  icms:
+  [{ 
+    cenario: "",
+    tipo_pessoa: "",
+    codigo_cfop: "",
+    situacao_tributaria: ""
+}]
   ,
+  
   pis:
   {
     cenario: "",
