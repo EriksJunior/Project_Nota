@@ -17,9 +17,9 @@ export function IssqnInfo() {
                             <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Tipo de Pessoa">
                                 <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="tipo_pessoa_issqn" defaultValue={impostos.issqn[0].tipo_pessoa || " "}>
 
-                                    <option>0 - pessoa Física</option>
-                                    <option>1 - Pessoa Juridíca</option>
-                                    <option>2 - Estrangeira</option>
+                                    <option value="0">0 - pessoa Física</option>
+                                    <option value="1">1 - Pessoa Juridíca</option>
+                                    <option value="2">2 - Estrangeira</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -28,13 +28,13 @@ export function IssqnInfo() {
                             <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Cenário">
                                 <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="cenario_issqn" defaultValue={impostos.issqn[0].cenario || " "}>
 
-                                    <option>0 -Padrão (Abrange todos os cenários)</option>
-                                    <option>0 - Saída dentro do estado</option>
-                                    <option>1 - Saída para fora do estado</option>
-                                    <option>2 - Saída para o exterior</option>
-                                    <option>3 - Entrada de dentro do estado</option>
-                                    <option>4 - Entrada de fora do estado</option>
-                                    <option>5 - Entrada do exterior</option>
+                                    <option value="00">0 -Padrão (Abrange todos os cenários)</option>
+                                    <option value="0">0 - Saída dentro do estado</option>
+                                    <option value="1">1 - Saída para fora do estado</option>
+                                    <option value="2">2 - Saída para o exterior</option>
+                                    <option value="3">3 - Entrada de dentro do estado</option>
+                                    <option value="4">4 - Entrada de fora do estado</option>
+                                    <option value="5">5 - Entrada do exterior</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -46,12 +46,12 @@ export function IssqnInfo() {
                         <Form.Group as={Col} >
                             <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Indicador da exigibilidade do ISS">
                                 <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="ISS_issqn" defaultValue={impostos.issqn[0].incentivo_fiscal || " "}>
-                                    <option>Exigível</option>
-                                    <option>Não incidência</option>
-                                    <option>Isenção</option>
-                                    <option>Exportação</option>
-                                    <option>Imunidade</option>
-                                    <option>Exigibilidade Suspensa por Decisão Judicial</option>
+                                    <option value="exigivel">Exigível</option>
+                                    <option value="nao_incidencia">Não incidência</option>
+                                    <option value="isencao">Isenção</option>
+                                    <option value="exportacao">Exportação</option>
+                                    <option value="imunidade">Imunidade</option>
+                                    <option value="exibilidade_suspensa">Exigibilidade Suspensa por Decisão Judicial</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
@@ -63,8 +63,8 @@ export function IssqnInfo() {
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ fontSize: "14px" }} className="mb-3" label="Indicador de incentivo Fiscal">
                                 <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="incentivo_fiscal_issqn" defaultValue={impostos.issqn[0].incentivo_fiscal || " "}>
-                                    <option>Não</option>
-                                    <option>Sim</option>
+                                    <option value="Nao">Não</option>
+                                    <option value="Sim">Sim</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
