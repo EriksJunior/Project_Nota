@@ -1,6 +1,6 @@
 import { useState, useCallback, useContext } from 'react';
 
-import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../context/client/initialState';
+import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../initialStates/client';
 import ClienteService from '../../services/ClienteService'
 import { ICliente, ISearch } from '../../interface/ICliente';
 
