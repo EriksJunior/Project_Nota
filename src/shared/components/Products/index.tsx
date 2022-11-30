@@ -52,12 +52,12 @@ export function ProductsModal() {
 
                 <Row>
                   <Col>
-                    <FloatingLabelBt className="mb-4" label="Nome Do Produto">
+                    <FloatingLabelBt className="mb-3" label="Nome Do Produto">
                       <FormControlBt type="text" onChange={handleChange} name="nome" value={produtos?.nome || ""} />
                     </FloatingLabelBt >
                   </Col>
                 </Row>
-                <Row className="mb-4 ">
+                <Row className="mb-3">
                   <Col>
                     <FloatingLabelBt label="Valor">
                       <FormControlBt type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valor" value={produtos?.valor || ""} />
@@ -75,15 +75,15 @@ export function ProductsModal() {
                   </Col>
                 </Row>
 
-                <FloatingLabelBt className="mb-4" label="Código de Barras">
+                <FloatingLabelBt className="mb-3" label="Código de Barras">
                   <FormControlBt type="text" onChange={handleChange} name="codBarras" value={produtos?.codBarras || ""} />
                 </FloatingLabelBt>
 
-                <FloatingLabelBt className="mb-4" label="Código de Referência">
+                <FloatingLabelBt className="mb-3" label="Código de Referência">
                   <FormControlBt type="text" onChange={handleChange} name="codReferencia" value={produtos?.codReferencia || ""} />
                 </FloatingLabelBt>
 
-                <Row className="mb-4">
+                <Row className="mb-3">
                   <Col>
                     <FloatingLabelBt label="Estoque">
                       <FormControlBt type="text" onChange={handleChange} name="estoque" value={produtos?.estoque || ""} />
@@ -97,10 +97,10 @@ export function ProductsModal() {
                 </Row>
 
                 <FloatingLabelBt className="mb-4" label="Descrição">
-                  <FormControl as={"textarea"} style={{background: "#f5f5f5", height: "100px"}} type="text" onChange={handleChange} name="descricao" value={produtos?.descricao || ""} />
+                  <FormControl as={"textarea"} style={{background: "#f5f5f5", height: "70px"}} type="text" onChange={handleChange} name="descricao" value={produtos?.descricao || ""} />
                 </FloatingLabelBt>
 
-                <Row className="gap-5" style={{ marginTop: "80px" }} >
+                <Row className="gap-5" style={{ marginTop: "40px" }} >
                   <Col className='d-flex justify-content-center'>
                     <ButtonProduct variant="" onClick={handleSaveOrUpdate} type="button">
                       Cadastrar

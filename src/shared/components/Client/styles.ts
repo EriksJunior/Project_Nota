@@ -49,5 +49,5 @@ export const FormSelectBt = styled(FormSelect)`
 export const ButtonClient = styled(Button)`
   background-color: BlueViolet!important;
   color: white!important;
-  width: 300px!important;
+  width: 220px!important;
 `

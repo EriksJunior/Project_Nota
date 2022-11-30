@@ -39,5 +39,5 @@ export const FormControlBt = styled(FormControl)`
 export const ButtonProduct = styled(Button)`
   background: BlueViolet!important;
   color: white!important;
-  width: 320px!important;
+  width: 220px!important;
 `

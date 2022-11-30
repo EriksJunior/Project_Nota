@@ -83,6 +83,15 @@ export function ClientModal() {
                       <FormControlBt onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
                     </FloatingLabelBt>
                   </Col>
+
+                </Row>
+
+                <Row>
+                  <Col>
+                    <FloatingLabelBt label="Bairro">
+                      <FormControlBt onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
+                    </FloatingLabelBt>
+                  </Col>    
                 </Row>
 
                 <Row>
@@ -91,27 +100,17 @@ export function ClientModal() {
                       <FormControlBt onChange={handleChange} name="numero" type="text" value={client.numero || ""} />
                     </FloatingLabelBt>
                   </Col>
-
                   <Col>
                     <FloatingLabelBt label="Complemento">
                       <FormControlBt onChange={handleChange} name="complemento" type="text" value={client.complemento || ""} />
                     </FloatingLabelBt>
                   </Col>
-                </Row>
-
-
-                <Row>
                   <Col>
-                    <FloatingLabelBt label="Bairro">
-                      <FormControlBt onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
+                    <FloatingLabelBt label="CEP">
+                      <FormControlBt onChange={handleChange} onKeyUp={maskCep} name="cep" type="text" value={client.cep || ""} />
                     </FloatingLabelBt>
                   </Col>
 
-                  <Col>
-                    <FloatingLabelBt label="Cidade">
-                      <FormControlBt onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
-                    </FloatingLabelBt>
-                  </Col>
                 </Row>
 
                 <Row>
@@ -149,10 +148,9 @@ export function ClientModal() {
                       </FormSelectBt>
                     </FloatingLabelBt>
                   </Col>
-
                   <Col>
-                    <FloatingLabelBt label="CEP">
-                      <FormControlBt onChange={handleChange} onKeyUp={maskCep} name="cep" type="text" value={client.cep || ""} />
+                    <FloatingLabelBt label="Cidade">
+                      <FormControlBt onChange={handleChange} name="cidade" type="text" value={client.cidade || ""} />
                     </FloatingLabelBt>
                   </Col>
                 </Row>
@@ -183,7 +181,6 @@ export function ClientModal() {
                       <FormControlBt onChange={handleChange} name="observacao" type="text" value={client.observacao || ""} />
                     </FloatingLabelBt>
                   </Col>
-
                 </Row>
 
                 <Row className=" gap-5">
@@ -206,7 +203,7 @@ export function ClientModal() {
               <Row>
                 <Search>
                   <FormControlBt className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
-                  <Button style={{ background:"black"}} onClick={searchClient}>Pesquisar</Button>
+                  <Button style={{ background: "black" }} onClick={searchClient}>Pesquisar</Button>
                 </Search>
               </Row>
 
