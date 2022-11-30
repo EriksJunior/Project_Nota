@@ -1,6 +1,6 @@
 import { useState, useCallback, useContext } from 'react';
 
-import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../context/client/initialState';
+import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../initialStates/client';
 import ClienteService from '../../services/ClienteService'
 import { ICliente, ISearch } from '../../interface/ICliente';
 
@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { GlobalContext } from '../context/global/global';
 
 export function UseCliente() {
-  const {client, setClient, getClientesFromSelectBox} = useContext(GlobalContext) as {client: ICliente, setClient: (value: ICliente) => void, getClientesFromSelectBox: () => void}
+  const { client, setClient, getClientesFromSelectBox } = useContext(GlobalContext) as { client: ICliente, setClient: (value: ICliente) => void, getClientesFromSelectBox: () => void }
 
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
@@ -35,6 +35,7 @@ export function UseCliente() {
     try {
       const result = await ClienteService.save(client as ICliente)
       setClient({ ...client, id: result.id })
+
       toast("Salvo com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -48,7 +49,7 @@ export function UseCliente() {
   const update = async () => {
     try {
       await ClienteService.update(client as ICliente)
-      getClientesFromSelectBox()
+
       toast("Atualizado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -105,5 +106,5 @@ export function UseCliente() {
     setClient(INITIAL_STATE_CLIENTE)
   }
 
-  return { client, setClient, search, setSearch, alterTab, setAlterTab, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show, deleteClient }
+  return { search, setSearch, alterTab, setAlterTab, searchClient, findById, returnedClient, clearAllInputs, handleShow, handleClose, handleChange, handleSaveOrUpdate, show, deleteClient }
 }

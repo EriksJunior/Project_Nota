@@ -8,10 +8,10 @@ interface AuxProps {
 const ClientContext = createContext({})
 
 function ClientProvider({ children }: AuxProps) {
-  const { client, setClient, handleChange, alterTab, setAlterTab, clearAllInputs, findById, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show, deleteClient } = UseCliente()
+  const { handleChange, alterTab, setAlterTab, clearAllInputs, findById, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show, deleteClient } = UseCliente()
 
   return (
-    <ClientContext.Provider value={{ client, setClient, handleChange, alterTab, setAlterTab, clearAllInputs, findById, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show, deleteClient }}>
+    <ClientContext.Provider value={{ handleChange, alterTab, setAlterTab, clearAllInputs, findById, handleSaveOrUpdate, handleClose, handleShow, returnedClient, search, searchClient, setSearch, show, deleteClient }}>
       {children}
     </ClientContext.Provider>
   )

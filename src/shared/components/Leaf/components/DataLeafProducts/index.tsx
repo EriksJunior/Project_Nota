@@ -6,16 +6,14 @@ import { Form, Col, Row, Accordion, FloatingLabel, Button } from 'react-bootstra
 import { Masks } from '../../../../../utils/masks/Masks'
 
 import { ProductsLeafTable } from './components/ProductsLeafTable';
+import { GlobalContext } from '../../../../context/global/global';
 
 export function DataLeafProducts() {
-  const { produtoLeaf, getProductsFromSelectBox, produtoSelectBox, handleChangeProductLeaf, addProduct, returnedProductsLeaf, handleTotalValueProducts  } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[], handleTotalValueProducts: () => void }
+  const { produtoLeaf, handleChangeProductLeaf, addProduct, returnedProductsLeaf, handleTotalValueProducts } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[], handleTotalValueProducts: () => void }
+
+  const { produtoSelectBox } = useContext(GlobalContext) as { produtoSelectBox: IProducts[] }
 
   const { maskCurrency } = Masks()
-
-  useEffect(() => {
-    getProductsFromSelectBox()
-  }, [])
-
 
   return (
     <div>
@@ -26,7 +24,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Produtos">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} value={produtoLeaf.idProduto} onChange={handleChangeProductLeaf} name="idProduto">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} value={produtoLeaf.idProduto} onChange={handleChangeProductLeaf} name="idProduto">
                     <option value="" >---selecione---</option>
                     {produtoSelectBox.map((e) =>
                       <option key={e.id} value={e.id}>{e.nome}</option>
@@ -87,7 +85,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={6} md={6} lg={6} xl={4}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Origen">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder" , height:"48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.origem || "0"} name="origem">
+                  <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.origem || "0"} name="origem">
                     <option value="0">0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8</option>
                     <option value="1">1 - Estrangeira - Importação direta, exceto a indicada no código 6</option>
                     <option value="2">2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7</option>

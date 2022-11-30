@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { ClientContext } from '../../context/client/client';
+import { GlobalContext } from '../../context/global/global';
 
 import { Search } from '../Search/index';
 import { ClienteTable } from './components/ClienteTable';
@@ -15,15 +16,17 @@ import { ICliente, ISearch } from '../../../interface/ICliente';
 import './styles.css';
 
 export function ClientModal() {
-  const { client, handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate,
+  const { handleChange, clearAllInputs, alterTab, setAlterTab, handleSaveOrUpdate,
     handleClose, handleShow, returnedClient, search, searchClient, setSearch, show }
     = useContext(ClientContext) as {
-      client: ICliente, handleChange: React.ChangeEventHandler,
+      handleChange: React.ChangeEventHandler,
       alterTab: string, setAlterTab: (value: string | null) => void,
       clearAllInputs: () => void, handleSaveOrUpdate: () => void, handleClose: () => void,
       handleShow: () => void, returnedClient: ICliente[],
       search: ISearch, searchClient: () => void, setSearch: any, show: Boolean
     }
+    
+  const { client } = useContext(GlobalContext) as { client: ICliente }
 
   const { maskCep, maskCpfCnpj } = Masks()
 
@@ -90,7 +93,7 @@ export function ClientModal() {
                     <FloatingLabelBt label="Bairro">
                       <FormControlBt onChange={handleChange} name="bairro" type="text" value={client.bairro || ""} />
                     </FloatingLabelBt>
-                  </Col>    
+                  </Col>
                 </Row>
 
                 <Row>

@@ -14,7 +14,7 @@ export const INITIAL_VALUE_PRODUTOS = {
   desconto: "0",
   subtotal: "0",
   total: "",
-  classe_imposto: "REF63035063",
+  classe_imposto: "REF63323601",
   informacoes_adicionais: "",
 }
 
