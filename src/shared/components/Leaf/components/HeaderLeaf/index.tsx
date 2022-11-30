@@ -4,13 +4,16 @@ import { ICliente } from '../../../../../interface/ICliente'
 import { PedidoLeaf, IResponseWebmaniaLeaf } from '../../../../../interface/ILeaf'
 import { Container } from './styles'
 import { LeafContext } from '../../../../context/leaf/leaf'
+import { GlobalContext } from '../../../../context/global/global'
 
 export function HeaderLeaf() {
-  const { cliente, getClientesFromSelectBox, pedido, handleChange, responseWebmania,  cpfCnpjCliente } = useContext(LeafContext) as { cliente: ICliente[], getClientesFromSelectBox: () => void, pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, cpfCnpjCliente: ICliente }
+  const { pedido, handleChange, responseWebmania, cpfCnpjCliente } = useContext(LeafContext) as { pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, cpfCnpjCliente: ICliente }
+
+  const { client, getClientesFromSelectBox, clientSelectBox } = useContext(GlobalContext) as { client: ICliente, getClientesFromSelectBox: () => void, clientSelectBox: ICliente[] }
 
   useEffect(() => {
     getClientesFromSelectBox()
-  }, [])
+  }, [client])
 
   return (
     <Container>
@@ -96,13 +99,13 @@ export function HeaderLeaf() {
         </Col>
       </Row>
 
-      <Row style={{ display:"flex" }}>
+      <Row style={{ display: "flex" }}>
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col}>
             <FloatingLabel className="mb-4" label="Cliente">
               <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'} value={pedido.idCliente || ""}>
                 <option value="" >---selecione---</option>
-                {cliente.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
+                {clientSelectBox.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
               </Form.Select>
             </FloatingLabel>
           </Form.Group>
