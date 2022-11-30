@@ -35,6 +35,7 @@ export function UseCliente() {
     try {
       const result = await ClienteService.save(client as ICliente)
       setClient({ ...client, id: result.id })
+      
       toast("Salvo com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -48,7 +49,7 @@ export function UseCliente() {
   const update = async () => {
     try {
       await ClienteService.update(client as ICliente)
-      getClientesFromSelectBox()
+
       toast("Atualizado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });

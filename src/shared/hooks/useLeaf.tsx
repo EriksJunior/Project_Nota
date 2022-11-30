@@ -54,15 +54,6 @@ export function UseLeaf() {
     setSearch({ ...search, [e.currentTarget.name]: e.currentTarget.value })
   }, [search])
 
-  const getProductsFromSelectBox = async () => {
-    try {
-      const { data } = await ProductService.getFromSelectBox()
-      setProdutoSelectBox(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const saveLeaf = async () => {
     try {
       const totalsValues = formatTotalValuesPedido()
@@ -234,5 +225,5 @@ export function UseLeaf() {
     }
   }
 
-  return { getProductsFromSelectBox, produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
+  return { produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
 }

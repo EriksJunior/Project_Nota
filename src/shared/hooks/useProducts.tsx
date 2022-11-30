@@ -1,20 +1,23 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
 import { INITIAL_STATE_PRODUCT, INITIAL_STATE_SEARCH } from '../initialStates/product';
 import ProductServices from '../../services/ProductService';
 import { IProducts, ISearch } from '../../interface/IProducts';
 
 import { toast } from "react-toastify";
+import { GlobalContext } from '../context/global/global';
+
 
 
 export function UseProducts() {
+  const { produtos, setProdutos, getProductsFromSelectBox } = useContext(GlobalContext) as { produtos: IProducts, setProdutos: (value: IProducts) => void, getProductsFromSelectBox: () => void }
+
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedProduct, setReturnedProduct] = useState<IProducts[]>()
-  const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
-  const [alterTab , setAlterTab] = useState<string>("Pesquisar")
+  const [alterTab, setAlterTab] = useState<string>("Pesquisar")
 
-  const handleClose = () =>{
+  const handleClose = () => {
     setShow(false)
     setAlterTab("Pesquisar")
     clearInputs()
@@ -33,44 +36,42 @@ export function UseProducts() {
   const saveProducts = async () => {
     try {
       const result = await ProductServices.save(produtos as IProducts)
-      setProdutos({ 
+      setProdutos({
         ...produtos,
         id: result.id,
         valor: produtos.valor.replace(".", "").replace(",", "."),
         valorVenda: produtos.valorVenda.toString().replace(".", "").replace(".", "").replace(",", ".")
-        })
+      })
 
-      toast ("Produto salvo com sucesso! ✅" ,
-       {position: toast.POSITION.TOP_RIGHT} );
+      toast("Produto salvo com sucesso! ✅",
+        { position: toast.POSITION.TOP_RIGHT });
     } catch (error: any) {
-      toast.error(error ,
-        {position: toast.POSITION.TOP_RIGHT})
+      toast.error(error,
+        { position: toast.POSITION.TOP_RIGHT })
     }
   }
 
   const update = async () => {
     try {
       await ProductServices.update(produtos as IProducts)
-      toast("Produto atualizado com sucesso!✅" , 
-      {position: toast.POSITION.TOP_RIGHT },)
+      toast("Produto atualizado com sucesso!✅",
+        { position: toast.POSITION.TOP_RIGHT },)
     } catch (error: any) {
-      toast.error( error , 
-        {position: toast.POSITION.TOP_RIGHT})
+      toast.error(error,
+        { position: toast.POSITION.TOP_RIGHT })
     }
-
-
   }
 
   const deleteProduct = async (id: string | undefined) => {
     try {
       await ProductServices.delete(id)
       await searchProduct()
-
-      toast("Produto deletado com sucesso!" , 
-      {position: toast.POSITION.TOP_RIGHT})
+      getProductsFromSelectBox()
+      toast("Produto deletado com sucesso!",
+        { position: toast.POSITION.TOP_RIGHT })
     } catch (error: any) {
-      toast.error(error , 
-        {position: toast.POSITION.TOP_RIGHT})
+      toast.error(error,
+        { position: toast.POSITION.TOP_RIGHT })
     }
   }
 
@@ -101,5 +102,5 @@ export function UseProducts() {
     setProdutos(INITIAL_STATE_PRODUCT)
   }
 
-  return { produtos, setProdutos, deleteProduct, alterTab , setAlterTab , clearInputs , search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
+  return { produtos, deleteProduct, alterTab, setAlterTab, clearInputs, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
 }

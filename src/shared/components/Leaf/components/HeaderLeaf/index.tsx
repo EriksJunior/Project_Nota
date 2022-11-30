@@ -9,11 +9,7 @@ import { GlobalContext } from '../../../../context/global/global'
 export function HeaderLeaf() {
   const { pedido, handleChange, responseWebmania, cpfCnpjCliente } = useContext(LeafContext) as { pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, cpfCnpjCliente: ICliente }
 
-  const { client, getClientesFromSelectBox, clientSelectBox } = useContext(GlobalContext) as { client: ICliente, getClientesFromSelectBox: () => void, clientSelectBox: ICliente[] }
-
-  useEffect(() => {
-    getClientesFromSelectBox()
-  }, [client])
+  const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
 
   return (
     <Container>
