@@ -29,21 +29,21 @@ export function ProductTable({ data }: ITablePrd) {
         {data?.map(e =>
           <tr key={e.id} >
             <td> {e.nome} </td>
-            <td>{parseFloat(e.valor).toLocaleString('pt-br', {style:'currency', currency:'BRL'})}</td>
+            <td>{parseFloat(e.valor).toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}</td>
             <td> {e.estoque} </td>
             <td> 
               <Row className='text-center'>
               <Col role="button" >
                   <IconEdit size={26} onClick={() => findById(e.id)} />
                 </Col>
-
                 <Col role="button">
                   <IconBsTrash size={26} onClick={() => deleteProduct(e.id)}/>
                 </Col>
               </Row>
             </td>
           </tr>
-          )}
+          ) }
+          
       </tbody>
     </StyleTable>
   )

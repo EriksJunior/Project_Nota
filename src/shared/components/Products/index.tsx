@@ -60,7 +60,7 @@ export function ProductsModal() {
                 <Row className="mb-3">
                   <Col>
                     <FloatingLabelBt label="Valor">
-                      <FormControlBt type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valor" value={produtos?.valor || ""} />
+                      <FormControlBt type="text" onChange={handleChange} onKeyDown={maskCurrency} name="valor" value={produtos.valor || ""} />
                     </FloatingLabelBt>
                   </Col>
                   <Col>

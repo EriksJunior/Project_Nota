@@ -36,7 +36,7 @@ export function UseProducts() {
       setProdutos({ 
         ...produtos,
         id: result.id,
-        valor: produtos.valor.replace(".", "").replace(",", ""),
+        valor: produtos.valor.replace(".", "").replace(",", "."),
         valorVenda: produtos.valorVenda.toString().replace(".", "").replace(".", "").replace(",", ".")
         })
 
