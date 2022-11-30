@@ -1,6 +1,6 @@
 export interface IImpostos {
   id: string
-  icms?: Iicms[],
+  icms?: Iicms,
   ipi?: IIpi,
   pis?: IPis,
   cofins?:  ICofins,

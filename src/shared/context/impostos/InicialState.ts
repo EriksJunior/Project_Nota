@@ -9,12 +9,12 @@ export const INITIAL_STATE_IMPOSTOS = {
     aliquota: ""
   },
   icms:
-  [{ 
+  { 
     cenario: "",
     tipo_pessoa: "",
     codigo_cfop: "",
     situacao_tributaria: ""
-}]
+}
   ,
   
   pis:
