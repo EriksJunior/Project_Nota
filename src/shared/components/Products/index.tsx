@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { ProductContext } from '../../context/Product/product';
+import { GlobalContext } from '../../context/global/global';
 
 import { Form, Button, Tab, Tabs, Col, Row, FormControl } from 'react-bootstrap';
 import { Search } from '../Search/index';
@@ -10,16 +12,18 @@ import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
 import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, ButtonProduct } from "./styles"
 
-import { ProductContext } from '../../context/Product/product';
 import { IProducts, ISearch } from '../../../interface/IProducts';
 
 
 export function ProductsModal() {
-  const { produtos, alterTab , setAlterTab , clearInputs , search , setSearch , searchProduct, returnedProduct, handleShow,
-     handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
-      produtos: IProducts , alterTab: string , setAlterTab: ( value: string | null ) => void , clearInputs: () => void , search: ISearch , setSearch: any , searchProduct: () => void , returnedProduct: IProducts[],
-      handleShow: () => void , handleClose: () => void , handleChange: React.ChangeEventHandler , 
-      handleSaveOrUpdate: () => void , show: Boolean }
+  const { alterTab, setAlterTab, clearInputs, search, setSearch, searchProduct, returnedProduct, handleShow,
+    handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
+      alterTab: string, setAlterTab: (value: string | null) => void, clearInputs: () => void, search: ISearch, setSearch: any, searchProduct: () => void, returnedProduct: IProducts[],
+      handleShow: () => void, handleClose: () => void, handleChange: React.ChangeEventHandler,
+      handleSaveOrUpdate: () => void, show: Boolean
+    }
+    
+  const { produtos } = useContext(GlobalContext) as { produtos: IProducts }
 
   const { maskCurrency } = Masks()
 
@@ -97,7 +101,7 @@ export function ProductsModal() {
                 </Row>
 
                 <FloatingLabelBt className="mb-4" label="Descrição">
-                  <FormControl as={"textarea"} style={{background: "#f5f5f5", height: "70px"}} type="text" onChange={handleChange} name="descricao" value={produtos?.descricao || ""} />
+                  <FormControl as={"textarea"} style={{ background: "#f5f5f5", height: "70px" }} type="text" onChange={handleChange} name="descricao" value={produtos?.descricao || ""} />
                 </FloatingLabelBt>
 
                 <Row className="gap-5" style={{ marginTop: "40px" }} >
@@ -120,7 +124,7 @@ export function ProductsModal() {
               <Row>
                 <Search>
                   <FormControlBt className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })} />
-                  <Button style={{ background:"black"}} onClick={searchProduct}>Pesquisar</Button>
+                  <Button style={{ background: "black" }} onClick={searchProduct}>Pesquisar</Button>
                 </Search>
               </Row>
               <Row className='mt-5'>

@@ -102,5 +102,5 @@ export function UseProducts() {
     setProdutos(INITIAL_STATE_PRODUCT)
   }
 
-  return { produtos, deleteProduct, alterTab, setAlterTab, clearInputs, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
+  return { deleteProduct, alterTab, setAlterTab, clearInputs, search, setSearch, searchProduct, returnedProduct, handleShow, handleClose, handleChange, findById, handleSaveOrUpdate, show }
 }

@@ -25,6 +25,7 @@ export function ClientModal() {
       handleShow: () => void, returnedClient: ICliente[],
       search: ISearch, searchClient: () => void, setSearch: any, show: Boolean
     }
+    
   const { client } = useContext(GlobalContext) as { client: ICliente }
 
   const { maskCep, maskCpfCnpj } = Masks()
