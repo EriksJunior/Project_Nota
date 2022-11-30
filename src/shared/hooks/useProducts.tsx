@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { INITIAL_STATE_PRODUCT, INITIAL_STATE_SEARCH } from '../context/Product/InicialState';
+import { INITIAL_STATE_PRODUCT, INITIAL_STATE_SEARCH } from '../initialStates/product';
 import ProductServices from '../../services/ProductService';
 import { IProducts, ISearch } from '../../interface/IProducts';
 

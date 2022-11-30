@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 import ImpostosService from '../../services/ImpostosService';
 import { IImpostos } from "../../interface/IImpostos";
-import { INITIAL_STATE_IMPOSTOS } from "../context/impostos/InicialState";
+import { INITIAL_STATE_IMPOSTOS } from "../initialStates/impostos";
 
 export function UseImpostos() {
   const [impostos, setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
