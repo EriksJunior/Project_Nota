@@ -1,15 +1,16 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useContext } from 'react';
 
 import { INITIAL_STATE_CLIENTE, INITIAL_STATE_SEARCH } from '../context/client/initialState';
 import ClienteService from '../../services/ClienteService'
 import { ICliente, ISearch } from '../../interface/ICliente';
 
 import { toast } from "react-toastify";
-
+import { GlobalContext } from '../context/global/global';
 
 export function UseCliente() {
+  const {client, setClient, getClientesFromSelectBox} = useContext(GlobalContext) as {client: ICliente, setClient: (value: ICliente) => void, getClientesFromSelectBox: () => void}
+
   const [show, setShow] = useState(false);
-  const [client, setClient] = useState<ICliente>(INITIAL_STATE_CLIENTE);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [returnedClient, setReturnedClient] = useState<ICliente[]>()
   const [alterTab, setAlterTab] = useState<string>("pesquisar")
@@ -47,7 +48,7 @@ export function UseCliente() {
   const update = async () => {
     try {
       await ClienteService.update(client as ICliente)
-
+      getClientesFromSelectBox()
       toast("Atualizado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });
@@ -62,7 +63,7 @@ export function UseCliente() {
     try {
       await ClienteService.delete(id)
       await searchClient()
-
+      getClientesFromSelectBox()
       toast("Registro deletado com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
       });

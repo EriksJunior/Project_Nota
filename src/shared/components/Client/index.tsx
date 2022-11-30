@@ -83,7 +83,6 @@ export function ClientModal() {
                       <FormControlBt onChange={handleChange} name="endereco" type="text" value={client.endereco || ""} />
                     </FloatingLabelBt>
                   </Col>
-
                 </Row>
 
                 <Row>
