@@ -42,7 +42,7 @@ export function UseProducts() {
         valor: produtos.valor.replace(".", "").replace(",", "."),
         valorVenda: produtos.valorVenda.toString().replace(".", "").replace(".", "").replace(",", ".")
       })
-
+      
       toast("Produto salvo com sucesso! ✅",
         { position: toast.POSITION.TOP_RIGHT });
     } catch (error: any) {

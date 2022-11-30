@@ -1,11 +1,9 @@
 import { useState, useCallback, useEffect, useContext } from "react";
 import { toast } from "react-toastify";
 
-import ProductService from "../../services/ProductService";
 import LeafService from "../../services/LeafService";
 
 import { ICliente } from "../../interface/ICliente";
-import { IProducts } from "../../interface/IProducts";
 import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf } from "../../interface/ILeaf"
 import { GlobalContext } from "../context/global/global";
 
@@ -14,7 +12,6 @@ import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WE
 export function UseLeaf() {
   const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
 
-  const [produtoSelectBox, setProdutoSelectBox] = useState<IProducts[]>([])
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
   const [returnedProductsLeaf, setReturnedProductsLeaf] = useState<ProdutosLeaf[]>([])
@@ -225,5 +222,5 @@ export function UseLeaf() {
     }
   }
 
-  return { produtoSelectBox, pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
+  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
 }

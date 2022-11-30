@@ -9,7 +9,7 @@ import { ProductsLeafTable } from './components/ProductsLeafTable';
 import { GlobalContext } from '../../../../context/global/global';
 
 export function DataLeafProducts() {
-  const { produtoLeaf, handleChangeProductLeaf, addProduct, returnedProductsLeaf, handleTotalValueProducts } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, produtoSelectBox: IProducts[], handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[], handleTotalValueProducts: () => void }
+  const { produtoLeaf, handleChangeProductLeaf, addProduct, returnedProductsLeaf, handleTotalValueProducts } = useContext(LeafContext) as { produtoLeaf: ProdutosLeaf, getProductsFromSelectBox: () => void, handleChangeProductLeaf: React.ChangeEventHandler, addProduct: () => void, returnedProductsLeaf: ProdutosLeaf[], handleTotalValueProducts: () => void }
 
   const { produtoSelectBox } = useContext(GlobalContext) as { produtoSelectBox: IProducts[] }
 
