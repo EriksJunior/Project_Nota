@@ -8,10 +8,10 @@ interface AuxProps {
 const ProductContext = createContext({})
 
 function ProductProvider({ children }: AuxProps) {
-  const { produtos , deleteProduct, alterTab , setAlterTab , clearInputs , handleChange, findById, handleSaveOrUpdate, handleClose, handleShow, returnedProduct, search, searchProduct, setSearch, show } = UseProducts()
+  const { deleteProduct, alterTab , setAlterTab , clearInputs , handleChange, findById, handleSaveOrUpdate, handleClose, handleShow, returnedProduct, search, searchProduct, setSearch, show } = UseProducts()
 
   return (
-    <ProductContext.Provider value={{ produtos , deleteProduct, alterTab , setAlterTab , clearInputs , handleChange, findById, handleSaveOrUpdate, handleClose, handleShow, returnedProduct, search, searchProduct, setSearch, show }}>
+    <ProductContext.Provider value={{ deleteProduct, alterTab , setAlterTab , clearInputs , handleChange, findById, handleSaveOrUpdate, handleClose, handleShow, returnedProduct, search, searchProduct, setSearch, show }}>
       {children}
     </ProductContext.Provider>
   )

@@ -8,9 +8,14 @@ export function UseImpostos() {
   const [impostos, setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    console.log(impostos)
     setImpostos({ ...impostos, [e.target.name]: e.target.value })
 
   }, [impostos]);
+
+
+
+
 
   const saveImpostos = async () => {
     try {

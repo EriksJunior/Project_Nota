@@ -15,7 +15,7 @@ export function IpiInfo() {
                     <Form>
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Tipo de Pessoa">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa_ipi" defaultValue={impostos?.ipi?.tipo_pessoa || " "}>
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa_ipi" defaultValue={impostos.ipi[0].tipo_pessoa || " "}>
 
                                     <option>0 - pessoa Física</option>
                                     <option>1 - Pessoa Juridíca</option>
@@ -26,7 +26,7 @@ export function IpiInfo() {
 
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Cenário">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario_ipi" defaultValue={impostos?.ipi?.cenario || " "}>
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario_ipi" defaultValue={impostos.ipi[0].cenario || " "}>
 
                                     <option>0 -Padrão (Abrange todos os cenários)</option>
                                     <option>0 - Saída dentro do estado</option>
@@ -41,7 +41,7 @@ export function IpiInfo() {
 
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Situação Tributária">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria_ipi" defaultValue={impostos?.ipi?.situacao_tributaria || " "}>
+                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria_ipi" defaultValue={impostos.ipi[0].situacao_tributaria || " "}>
                                     <option>00 - Entrada com recuperação de crédito</option>
                                     <option>01 - Entrada tributada com alíquota zero</option>
                                     <option>02 - Entrada isenta</option>
@@ -61,13 +61,13 @@ export function IpiInfo() {
                         </Form.Group>
 
                         <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Códido de enquadramento">
-                            <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.ipi?.codigo_enquadramento || " "} name="codigo_enquadramento_ipi" />
+                            <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos.ipi[0].codigo_enquadramento || " "} name="codigo_enquadramento_ipi" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} label="Aliquota">
-                                <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos?.ipi?.aliquota || " "} name="aliquota_ipi" />
+                                <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos.ipi[0].aliquota || " "} name="aliquota_ipi" />
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

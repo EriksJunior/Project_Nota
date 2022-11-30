@@ -1,15 +1,15 @@
 export interface IImpostos {
   id: string
-  icms?: Iicms,
-  ipi?: IIpi,
-  pis?: IPis,
-  cofins?:  ICofins,
-  issqn?: IIssqn,
+  icms: Array<Iicms>,
+  ipi: Array<IIpi>,
+  pis: Array<IPis>,
+  cofins: Array<ICofins>,
+  issqn: Array<IIssqn>,
   informacoes_fisco?: string,
   informacoes_complementares?: string,
 }
 
-interface Iicms{
+interface Iicms {
   cenario: string ,
   tipo_pessoa: string,
   codigo_cfop: string,

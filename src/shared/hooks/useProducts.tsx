@@ -39,7 +39,7 @@ export function UseProducts() {
       setProdutos({
         ...produtos,
         id: result.id,
-        valor: produtos.valor.replace(".", "").replace(",", "."),
+        valor: produtos.valor.toString().replace(".", "").replace(".", "").replace(",", "."),
         valorVenda: produtos.valorVenda.toString().replace(".", "").replace(".", "").replace(",", ".")
       })
       
@@ -53,7 +53,8 @@ export function UseProducts() {
 
   const update = async () => {
     try {
-      await ProductServices.update(produtos as IProducts)
+      const formatValueTotal = formatValue()
+      await ProductServices.update({...produtos , valor: formatValueTotal.valor, valorVenda: formatValueTotal.valorVenda});
       toast("Produto atualizado com sucesso!✅",
         { position: toast.POSITION.TOP_RIGHT },)
     } catch (error: any) {
@@ -62,7 +63,13 @@ export function UseProducts() {
     }
   }
 
-  const deleteProduct = async (id: string | undefined) => {
+  const formatValue = () => {
+    let valor = produtos.valor.toString().replace(".", "").replace(",", ".")
+    let valorVenda = produtos.valorVenda.toString().replace(".","").replace(",",".")
+    return{valor , valorVenda}
+  }
+
+  const deleteProduct = async (id: string) => {
     try {
       await ProductServices.delete(id)
       await searchProduct()
