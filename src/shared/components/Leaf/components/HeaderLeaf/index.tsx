@@ -5,6 +5,7 @@ import { PedidoLeaf, IResponseWebmaniaLeaf } from '../../../../../interface/ILea
 import { Container } from './styles'
 import { LeafContext } from '../../../../context/leaf/leaf'
 import { GlobalContext } from '../../../../context/global/global'
+import { FloatingLabelBt, FormControlBt } from './styles'
 
 export function HeaderLeaf() {
   const { pedido, handleChange, responseWebmania, cpfCnpjCliente } = useContext(LeafContext) as { pedido: PedidoLeaf, handleChange: React.ChangeEventHandler, responseWebmania: IResponseWebmaniaLeaf, cpfCnpjCliente: ICliente }
@@ -13,92 +14,83 @@ export function HeaderLeaf() {
 
   return (
     <Container>
-      <Row xs={2} sm={12} md={12} lg={12} xl={12}>
-        <Col xs={5} sm={4} md={3} lg={3} xl={2}>
-          <Form.Control
-            type="date"
-            placeholder='Data emissão'
-            disabled
-            value={pedido.data_nfe}
-          />
+      <Row sm={12} md={12} lg={12} xl={12}>
+        <Col sm={4} md={3} lg={3} xl={2}>
+          <FloatingLabelBt label="Data emissão" className="mb-2">
+            <FormControlBt type="date" disabled value={pedido.data_nfe} />
+          </FloatingLabelBt>
         </Col>
 
-        <Col xs={7} sm={8} md={4} lg={5} xl={6}>
-          <Form.Control
-            type="text"
-            placeholder='Natuzera da operação'
-            disabled
-            value={pedido.natureza_operacao || ""}
-            className='naturezaSwitchToSmallerscreens'
-          />
+        <Col sm={8} md={4} lg={5} xl={6}>
+          <FloatingLabelBt label="Natureza da operação">
+            <FormControlBt className="naturezaSwitchToSmallerscreens" disabled type="text" value={pedido.natureza_operacao || ""} />
+          </FloatingLabelBt>
         </Col>
 
         <Col sm={6} md={3} lg={2} xl={2}>
-          <Form.Control
-            type="text"
-            placeholder='Finalidade'
-            disabled
-            value={pedido.finalidade || ""}
-            className='switchToSmallerscreens'
-          />
+          <FloatingLabelBt label="Finalidade">
+            <FormControlBt type="text"
+              disabled
+              value={pedido.finalidade || ""}
+              className='switchToSmallerscreens' />
+          </FloatingLabelBt>
         </Col>
 
         <Col sm={6} md={2} lg={2} xl={2}>
-          <Form.Control
-            type="text"
-            placeholder='Tip. Emiss'
-            disabled
-            value={pedido.operacao || ""}
-            className='switchToSmallerscreens'
-          />
+          <FloatingLabelBt label="Tipo. Emissão">
+            <FormControlBt type="text"
+              placeholder='Tip. Emiss'
+              disabled
+              value={pedido.operacao || ""}
+              className='switchToSmallerscreens' />
+          </FloatingLabelBt>
         </Col>
       </Row>
 
-      <Row xs={3} sm={12} md={12} lg={12} xl={12}>
-        <Col xs={12} sm={12} md={5} lg={5} xl={6}>
-          <Form.Control
-            type="text"
-            placeholder='Chave NF-e'
-            disabled
-            value={pedido.response.chave || ""}
-          />
+      <Row sm={12} md={12} lg={12} xl={12}>
+        <Col sm={12} md={5} lg={5} xl={6}>
+          <FloatingLabelBt label="Chave NF-e">
+            <FormControlBt type="text"
+              disabled
+              value={pedido.response.chave || ""} />
+          </FloatingLabelBt>
         </Col>
 
         <Col sm={4} md={2} lg={2} xl={2}>
-          <Form.Control
-            type="text"
-            placeholder='Serie'
-            disabled
-            value={pedido.response.serie || ""}
-            className='switchToSmallerscreens'
-          />
+          <FloatingLabelBt label="Serie">
+            <FormControlBt
+              type="text"
+              disabled
+              value={pedido.response.serie || ""}
+              className='switchToSmallerscreens' />
+          </FloatingLabelBt>
         </Col>
 
         <Col sm={4} md={2} lg={2} xl={2}>
-          <Form.Control
-            type="text"
-            placeholder='Nº NF-e'
-            disabled
-            value={pedido.response.nfe || ""}
-            className='switchToSmallerscreens'
-          />
+          <FloatingLabelBt label="Nº NF-e">
+            <FormControlBt
+              type="text"
+              disabled
+              value={pedido.response.nfe || ""}
+              className='switchToSmallerscreens' />
+          </FloatingLabelBt>
         </Col>
 
         <Col sm={4} md={3} lg={3} xl={2}>
-          <Form.Control
-            type="text"
-            placeholder='Status'
-            disabled
-            value={pedido.status || ""}
-            className='switchToSmallerscreens'
-          />
+          <FloatingLabelBt label="Status">
+            <FormControlBt
+              type="text"
+              disabled
+              value={pedido.status || ""}
+              className='switchToSmallerscreens' />
+          </FloatingLabelBt>
         </Col>
       </Row>
 
       <Row style={{ display: "flex" }}>
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col}>
-            <FloatingLabel className="mb-4" label="Cliente">
+            <FloatingLabel className="mb-2" label="Cliente">
               <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'} value={pedido.idCliente || ""}>
                 <option value="" >---selecione---</option>
                 {clientSelectBox.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
@@ -107,12 +99,10 @@ export function HeaderLeaf() {
           </Form.Group>
         </Col>
 
-        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-          <Form.Group as={Col}>
-            <FloatingLabel label="CPF/CNPJ">
-              <Form.Control style={{ height: "48px" }} disabled value={cpfCnpjCliente.cpfCnpj || ""} type="text" name="CPF/CNPJ" />
-            </FloatingLabel>
-          </Form.Group>
+        <Col sm={4} md={4} lg={4} xl={4}>
+          <FloatingLabel label="CPF/CNPJ" className="mb-2">
+            <Form.Control style={{ height: "48px" }} disabled value={cpfCnpjCliente.cpfCnpj || ""} type="text" name="CPF/CNPJ" />
+          </FloatingLabel>
         </Col>
       </Row>
 
