@@ -15,9 +15,17 @@ export function HandleErrorsLeaf() {
       erro = true
     }
 
-    return {message: message, erro: erro}
+    return { message: message, erro: erro }
   }
 
-  return { handleErrorSendleaf }
+  const getErrorAndReturnFormattedError = (error: any) => {
+    if (error.response.data.erros.length > 0) {
+      return error.response.data.erros
+    } else {
+      return error.response.data.message
+    }
+  }
+
+  return { handleErrorSendleaf, getErrorAndReturnFormattedError }
 }
 

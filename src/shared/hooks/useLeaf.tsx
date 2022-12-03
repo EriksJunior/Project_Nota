@@ -12,7 +12,7 @@ import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WE
 
 export function UseLeaf() {
   const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
-  const { handleErrorSendleaf } = HandleErrorsLeaf()
+  const { handleErrorSendleaf, getErrorAndReturnFormattedError } = HandleErrorsLeaf()
 
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
@@ -101,7 +101,8 @@ export function UseLeaf() {
         position: toast.POSITION.TOP_RIGHT
       });
     } catch (error: any) {
-      toast.error(error?.response?.data?.erros, {
+      const returnedError = await getErrorAndReturnFormattedError(error)
+      toast.error(returnedError, {
         position: toast.POSITION.TOP_RIGHT
       });
     }
