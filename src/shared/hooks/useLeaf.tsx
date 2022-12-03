@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useContext } from "react";
 import { toast } from "react-toastify";
 
 import LeafService from "../../services/LeafService";
+import { HandleErrorsLeaf } from "../../utils/handleErrors/handleErrorsLeaf";
 
 import { ICliente } from "../../interface/ICliente";
 import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf } from "../../interface/ILeaf"
@@ -11,6 +12,7 @@ import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WE
 
 export function UseLeaf() {
   const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
+  const { handleErrorSendleaf } = HandleErrorsLeaf()
 
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
@@ -87,6 +89,12 @@ export function UseLeaf() {
 
   const sendLeaf = async () => {
     try {
+      if(handleErrorsLeaf().erro){
+        return toast.error(handleErrorsLeaf().message, {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }
+      
       await LeafService.sendLeaf(pedido.id)
       await findLeafById(pedido.id)
       toast("Nota emitida com sucesso! ✅", {
@@ -220,6 +228,11 @@ export function UseLeaf() {
       frete: frete,
       despesas_acessorias: outrasDespesas,
     }
+  }
+
+  const handleErrorsLeaf = () =>{
+    const handleError = handleErrorSendleaf(returnedProductsLeaf)
+    return handleError
   }
 
   return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
