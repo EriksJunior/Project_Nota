@@ -4,7 +4,7 @@ import { LeafContext } from '../../../../context/leaf/leaf';
 import { PedidoLeaf } from '../../../../../interface/ILeaf';
 
 import { Form, Col, Row, Button, Accordion, FloatingLabel } from 'react-bootstrap';
-import { IoCheckboxOutline, IoRefresh } from "react-icons/io5";
+import { IoCheckboxOutline, IoRefresh, IoReorderThreeSharp } from "react-icons/io5";
 
 import { ButtonLeaf } from '../../../Styles/general';
 import { StyledAccordion } from '../../styles'
@@ -108,11 +108,14 @@ export function GeneralLeafInformation() {
                 <IoRefresh />  Limpar Dados
               </Button>
 
-              <Button onClick={sendLeaf} variant="" style={{ background: "LimeGreen", width: "150px", color: "whitesmoke" }}>
+              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "LimeGreen", width: "150px", color: "whitesmoke" }}>
                 <IoCheckboxOutline />  Emitir Nota
               </Button>
-            </ButtonLeaf>
 
+              <Button  variant="" style={{ background: "LimeGreen", color: "whitesmoke" }}>
+                <IoReorderThreeSharp />  Ações
+              </Button>
+            </ButtonLeaf>
           </Form>
         </Accordion.Body>
       </StyledAccordion>
