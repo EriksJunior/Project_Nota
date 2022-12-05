@@ -13,7 +13,7 @@ import { Masks } from '../../../../../utils/masks/Masks';
 
 
 export function GeneralLeafInformation() {
-  const { handleChange, pedido, sendLeaf, handleTotalValueGeneralLeafInformation } = useContext(LeafContext) as { handleChange: React.ChangeEventHandler, pedido: PedidoLeaf, sendLeaf: () => void, handleTotalValueGeneralLeafInformation: () => void }
+  const { handleChange, pedido, sendLeaf, handleTotalValueGeneralLeafInformation, cancelLeaf } = useContext(LeafContext) as { handleChange: React.ChangeEventHandler, pedido: PedidoLeaf, sendLeaf: () => void, handleTotalValueGeneralLeafInformation: () => void, cancelLeaf: () => void }
 
   const { maskCurrency } = Masks()
 
@@ -113,14 +113,14 @@ export function GeneralLeafInformation() {
               </Button>
 
               <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic" style={{backgroundColor: '#c0c0c0', color: 'white', fontWeight: 'bold'}}>
+                <Dropdown.Toggle variant="" id="dropdown-basic" style={{backgroundColor: '#666666', color: 'white', fontWeight: 'bold'}}>
                   Ações
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item>Cancelar</Dropdown.Item>
-                  <Dropdown.Item>Inutilizar</Dropdown.Item>
-                  <Dropdown.Item>Carta de correção</Dropdown.Item>
+                  <Dropdown.Item style={{fontWeight: 'bold', color: '#9623e0'}} onClick={cancelLeaf}>Cancelar</Dropdown.Item>
+                  <Dropdown.Item style={{fontWeight: 'bold', color: '#9623e0'}} >Inutilizar</Dropdown.Item>
+                  <Dropdown.Item style={{fontWeight: 'bold', color: '#9623e0'}} >Carta de correção</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </ButtonLeaf>

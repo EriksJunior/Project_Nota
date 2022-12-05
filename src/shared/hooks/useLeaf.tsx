@@ -108,6 +108,15 @@ export function UseLeaf() {
     }
   }
 
+  const cancelLeaf = async () => {
+    try {
+      // const result = await LeafService.cancelLeaf(pedido)
+      console.log(pedido)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const findLeafById = async (id: string) => {
     try {
       const result = await LeafService.findLeafById(id)
@@ -236,5 +245,5 @@ export function UseLeaf() {
     return handleError
   }
 
-  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
+  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation, cancelLeaf }
 }

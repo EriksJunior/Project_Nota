@@ -25,6 +25,11 @@ class LeafService {
     return data
   }
 
+  async cancelLeaf(dataLeaf: PedidoLeaf) {
+    const { data } = await api.put(`/nota/cancel/nota/${dataLeaf.id}`, dataLeaf)
+    return data
+  }
+
   async deleteLeafAndProducts(id: string) {
     await api.delete(`/nota-item/delete-all/${id}`)
   }
