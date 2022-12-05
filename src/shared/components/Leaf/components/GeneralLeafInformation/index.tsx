@@ -108,11 +108,11 @@ export function GeneralLeafInformation() {
                 <IoRefresh />  Limpar Dados
               </Button>
 
-              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "#666", width: "150px", color: "whitesmoke" }}>
+              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "#666", width: "150px", color: "whitesmoke" , borderRight: "2px solid Limegreen" , borderLeft: "2px solid Limegreen" }}>
                 <IoCheckboxOutline />  Emitir Nota
               </Button>
 
-              <Button  variant="" style={{ background: "#666", color: "whitesmoke" }}>
+              <Button  variant="" style={{ background: "#666", color: "whitesmoke" , borderRight: "2px solid blue" , borderLeft: "2px solid blue" }}>
                 <IoReorderThreeSharp />  Ações
               </Button>
             </ButtonLeaf>

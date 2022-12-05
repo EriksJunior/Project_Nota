@@ -24,9 +24,12 @@ export const ContentButtons = styled.div`
 `
 
 export const BButton = styled(Button)`
-    background: BlueViolet;
-    color: whitesmoke;
+    background: #C0C0C0;
+    color: black;
     font-weight: bold;
+    border-right: 2px solid #8A2BE2;
+    border-left: 2px solid #8A2BE2;
+
 
     &:hover {
     background: BlueViolet;

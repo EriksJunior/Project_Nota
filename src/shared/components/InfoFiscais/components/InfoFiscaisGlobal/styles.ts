@@ -7,19 +7,10 @@ width: 100%;
 display: flex;
 height: 79vh;
 background-color: #F5F5F5;
-.card-body{
-  border: 1px solid #8A2BE2;
-}
-
 
 .form-floating>.form-select {
   padding-top: 1.325rem!important;
   padding-bottom: 0.175rem!important;
-  border: 1px solid #8A2BE2;
-
-}
-.form-control{
-  border: 1px solid #8A2BE2;
 }
 
 `
@@ -45,7 +36,7 @@ export const NavFiscale = styled(Nav)`
   }
 
   .nav-link.active{
-    color: black;
+    color: white !important;
     width: 100%;
 
   }

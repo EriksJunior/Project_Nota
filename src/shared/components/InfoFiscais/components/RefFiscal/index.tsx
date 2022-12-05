@@ -6,7 +6,7 @@ import { CardRef } from './styles';
 export function RefFiscal() {
   return (
     <CardRef>
-      <Card.Header style={{ background:"#8A2BE2" , fontSize:"22px" , fontWeight:"bold" , color: "white" }}>REF's cadastradas</Card.Header>
+      <Card.Header style={{ background:"#1b022e" , fontSize:"22px" , fontWeight:"bold" , color: "white" }}>REF's cadastradas</Card.Header>
       <Card.Body>
         <h6>
           refs

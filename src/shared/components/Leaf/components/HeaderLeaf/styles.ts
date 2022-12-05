@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 80vw;
   margin: 0;
   padding: 0;
-  height: 25vh;
+  height: 29vh;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -14,13 +14,13 @@ export const Container = styled.div`
 
   @media screen and (min-width: 1440px) {
     display: flex;
-    height: 29vh;
+    height: 31vh;
     gap: 10px;
   }
 
   @media screen and (max-width: 1440px) {
     display: flex;
-    height: 29vh;
+    height: 31vh;
     gap: 10px;
   }
 
