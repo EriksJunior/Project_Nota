@@ -42,6 +42,7 @@ export function UseLeaf() {
     handleTotalValueGeneralLeafInformation()
   }, [returnedProductsLeaf])
 
+
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
   }, [pedido])

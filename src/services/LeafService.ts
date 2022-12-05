@@ -26,8 +26,9 @@ class LeafService {
   }
 
   async cancelLeaf(dataCancelamento: ICancelLeaf) {
-    const { data } = await api.put(`/nota/cancel/nota/${dataCancelamento.id}`, dataCancelamento.justification)
-    return data
+    console.log(dataCancelamento)
+    // const { data } = await api.put(`/nota/cancel/nota/${dataCancelamento.id}`, dataCancelamento.justification)
+    // return data
   }
 
   async deleteLeafAndProducts(id: string) {
