@@ -56,7 +56,7 @@ export function UseProducts() {
       const formatValueTotal = formatValue()
       await ProductServices.update({...produtos , valor: formatValueTotal.valor, valorVenda: formatValueTotal.valorVenda});
       toast("Produto atualizado com sucesso!✅",
-        { position: toast.POSITION.TOP_RIGHT },)
+        { position: toast.POSITION.TOP_RIGHT })
     } catch (error: any) {
       toast.error(error,
         { position: toast.POSITION.TOP_RIGHT })

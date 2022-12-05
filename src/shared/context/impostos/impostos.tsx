@@ -8,10 +8,10 @@ interface AuxProps {
 const ImpostosContext = createContext({})
 
 function ImpostosProvider({ children }: AuxProps) {
-  const { impostos , setImpostos , handleChange , handleSaveOrUpdate } = UseImpostos()
+  const { impostos , setImpostos , handleChange , handleSaveOrUpdate , clearInputs } = UseImpostos()
 
   return (
-    <ImpostosContext.Provider value={{ impostos , setImpostos , handleChange , handleSaveOrUpdate }}>
+    <ImpostosContext.Provider value={{ impostos , setImpostos , handleChange , handleSaveOrUpdate , clearInputs }}>
       {children}
     </ImpostosContext.Provider>
   )

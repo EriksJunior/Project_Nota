@@ -19,7 +19,7 @@ import { IImpostos } from '../../../../../interface/IImpostos';
 
 
 export function InfoFiscaisGlobal() {
-    const { impostos , handleSaveOrUpdate } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void }
+    const { impostos , handleSaveOrUpdate , clearInputs } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleSaveOrUpdate: () => void , clearInputs: () => void }
    
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
@@ -83,7 +83,7 @@ export function InfoFiscaisGlobal() {
             </Card.Body>
             <Card.Footer className="text-muted">
                     <ButtonContent>
-                        <Button onClick={()=> console.log(impostos)} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
+                        <Button onClick={clearInputs} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
                             <IconBsPen />Limpar Campos
                         </Button>
                         <Button onClick={handleSaveOrUpdate} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
