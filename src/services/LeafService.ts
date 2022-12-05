@@ -1,5 +1,5 @@
 import { api } from "../utils/configs/api";
-import { PedidoLeaf, ProdutosLeaf, ICancelamentoLeaf } from "../interface/ILeaf";
+import { PedidoLeaf, ProdutosLeaf, ICancelLeaf } from "../interface/ILeaf";
 class LeafService {
   async save(nota: PedidoLeaf) {
     const { data } = await api.post('/nota', nota)
@@ -25,7 +25,7 @@ class LeafService {
     return data
   }
 
-  async cancelLeaf(dataCancelamento: ICancelamentoLeaf) {
+  async cancelLeaf(dataCancelamento: ICancelLeaf) {
     const { data } = await api.put(`/nota/cancel/nota/${dataCancelamento.id}`, dataCancelamento.justification)
     return data
   }

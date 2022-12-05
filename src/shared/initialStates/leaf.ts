@@ -81,3 +81,8 @@ export const INITIAL_STATE_SEARCH = {
   startDate: "",
   endDate: "",
 }
+
+export const INITIAL_VALUE_CANCEL_LEAF = {
+  id: "",
+  justification: "cancelamento somente para fins de teste",
+}

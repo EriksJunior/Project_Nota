@@ -91,7 +91,7 @@ export interface IResultSearchLeaf {
   status: string
 }
 
-export interface ICancelamentoLeaf {
+export interface ICancelLeaf {
   id: string
   justification: string
 }

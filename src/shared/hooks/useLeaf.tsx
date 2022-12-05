@@ -5,10 +5,10 @@ import LeafService from "../../services/LeafService";
 import { HandleErrorsLeaf } from "../../utils/handleErrors/handleErrorsLeaf";
 
 import { ICliente } from "../../interface/ICliente";
-import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf } from "../../interface/ILeaf"
+import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf, ICancelLeaf } from "../../interface/ILeaf"
 import { GlobalContext } from "../context/global/global";
 
-import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA, INITIAL_STATE_SEARCH } from "../initialStates/leaf";
+import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA, INITIAL_STATE_SEARCH, INITIAL_VALUE_CANCEL_LEAF } from "../initialStates/leaf";
 
 export function UseLeaf() {
   const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
@@ -22,6 +22,7 @@ export function UseLeaf() {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [resultSearchLeaf, setResultSearchLeaf] = useState<IResultSearchLeaf[]>()
+  const [cancel, setCancel] = useState<ICancelLeaf>(INITIAL_VALUE_CANCEL_LEAF)
 
 
   const handleShow = () => {
@@ -110,8 +111,9 @@ export function UseLeaf() {
 
   const cancelLeaf = async () => {
     try {
-      // const result = await LeafService.cancelLeaf(pedido)
-      console.log(pedido)
+      setCancel({...cancel, id: pedido.id})
+      const result = await LeafService.cancelLeaf(cancel)
+      console.log(result)
     } catch (error) {
       console.log(error)
     }
