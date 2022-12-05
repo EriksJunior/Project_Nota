@@ -3,7 +3,7 @@ import { LeafContext } from '../../../../context/leaf/leaf';
 
 import { PedidoLeaf } from '../../../../../interface/ILeaf';
 
-import { Form, Col, Row, Button, Accordion, FloatingLabel } from 'react-bootstrap';
+import { Form, Col, Row, Button, Accordion, FloatingLabel, Dropdown } from 'react-bootstrap';
 import { IoCheckboxOutline, IoRefresh, IoReorderThreeSharp } from "react-icons/io5";
 
 import { ButtonLeaf } from '../../../Styles/general';
@@ -104,17 +104,25 @@ export function GeneralLeafInformation() {
             </Row>
 
             <ButtonLeaf>
-              <Button variant=""  style={{ background: "Lavender", width: "150px", color: "black" }}>
+              <Button variant="" style={{ background: "Lavender", width: "150px", color: "black" }}>
                 <IoRefresh />  Limpar Dados
               </Button>
 
-              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "#666", width: "150px", color: "whitesmoke" , borderRight: "2px solid Limegreen" , borderLeft: "2px solid Limegreen" }}>
+              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "#666", width: "150px", color: "whitesmoke", borderRight: "2px solid Limegreen", borderLeft: "2px solid Limegreen" }}>
                 <IoCheckboxOutline />  Emitir Nota
               </Button>
 
-              <Button  variant="" style={{ background: "#666", color: "whitesmoke" , borderRight: "2px solid blue" , borderLeft: "2px solid blue" }}>
-                <IoReorderThreeSharp />  Ações
-              </Button>
+              <Dropdown>
+                <Dropdown.Toggle variant="" id="dropdown-basic" style={{backgroundColor: '#c0c0c0', color: 'white', fontWeight: 'bold'}}>
+                  Ações
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item>Cancelar</Dropdown.Item>
+                  <Dropdown.Item>Inutilizar</Dropdown.Item>
+                  <Dropdown.Item>Carta de correção</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </ButtonLeaf>
           </Form>
         </Accordion.Body>
