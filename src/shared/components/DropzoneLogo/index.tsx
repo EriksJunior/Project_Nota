@@ -22,10 +22,10 @@ export function Dropzone() {
             <input {...getInputProps()} />
             {selectedFileurl
                 ? <img src={selectedFileurl} alt="Logo da Empresa" />
-                : <p>
+                : <h6>
                     <IoCameraOutline />
                     Logo Empresa
-                </p>
+                </h6>
             }
         </div>
     )

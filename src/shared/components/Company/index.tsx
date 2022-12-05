@@ -174,7 +174,7 @@ export function InfoCompany() {
           <ButtonContent>
             <ButtonReturn as={Link} to="/">
               <Button variant="">
-                <IoHome /> <a>Página Principal</a>
+                <IoHome /> Página Principal
               </Button>
             </ButtonReturn>
             <ButtonAtt>

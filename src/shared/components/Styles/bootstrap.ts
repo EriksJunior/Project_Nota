@@ -32,7 +32,7 @@ color: #8A2BE2;
 `
 
 export const IconBsPen = styled(BsPen)`
-color: #8A2BE2;
+color: white;
 `
 
 export const IconEdit = styled(TbEdit)`

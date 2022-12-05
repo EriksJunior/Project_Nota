@@ -23,7 +23,7 @@
     border-radius: 100px;
 }
 
-.dropzone p {
+.dropzone h6 {
     width: calc(100% - 60px);
     height: calc( 100% - 60px );
     border-radius: 50px;
@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-.dropzone p svg {
+.dropzone h6 svg {
     color: black;
     width: 34px;
     height: 34px;

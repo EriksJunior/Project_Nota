@@ -8,9 +8,8 @@ import { IssqnInfo } from '../MainInfoFiscale/ISSQN';
 import { PisInfo } from '../MainInfoFiscale/PIS';
 import { CofinsInfo } from '../MainInfoFiscale/COFINS';
 
-import { IoCheckboxOutline } from 'react-icons/io5';
+import { IoCheckboxOutline, IoRefresh } from 'react-icons/io5';
 import { ButtonContent } from '../../../Company/styles';
-import { IconBsPen } from '../../../Styles/bootstrap';
 import { CardInfoFiscale , NavFiscale } from './styles';
 
 import { useContext } from 'react';
@@ -31,7 +30,7 @@ export function InfoFiscaisGlobal() {
                         <Col sm={2}>
                             <NavFiscale variant="pills" className="flex-column">
                                 <Nav.Item>
-                                    <Nav.Link eventKey="first">Informações Gerais</Nav.Link>
+                                    <Nav.Link eventKey="first">Info. Gerais</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="second">ICMS</Nav.Link>
@@ -49,12 +48,12 @@ export function InfoFiscaisGlobal() {
                                     <Nav.Link eventKey="sixth">ISSQN</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="seventh">Informações Complementares</Nav.Link>
+                                    <Nav.Link eventKey="seventh">Info. Complementares</Nav.Link>
                                 </Nav.Item>
                             </NavFiscale>
                         </Col>
                         <Col sm={10}>
-                            <Tab.Content >
+                            <Tab.Content style={{ height: "57vh" }} >
                                 <Tab.Pane eventKey="first">
                                     <GeneralDataInfoFiscale/>
                                 </Tab.Pane>
@@ -84,7 +83,7 @@ export function InfoFiscaisGlobal() {
             <Card.Footer className="text-muted">
                     <ButtonContent>
                         <Button onClick={clearInputs} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
-                            <IconBsPen />Limpar Campos
+                            <IoRefresh />Limpar Campos
                         </Button>
                         <Button onClick={handleSaveOrUpdate} variant="" style={{ background:"#8A2BE2" , color: "white" }}>
                             <IoCheckboxOutline /> Salvar alterações
