@@ -5,50 +5,17 @@ export const Container = styled.div`
   width: 80vw;
   margin: 0;
   padding: 0;
-  height: 29vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  gap: 15px;
-  margin-bottom:-80px;
-
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    height: 31vh;
-    gap: 10px;
-  }
-
-  @media screen and (max-width: 1440px) {
-    display: flex;
-    height: 31vh;
-    gap: 10px;
-  }
-
-  @media screen and (max-width: 1199px) {
-    display: flex;
-    height: 29vh;
-    gap: 10px;
-  }
-
-  @media screen and (max-width: 991px) {
-    display: flex;
-    height: 29vh;
-    gap: 10px;
-  }
+  gap: 10px;
+  margin-bottom: 20px;
 
   @media screen and (max-width: 767px) {
-    display: flex;
-    flex-direction: column;
-    height: 48vh;
     .switchToSmallerscreens {
       margin-top: 10px;
     }
-  }
-
-  @media screen and (max-width: 575px) {
-    display: flex;
-    height: auto;
-    gap: 10px;
   }
 
   .form-select {

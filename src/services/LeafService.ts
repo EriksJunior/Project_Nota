@@ -1,5 +1,5 @@
 import { api } from "../utils/configs/api";
-import { PedidoLeaf, ProdutosLeaf } from "../interface/ILeaf";
+import { PedidoLeaf, ProdutosLeaf, ICancelLeaf } from "../interface/ILeaf";
 class LeafService {
   async save(nota: PedidoLeaf) {
     const { data } = await api.post('/nota', nota)
@@ -23,6 +23,12 @@ class LeafService {
   async searchLeaf(text: string, filter: string, page: string, startDate: string, endDate: string) {
     const { data } = await api.get(`/nota/?q=${text}&type=${filter}&page=${page}&startDate=${startDate}&endDate=${endDate}`)
     return data
+  }
+
+  async cancelLeaf(dataCancelamento: ICancelLeaf) {
+    console.log(dataCancelamento)
+    // const { data } = await api.put(`/nota/cancel/nota/${dataCancelamento.id}`, dataCancelamento.justification)
+    // return data
   }
 
   async deleteLeafAndProducts(id: string) {

@@ -60,33 +60,38 @@ export interface PedidoLeaf {
 }
 
 export interface IResponseWebmaniaLeaf {
-  chave: string,
-  danfe: string,
-  danfe_etiqueta: string,
-  danfe_simples: string,
-  log: string,
-  modelo: string,
-  motivo: string,
-  nfe: string,
-  serie: string,
-  status: string,
-  uuid: string,
-  xml: string,
+  chave: string
+  danfe: string
+  danfe_etiqueta: string
+  danfe_simples: string
+  log: string
+  modelo: string
+  motivo: string
+  nfe: string
+  serie: string
+  status: string
+  uuid: string
+  xml: string
 }
 
 export interface ISearch {
-  text: string,
-  filter: string,
-  startDate: string,
-  endDate: string,
+  text: string
+  filter: string
+  startDate: string
+  endDate: string
 }
 
 export interface IResultSearchLeaf {
-  cpfCnpj: string,
-  data: string,
-  id: string,
-  idCliente: string,
-  nomeCliente: string,
-  response: string,
-  status: string,
+  cpfCnpj: string
+  data: string
+  id: string
+  idCliente: string
+  nomeCliente: string
+  response: string
+  status: string
+}
+
+export interface ICancelLeaf {
+  id: string
+  justification: string
 }

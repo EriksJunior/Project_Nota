@@ -5,14 +5,14 @@ import LeafService from "../../services/LeafService";
 import { HandleErrorsLeaf } from "../../utils/handleErrors/handleErrorsLeaf";
 
 import { ICliente } from "../../interface/ICliente";
-import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf } from "../../interface/ILeaf"
+import { ProdutosLeaf, PedidoLeaf, IResponseWebmaniaLeaf, ISearch, IResultSearchLeaf, ICancelLeaf } from "../../interface/ILeaf"
 import { GlobalContext } from "../context/global/global";
 
-import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA, INITIAL_STATE_SEARCH } from "../initialStates/leaf";
+import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA, INITIAL_STATE_SEARCH, INITIAL_VALUE_CANCEL_LEAF } from "../initialStates/leaf";
 
 export function UseLeaf() {
   const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
-  const { handleErrorSendleaf } = HandleErrorsLeaf()
+  const { handleErrorSendleaf, getErrorAndReturnFormattedError } = HandleErrorsLeaf()
 
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
@@ -22,6 +22,7 @@ export function UseLeaf() {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState<ISearch>(INITIAL_STATE_SEARCH)
   const [resultSearchLeaf, setResultSearchLeaf] = useState<IResultSearchLeaf[]>()
+  const [cancel, setCancel] = useState<ICancelLeaf>(INITIAL_VALUE_CANCEL_LEAF)
 
 
   const handleShow = () => {
@@ -40,6 +41,7 @@ export function UseLeaf() {
   useEffect(() => {
     handleTotalValueGeneralLeafInformation()
   }, [returnedProductsLeaf])
+
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setPedido({ ...pedido, [e.currentTarget.name]: e.currentTarget.value })
@@ -101,9 +103,20 @@ export function UseLeaf() {
         position: toast.POSITION.TOP_RIGHT
       });
     } catch (error: any) {
-      toast.error(error?.response?.data?.erros, {
+      const returnedError = await getErrorAndReturnFormattedError(error)
+      toast.error(returnedError, {
         position: toast.POSITION.TOP_RIGHT
       });
+    }
+  }
+
+  const cancelLeaf = async () => {
+    try {
+      setCancel({...cancel, id: pedido.id})
+      const result = await LeafService.cancelLeaf(cancel)
+      console.log(result)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -235,5 +248,5 @@ export function UseLeaf() {
     return handleError
   }
 
-  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation }
+  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation, cancelLeaf }
 }
