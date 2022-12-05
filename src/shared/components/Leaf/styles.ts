@@ -20,7 +20,7 @@ export const ContentButtons = styled.div`
     width: 80vw;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 `
 
 export const BButton = styled(Button)`

@@ -1,32 +1,40 @@
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Card } from "react-bootstrap";
 
-import { DataLeafProducts } from './components/DataLeafProducts';
-import { GeneralLeafInformation } from './components/GeneralLeafInformation';
-import { HeaderLeaf } from './components/HeaderLeaf';
-import { HeaderLeafButtons } from './components/HeaderLeafButtons';
-import { ModalSearch } from './components/Modals/ModalSearch';
+import { DataLeafProducts } from "./components/DataLeafProducts";
+import { GeneralLeafInformation } from "./components/GeneralLeafInformation";
+import { HeaderLeaf } from "./components/HeaderLeaf";
+import { HeaderLeafButtons } from "./components/HeaderLeafButtons";
+import { ModalSearch } from "./components/Modals/ModalSearch";
 
-import { ContentLeaf } from '../Styles/general';
-import { StyledAccordion } from './styles';
+import { ContentLeaf } from "../Styles/general";
+import { StyledAccordion } from "./styles";
 
 export function Leaf() {
   return (
-    <div >
+    <div>
       <ContentLeaf>
-        <HeaderLeafButtons />
-        <HeaderLeaf />
+        <Card>
+          <Card.Header>Nota Fiscal</Card.Header>
+          <Card.Body>
+            <HeaderLeafButtons />
+            <HeaderLeaf />
 
-        <StyledAccordion defaultActiveKey="0" style={{ width: "80vw", height: "auto" }}>
-          <Accordion.Item eventKey="0">
-            <DataLeafProducts />
-          </Accordion.Item>
+            <StyledAccordion
+              defaultActiveKey="0"
+              style={{ width: "80vw", height: "auto" }}
+            >
+              <Accordion.Item eventKey="0">
+                <DataLeafProducts />
+              </Accordion.Item>
 
-          <Accordion.Item eventKey="1">
-            <GeneralLeafInformation />
-          </Accordion.Item>
-        </StyledAccordion>
+              <Accordion.Item eventKey="1">
+                <GeneralLeafInformation />
+              </Accordion.Item>
+            </StyledAccordion>
 
-        <ModalSearch />
+            <ModalSearch />
+          </Card.Body>
+        </Card>
       </ContentLeaf>
     </div>
   );

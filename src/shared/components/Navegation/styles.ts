@@ -1,23 +1,22 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex; 
+  display: flex;
   width: 100%;
-  height: 60px; 
-  background: #1C1C1C; 
+  height: 60px;
+  background: #1c1c1c;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   gap: 20px;
-  
-  @media screen and (max-width: 361px){
+
+  @media screen and (max-width: 361px) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     height: auto;
-
   }
-`
+`;
 
 export const Content = styled.div`
   width: 50%;
@@ -25,38 +24,38 @@ export const Content = styled.div`
   display: flex;
   gap: 30px;
 
-  @media screen and (max-width: 361px){
+  @media screen and (max-width: 361px) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
   }
-`
+`;
 
 export const SettingsContent = styled.div`
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20px;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
 
-  @media screen and (max-width: 361px){
+  @media screen and (max-width: 361px) {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
   }
-`
+`;
 
 export const TextCompany = styled.h1`
-    color: #DCDCDC;
-    align-items: center;
-    text-shadow: -0.1em 0em #8A2BE2;
-    letter-spacing: 8px;
-    display: flex;
-    font-weight: bold;
-    outline: none !important;
-    text-decoration: none;
-    font-size: 30px;
+  color: #fff;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 30px;
 
-  @media screen and (min-width: 320px) and (max-width: 1000px){
-      display: none;
+  &:hover {
+    color: #e1dede;
   }
-`
+  @media screen and (min-width: 320px) and (max-width: 1000px) {
+    display: none;
+  }
+`;

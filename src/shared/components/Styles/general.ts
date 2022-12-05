@@ -9,17 +9,12 @@ export const Text = styled.div`
 `
 
 export const ContentLeaf = styled.div`
-  width: 100%;
   height: auto;
   display: flex;
   align-items: center;
   padding: 10px;
   margin-top: 25px;
   flex-direction: column;
-  border: 20px solid #DCDCDC;
-  border-style: double;
-  border-radius: 50px 50px 10px 10px;
-
   .form-floating>.form-select {
    padding-top: 1.325rem!important;
    padding-bottom: 0.175rem!important;
