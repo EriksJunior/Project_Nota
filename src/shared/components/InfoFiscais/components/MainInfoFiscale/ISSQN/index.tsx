@@ -7,7 +7,7 @@ import { CardIssqn } from './styles';
 
 
 export function IssqnInfo() {
-    const { impostos , handleChange } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler }
+    const { impostos , handleChangeIssqn } = useContext(ImpostosContext) as { impostos: IImpostos , handleChangeIssqn: React.ChangeEventHandler }
     return (
         <CardIssqn>
             <Card className="text-center">
@@ -15,7 +15,7 @@ export function IssqnInfo() {
                     <Form>
                         <Form.Group as={Col}>
                             <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Tipo de Pessoa">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="tipo_pessoa" defaultValue={impostos.issqn[0].tipo_pessoa || ""}>
+                                <Form.Select onChange={handleChangeIssqn} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="tipo_pessoa" defaultValue={impostos.issqn.tipo_pessoa || ""}>
 
                                     <option value="0">0 - pessoa Física</option>
                                     <option value="1">1 - Pessoa Juridíca</option>
@@ -26,7 +26,7 @@ export function IssqnInfo() {
 
                         <Form.Group as={Col}>
                             <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Cenário">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="cenario" defaultValue={impostos.issqn[0].cenario || ""}>
+                                <Form.Select onChange={handleChangeIssqn} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="cenario" defaultValue={impostos.issqn.cenario || ""}>
 
                                     <option value="00">0 -Padrão (Abrange todos os cenários)</option>
                                     <option value="0">0 - Saída dentro do estado</option>
@@ -40,12 +40,12 @@ export function IssqnInfo() {
                         </Form.Group>
 
                         <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Código CFOP">
-                            <Form.Control onChange={handleChange} style={{ height: "45px" }} type="text" defaultValue={impostos.issqn[0].codigo_cfop || ""} name="codigo_cfop"/>
+                            <Form.Control onChange={handleChangeIssqn} style={{ height: "45px" }} type="text" defaultValue={impostos.issqn.codigo_cfop || ""} name="codigo_cfop"/>
                         </FloatingLabel>
 
                         <Form.Group as={Col} >
                             <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Indicador da exigibilidade do ISS">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="ISS" defaultValue={impostos.issqn[0].incentivo_fiscal || ""}>
+                                <Form.Select onChange={handleChangeIssqn} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="ISS" defaultValue={impostos.issqn.incentivo_fiscal || ""}>
                                     <option value="exigivel">Exigível</option>
                                     <option value="nao_incidencia">Não incidência</option>
                                     <option value="isencao">Isenção</option>
@@ -57,12 +57,12 @@ export function IssqnInfo() {
                         </Form.Group>
 
                         <FloatingLabel className="mb-3" style={{ fontSize: "14px" }} label="Item da lista de serviços">
-                            <Form.Control onChange={handleChange} style={{ height: "45px" }} type="text" defaultValue={impostos.issqn[0].item_servico || ""} name="item_servico" />
+                            <Form.Control onChange={handleChangeIssqn} style={{ height: "45px" }} type="text" defaultValue={impostos.issqn.item_servico || ""} name="item_servico" />
                         </FloatingLabel>
 
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ fontSize: "14px" }} className="mb-3" label="Indicador de incentivo Fiscal">
-                                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="incentivo_fiscal" defaultValue={impostos.issqn[0].incentivo_fiscal || ""}>
+                                <Form.Select onChange={handleChangeIssqn} style={{ color: "Grey", fontWeight: "bolder", height: "45px" }} name="incentivo_fiscal" defaultValue={impostos.issqn.incentivo_fiscal || ""}>
                                     <option value="Nao">Não</option>
                                     <option value="Sim">Sim</option>
                                 </Form.Select>
@@ -72,7 +72,7 @@ export function IssqnInfo() {
                         <InputGroup>
                             <InputGroup.Text> % </InputGroup.Text>
                             <FloatingLabel style={{ fontSize: "14px" }} label="Aliquota do ISSQN">
-                                <Form.Control onChange={handleChange} style={{ height: "45px" }} type="text" defaultValue={impostos.issqn[0].aliquota || ""} name="aliquota"/>
+                                <Form.Control onChange={handleChangeIssqn} style={{ height: "45px" }} type="text" defaultValue={impostos.issqn.aliquota || ""} name="aliquota"/>
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

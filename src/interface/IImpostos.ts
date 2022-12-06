@@ -1,15 +1,15 @@
 export interface IImpostos {
   id: string
-  icms: Array<Iicms>,
-  ipi: Array<IIpi>,
-  pis: Array<IPis>,
-  cofins: Array<ICofins>,
-  issqn: Array<IIssqn>,
+  icms: Iicms,
+  ipi: IIpi,
+  pis: IPis,
+  cofins: ICofins,
+  issqn: IIssqn,
   informacoes_fisco?: string,
   informacoes_complementares?: string,
 }
 
-interface Iicms {
+export interface Iicms {
   cenario: string ,
   tipo_pessoa: string,
   codigo_cfop: string,
@@ -17,14 +17,14 @@ interface Iicms {
 }
 
 
-interface IPis {
+export interface IPis {
   cenario: string,
   tipo_pessoa: string,
   situacao_tributaria: string,
   aliquota: string,
 }
 
-interface IIpi {
+export interface IIpi {
   cenario: string,
   tipo_pessoa: string,
   situacao_tributaria: string,
@@ -32,14 +32,14 @@ interface IIpi {
   aliquota: string,
 }
 
-interface ICofins {
+export interface ICofins {
   cenario: string,
   tipo_pessoa: string,
   codigo_cfop: string,
   aliquota: string,
 }
 
-interface IIssqn {
+export interface IIssqn {
   cenario: string,
   tipo_pessoa: string,
   codigo_cfop: string,

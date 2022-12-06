@@ -6,7 +6,7 @@ import { ImpostosContext } from '../../../../../context/impostos/impostos';
 
 
 export function PisInfo() {
-  const { impostos, handleChange } = useContext(ImpostosContext) as { impostos: IImpostos, handleChange: React.ChangeEventHandler }
+  const { impostos, handleChangePis } = useContext(ImpostosContext) as { impostos: IImpostos, handleChangePis: React.ChangeEventHandler }
 
   return (
     <>
@@ -15,7 +15,7 @@ export function PisInfo() {
           <Form>
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Tipo de Pessoa">
-                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos.pis[0].tipo_pessoa || "" } >
+                <Form.Select onChange={handleChangePis} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos.pis.tipo_pessoa || "" } >
 
                   <option value="0">0 - pessoa Física</option>
                   <option value="1">1 - Pessoa Juridíca</option>
@@ -26,7 +26,7 @@ export function PisInfo() {
 
             <Form.Group as={Col} >
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Cenário">
-                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos.pis[0].cenario || "" }>
+                <Form.Select onChange={handleChangePis} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos.pis.cenario || "" }>
 
                   <option value="00">0 -Padrão (Abrange todos os cenários)</option>
                   <option value="0">0 - Saída dentro do estado</option>
@@ -41,7 +41,7 @@ export function PisInfo() {
 
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Situação Tributária">
-                <Form.Select onChange={handleChange} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos.pis[0].situacao_tributaria|| "" }>
+                <Form.Select onChange={handleChangePis} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos.pis.situacao_tributaria|| "" }>
                   <option value="01">01 - Operação Tributável - Base de Cálculo = Valor da Operação Alíquota Normal (Cumulativo/Não cumulativo)</option>
                   <option value="02">02 - Operação Tributável - Base de Cálculo = Valor da Operação (Alíquota diferenciada)</option>
                   <option value="03">03 - Operação Tributável - Base de Cálculo = Quantidade Vendida X Alíquota por Unidade de Produto</option>
@@ -82,7 +82,7 @@ export function PisInfo() {
             <InputGroup className="mb-3">
               <InputGroup.Text> % </InputGroup.Text>
               <FloatingLabel style={{ fontSize: "14px" }} label="Aliquota">
-                <Form.Control onChange={handleChange} style={{ height: "48px" }} type="text" defaultValue={impostos.pis[0].aliquota || ""} name="aliquota" />
+                <Form.Control onChange={handleChangePis} style={{ height: "48px" }} type="text" defaultValue={impostos.pis.aliquota || ""} name="aliquota" />
               </FloatingLabel>
             </InputGroup>
           </Form>

@@ -1,37 +1,43 @@
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import ImpostosService from '../../services/ImpostosService';
-import { IImpostos } from "../../interface/IImpostos";
+import { Iicms, IPis , IIpi , ICofins , IIssqn , IImpostos } from "../../interface/IImpostos";
 import { INITIAL_STATE_IMPOSTOS } from "../initialStates/impostos";
 import { toast } from "react-toastify";
 
 export function UseImpostos() {
   const [impostos, setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
-  const [ icms , setIcms] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
-  const [ ipi , setIpi] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
-  const [ pis , setPis] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
-  const [ cofins , setCofins] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
-  const [ issqn , setIssqn] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
+  const [ icms , setIcms] = useState<Iicms>(INITIAL_STATE_IMPOSTOS.icms);
+  const [ ipi , setIpi] = useState<IIpi>(INITIAL_STATE_IMPOSTOS.ipi);
+  const [ pis , setPis] = useState<IPis>(INITIAL_STATE_IMPOSTOS.pis);
+  const [ cofins , setCofins] = useState<ICofins>(INITIAL_STATE_IMPOSTOS.cofins);
+  const [ issqn , setIssqn] = useState<IIssqn>(INITIAL_STATE_IMPOSTOS.issqn);
 
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     // console.log(impostos)
     setImpostos({ ...impostos, [e.target.name]: e.target.value })
-
   }, [impostos]);
 
   const handleChangeIcms = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setIcms({ ...icms , [e.target.name]: e.target.value})
-    console.log(icms)
-
-  }, [impostos]);
+  }, [icms]);
 
   const handleChangeIpi = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
     setIpi({ ...ipi, [e.target.name]: e.target.value })
-    console.log(ipi)
-
   }, [ipi]);
 
+  const handleChangePis = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setPis({ ...pis , [e.target.name]: e.target.value })
+  }, [pis]);
+
+  const handleChangeCofins = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setCofins({ ...cofins , [e.target.name]: e.target.value })
+  }, [cofins]);
+
+  const handleChangeIssqn = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setIssqn({ ...issqn , [e.target.name]: e.target.value })
+  }, [issqn]);
 
   const saveImpostos = async () => {
     try {
@@ -40,7 +46,7 @@ export function UseImpostos() {
       toast("Salvo com sucesso!",
       { position: toast.POSITION.TOP_RIGHT }
       );
-      console.log(result)
+      console.log(impostos)
     } catch (error: any) {
       toast.error(error , 
         { position: toast.POSITION.TOP_RIGHT }
@@ -56,5 +62,5 @@ export function UseImpostos() {
     setImpostos(INITIAL_STATE_IMPOSTOS)
   }
 
-  return { impostos, setImpostos, handleChange, handleChangeIcms , handleChangeIpi , handleSaveOrUpdate , clearInputs }
+  return { impostos, setImpostos, handleChange, handleChangeIcms , handleChangePis , handleChangeIpi , handleChangeCofins , handleChangeIssqn , handleSaveOrUpdate , clearInputs }
 }
