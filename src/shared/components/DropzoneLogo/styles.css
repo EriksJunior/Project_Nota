@@ -1,6 +1,6 @@
 .dropzone{
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
     background:#DCDCDC;
     border-radius: 100px;
     border: 1px solid black;
@@ -12,7 +12,7 @@
 }
 
 .dropzone:hover{
-    background: #8A2BE2;
+    background: #624f74;
     color: whitesmoke;
 }
 

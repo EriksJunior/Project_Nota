@@ -29,7 +29,7 @@ export function InfoCompany() {
 
     <div style={{ justifyContent: "center", display: "flex" }}>
       <CardCompany style={{ background: "#D3D3D3", color: "black" }} className="text-center">
-        <Card.Header style={{ fontSize: "30px", fontWeight: "bold" , background:"#8A2BE2" }} >Cadastro da Empresa</Card.Header>
+        <Card.Header style={{ fontSize: "24px", fontWeight: "bold" , background:"#696969" }} >Cadastro da Empresa</Card.Header>
         <Card.Body>
           <Card.Title style={{ justifyContent: "center", display: "flex" }} >
             <LogoEmpresa>

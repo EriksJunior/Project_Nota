@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Table, FormSelect } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 
 export const StyleTable = styled(Table)`
-  background: black;
+  background: #696969;
   // border: 1px solid #8A2BE2;
   color: white;
 

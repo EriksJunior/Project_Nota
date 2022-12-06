@@ -35,8 +35,7 @@ export const ButtonContent = styled.div`
 export const ButtonReturn = styled.div`
 background: #D3D3D3;
 border-radius: 10px;
-border-left: 2px solid #8A2BE2;
-border-right: 2px solid #8A2BE2;
+border: 1px solid #8A2BE2;
 :hover{
   background: #8A2BE2;
   color: white;
@@ -46,8 +45,7 @@ border-right: 2px solid #8A2BE2;
 export const ButtonAtt = styled.div`
   background: #D3D3D3;
   border-radius: 10px;
-  border-left: 2px solid #8A2BE2;
-  border-right: 2px solid #8A2BE2;
+  border: 1px solid #8A2BE2;
   :hover{
     background: #8A2BE2;
     color: white;

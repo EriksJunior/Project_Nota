@@ -23,7 +23,7 @@ export function InfoFiscaisGlobal() {
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
-            <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#1b022e" , color:"whitesmoke" }} >Dados Fiscais</Card.Header>
+            <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#696969" , color:"whitesmoke" }} >Dados Fiscais</Card.Header>
             <Card.Body style={{ maxHeight:"75vh", width:"100%"}}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>
@@ -82,10 +82,10 @@ export function InfoFiscaisGlobal() {
             </Card.Body>
             <Card.Footer className="text-muted">
                     <ButtonContent>
-                        <Button onClick={clearInputs} variant="" style={{ background:"#C0C0C0" , color: "black" }}>
+                        <Button onClick={clearInputs} variant="" style={{ background:"#C0C0C0" , border:"1px solid #8A2BE2" , color: "black" }}>
                             <IoRefresh />Limpar Campos
                         </Button>
-                        <Button onClick={handleSaveOrUpdate} variant="" style={{ borderRight: "3px solid #8A2BE2" , borderLeft: "3px solid #8A2BE2" , background:"#C0C0C0" , color: "black" }}>
+                        <Button onClick={handleSaveOrUpdate} variant="" style={{ background:"#C0C0C0" , border:"1px solid #8A2BE2" , color: "black" }}>
                             <IoCheckboxOutline /> Salvar alterações
                         </Button>
                     </ButtonContent>
