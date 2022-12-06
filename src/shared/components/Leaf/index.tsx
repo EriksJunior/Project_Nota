@@ -14,7 +14,6 @@ export function Leaf() {
     <div>
       <ContentLeaf>
         <Card>
-          <Card.Header>Nota Fiscal</Card.Header>
           <Card.Body>
             <HeaderLeafButtons />
             <HeaderLeaf />

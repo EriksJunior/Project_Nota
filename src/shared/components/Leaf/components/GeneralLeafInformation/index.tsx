@@ -4,7 +4,7 @@ import { LeafContext } from '../../../../context/leaf/leaf';
 import { PedidoLeaf } from '../../../../../interface/ILeaf';
 
 import { Form, Col, Row, Button, Accordion, FloatingLabel, Dropdown } from 'react-bootstrap';
-import { IoCheckboxOutline, IoRefresh, IoReorderThreeSharp } from "react-icons/io5";
+import { IoCheckboxOutline, IoRefresh} from "react-icons/io5";
 
 import { ButtonLeaf } from '../../../Styles/general';
 import { StyledAccordion } from '../../styles'
@@ -104,16 +104,16 @@ export function GeneralLeafInformation() {
             </Row>
 
             <ButtonLeaf>
-              <Button variant="" style={{ background: "Lavender", width: "150px", color: "black" }}>
+              <Button variant="" style={{ background: "Lavender", width: "150px", color: "black", border: "1px solid #A9A9A9" }}>
                 <IoRefresh />  Limpar Dados
               </Button>
 
-              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "#666", width: "150px", color: "whitesmoke", borderRight: "2px solid Limegreen", borderLeft: "2px solid Limegreen" }}>
+              <Button onClick={sendLeaf} disabled={pedido.id !== "" ? false : true} variant="" style={{ background: "#666", width: "150px", color: "whitesmoke", border: "1px solid Limegreen" }}>
                 <IoCheckboxOutline />  Emitir Nota
               </Button>
 
               <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic" style={{backgroundColor: '#666666', color: 'white', fontWeight: 'bold'}}>
+                <Dropdown.Toggle variant="" id="dropdown-basic" style={{backgroundColor: '#666666', color: 'white', fontWeight: 'bold' , border: "1px solid blue"}}>
                   Ações
                 </Dropdown.Toggle>
 

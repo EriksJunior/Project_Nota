@@ -7,6 +7,10 @@ export const OffcanvasBt = styled(Offcanvas)`
 
 export const OffcanvasHeaderBt = styled(OffcanvasHeader)`
   background-color: #1C1C1C!important;
+  .btn-close{
+    background-color: BlueViolet;
+    border-radius: 20px;
+  }
 `
 
 export const OffcanvasTitleBt = styled(OffcanvasTitle)`

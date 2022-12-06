@@ -8,11 +8,13 @@ export const StyledAccordion = styled(Accordion)`
 }
 
 .accordion-button:not(.collapsed){
-    background-color: #1b022e;
-    color: var(--bs-accordion-bg);  
+    background-color: #C0C0C0;
+    color: black;
+    font-weight: bold;  
 }
-
+// #1b022e
 .accordion-button::after {
+    color: var(--bs-accordion-bg);
 }
 `
 
@@ -24,11 +26,10 @@ export const ContentButtons = styled.div`
 `
 
 export const BButton = styled(Button)`
-    background: #C0C0C0;
-    color: black;
+    background: whitesmoke;
+    color: BlueViolet;
     font-weight: bold;
-    border-right: 2px solid #8A2BE2;
-    border-left: 2px solid #8A2BE2;
+    border: 1px solid #8A2BE2;
 
 
     &:hover {
