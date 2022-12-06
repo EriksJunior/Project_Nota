@@ -10,22 +10,24 @@ export function UseImpostos() {
   const [ icms , setIcms] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
   const [ ipi , setIpi] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
   const [ pis , setPis] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
-  const [ issqn , setIssqn] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
   const [ cofins , setCofins] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
+  const [ issqn , setIssqn] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
 
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    console.log(impostos)
+    // console.log(impostos)
     setImpostos({ ...impostos, [e.target.name]: e.target.value })
 
   }, [impostos]);
 
   const handleChangeIcms = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    setIcms({ ...icms, [e.target.name]: e.target.value })
+    setIcms({ ...icms , [e.target.name]: e.target.value})
+    console.log(icms)
 
   }, [impostos]);
 
   const handleChangeIpi = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    console.log(ipi)
     setIpi({ ...impostos, [e.target.name]: e.target.value })
 
   }, [impostos]);
@@ -34,7 +36,7 @@ export function UseImpostos() {
   const saveImpostos = async () => {
     try {
       const result = await ImpostosService.save(impostos as IImpostos)
-      setImpostos({ ...impostos, id: result.id })
+      setImpostos({ ...impostos , ...icms, id: result.id })
       toast("Salvo com sucesso!",
       { position: toast.POSITION.TOP_RIGHT }
       );

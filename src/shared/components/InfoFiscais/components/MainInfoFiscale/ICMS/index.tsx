@@ -6,7 +6,7 @@ import { FloatingLabel, Col, InputGroup, Card, Form } from 'react-bootstrap';
 
 
 export function IcmsInfo() {
-    const { impostos, handleChange, handleChangeIcms } = useContext(ImpostosContext) as { impostos: IImpostos, handleChange: React.ChangeEventHandler, handleChangeIcms: React.ChangeEventHandler }
+    const { impostos, handleChangeIcms } = useContext(ImpostosContext) as { impostos: IImpostos, handleChangeIcms: React.ChangeEventHandler }
     return (
         <>
             <Card className="text-center">
@@ -15,7 +15,7 @@ export function IcmsInfo() {
                         <Form.Control onChange={handleChangeIcms} hidden style={{ height: "48px" }} type="text" defaultValue={impostos?.id || " "} name="id" />
                         <Form.Group as={Col}>
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Tipo de Tributação">
-                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos.icms[0].situacao_tributaria || " "}>
+                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos.icms[0].situacao_tributaria || ""}>
                                     <option value="0">0 - Simples Nacional</option>
                                     <option value="1">1 - Tributação Normal</option>
                                     <option value="2">2 - Outros</option>
@@ -25,7 +25,7 @@ export function IcmsInfo() {
 
                         <Form.Group as={Col} >
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Cenário">
-                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario_icms" defaultValue={ impostos.icms[0].cenario || " " }>
+                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={ impostos.icms[0].cenario || "" }>
                                     <option value="0">0 - Saída dentro do estado</option>
                                     <option value="1">1 - Saída para fora do estado</option>
                                     <option value="2">2 - Saída para o exterior</option>
@@ -38,7 +38,7 @@ export function IcmsInfo() {
 
                         <Form.Group as={Col} >
                             <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Tipo de Pessoa">
-                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa_icms" defaultValue={impostos.icms[0].tipo_pessoa || " " }>
+                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos.icms[0].tipo_pessoa || "" }>
                                     <option value="0">0 - pessoa Física</option>
                                     <option value="1">1 - Pessoa Juridíca</option>
                                     <option value="2">2 - Estrangeiro</option>
@@ -47,13 +47,13 @@ export function IcmsInfo() {
                         </Form.Group>
 
                         <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Código CFOP">
-                            <Form.Control onChange={handleChangeIcms} style={{ height: "48px" }} type="text" defaultValue={impostos.icms[0].codigo_cfop || " "} name="cfop_icms" />
+                            <Form.Control onChange={handleChangeIcms} style={{ height: "48px" }} type="text" defaultValue={impostos.icms[0].codigo_cfop || ""} name="codigo_cfop" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> Situação Tributária </InputGroup.Text>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} label="Definição Imposto">
-                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria_icms" defaultValue={impostos?.icms[0].situacao_tributaria || " " }>
+                                <Form.Select onChange={handleChangeIcms} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos?.icms[0].situacao_tributaria || "" }>
                                     <option value="101">101 - Tributada com permissão de crédito</option>
                                     <option value="102">102 - Tributada sem permissão de crédito</option>
                                     <option value="103">103 - Isenção do ICMS para faixa de receita bruta</option>
