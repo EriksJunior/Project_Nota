@@ -6,7 +6,7 @@ import { ImpostosContext } from '../../../../../context/impostos/impostos';
 
 
 export function IpiInfo() {
-    const { impostos , handleChange , handleChangeIpi } = useContext(ImpostosContext) as { impostos: IImpostos , handleChange: React.ChangeEventHandler , handleChangeIpi: React.ChangeEventHandler }
+    const { impostos , handleChangeIpi } = useContext(ImpostosContext) as { impostos: IImpostos , handleChangeIpi: React.ChangeEventHandler }
 
     return (
         <>

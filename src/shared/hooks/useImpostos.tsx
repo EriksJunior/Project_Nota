@@ -27,10 +27,10 @@ export function UseImpostos() {
   }, [impostos]);
 
   const handleChangeIpi = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
+    setIpi({ ...ipi, [e.target.name]: e.target.value })
     console.log(ipi)
-    setIpi({ ...impostos, [e.target.name]: e.target.value })
 
-  }, [impostos]);
+  }, [ipi]);
 
 
   const saveImpostos = async () => {
