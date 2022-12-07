@@ -3,12 +3,14 @@ import { Table } from "react-bootstrap";
 
 
 export const StyleTable = styled(Table)`
-  background: #696969;
+  background: #FFF0F5	;
   // border: 1px solid #8A2BE2;
-  color: white;
-
+  color: black;
+  font-weight: bold;
+  	
   tr:hover{
-    background: #1C1C1C;
+    background: #C0C0C0;
+    color: black;
   }
   `
 

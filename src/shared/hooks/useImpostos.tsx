@@ -42,10 +42,11 @@ export function UseImpostos() {
   const saveImpostos = async () => {
     try {
       const newImposto = handleImpostos()
-      await ImpostosService.save(newImposto)
-      // toast("Salvo com sucesso!",
-      // { position: toast.POSITION.TOP_RIGHT }
-      // );
+      const result = await ImpostosService.save(newImposto)
+      console.log(result)
+      toast("Salvo com sucesso!",
+      { position: toast.POSITION.TOP_RIGHT }
+      );
     } catch (error: any) {
       toast.error(error,
         { position: toast.POSITION.TOP_RIGHT }
