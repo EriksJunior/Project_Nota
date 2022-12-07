@@ -12,7 +12,6 @@ export const ContentLeaf = styled.div`
   height: auto;
   display: flex;
   align-items: center;
-  padding: 10px;
   margin-top: 25px;
   flex-direction: column;
   .form-floating>.form-select {

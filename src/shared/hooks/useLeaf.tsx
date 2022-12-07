@@ -11,8 +11,8 @@ import { GlobalContext } from "../context/global/global";
 import { INITIAL_VALUE_PEDIDO, INITIAL_VALUE_PRODUTOS, INITIAL_VALUE_RESPONSE_WEBMANIA, INITIAL_STATE_SEARCH, INITIAL_VALUE_CANCEL_LEAF } from "../initialStates/leaf";
 
 export function UseLeaf() {
-  const { clientSelectBox } = useContext(GlobalContext) as { clientSelectBox: ICliente[] }
-  const { handleErrorSendleaf, getErrorAndReturnFormattedError } = HandleErrorsLeaf()
+  const { clientSelectBox, loading, setLoading } = useContext(GlobalContext) as { clientSelectBox: ICliente[], loading: any, setLoading: (value: any) => void }
+  const { handleErrorSendleaf, getErrorAndReturnFormattedError, } = HandleErrorsLeaf()
 
   const [pedido, setPedido] = useState<PedidoLeaf>(INITIAL_VALUE_PEDIDO)
   const [produtoLeaf, setProdutoLeaf] = useState<ProdutosLeaf>(INITIAL_VALUE_PRODUTOS)
@@ -59,6 +59,7 @@ export function UseLeaf() {
   const saveLeaf = async () => {
     try {
       const totalsValues = formatTotalValuesPedido()
+
       const { id } = await LeafService.save({ ...pedido, ...totalsValues })
       setPedido({ ...pedido, id: id })
 
@@ -97,7 +98,7 @@ export function UseLeaf() {
           position: toast.POSITION.TOP_RIGHT
         });
       }
-
+      setLoading(true)
       await LeafService.sendLeaf(pedido.id)
       await findLeafById(pedido.id)
       toast("Nota emitida com sucesso! ✅", {
@@ -113,6 +114,7 @@ export function UseLeaf() {
 
   const cancelLeaf = async () => {
     try {
+      setLoading(true)
       await LeafService.cancelLeaf({ ...cancel, chave: pedido.response.chave }, pedido.id)
       toast("Nota cancelada com sucesso! ✅", {
         position: toast.POSITION.TOP_RIGHT
@@ -123,6 +125,8 @@ export function UseLeaf() {
       toast.error(error?.response?.data?.erros, {
         position: toast.POSITION.TOP_RIGHT
       });
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -254,5 +258,5 @@ export function UseLeaf() {
     return handleError
   }
 
-  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation, cancelLeaf, handleCloseModalCancelLeaf, handleShowModalCancelLeaf, showModalCancelLeaf, handleChangeCancelLeaf }
+  return { pedido, setPedido, produtoLeaf, setProdutoLeaf, handleChange, handleChangeProductLeaf, responseWebmania, returnedProductsLeaf, handleSaveOrUpdate, addProduct, deleteProduct, cpfCnpjCliente, handleTotalValueProducts, sendLeaf, handleShow, handleClose, show, search, searchLeaf, handleChangeSeachLeaf, resultSearchLeaf, findLeafById, deleteLeafAndProducts, handleTotalValueGeneralLeafInformation, cancelLeaf, handleCloseModalCancelLeaf, handleShowModalCancelLeaf, showModalCancelLeaf, handleChangeCancelLeaf, loading }
 }
