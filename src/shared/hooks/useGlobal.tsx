@@ -13,6 +13,7 @@ export function useGlobal(){
   const [clientSelectBox, setClientSelectBox] = useState<ICliente[]>([])
   const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
   const [produtoSelectBox, setProdutoSelectBox] = useState<IProducts[]>([])
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() =>{
@@ -46,5 +47,5 @@ export function useGlobal(){
     }
   }
 
-  return{client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox}
+  return{client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox, loading, setLoading}
 }
