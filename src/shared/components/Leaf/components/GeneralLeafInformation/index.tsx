@@ -118,9 +118,9 @@ export function GeneralLeafInformation() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item style={{ fontWeight: 'bold', color: '#9623e0' }} onClick={handleShowModalCancelLeaf}>Cancelar</Dropdown.Item>
-                  <Dropdown.Item style={{ fontWeight: 'bold', color: '#9623e0' }} >Inutilizar</Dropdown.Item>
-                  <Dropdown.Item style={{ fontWeight: 'bold', color: '#9623e0' }} >Carta de correção</Dropdown.Item>
+                  <Dropdown.Item  disabled={pedido.status === "Emitida" ? false : true} onClick={handleShowModalCancelLeaf}>Cancelar</Dropdown.Item>
+                  <Dropdown.Item>Inutilizar</Dropdown.Item>
+                  <Dropdown.Item>Carta de correção</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </ButtonLeaf>
