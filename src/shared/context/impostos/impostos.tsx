@@ -8,10 +8,10 @@ interface AuxProps {
 const ImpostosContext = createContext({})
 
 function ImpostosProvider({ children }: AuxProps) {
-  const { impostos , setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange , handleChangeIcms , handleChangeIpi , handleChangePis , handleChangeCofins , handleChangeIssqn , handleSaveOrUpdate , clearInputs } = UseImpostos()
+  const { impostos , setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange , handleChangeIcms , handleChangeIpi , handleChangePis , handleChangeCofins , handleChangeIssqn , handleSaveOrUpdate , findAll , clearInputs } = UseImpostos()
 
   return (
-    <ImpostosContext.Provider value={{ impostos , setImpostos , icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange , handleChangeIcms , handleChangeIpi , handleChangePis , handleChangeCofins , handleChangeIssqn , handleSaveOrUpdate , clearInputs }}>
+    <ImpostosContext.Provider value={{ impostos , setImpostos , icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange , handleChangeIcms , handleChangeIpi , handleChangePis , handleChangeCofins , handleChangeIssqn , handleSaveOrUpdate , findAll , clearInputs }}>
       {children}
     </ImpostosContext.Provider>
   )

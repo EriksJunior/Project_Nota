@@ -67,6 +67,15 @@ export function UseImpostos() {
     }
   }
 
+  const findAll = async (id: string | undefined) => {
+    try {
+      const result = await ImpostosService.findAll(id)
+      setImpostos(result)
+    } catch (error: any) {
+      return (error)
+    }
+  }
+
   const handleSaveOrUpdate = async () => {
     impostos?.id === "" ? saveImpostos() : "teste"
   }
@@ -75,5 +84,5 @@ export function UseImpostos() {
     setImpostos(INITIAL_STATE_IMPOSTOS)
   }
 
-  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, clearInputs }
+  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , clearInputs }
 }
