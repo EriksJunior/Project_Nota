@@ -14,7 +14,7 @@ export const INITIAL_VALUE_PRODUTOS = {
   desconto: "0",
   subtotal: "0",
   total: "",
-  classe_imposto: "REF63323601",
+  classe_imposto: "REF63605935",
   informacoes_adicionais: "",
 }
 
@@ -57,7 +57,7 @@ export const INITIAL_VALUE_PEDIDO = {
   despesas_acessorias: "0",
   informacoes_fisco: "",
   informacoes_complementares: "",
-  status: "",
+  status: "Não Enviada",
 }
 
 export const INITIAL_VALUE_RESPONSE_WEBMANIA = {
@@ -83,6 +83,6 @@ export const INITIAL_STATE_SEARCH = {
 }
 
 export const INITIAL_VALUE_CANCEL_LEAF = {
-  id: "",
-  justification: "cancelamento somente para fins de teste",
+  chave: "",
+  motivo: "",
 }

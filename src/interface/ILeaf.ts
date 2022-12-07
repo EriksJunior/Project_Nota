@@ -92,6 +92,6 @@ export interface IResultSearchLeaf {
 }
 
 export interface ICancelLeaf {
-  id: string
-  justification: string
+  chave: string
+  motivo: string
 }
