@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { LeafContext } from '../../../../context/leaf/leaf';
-
+import { ModalCancelLeaf } from '../Modals/ModalCancelLeaf';
 import { PedidoLeaf } from '../../../../../interface/ILeaf';
 
 import { Form, Col, Row, Button, Accordion, FloatingLabel, Dropdown } from 'react-bootstrap';
-import { IoCheckboxOutline, IoRefresh} from "react-icons/io5";
+import { IoCheckboxOutline, IoRefresh } from "react-icons/io5";
 
 import { ButtonLeaf } from '../../../Styles/general';
 import { StyledAccordion } from '../../styles'
@@ -13,7 +13,7 @@ import { Masks } from '../../../../../utils/masks/Masks';
 
 
 export function GeneralLeafInformation() {
-  const { handleChange, pedido, sendLeaf, handleTotalValueGeneralLeafInformation, cancelLeaf } = useContext(LeafContext) as { handleChange: React.ChangeEventHandler, pedido: PedidoLeaf, sendLeaf: () => void, handleTotalValueGeneralLeafInformation: () => void, cancelLeaf: () => void }
+  const { handleChange, pedido, sendLeaf, handleTotalValueGeneralLeafInformation, handleShowModalCancelLeaf } = useContext(LeafContext) as { handleChange: React.ChangeEventHandler, pedido: PedidoLeaf, sendLeaf: () => void, handleTotalValueGeneralLeafInformation: () => void, handleShowModalCancelLeaf: () => void }
 
   const { maskCurrency } = Masks()
 
@@ -113,20 +113,22 @@ export function GeneralLeafInformation() {
               </Button>
 
               <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-basic" style={{backgroundColor: '#666666', color: 'white', fontWeight: 'bold' , border: "1px solid blue"}}>
+                <Dropdown.Toggle variant="" id="dropdown-basic" style={{ backgroundColor: '#666666', color: 'white', fontWeight: 'bold', border: "1px solid blue" }}>
                   Ações
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item style={{fontWeight: 'bold', color: '#9623e0'}} onClick={cancelLeaf}>Cancelar</Dropdown.Item>
-                  <Dropdown.Item style={{fontWeight: 'bold', color: '#9623e0'}} >Inutilizar</Dropdown.Item>
-                  <Dropdown.Item style={{fontWeight: 'bold', color: '#9623e0'}} >Carta de correção</Dropdown.Item>
+                  <Dropdown.Item style={{ fontWeight: 'bold', color: '#9623e0' }} onClick={handleShowModalCancelLeaf}>Cancelar</Dropdown.Item>
+                  <Dropdown.Item style={{ fontWeight: 'bold', color: '#9623e0' }} >Inutilizar</Dropdown.Item>
+                  <Dropdown.Item style={{ fontWeight: 'bold', color: '#9623e0' }} >Carta de correção</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </ButtonLeaf>
           </Form>
         </Accordion.Body>
       </StyledAccordion>
+
+      <ModalCancelLeaf />
     </div>
   )
 }
