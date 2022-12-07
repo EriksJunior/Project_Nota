@@ -4,6 +4,11 @@ import { FormControl, Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody,
 export const OffcanvasBt = styled(Offcanvas)`
   width: 50%!important;
 
+  .btn-close{
+    background-color: #D3D3D3;
+    border-radius: 20px;
+  }
+
   @media screen and (max-width: 1000px){
     width: 60%!important;
   }

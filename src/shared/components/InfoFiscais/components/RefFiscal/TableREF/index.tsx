@@ -8,6 +8,8 @@ import { TableImposto } from "./styles";
 
 export function RefTable(){
   return(
-    <></>
+    <>
+    <h6>refs</h6>
+    </>
   )
 }

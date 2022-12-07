@@ -4,7 +4,7 @@ import { Table } from "react-bootstrap";
 
 export const StyleTable = styled(Table)`
   background: black;
-  border-radius: 10px;
+  border-radius: 2px;
   color: white;
 
   tr:hover{
