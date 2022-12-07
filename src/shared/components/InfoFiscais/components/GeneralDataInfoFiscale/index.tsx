@@ -10,7 +10,7 @@ export function GeneralDataInfoFiscale() {
   return (
     <div style={{ width:"100%" }}>
       <FloatingLabel className="mb-4" style={{ color: "black", fontSize: "14px" }} label="Informações Gerais" >
-        <Form.Control onChange={handleChange} as="textarea" style={{ height: "300px" }} defaultValue={impostos?.informacoes_complementares || " " } name="info_gerais" />
+        <Form.Control onChange={handleChange} as="textarea" style={{ height: "300px" }} defaultValue={impostos.descricao || " " } name="descricao" />
       </FloatingLabel>
     </div>
   );

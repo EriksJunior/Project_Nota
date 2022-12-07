@@ -1,12 +1,12 @@
 import { FloatingLabel, Col, InputGroup, Card, Form } from 'react-bootstrap';
 
 import { useContext } from 'react';
-import { IImpostos } from '../../../../../../interface/IImpostos';
+import { IImpostos, IIpi } from '../../../../../../interface/IImpostos';
 import { ImpostosContext } from '../../../../../context/impostos/impostos';
 
 
 export function IpiInfo() {
-    const { impostos , handleChangeIpi } = useContext(ImpostosContext) as { impostos: IImpostos , handleChangeIpi: React.ChangeEventHandler }
+    const { ipi, handleChangeIpi } = useContext(ImpostosContext) as { ipi: IIpi, handleChangeIpi: React.ChangeEventHandler }
 
     return (
         <>
@@ -15,33 +15,31 @@ export function IpiInfo() {
                     <Form>
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Tipo de Pessoa">
-                                <Form.Select onChange={handleChangeIpi} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos.ipi.tipo_pessoa || ""}>
-
-                                    <option value="0">0 - pessoa Física</option>
-                                    <option value="1">1 - Pessoa Juridíca</option>
-                                    <option value="2">2 - Estrangeiro</option>
+                                <Form.Select onChange={handleChangeIpi} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={ipi.tipo_pessoa || ""}>
+                                    <option value="fisica">0 - pessoa Física</option>
+                                    <option value="juridica">1 - Pessoa Juridíca</option>
+                                    <option value="estrangeira">2 - Estrangeiro</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
 
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Cenário">
-                                <Form.Select onChange={handleChangeIpi} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos.ipi.cenario || ""}>
-
-                                    <option value="00">0 -Padrão (Abrange todos os cenários)</option>
-                                    <option value="0">0 - Saída dentro do estado</option>
-                                    <option value="1">1 - Saída para fora do estado</option>
-                                    <option value="2">2 - Saída para o exterior</option>
-                                    <option value="3">3 - Entrada de dentro do estado</option>
-                                    <option value="4">4 - Entrada de fora do estado</option>
-                                    <option value="5">5 - Entrada do exterior</option>
+                                <Form.Select onChange={handleChangeIpi} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={ipi.cenario || ""}>
+                                    <option value="padrao">Padrão (Abrange todos os cenários)</option>
+                                    <option value="saida_dentro_estado">0 - Saída dentro do estado</option>
+                                    <option value="saida_fora_estado">1 - Saída para fora do estado</option>
+                                    <option value="saida_exterior">2 - Saída para o exterior</option>
+                                    <option value="entrada_dentro_estado">3 - Entrada de dentro do estado</option>
+                                    <option value="entrada_fora_estado">4 - Entrada de fora do estado</option>
+                                    <option value="entrada_exterior">5 - Entrada do exterior</option>
                                 </Form.Select>
                             </FloatingLabel>
                         </Form.Group>
 
                         <Form.Group as={Col}>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Situação Tributária">
-                                <Form.Select onChange={handleChangeIpi} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={impostos.ipi.situacao_tributaria || ""}>
+                                <Form.Select onChange={handleChangeIpi} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="situacao_tributaria" defaultValue={ipi.situacao_tributaria || ""}>
                                     <option value="00">00 - Entrada com recuperação de crédito</option>
                                     <option value="01">01 - Entrada tributada com alíquota zero</option>
                                     <option value="02">02 - Entrada isenta</option>
@@ -61,13 +59,13 @@ export function IpiInfo() {
                         </Form.Group>
 
                         <FloatingLabel style={{ color: "black", fontSize: "14px" }} className="mb-4" label="Códido de enquadramento">
-                            <Form.Control onChange={handleChangeIpi} style={{ height: "48px" }} type="text" defaultValue={impostos.ipi.codigo_enquadramento || ""} name="codigo_enquadramento" />
+                            <Form.Control onChange={handleChangeIpi} style={{ height: "48px" }} type="text" defaultValue={ipi.codigo_enquadramento || ""} name="codigo_enquadramento" />
                         </FloatingLabel>
 
                         <InputGroup className="mb-3">
                             <InputGroup.Text> % </InputGroup.Text>
                             <FloatingLabel style={{ color: "black", fontSize: "14px" }} label="Aliquota">
-                                <Form.Control onChange={handleChangeIpi} style={{ height: "48px" }} type="text" defaultValue={impostos.ipi.aliquota || ""} name="aliquota" />
+                                <Form.Control onChange={handleChangeIpi} style={{ height: "48px" }} type="text" defaultValue={ipi.aliquota || ""} name="aliquota" />
                             </FloatingLabel>
                         </InputGroup>
                     </Form>

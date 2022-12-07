@@ -11,11 +11,11 @@ export function GeneralinfoFiscale() {
   return (
     <div style={{ width:"100%" }}>
       <FloatingLabel className="mb-4" label="Informações ao Fisco">
-        <Form.Control onChange={handleChange} as="textarea" style={{ height:"60px" }}  type="text" defaultValue={impostos?.informacoes_fisco || " " } name="info_fisco"/>
+        <Form.Control onChange={handleChange} as="textarea" style={{ height:"60px" }}  type="text" defaultValue={impostos?.informacoes_fisco || " " } name="informacoes_fisco"/>
       </FloatingLabel>
 
       <FloatingLabel className="mb-4" label="informações Complementares ao Consumidor">
-        <Form.Control onChange={handleChange} as="textarea" style={{ height:"200px" }} type="text" defaultValue={impostos?.informacoes_complementares || " " } name="info_complementares"/>
+        <Form.Control onChange={handleChange} as="textarea" style={{ height:"200px" }} type="text" defaultValue={impostos?.informacoes_complementares || " " } name="informacoes_complementares"/>
       </FloatingLabel>
     </div>
   );

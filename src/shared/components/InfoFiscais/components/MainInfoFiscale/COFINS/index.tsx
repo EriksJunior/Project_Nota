@@ -1,12 +1,12 @@
 import { FloatingLabel, Col, InputGroup, Card, Form } from 'react-bootstrap';
 
 import { useContext } from 'react';
-import { IImpostos } from '../../../../../../interface/IImpostos';
+import { IImpostos, ICofins } from '../../../../../../interface/IImpostos';
 import { ImpostosContext } from '../../../../../context/impostos/impostos';
 
 
 export function CofinsInfo() {
-  const { impostos, handleChangeCofins } = useContext(ImpostosContext) as { impostos: IImpostos, handleChangeCofins: React.ChangeEventHandler }
+  const { cofins, handleChangeCofins } = useContext(ImpostosContext) as { cofins: ICofins, handleChangeCofins: React.ChangeEventHandler }
 
   return (
     <>
@@ -15,31 +15,31 @@ export function CofinsInfo() {
           <Form>
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Tipo de Pessoa">
-                <Form.Select onChange={handleChangeCofins}  style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={impostos.cofins.tipo_pessoa || " "}>
-                  <option value="0">0 - pessoa Física</option>
-                  <option value="1">1 - Pessoa Juridíca</option>
-                  <option value="2">2 - Estrangeira</option>
+                <Form.Select onChange={handleChangeCofins} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="tipo_pessoa" defaultValue={cofins.tipo_pessoa || " "}>
+                  <option value="fisica">0 - pessoa Física</option>
+                  <option value="juridica">1 - Pessoa Juridíca</option>
+                  <option value="estrangeira">2 - Estrangeiro</option>
                 </Form.Select>
               </FloatingLabel>
             </Form.Group>
 
             <Form.Group as={Col} >
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Cenário">
-                <Form.Select onChange={handleChangeCofins} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={impostos.cofins.cenario || " "}>
-                  <option>0 -Padrão (Abrange todos os cenários)</option>
-                  <option value="0">0 - Saída dentro do estado</option>
-                  <option value="1">1 - Saída para fora do estado</option>
-                  <option value="2">2 - Saída para o exterior</option>
-                  <option value="3">3 - Entrada de dentro do estado</option>
-                  <option value="4">4 - Entrada de fora do estado</option>
-                  <option value="5">5 - Entrada do exterior</option>
+                <Form.Select onChange={handleChangeCofins} style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} name="cenario" defaultValue={cofins.cenario || " "}>
+                  <option value="padrao">Padrão (Abrange todos os cenários)</option>
+                  <option value="saida_dentro_estado">0 - Saída dentro do estado</option>
+                  <option value="saida_fora_estado">1 - Saída para fora do estado</option>
+                  <option value="saida_exterior">2 - Saída para o exterior</option>
+                  <option value="entrada_dentro_estado">3 - Entrada de dentro do estado</option>
+                  <option value="entrada_fora_estado">4 - Entrada de fora do estado</option>
+                  <option value="entrada_exterior">5 - Entrada do exterior</option>
                 </Form.Select>
               </FloatingLabel>
             </Form.Group>
 
             <Form.Group as={Col}>
               <FloatingLabel className="mb-4" style={{ fontSize: "14px" }} label="Situação Tributária">
-                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} onChange={handleChangeCofins} defaultValue={impostos.cofins.tipo_pessoa || " "}  name="situacao_tributaria">
+                <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} onChange={handleChangeCofins} defaultValue={cofins.situacao_tributaria || " "} name="situacao_tributaria">
                   <option value="01">01 - Operação Tributável - Base de Cálculo = Valor da Operação Alíquota Normal (Cumulativo/Não cumulativo)</option>
                   <option value="02">02 - Operação Tributável - Base de Cálculo = Valor da Operação (Alíquota diferenciada)</option>
                   <option value="03">03 - Operação Tributável - Base de Cálculo = Quantidade Vendida X Alíquota por Unidade de Produto</option>
@@ -81,7 +81,7 @@ export function CofinsInfo() {
             <InputGroup className="mb-3">
               <InputGroup.Text> % </InputGroup.Text>
               <FloatingLabel style={{ fontSize: "14px" }} label="Aliquota">
-                <Form.Control style={{ height: "48px" }} onChange={handleChangeCofins} type="text" defaultValue={impostos?.cofins.aliquota || " "} name="aliquota" />
+                <Form.Control style={{ height: "48px" }} onChange={handleChangeCofins} type="text" defaultValue={cofins.aliquota || " "} name="aliquota" />
               </FloatingLabel>
             </InputGroup>
           </Form>
