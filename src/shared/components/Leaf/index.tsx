@@ -13,7 +13,7 @@ export function Leaf() {
   return (
     <div>
       <ContentLeaf>
-        <Card>
+        
           <Card.Body>
             <HeaderLeafButtons />
             <HeaderLeaf />
@@ -22,6 +22,7 @@ export function Leaf() {
               defaultActiveKey="0"
               style={{ width: "80vw", height: "auto" }}
             >
+              
               <Accordion.Item eventKey="0">
                 <DataLeafProducts />
               </Accordion.Item>
@@ -33,7 +34,6 @@ export function Leaf() {
 
             <ModalSearch />
           </Card.Body>
-        </Card>
       </ContentLeaf>
     </div>
   );
