@@ -14,12 +14,13 @@ export function RefTable({ data }: Tablefiscal) {
   const { findAll } = useContext(ImpostosContext) as { findAll: any }
   return (
     <TableImposto onClick={() => findAll()}>
-      <thead >opa</thead>
-      <tbody style={{ background:"black" }}>
+      <thead>
+        <tr>opa</tr>
+      </thead>
+      <tbody>
         {data?.map(e =>
           <tr key={e.id} >
               <td>{e?.descricao}</td>
-              <td>{e?.id}</td>
           </tr>
         )}
       </tbody>

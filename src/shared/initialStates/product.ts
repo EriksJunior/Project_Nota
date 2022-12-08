@@ -4,6 +4,7 @@ export const INITIAL_STATE_PRODUCT = {
   valor: "",
   valorVenda: "",
   unidade: "",
+  refFiscal:"",
   descricao: "",
   codBarras: "",
   codReferencia: "",

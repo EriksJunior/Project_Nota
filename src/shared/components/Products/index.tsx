@@ -10,7 +10,7 @@ import { Masks } from "../../../utils/masks/Masks"
 
 import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
-import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, ButtonProduct } from "./styles"
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, ButtonProduct, FormSelectBt } from "./styles"
 
 import { IProducts, ISearch } from '../../../interface/IProducts';
 
@@ -22,7 +22,7 @@ export function ProductsModal() {
       handleShow: () => void, handleClose: () => void, handleChange: React.ChangeEventHandler,
       handleSaveOrUpdate: () => void, show: Boolean
     }
-    
+
   const { produtos } = useContext(GlobalContext) as { produtos: IProducts }
 
   const { maskCurrency } = Masks()
@@ -79,9 +79,22 @@ export function ProductsModal() {
                   </Col>
                 </Row>
 
-                <FloatingLabelBt className="mb-3" label="Código de Barras">
-                  <FormControlBt type="text" onChange={handleChange} name="codBarras" value={produtos?.codBarras || ""} />
-                </FloatingLabelBt>
+                <Row className="mb-3">
+                  <Col>
+                    <FloatingLabelBt label="Código de Barras">
+                      <FormControlBt type="text" onChange={handleChange} name="codBarras" value={produtos?.codBarras || ""} />
+                    </FloatingLabelBt>
+                  </Col>
+                  <Col>
+                    <FloatingLabelBt label="RefFiscal">
+                      <FormSelectBt>
+                        <option>Selecione...</option>
+                        <option value="AC">ref</option>
+                      </FormSelectBt>
+                    </FloatingLabelBt>
+                  </Col>
+                </Row>
+
 
                 <FloatingLabelBt className="mb-3" label="Código de Referência">
                   <FormControlBt type="text" onChange={handleChange} name="codReferencia" value={produtos?.codReferencia || ""} />

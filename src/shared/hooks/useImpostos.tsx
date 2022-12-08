@@ -49,7 +49,7 @@ export function UseImpostos() {
       { position: toast.POSITION.TOP_RIGHT }
       );
     } catch (error: any) {
-      toast.error(error,
+      toast.error(error?.response?.data?.erros,
         { position: toast.POSITION.TOP_RIGHT }
       )
     }

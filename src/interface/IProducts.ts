@@ -5,6 +5,7 @@ export interface IProducts {
   valor: string
   valorVenda: number | string
   unidade?: string
+  refFiscal?: string
   descricao?: string
   codBarras?: string
   codReferencia?: string
