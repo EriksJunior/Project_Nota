@@ -110,6 +110,9 @@ export function UseLeaf() {
         position: toast.POSITION.TOP_RIGHT
       });
     }
+    finally {
+      setLoading(false)
+    }
   }
 
   const cancelLeaf = async () => {
