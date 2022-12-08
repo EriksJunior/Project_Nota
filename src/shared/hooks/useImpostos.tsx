@@ -1,12 +1,14 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import ImpostosService from '../../services/ImpostosService';
-import { Iicms, IPis, IIpi, ICofins, IIssqn, IImpostos } from "../../interface/IImpostos";
-import { INITIAL_STATE_IMPOSTOS , INITIAL_STATE_ICMS , INITIAL_STATE_IPI , INITIAL_STATE_PIS , INITIAL_STATE_ISSQN , INITIAL_STATE_COFINS } from "../initialStates/impostos";
+import { Iicms, IPis, IIpi, ICofins, IIssqn, IImpostos, IRefFromTable } from "../../interface/IImpostos";
+import { INITIAL_STATE_IMPOSTOS , INITIAL_STATE_ICMS , INITIAL_STATE_IPI , INITIAL_STATE_PIS , INITIAL_STATE_ISSQN , INITIAL_STATE_COFINS, INITIAL_STATE_REF } from "../initialStates/impostos";
 import { toast } from "react-toastify";
 
 export function UseImpostos() {
   const [impostos, setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
+  const [refFromTable, setRefFromTable] = useState<IRefFromTable[]>([INITIAL_STATE_REF]);
+
   const [icms, setIcms] = useState<Iicms>(INITIAL_STATE_ICMS);
   const [ipi, setIpi] = useState<IIpi>(INITIAL_STATE_IPI);
   const [pis, setPis] = useState<IPis>(INITIAL_STATE_PIS);
@@ -71,8 +73,10 @@ export function UseImpostos() {
   const findAll = async () => {
     try {
       const result = await ImpostosService.findAll()
-      console.log(result)
-      setImpostos(result)
+      console.log(result.data)
+      setRefFromTable(result.data)
+      console.log(refFromTable)
+
     } catch (error: any) {
       return (error)
     }
@@ -86,5 +90,5 @@ export function UseImpostos() {
     setImpostos(INITIAL_STATE_IMPOSTOS)
   }
 
-  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , clearInputs }
+  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , refFromTable , clearInputs }
 }

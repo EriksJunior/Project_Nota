@@ -3,27 +3,26 @@ import { IconBsTrash, IconEdit } from '../../../../Styles/bootstrap';
 import { TableImposto } from "./styles";
 
 import { useContext } from 'react';
-import { IImpostos } from "../../../../../../interface/IImpostos";
+import { IImpostos, IRefFromTable } from "../../../../../../interface/IImpostos";
 import { ImpostosContext } from "../../../../../context/impostos/impostos";
 
-interface Tablefiscal {
-  data?: Array<IImpostos>
-}
 
-export function RefTable({ data }: Tablefiscal) {
-  const { findAll } = useContext(ImpostosContext) as { findAll: any }
+export function RefTable() {
+  const { findAll , refFromTable } = useContext(ImpostosContext) as { findAll: any , refFromTable: IRefFromTable[] }
   return (
     <TableImposto onClick={() => findAll()}>
       <thead>
-        <tr>opa</tr>
+        <th>opa</th>
       </thead>
       <tbody>
-        {data?.map(e =>
+        {refFromTable.map(e =>
           <tr key={e.id} >
               <td>{e?.descricao}</td>
+              <td>{e?.ref}</td>
           </tr>
-        )}
+          )}
       </tbody>
+      
     </TableImposto>
   )
 }

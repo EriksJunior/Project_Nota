@@ -44,3 +44,9 @@ export const INITIAL_STATE_ISSQN = {
   incentivo_fiscal: "",
   aliquota: ""
 }
+
+export const INITIAL_STATE_REF = {
+  id: "",
+  ref: "",
+  descricao: ""
+}
