@@ -7,8 +7,8 @@ class ImpostosService {
         return data
     }
 
-    async findAll(id: string | undefined){
-        const { data } = await api.get(`/impostos/${id}`)
+    async findAll(){
+        const { data } = await api.get('/impostos')
         return data
     }
   }

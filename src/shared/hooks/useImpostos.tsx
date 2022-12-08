@@ -44,6 +44,7 @@ export function UseImpostos() {
       const newImposto = handleImpostos()
       const result = await ImpostosService.save(newImposto)
       console.log(result)
+      findAll()
       toast("Salvo com sucesso!",
       { position: toast.POSITION.TOP_RIGHT }
       );
@@ -67,9 +68,10 @@ export function UseImpostos() {
     }
   }
 
-  const findAll = async (id: string | undefined) => {
+  const findAll = async () => {
     try {
-      const result = await ImpostosService.findAll(id)
+      const result = await ImpostosService.findAll()
+      console.log(result)
       setImpostos(result)
     } catch (error: any) {
       return (error)
