@@ -23,7 +23,7 @@ export function InfoFiscaisGlobal() {
     return (
         <div style={{ justifyContent: "center", display: "flex" }}>
         <CardInfoFiscale>
-            <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#696969" , color:"whitesmoke" }} >Dados Fiscais</Card.Header>
+            <Card.Header style={{ justifyContent: "center", display: "flex" , fontWeight:"bold" , fontSize:"22px" , background:"#A9A9A9" , color:"black" }} >Dados Fiscais</Card.Header>
             <Card.Body style={{ maxHeight:"75vh", width:"100%"}}>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                     <Row>

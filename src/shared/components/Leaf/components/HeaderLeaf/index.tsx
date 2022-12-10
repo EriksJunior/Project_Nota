@@ -90,7 +90,7 @@ export function HeaderLeaf() {
       <Row className="mt-2">
         <Col sm={8} md={8} lg={8} xl={8}>
           <Form.Group as={Col}>
-            <FloatingLabel label="Cliente">
+            <FloatingLabel label="Cliente" style={{ fontSize:"14px" , color:"black" }}>
               <Form.Select style={{ color: "Grey", fontWeight: "bolder" }} onChange={handleChange} name={'idCliente'} value={pedido.idCliente || ""}>
                 <option value="" >---selecione---</option>
                 {clientSelectBox.map((e) => <option key={e.id} value={e.id}>{e.nome}</option>)}
@@ -100,8 +100,8 @@ export function HeaderLeaf() {
         </Col>
 
         <Col sm={4} md={4} lg={4} xl={4}>
-          <FloatingLabel label="CPF/CNPJ">
-            <Form.Control style={{ height: "48px" }} disabled value={cpfCnpjCliente.cpfCnpj || ""} type="text" name="CPF/CNPJ" />
+          <FloatingLabel label="CPF/CNPJ" style={{ fontSize:"13px" }}>
+            <Form.Control style={{ height: "40px" }} disabled value={cpfCnpjCliente.cpfCnpj || ""} type="text" name="CPF/CNPJ" />
           </FloatingLabel>
         </Col>
       </Row>

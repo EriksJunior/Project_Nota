@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import { RefIconEdit } from '../../../../Styles/bootstrap';
-import { TableImposto , ContainerRef } from "./styles";
+import { TableImposto , ContainerRef , TexRefBtn } from "./styles";
 
 import { useContext } from 'react';
 import { IImpostos, IRefFromTable } from "../../../../../../interface/IImpostos";
@@ -18,9 +18,10 @@ export function RefTable() {
               <td>{e?.ref}</td>
               <td>{e?.descricao}</td>
               <td >
-                <Row>
-                  <Col role="button">
+                <Row >
+                  <Col role="button" style={{ display:"flex" , flexDirection: "column" ,alignItems:"center" }}>
                     <RefIconEdit size={20} onClick={() => findById(e.id)} />
+                    <TexRefBtn> Editar </TexRefBtn>
                   </Col>
                 </Row>
               </td>

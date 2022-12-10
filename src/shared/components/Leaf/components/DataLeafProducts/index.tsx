@@ -23,7 +23,7 @@ export function DataLeafProducts() {
           <Row xs={2}>
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Produtos">
+                <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Produto">
                   <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} value={produtoLeaf.idProduto} onChange={handleChangeProductLeaf} name="idProduto">
                     <option value="" >---selecione---</option>
                     {produtoSelectBox.map((e) =>
@@ -37,7 +37,7 @@ export function DataLeafProducts() {
             <Col sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Cod Ref">
-                  <Form.Control disabled type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.codigo || ""} name="codigo" />
+                  <Form.Control disabled type="text" style={{ height: "40px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.codigo || ""} name="codigo" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -45,7 +45,7 @@ export function DataLeafProducts() {
             <Col sm={3} md={3} lg={2} xl={1}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Qnt">
-                  <Form.Control type="number" style={{ height: "48px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
+                  <Form.Control type="number" style={{ height: "40px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.quantidade || ""} name="quantidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -53,7 +53,7 @@ export function DataLeafProducts() {
             <Col xs={12} sm={9} md={9} lg={4} xl={5}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Dados adicionais">
-                  <Form.Control type="text" style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.informacoes_adicionais || ""} name="informacoes_adicionais" />
+                  <Form.Control type="text" style={{ height: "40px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.informacoes_adicionais || ""} name="informacoes_adicionais" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -61,7 +61,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Vl. Unitário">
-                  <Form.Control type="text" style={{ height: "48px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
+                  <Form.Control type="text" style={{ height: "40px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.subtotal || ""} onKeyDown={maskCurrency} name="subtotal" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -69,7 +69,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={2} xl={1}>
               <Form.Group as={Col} >
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Desc">
-                  <Form.Control type="text" style={{ height: "48px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
+                  <Form.Control type="text" style={{ height: "40px" }} onKeyUp={handleTotalValueProducts} onChange={handleChangeProductLeaf} value={produtoLeaf.desconto || ""} onKeyDown={maskCurrency} name="desconto" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -77,7 +77,7 @@ export function DataLeafProducts() {
             <Col xs={4} sm={4} md={4} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Vl. Total">
-                  <Form.Control type="text" disabled style={{ height: "48px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} name="total" />
+                  <Form.Control type="text" disabled style={{ height: "40px" }} onChange={handleChangeProductLeaf} value={produtoLeaf.total || ""} name="total" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -103,7 +103,7 @@ export function DataLeafProducts() {
             <Col xs={6} sm={3} md={3} lg={3} xl={1}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Und">
-                  <Form.Control style={{ height: "48px" }} type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.unidade || ""} name="unidade" />
+                  <Form.Control style={{ height: "40px" }} type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.unidade || ""} name="unidade" />
                 </FloatingLabel>
               </Form.Group>
             </Col>
@@ -111,7 +111,7 @@ export function DataLeafProducts() {
             <Col xs={6} sm={3} md={3} lg={3} xl={2}>
               <Form.Group as={Col}>
                 <FloatingLabel style={{ fontSize: "14px" }} className="mb-4" label="Peso">
-                  <Form.Control style={{ height: "48px" }} type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso" />
+                  <Form.Control style={{ height: "40px" }} type="text" onChange={handleChangeProductLeaf} value={produtoLeaf.peso || ""} name="peso" />
                 </FloatingLabel>
               </Form.Group>
             </Col>

@@ -9,6 +9,10 @@ border: 1px solid #D3D3D3;
 border-radius: 5px;
 box-shadow: 5px 5px 6px #DCDCDC;
 `
+export const TexRefBtn = styled.text`
+color: blueviolet;
+font-size: 12px;
+`
 
 export const TableImposto = styled(Table)`
 
