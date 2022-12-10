@@ -6,6 +6,9 @@ import ClienteService from "../../services/ClienteService";
 import { IProducts } from "../../interface/IProducts";
 import { INITIAL_STATE_PRODUCT } from "../initialStates/product";
 import ProductService from "../../services/ProductService";
+import { INITIAL_STATE_REF } from "../initialStates/impostos";
+import { IRefFromTable } from "../../interface/IImpostos";
+import ImpostosService from "../../services/ImpostosService";
 
 
 export function useGlobal(){
@@ -13,12 +16,15 @@ export function useGlobal(){
   const [clientSelectBox, setClientSelectBox] = useState<ICliente[]>([])
   const [produtos, setProdutos] = useState<IProducts>((INITIAL_STATE_PRODUCT));
   const [produtoSelectBox, setProdutoSelectBox] = useState<IProducts[]>([])
+  const [refFromTable, setRefFromTable] = useState<IRefFromTable[]>([INITIAL_STATE_REF]);
+  const [refSelectBox, setrefSelectBox] = useState<IRefFromTable[]>([])
   const [loading, setLoading] = useState(false);
 
 
   useEffect(() =>{
     getClientesFromSelectBox()
     getProductsFromSelectBox()
+    getRefFromSelectBox()
   }, [])
 
   useEffect(() =>{
@@ -28,6 +34,10 @@ export function useGlobal(){
   useEffect(() =>{
     getProductsFromSelectBox()
   }, [produtos])
+
+  useEffect(() =>{
+    getRefFromSelectBox()
+  }, [refFromTable])
 
   const getClientesFromSelectBox = async () => {
     try {
@@ -47,5 +57,14 @@ export function useGlobal(){
     }
   }
 
-  return{client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox, loading, setLoading}
+  const getRefFromSelectBox = async () => {
+    try {
+      const { data } = await ImpostosService.getFromSelectBox()
+      setrefSelectBox(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return{client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox,refFromTable, setRefFromTable , refSelectBox, setrefSelectBox , loading, setLoading}
 }

@@ -13,9 +13,11 @@ import { ContentIcon, Text } from '../Styles/general';
 import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, ButtonProduct, FormSelectBt } from "./styles"
 
 import { IProducts, ISearch } from '../../../interface/IProducts';
+import { IRefFromTable } from '../../../interface/IImpostos';
 
 
 export function ProductsModal() {
+
   const { alterTab, setAlterTab, clearInputs, search, setSearch, searchProduct, returnedProduct, handleShow,
     handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
       alterTab: string, setAlterTab: (value: string | null) => void, clearInputs: () => void, search: ISearch, setSearch: any, searchProduct: () => void, returnedProduct: IProducts[],
@@ -24,6 +26,8 @@ export function ProductsModal() {
     }
 
   const { produtos } = useContext(GlobalContext) as { produtos: IProducts }
+
+  const { refSelectBox } = useContext(GlobalContext) as { refSelectBox: IRefFromTable[] }
 
   const { maskCurrency } = Masks()
 
@@ -87,9 +91,11 @@ export function ProductsModal() {
                   </Col>
                   <Col>
                     <FloatingLabelBt label="RefFiscal">
-                      <FormSelectBt>
-                        <option>Selecione...</option>
-                        <option value="AC">ref</option>
+                      <FormSelectBt onChange={handleChange} name="refFiscal" value={produtos?.refFiscal}>
+                        <option value="">...Selecione...</option>
+                        {refSelectBox.map((e) =>
+                        <option key={e.id} value={e.ref}>{e.ref}</option>
+                        )}
                       </FormSelectBt>
                     </FloatingLabelBt>
                   </Col>

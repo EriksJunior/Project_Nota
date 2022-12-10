@@ -1,11 +1,17 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 
 import ImpostosService from '../../services/ImpostosService';
 import { Iicms, IPis, IIpi, ICofins, IIssqn, IImpostos, IRefFromTable } from "../../interface/IImpostos";
 import { INITIAL_STATE_IMPOSTOS , INITIAL_STATE_ICMS , INITIAL_STATE_IPI , INITIAL_STATE_PIS , INITIAL_STATE_ISSQN , INITIAL_STATE_COFINS, INITIAL_STATE_REF } from "../initialStates/impostos";
 import { toast } from "react-toastify";
 
+import { GlobalContext } from '../context/global/global';
+
+
 export function UseImpostos() {
+  const { getRefFromSelectBox } = useContext(GlobalContext) as { getRefFromSelectBox: () => void }
+
+
   const [impostos, setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
   const [refFromTable, setRefFromTable] = useState<IRefFromTable[]>([INITIAL_STATE_REF]);
 

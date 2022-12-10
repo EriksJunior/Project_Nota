@@ -9,10 +9,10 @@ interface AuxProps {
 const GlobalContext = createContext({})
 
 function GlobalProvider({ children }: AuxProps) {
-  const { client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox, loading, setLoading } = useGlobal()
+  const { client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox,refFromTable, setRefFromTable , refSelectBox, setrefSelectBox , loading, setLoading } = useGlobal()
 
   return (
-    <GlobalContext.Provider value={{client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox, loading, setLoading}}>
+    <GlobalContext.Provider value={{client, setClient, getClientesFromSelectBox, clientSelectBox, produtos, setProdutos, getProductsFromSelectBox, produtoSelectBox,refFromTable, setRefFromTable , refSelectBox, setrefSelectBox , loading, setLoading}}>
       {children}
     </GlobalContext.Provider>
   )
