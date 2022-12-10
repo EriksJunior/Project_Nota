@@ -17,7 +17,6 @@ export function UseImpostos() {
 
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    // console.log(impostos)
     setImpostos({ ...impostos, [e.target.name]: e.target.value })
   }, [impostos]);
 
@@ -73,10 +72,17 @@ export function UseImpostos() {
   const findAll = async () => {
     try {
       const result = await ImpostosService.findAll()
-      console.log(result.data)
       setRefFromTable(result.data)
-      console.log(refFromTable)
 
+    } catch (error: any) {
+      return (error)
+    }
+  }
+
+  const findById = async (id: string | undefined) => {
+    try {
+      const result = await ImpostosService.findById(id)
+      setImpostos(result)
     } catch (error: any) {
       return (error)
     }
@@ -90,5 +96,5 @@ export function UseImpostos() {
     setImpostos(INITIAL_STATE_IMPOSTOS)
   }
 
-  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , refFromTable , clearInputs }
+  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , findById , refFromTable , clearInputs }
 }

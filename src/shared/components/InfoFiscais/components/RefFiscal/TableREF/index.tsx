@@ -8,22 +8,19 @@ import { ImpostosContext } from "../../../../../context/impostos/impostos";
 
 
 export function RefTable() {
-  const { findAll, refFromTable } = useContext(ImpostosContext) as { findAll: any, refFromTable: IRefFromTable[] }
+  const { findAll , findById , refFromTable } = useContext(ImpostosContext) as { findAll: any , findById: any, refFromTable: IRefFromTable[] }
   return (
     <ContainerRef onClick={() => findAll()}>
       <TableImposto >
-        <thead>
-          <th></th>
-        </thead>
         <tbody>
           {refFromTable.map(e =>
             <tr key={e.id} >
-              <td>{e?.ref} - </td>
+              <td>{e?.ref}</td>
               <td>{e?.descricao}</td>
               <td >
                 <Row>
                   <Col role="button">
-                    <RefIconEdit size={20} />
+                    <RefIconEdit size={20} onClick={() => findById(e.id)} />
                   </Col>
                 </Row>
               </td>

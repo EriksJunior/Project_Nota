@@ -11,6 +11,11 @@ class ImpostosService {
         const { data } = await api.get('/impostos')
         return data
     }
+
+    async findById(id: string | undefined) {
+        const { data } = await api.get(`/impostos/${id}`)
+        return data
+      }
   }
 
   export default new ImpostosService()
