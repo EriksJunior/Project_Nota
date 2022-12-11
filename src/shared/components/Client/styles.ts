@@ -45,7 +45,7 @@ export const FormControlBt = styled(FormControl)`
 
 export const FormSelectBt = styled(FormSelect)`
   background-color: #f5f5f5!important;
-  color: black!important;
+  color: grey !important;
   font-weight: bolder!important;
   height: 48px!important;
 `

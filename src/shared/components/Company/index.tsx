@@ -28,8 +28,8 @@ export function InfoCompany() {
 
 
     <div style={{ justifyContent: "center", display: "flex" }}>
-      <CardCompany style={{ background: "#D3D3D3", color: "black" }} className="text-center">
-        <Card.Header style={{ fontSize: "24px", fontWeight: "bold" , background:"#696969" }} >Cadastro da Empresa</Card.Header>
+      <CardCompany style={{ background: "#F8F8FF", color: "black" }} className="text-center">
+        <Card.Header style={{ fontSize: "24px", fontWeight: "bold" , background:"#DCDCDC	" }} >Cadastro da Empresa</Card.Header>
         <Card.Body>
           <Card.Title style={{ justifyContent: "center", display: "flex" }} >
             <LogoEmpresa>
@@ -41,19 +41,19 @@ export function InfoCompany() {
               <Row className="mb-3">
                 <Col sm={3} md={3} lg={2} xl={2}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Código">
-                    <Form.Control disabled type="text" style={{ height: "48px" }} onChange={handleChange} name="codigo" />
+                    <Form.Control disabled type="text" style={{ height: "40px" }} onChange={handleChange} name="codigo" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label=" Razão Social">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="razaoSocial" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="razaoSocial" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label=" Nome Fantasia">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="nomeFant" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="nomeFant" />
                   </FloatingLabel>
                 </Col>
               </Row>
@@ -61,18 +61,18 @@ export function InfoCompany() {
               <Row className="mb-3">
                 <Col sm={3} md={3} lg={2} xl={2}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label=" Registro">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="registro" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="registro" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="CPF/CNPJ">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="cpfCnpj" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="cpfCnpj" />
                   </FloatingLabel>
                 </Col>
                 <Col>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="IE">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="IE" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="IE" />
                   </FloatingLabel>
                 </Col>
 
@@ -80,19 +80,19 @@ export function InfoCompany() {
               <Row className="mb-3">
                 <Col sm={6} md={6} lg={6} xl={7}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Endereço">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="endereco" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="endereco" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={2}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Número">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="numero" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="numero" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Bairro">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="bairro" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="bairro" />
                   </FloatingLabel>
                 </Col>
 
@@ -101,13 +101,13 @@ export function InfoCompany() {
               <Row className="mb-3">
                 <Col>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Cidade">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="cidade" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="cidade" />
                   </FloatingLabel>
                 </Col>
 
                 <Col>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Estado">
-                    <Form.Select style={{ fontWeight: "bolder" , height: "48px" }}>
+                    <Form.Select style={{ fontWeight: "bolder" , color: "grey" , height: "40px" }}>
                       <option>Selecione...</option>
                       <option value="AC">Acre</option>
                       <option value="AL">Alagoas</option>
@@ -142,27 +142,27 @@ export function InfoCompany() {
 
                 <Col sm={3} md={3} lg={2} xl={3}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="CEP">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="cep" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="cep" />
                   </FloatingLabel>
                 </Col>
               </Row>
 
-              <Row className="mb-3">
+              <Row >
                 <Col sm={3} md={3} lg={2} xl={6}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Email">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="email" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="email" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Telefone">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="telefone" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="telefone" />
                   </FloatingLabel>
                 </Col>
 
                 <Col sm={3} md={3} lg={2} xl={3}>
                   <FloatingLabel as={Col} style={{ fontSize: "14px" }} label="Celular">
-                    <Form.Control type="text" style={{ height: "48px" }} onChange={handleChange} name="celular" />
+                    <Form.Control type="text" style={{ height: "40px" }} onChange={handleChange} name="celular" />
                   </FloatingLabel>
                 </Col>
 
@@ -173,12 +173,12 @@ export function InfoCompany() {
         <Card.Footer className="text-muted">
           <ButtonContent>
             <ButtonReturn as={Link} to="/">
-              <Button variant="">
+              <Button size="sm" variant="">
                 <IoHome /> Página Principal
               </Button>
             </ButtonReturn>
             <ButtonAtt>
-              <Button onClick={updateCompany} variant="">
+              <Button size="sm" onClick={updateCompany} variant="">
                 <IoCheckboxOutline /> Atualizar cadastro
               </Button>
             </ButtonAtt>

@@ -3,7 +3,7 @@ import { FloatingLabel, FormControl, FormSelect , Form } from 'react-bootstrap';
 
 export const FormBtn = styled(Form)`
 .form-floating>.form-select {
-  padding-top: 1.025rem!important;
+  padding-top: 0.525rem!important;
   padding-bottom: 0.175rem!important;
 }
 `

@@ -19,12 +19,12 @@ export function DataLeafProducts() {
   return (
     <div>
       <Accordion.Header>1 - Produtos</Accordion.Header>
-      <Accordion.Body>
+      <Accordion.Body style={{ paddingBottom:"0.255rem" }}>
         <FormBtn>
           <Row xs={2}>
             <Col xs={12} sm={8} md={8} lg={7} xl={4}>
               <Form.Group as={Col}>
-                <FloatingLabelBtn className="mb-4" label="Produto">
+                <FloatingLabelBtn className="mb-3" label="Produto">
                   <FormSelectBtn value={produtoLeaf.idProduto} onChange={handleChangeProductLeaf} name="idProduto">
                     <option value="" >---selecione---</option>
                     {produtoSelectBox.map((e) =>

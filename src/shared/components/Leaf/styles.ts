@@ -12,7 +12,7 @@ export const StyledAccordion = styled(Accordion)`
     color: black;
     font-weight: bold;
 }
-// #1b022e
+
 .accordion-button::after {
     color: var(--bs-accordion-bg);
 }
