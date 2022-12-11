@@ -40,9 +40,8 @@ export const FloatingLabelBt = styled(FloatingLabel)`
 `
 
 export const FormSelectBt = styled(FormSelect)`
-  background-color: #f5f5f5!important;
   font-size: 14px;
-  color: black!important;
+  color: grey !important;
   font-weight: bolder!important;
   height: 48px!important;
 `

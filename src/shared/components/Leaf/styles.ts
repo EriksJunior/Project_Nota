@@ -8,9 +8,9 @@ export const StyledAccordion = styled(Accordion)`
 }
 
 .accordion-button:not(.collapsed){
-    background-color: #C0C0C0;
+    background-color: #DCDCDC;
     color: black;
-    font-weight: bold;  
+    font-weight: bold;
 }
 // #1b022e
 .accordion-button::after {
@@ -30,7 +30,6 @@ export const BButton = styled(Button)`
     color: BlueViolet;
     font-weight: bold;
     border: 1px solid #8A2BE2;
-
 
     &:hover {
     background: BlueViolet;
