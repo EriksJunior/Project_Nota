@@ -28,7 +28,7 @@
 
 }
 .form-select{
-   height: 48px;
+   /* height: 48px; */
  }
  .form-floating>.form-select{
    padding-top: 1.325rem;

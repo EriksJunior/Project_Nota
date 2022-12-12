@@ -3,6 +3,10 @@ import { Offcanvas, OffcanvasHeader, OffcanvasTitle, OffcanvasBody, FloatingLabe
 
 export const OffcanvasBt = styled(Offcanvas)`
   width: 50%!important;
+
+  @media screen and (max-width: 575px) {
+    width: 100%!important;
+  }
 `
 
 export const OffcanvasHeaderBt = styled(OffcanvasHeader)`
@@ -19,12 +23,16 @@ export const OffcanvasTitleBt = styled(OffcanvasTitle)`
   font-size: 36px!important;
   justify-content: center!important;
   padding-left: 50px!important;
+
+  @media screen and (max-width: 440px) {
+    font-size: 26px!important;
+  }
 `
 
 export const OffcanvasBodyBt = styled(OffcanvasBody)`
   background-color: #DCDCDC!important;
-  color: LightGrey!important;
-  font-weight: bolder!important;
+  /* color: LightGrey!important; */
+  /* font-weight: bolder!important; */
 
   .form-floating>.form-select {
    padding-top: 1.325rem!important;
@@ -44,14 +52,9 @@ export const FormControlBt = styled(FormControl)`
 `
 
 export const FormSelectBt = styled(FormSelect)`
-  background-color: #f5f5f5!important;
-  color: black!important;
-  font-weight: bolder!important;
-  height: 48px!important;
 `
 
 export const ButtonClient = styled(Button)`
   background-color: BlueViolet!important;
   color: white!important;
-  width: 220px!important;
 `
