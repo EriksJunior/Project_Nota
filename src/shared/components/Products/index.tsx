@@ -10,20 +10,24 @@ import { Masks } from "../../../utils/masks/Masks"
 
 import { ButtonBt, IconBiBox } from '../Styles/bootstrap';
 import { ContentIcon, Text } from '../Styles/general';
-import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, ButtonProduct } from "./styles"
+import { OffcanvasBt, OffcanvasHeaderBt, OffcanvasTitleBt, OffcanvasBodyBt, FloatingLabelBt, FormControlBt, ButtonProduct, FormSelectBt } from "./styles"
 
 import { IProducts, ISearch } from '../../../interface/IProducts';
+import { IRefFromTable } from '../../../interface/IImpostos';
 
 
 export function ProductsModal() {
+
   const { alterTab, setAlterTab, clearInputs, search, setSearch, searchProduct, returnedProduct, handleShow,
     handleClose, handleChange, handleSaveOrUpdate, show } = useContext(ProductContext) as {
       alterTab: string, setAlterTab: (value: string | null) => void, clearInputs: () => void, search: ISearch, setSearch: any, searchProduct: () => void, returnedProduct: IProducts[],
       handleShow: () => void, handleClose: () => void, handleChange: React.ChangeEventHandler,
       handleSaveOrUpdate: () => void, show: Boolean
     }
-    
+
   const { produtos } = useContext(GlobalContext) as { produtos: IProducts }
+
+  const { refSelectBox } = useContext(GlobalContext) as { refSelectBox: IRefFromTable[] }
 
   const { maskCurrency } = Masks()
 
@@ -79,9 +83,24 @@ export function ProductsModal() {
                   </Col>
                 </Row>
 
-                <FloatingLabelBt className="mb-3" label="Código de Barras">
-                  <FormControlBt type="text" onChange={handleChange} name="codBarras" value={produtos?.codBarras || ""} />
-                </FloatingLabelBt>
+                <Row className="mb-3">
+                  <Col>
+                    <FloatingLabelBt label="Código de Barras">
+                      <FormControlBt type="text" onChange={handleChange} name="codBarras" value={produtos?.codBarras || ""} />
+                    </FloatingLabelBt>
+                  </Col>
+                  <Col>
+                    <FloatingLabelBt label="RefFiscal">
+                      <FormSelectBt onChange={handleChange} name="refFiscal" value={produtos?.refFiscal}>
+                        <option value="">...Selecione...</option>
+                        {refSelectBox.map((e) =>
+                        <option key={e.id} value={e.ref}>{e.ref}</option>
+                        )}
+                      </FormSelectBt>
+                    </FloatingLabelBt>
+                  </Col>
+                </Row>
+
 
                 <FloatingLabelBt className="mb-3" label="Código de Referência">
                   <FormControlBt type="text" onChange={handleChange} name="codReferencia" value={produtos?.codReferencia || ""} />

@@ -10,6 +10,7 @@ import { ButtonLeaf } from '../../../Styles/general';
 import { StyledAccordion } from '../../styles'
 
 import { Masks } from '../../../../../utils/masks/Masks';
+import { FormEnd , FloatingLabelEnd  , FormControlEnd , FormSelectEnd } from './styles';
 
 
 export function GeneralLeafInformation() {
@@ -22,11 +23,11 @@ export function GeneralLeafInformation() {
       <StyledAccordion>
         <Accordion.Header>2 - Dados Finais</Accordion.Header>
         <Accordion.Body>
-          <Form>
+          <FormEnd>
             <Row as={Col} className="mb-4">
               <Form.Group as={Col} >
-                <FloatingLabel style={{ fontSize: "14px" }} label="Presença">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} value={pedido.presenca || ""} name="presenca" onChange={handleChange}>
+                <FloatingLabelEnd label="Presença">
+                  <FormSelectEnd value={pedido.presenca || ""} name="presenca" onChange={handleChange}>
                     <option value="0">0 - Não se aplica (por exemplo, Nota Fiscal complementar ou de ajuste)</option>
                     <option value="1">1 - Operação presencial</option>
                     <option value="2">2 - Operação não presencial, pela Internet</option>
@@ -34,72 +35,72 @@ export function GeneralLeafInformation() {
                     <option value="4">4 - NFC-e em operação com entrega a domicílio</option>
                     <option value="5">5 - Operação presencial, fora do estabelecimento</option>
                     <option value="9">9 - Operação não presencial, outros</option>
-                  </Form.Select>
-                </FloatingLabel>
+                  </FormSelectEnd>
+                </FloatingLabelEnd>
               </Form.Group>
             </Row>
 
             <Row as={Col} className="mb-4">
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Total Frete">
-                  <Form.Control style={{ height: "48px" }} type="text" name="frete" onKeyDown={maskCurrency} onKeyUp={handleTotalValueGeneralLeafInformation} onChange={handleChange} value={pedido.frete || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Total Frete">
+                  <FormControlEnd type="text" name="frete" onKeyDown={maskCurrency} onKeyUp={handleTotalValueGeneralLeafInformation} onChange={handleChange} value={pedido.frete || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
 
 
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Desconto Total">
-                  <Form.Control style={{ height: "48px" }} disabled type="text" name="desconto" onKeyDown={maskCurrency} onChange={handleChange} value={pedido.desconto || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Desconto Total">
+                  <FormControlEnd disabled type="text" name="desconto" onKeyDown={maskCurrency} onChange={handleChange} value={pedido.desconto || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
 
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Outras Despesas">
-                  <Form.Control style={{ height: "48px" }} type="text" name="despesas_acessorias" onKeyDown={maskCurrency} onChange={handleChange} value={pedido.despesas_acessorias || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Outras Despesas">
+                  <FormControlEnd type="text" name="despesas_acessorias" onKeyDown={maskCurrency} onChange={handleChange} value={pedido.despesas_acessorias || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
 
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Total do Pedido">
-                  <Form.Control style={{ height: "48px" }} disabled type="text" name="total" onChange={handleChange} value={pedido.total || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Total do Pedido">
+                  <FormControlEnd disabled type="text" name="total" onChange={handleChange} value={pedido.total || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
             </Row>
 
             <Row className="mb-4">
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Intermediador">
-                  <Form.Select style={{ color: "Grey", fontWeight: "bolder", height: "48px" }} value={pedido.intermediador || ""} name="intermediador" onChange={handleChange}>
+                <FloatingLabelEnd label="Intermediador">
+                  <FormSelectEnd value={pedido.intermediador || ""} name="intermediador" onChange={handleChange}>
                     <option value="0">0 - Operação sem intermediador (em site ou plataforma própria)</option>
                     <option value="1">1 - Operação em site ou plataforma de terceiros (intermediadores/marketplace)</option>
-                  </Form.Select>
-                </FloatingLabel>
+                  </FormSelectEnd>
+                </FloatingLabelEnd>
               </Form.Group>
 
               <Form.Group as={Col} hidden={pedido.intermediador == "0"}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="CNPJ do Intermediador">
-                  <Form.Control style={{ height: "48px" }} type="text" name="cnpj_intermediador" onChange={handleChange} value={pedido.cnpj_intermediador || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="CNPJ do Intermediador">
+                  <FormControlEnd type="text" name="cnpj_intermediador" onChange={handleChange} value={pedido.cnpj_intermediador || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
 
               <Form.Group as={Col} hidden={pedido.intermediador == "0"}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Nome do Intermediador">
-                  <Form.Control style={{ height: "48px" }} type="text" name="id_intermediador" onChange={handleChange} value={pedido.id_intermediador || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Nome do Intermediador">
+                  <FormControlEnd type="text" name="id_intermediador" onChange={handleChange} value={pedido.id_intermediador || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Informações Complementares">
-                  <Form.Control style={{ height: "48px" }} type="text" name="informacoes_complementares" onChange={handleChange} value={pedido.informacoes_complementares || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Informações Complementares">
+                  <FormControlEnd type="text" name="informacoes_complementares" onChange={handleChange} value={pedido.informacoes_complementares || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
 
               <Form.Group as={Col}>
-                <FloatingLabel style={{ fontSize: "14px" }} label="Informações ao fisco">
-                  <Form.Control style={{ height: "48px" }} type="text" name="informacoes_fisco" onChange={handleChange} value={pedido.informacoes_fisco || ""} />
-                </FloatingLabel>
+                <FloatingLabelEnd label="Informações ao fisco">
+                  <FormControlEnd type="text" name="informacoes_fisco" onChange={handleChange} value={pedido.informacoes_fisco || ""} />
+                </FloatingLabelEnd>
               </Form.Group>
             </Row>
 
@@ -124,7 +125,7 @@ export function GeneralLeafInformation() {
                 </Dropdown.Menu>
               </Dropdown>
             </ButtonLeaf>
-          </Form>
+          </FormEnd>
         </Accordion.Body>
       </StyledAccordion>
 

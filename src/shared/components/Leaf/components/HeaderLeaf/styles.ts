@@ -19,14 +19,16 @@ export const Container = styled.div`
   }
 
   .form-select {
-    height: 48px;
+    // font-size: 12px;
+    height: 40px;
   }
   .form-floating > .form-select {
-    padding-top: 1.325rem !important;
+    padding-top: 1.125rem !important;
     padding-bottom: 0.175rem !important;
   }
   .form-floating {
-    height: 48px;
+    padding-top: 0.425rem !important;
+    height: 40px;
   }
   .form-floating > .form-control {
     @media screen and (min-width: 320px) and (max-width: 566px) {
@@ -44,5 +46,5 @@ export const FloatingLabelBt = styled(FloatingLabel)`
 export const FormControlBt = styled(FormControl)`
   background-color: #f5f5f5 !important;
   color: #666 !important;
-  height: 48px !important;
+  height: 40px !important;
 `;

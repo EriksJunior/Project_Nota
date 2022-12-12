@@ -5,11 +5,11 @@ import { InfoRefGeneral } from './styles';
 export function ImpostoGlobal() {
   return (
     <InfoRefGeneral>
-      <div style={{ width: "18%" , marginLeft:"15px" }}>
+      <div style={{ width: "25%" , marginLeft:"15px" }}>
         <RefFiscal/>
       </div>
 
-      <div style={{ width: "78%"}}>
+      <div style={{ width: "71%"}}>
         <InfoFiscaisGlobal />
       </div>
     </InfoRefGeneral>

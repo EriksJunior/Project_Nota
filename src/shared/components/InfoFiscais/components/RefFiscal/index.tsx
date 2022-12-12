@@ -7,7 +7,7 @@ import { RefTable } from './TableREF';
 export function RefFiscal() {
   return (
     <CardRef>
-      <Card.Header style={{ background: "#696969", fontSize: "22px", fontWeight: "bold", color: "white" }}>REF's cadastradas</Card.Header>
+      <Card.Header style={{ background: "#A9A9A9", fontSize: "22px", fontWeight: "bold", color: "black" }}>REF's cadastradas</Card.Header>
       <Card.Body>
         <RefTable/>
       </Card.Body>

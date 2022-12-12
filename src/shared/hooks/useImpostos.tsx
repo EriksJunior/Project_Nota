@@ -1,12 +1,20 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 
 import ImpostosService from '../../services/ImpostosService';
-import { Iicms, IPis, IIpi, ICofins, IIssqn, IImpostos } from "../../interface/IImpostos";
-import { INITIAL_STATE_IMPOSTOS , INITIAL_STATE_ICMS , INITIAL_STATE_IPI , INITIAL_STATE_PIS , INITIAL_STATE_ISSQN , INITIAL_STATE_COFINS } from "../initialStates/impostos";
+import { Iicms, IPis, IIpi, ICofins, IIssqn, IImpostos, IRefFromTable } from "../../interface/IImpostos";
+import { INITIAL_STATE_IMPOSTOS , INITIAL_STATE_ICMS , INITIAL_STATE_IPI , INITIAL_STATE_PIS , INITIAL_STATE_ISSQN , INITIAL_STATE_COFINS, INITIAL_STATE_REF } from "../initialStates/impostos";
 import { toast } from "react-toastify";
 
+import { GlobalContext } from '../context/global/global';
+
+
 export function UseImpostos() {
+  const { getRefFromSelectBox } = useContext(GlobalContext) as { getRefFromSelectBox: () => void }
+
+
   const [impostos, setImpostos] = useState<IImpostos>(INITIAL_STATE_IMPOSTOS);
+  const [refFromTable, setRefFromTable] = useState<IRefFromTable[]>([INITIAL_STATE_REF]);
+
   const [icms, setIcms] = useState<Iicms>(INITIAL_STATE_ICMS);
   const [ipi, setIpi] = useState<IIpi>(INITIAL_STATE_IPI);
   const [pis, setPis] = useState<IPis>(INITIAL_STATE_PIS);
@@ -15,7 +23,6 @@ export function UseImpostos() {
 
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    // console.log(impostos)
     setImpostos({ ...impostos, [e.target.name]: e.target.value })
   }, [impostos]);
 
@@ -49,7 +56,7 @@ export function UseImpostos() {
       { position: toast.POSITION.TOP_RIGHT }
       );
     } catch (error: any) {
-      toast.error(error,
+      toast.error(error?.response?.data?.erros,
         { position: toast.POSITION.TOP_RIGHT }
       )
     }
@@ -71,7 +78,16 @@ export function UseImpostos() {
   const findAll = async () => {
     try {
       const result = await ImpostosService.findAll()
-      console.log(result)
+      setRefFromTable(result.data)
+
+    } catch (error: any) {
+      return (error)
+    }
+  }
+
+  const findById = async (id: string | undefined) => {
+    try {
+      const result = await ImpostosService.findById(id)
       setImpostos(result)
     } catch (error: any) {
       return (error)
@@ -86,5 +102,5 @@ export function UseImpostos() {
     setImpostos(INITIAL_STATE_IMPOSTOS)
   }
 
-  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , clearInputs }
+  return { impostos, setImpostos, icms , setIcms , ipi , setIpi , pis , setPis , cofins , setCofins , issqn , setIssqn , handleChange, handleChangeIcms, handleChangePis, handleChangeIpi, handleChangeCofins, handleChangeIssqn, handleSaveOrUpdate, findAll , findById , refFromTable , clearInputs }
 }
