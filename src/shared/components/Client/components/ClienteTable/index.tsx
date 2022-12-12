@@ -13,10 +13,10 @@ export function ClienteTable({ data }: ITable) {
   const { findById, deleteClient } = useContext(ClientContext) as { findById: any, deleteClient: any }
 
   return (
-    <StyleTable bordered>
+    <StyleTable >
       <thead>
         <tr>
-          <th>Nome</th>
+          <th >Nome</th>
           <th>CPF/CNPJ</th>
           <th>Dt Nascimento</th>
           <th className='text-center'>Ações</th>

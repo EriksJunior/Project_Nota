@@ -111,7 +111,7 @@ export function ClientModal() {
                           onChange={handleChange} name="numero" type="text" value={client.numero || ""}
                         />
                       </Col>
-                      
+
                       <Col className="mt-3" xs={6} sm={12} md={6} lg={6} xl={4}>
                         <Form.Label>CEP</Form.Label>
                         <Form.Control
@@ -206,22 +206,24 @@ export function ClientModal() {
                 </Tab>
                 <Tab eventKey="pesquisar" title="Pesquisar">
                   <Row>
-                      <Col className="mt-3" sm={9} md={9} lg={9} xl={9}>
-                        <Form.Label>Faça sua pesquisa</Form.Label>
-                        <Form.Control
-                           className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })}
-                        />
-                      </Col>
+                    <Col className="mt-3" sm={9} md={9} lg={9} xl={9}>
+                      <Form.Label>Faça sua pesquisa</Form.Label>
+                      <Form.Control
+                        className="me-auto" placeholder="Faça sua pesquisa" onChange={(e: React.ChangeEvent<HTMLInputElement & HTMLSelectElement>) => setSearch({ ...search, text: e.target.value })}
+                      />
+                    </Col>
 
-                      <Col className="mt-5 text-center" sm={3} md={3} lg={3} xl={3}>
-                        <ButtonClient variant="" onClick={searchClient} type="button">
-                          Limpar
-                        </ButtonClient>
-                      </Col>
+                    <Col className="mt-5 text-end" sm={3} md={3} lg={3} xl={3}>
+                      <ButtonClient variant="" onClick={searchClient} type="button">
+                        Pesquisar
+                      </ButtonClient>
+                    </Col>
                   </Row>
 
                   <Row className="mt-5">
-                    <ClienteTable data={returnedClient} />
+                    <Col sm={12} md={12} lg={12} xl={12}>
+                      <ClienteTable data={returnedClient} />
+                    </Col>
                   </Row>
                 </Tab>
               </Tabs>
