@@ -88,7 +88,7 @@ export function UseImpostos() {
   const findById = async (id: string | undefined) => {
     try {
       const result = await ImpostosService.findById(id)
-      setImpostos(result)
+      setImpostos(result.data)
     } catch (error: any) {
       return (error)
     }
