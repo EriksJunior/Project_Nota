@@ -10,12 +10,6 @@
  - Back-end: Nodejs, Typescript, Express, Awilix, Joi, MySQL, Luxon, Xml2js
  
  ### Developers
- - Front-end: <a href="https://github.com/leobraboo">Leonardo Lopes</a>
- - Back-end: <a href="https://github.com/militao36">Matheus Militão</a>
- - Full-stack: <a href="https://github.com/eriksjunior">Eriks Junior</a>
- 
- ### OBS 
- - O <b>Back-end</b> foi todo desenvolvido por <a href="https://github.com/militao36">Matheus Militão</a>, somente auxilei na implementação de novas features como toda a 
- parte de nota, desde emissão, cancelamento, devolução até a parte de download de relatório xml.
- - O <b>Front-end</b> foi desenvolvido em conjunto com o <a href="https://github.com/leobraboo">Leonardo Lopes</a>
- - Ambos utilizamos o trello para organizar as tarefas.
+ - <a href="https://github.com/leobraboo">Leonardo Lopes</a>
+ - <a href="https://github.com/militao36">Matheus Militão</a>
+ - <a href="https://github.com/eriksjunior">Eriks Junior</a>
