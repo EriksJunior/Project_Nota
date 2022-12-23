@@ -13,3 +13,8 @@
  - <a href="https://github.com/leobraboo">Leonardo Lopes</a>
  - <a href="https://github.com/militao36">Matheus Militão</a>
  - <a href="https://github.com/eriksjunior">Eriks Junior</a>
+ 
+ 
+ ## Passos para usar a aplicação
+ - Realizar o clone do projeto
+ - Após o clone, abra o terminal dentro da pasta reaiz do projeto e digite o código <b>npm i</b> ou <b>npm install</b>
