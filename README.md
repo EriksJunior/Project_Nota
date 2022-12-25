@@ -18,3 +18,4 @@
  ## Passos para usar a aplicação
  - Realizar o clone do projeto
  - Após o clone, abra o terminal dentro da pasta reaiz do projeto e digite o código <b>npm i</b> ou <b>npm install</b>
+ - Próximo passo é só realizar o comando <b>npm run dev</b>, feito isso é só abrir o navegador nessa url <b>http://localhost:3001/</b>, por default a porta que a aplicação ira rodar é a 3001, você pode alterar essa porta acessando o arquivo <b>package.json</b> e em scripts temos a key <b>dev</b> e nela temos a porta padrão da aplicação, dai é só alterar.
